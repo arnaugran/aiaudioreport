@@ -1,0 +1,31 @@
+---
+import { SITE_NAME, withBase } from '../consts';
+const year = new Date().getFullYear();
+const links = [
+  { href: '/about/', label: 'About' },
+  { href: '/editorial-policy/', label: 'Editorial policy' },
+  { href: '/affiliate-disclosure/', label: 'Affiliate disclosure' },
+  { href: '/privacy/', label: 'Privacy' },
+  { href: '/cookies/', label: 'Cookies' },
+  { href: '/contact/', label: 'Contact' },
+];
+---
+<footer class="foot">
+  <div class="wrap wide">
+    <nav aria-label="Footer">
+      {links.map((l) => <a href={withBase(l.href)}>{l.label}</a>)}
+      <a href={withBase('/rss.xml')}>RSS</a>
+    </nav>
+    <p>
+      © {year} {SITE_NAME}. Prices and licence terms are reported with the date they were
+      checked. They change often — follow the source links before you spend money.
+    </p>
+    <p>
+      <button type="button" id="cookie-reopen" class="linklike">Cookie settings</button>
+    </p>
+  </div>
+</footer>
+<style>
+  .linklike { background: none; border: 0; padding: 0; font: inherit; color: var(--ink-soft);
+    text-decoration: underline; cursor: pointer; }
+</style>

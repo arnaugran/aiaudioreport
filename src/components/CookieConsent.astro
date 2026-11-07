@@ -1,0 +1,68 @@
+---
+/**
+ * Minimal, self-hosted consent gate. No third-party CMP, no network requests,
+ * nothing loads before a choice is made. Reject is given equal weight to accept,
+ * and the choice can be changed from the footer at any time.
+ *
+ * Scope note: the site currently sets NO cookies of its own. The only thing
+ * gated here is GA4. If personalised advertising is ever added (Phase 3), this
+ * must be replaced with a full IAB TCF-compliant CMP — see /cookies/.
+ */
+---
+<div id="cc" class="cc" role="dialog" aria-modal="false" aria-label="Cookie choice" hidden>
+  <div class="cc-in">
+    <p class="cc-t">We would like to measure which pages are useful.</p>
+    <p class="cc-b">
+      Analytics cookies only, and only if you say yes. Nothing is loaded until you choose, we
+      run no advertising or tracking cookies, and you can change your mind any time from the
+      footer. <a id="cc-more" href="#">What this covers</a>.
+    </p>
+    <div class="cc-row">
+      <button type="button" id="cc-no" class="cc-btn">Reject</button>
+      <button type="button" id="cc-yes" class="cc-btn cc-btn--y">Accept</button>
+    </div>
+  </div>
+</div>
+<style>
+  .cc { position: fixed; inset-inline: 0; bottom: 0; z-index: 60; background: var(--bg-raised);
+    border-top: 1px solid var(--rule); box-shadow: 0 -6px 24px rgb(0 0 0 / 8%); }
+  .cc-in { max-width: 60rem; margin-inline: auto; padding: 1rem 16px 1.1rem; }
+  .cc-t { margin: 0 0 .25rem; font-weight: 650; font-size: .98rem; }
+  .cc-b { margin: 0 0 .8rem; font-size: .87rem; color: var(--ink-soft); max-width: 46rem; }
+  .cc-row { display: flex; gap: .6rem; flex-wrap: wrap; }
+  .cc-btn { font: inherit; font-size: .9rem; padding: .45rem 1.3rem; border-radius: 4px;
+    border: 1px solid var(--ink-soft); background: transparent; color: var(--ink); cursor: pointer; }
+  .cc-btn--y { border-color: var(--accent); background: var(--accent); color: #fff; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cc-btn--y { color: #111317; } }
+  .cc-btn:hover { filter: brightness(.95); }
+</style>
+<script is:inline data-cc>
+  (function () {
+    var KEY = 'fr-consent-v1';
+    var el = document.getElementById('cc');
+    var read = function () { try { return localStorage.getItem(KEY); } catch (e) { return null; } };
+    var write = function (v) { try { localStorage.setItem(KEY, v); } catch (e) {} };
+    var show = function () { el.hidden = false; };
+    var hide = function () { el.hidden = true; };
+
+    function grant() {
+      write('granted');
+      hide();
+      document.dispatchEvent(new CustomEvent('fr:consent-granted'));
+    }
+    function deny() { write('denied'); hide(); }
+
+    document.getElementById('cc-yes').addEventListener('click', grant);
+    document.getElementById('cc-no').addEventListener('click', deny);
+    document.getElementById('cc-more').addEventListener('click', function (e) {
+      e.preventDefault();
+      window.location.href = document.documentElement.dataset.cookiesUrl || '/cookies/';
+    });
+    var reopen = document.getElementById('cookie-reopen');
+    if (reopen) reopen.addEventListener('click', show);
+
+    var state = read();
+    if (state === 'granted') document.dispatchEvent(new CustomEvent('fr:consent-granted'));
+    else if (state !== 'denied') show();
+  })();
+</script>

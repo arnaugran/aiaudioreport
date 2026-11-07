@@ -1,0 +1,11 @@
+---
+import { AFFILIATES_ENABLED } from '../consts';
+interface Props { href: string; program?: string; rel?: string }
+const { href, program } = Astro.props;
+// While AFFILIATES_ENABLED is false (Phase 1) this renders a plain link with no
+// tracking parameters, so nothing on the site is monetised and no disclosure is
+// owed. When Phase 2 turns it on, every link gets sponsored+nofollow and the
+// page it sits on must also carry <AffiliateDisclosure />.
+const rel = AFFILIATES_ENABLED ? 'sponsored nofollow noopener' : 'noopener';
+---
+<a href={href} rel={rel} data-program={program}><slot /></a>

@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CONTACT_EMAIL, withBase } from '../consts';
+const updated = '8 November 2026';
+---
+<BaseLayout
+  title="Privacy policy"
+  description="What Fader Report collects, which is close to nothing: no cookies by default, no analytics without consent, no accounts, no mailing list, no data sold."
+>
+  <h1 style="margin-top:2.5rem">Privacy policy</h1>
+  <p class="meta">Last updated {updated}</p>
+
+  <aside class="box">
+    <strong>Short version</strong>
+    <p>
+      We set no cookies unless you say yes. There are no accounts, no mailing list, no
+      advertising and no trackers. We sell nothing to anybody. Our hosting provider sees your
+      IP address, because that is how the web works.
+    </p>
+  </aside>
+
+  <h2>Who is responsible</h2>
+  <p>
+    This site is run by an individual, Arnau Grani Romero, who is the data controller for the
+    purposes of the UK and EU GDPR. Contact:
+    <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+  </p>
+
+  <h2>What is collected, and when</h2>
+
+  <h3>By default: nothing we can identify you from</h3>
+  <p>
+    Fader Report is a set of static files. Visiting it creates no account, sets no cookie of
+    ours, and stores nothing about you on our side. There is no contact form, no comment
+    system, no newsletter sign-up and no login.
+  </p>
+
+  <h3>By our host</h3>
+  <p>
+    The site is served by GitHub Pages (GitHub, Inc.). Like any web server, it processes your
+    IP address and request metadata in order to deliver the page, and it may retain that in
+    logs for security and abuse prevention. We do not have access to those logs and cannot
+    query them. GitHub's handling of that data is governed by its own privacy statement.
+  </p>
+
+  <h3>Analytics, only with consent</h3>
+  <p>
+    We would like to know which pages are worth writing more of. If — and only if — you press
+    Accept on the cookie banner, Google Analytics 4 is loaded and sets its own cookies. It is
+    configured with IP anonymisation on, and with advertising storage, ad personalisation and
+    ad user data all explicitly denied.
+  </p>
+  <p>
+    Press Reject, or ignore the banner, and no analytics script is ever fetched. Nothing is
+    loaded before you choose: this is a genuine prior-consent gate, not a banner that tracks
+    you while it asks. At the time of writing, analytics is not yet configured at all, so
+    even Accept currently loads nothing.
+  </p>
+  <p>
+    The only thing stored in your browser by us is a single <code>localStorage</code> entry
+    recording your answer, so we stop asking. It contains the word “granted” or “denied” and
+    nothing else, it is not a cookie, and it is never transmitted anywhere. Details on the
+    <a href={withBase('/cookies/')}>cookies page</a>.
+  </p>
+
+  <h3>If you email us</h3>
+  <p>
+    We receive your address and whatever you write, in order to reply. That is the legal basis
+    — our legitimate interest in answering correspondence. It is not added to any list, because
+    we do not operate one, and it is not shared with anyone.
+  </p>
+
+  <h2>What we never do</h2>
+  <ul>
+    <li>Sell, rent or trade personal data. There is no scenario in which this changes.</li>
+    <li>Run advertising cookies, retargeting pixels, fingerprinting or session recording.</li>
+    <li>Load third-party fonts, embeds or widgets that would disclose your IP to someone else.</li>
+    <li>Use dark patterns to extract consent. Reject is as easy to press as Accept.</li>
+  </ul>
+
+  <h2>Your rights</h2>
+  <p>
+    Under the GDPR you may request access to, correction of, or erasure of personal data we
+    hold about you, object to processing, and request portability. Realistically, the only
+    personal data we are likely to hold is an email you sent us, and you can have it deleted
+    by asking. Write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. You also have
+    the right to complain to your national data protection authority.
+  </p>
+
+  <h2>Transfers and retention</h2>
+  <p>
+    Our host operates internationally, so serving a page may involve processing outside the
+    EEA. Email correspondence is retained only as long as it is useful for the conversation it
+    belongs to. Analytics data, once it exists, is retained for the shortest period Google
+    Analytics allows us to set.
+  </p>
+
+  <h2>Changes</h2>
+  <p>
+    If this policy changes materially, the date at the top changes and the substance of the
+    change is described here rather than silently swapped in.
+  </p>
+</BaseLayout>

@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../consts';
+const updated = '8 November 2026';
+---
+<BaseLayout
+  title="Cookies"
+  description="Every piece of storage Fader Report uses, listed individually. By default that is one localStorage entry remembering whether you said yes to analytics."
+>
+  <h1 style="margin-top:2.5rem">Cookies and local storage</h1>
+  <p class="meta">Last updated {updated}</p>
+
+  <p class="lede">
+    Short enough to list in full, which is the point.
+  </p>
+
+  <h2>Set by default</h2>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>Name</th><th>Type</th><th>Purpose</th><th>Lifetime</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>fr-consent-v1</code></td>
+          <td>localStorage (not a cookie)</td>
+          <td>Stores the single word “granted” or “denied” so the banner stops asking you. Never sent to any server.</td>
+          <td>Until you clear your browser storage</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    That is the complete list. No cookies are set by this site unless you opt in below.
+  </p>
+
+  <h2>Set only if you press Accept</h2>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>Name</th><th>Set by</th><th>Purpose</th><th>Lifetime</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>_ga</code>, <code>_ga_&lt;id&gt;</code></td>
+          <td>Google Analytics 4</td>
+          <td>Distinguishes visitors so we can count how many people read a page and which pages are worth expanding.</td>
+          <td>Up to 2 years (Google's default)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    These are not set at the moment: analytics has not been configured yet, so Accept
+    currently results in nothing being loaded. When it is configured, the script is fetched
+    only after an explicit Accept, with IP anonymisation on and all advertising-related
+    storage denied.
+  </p>
+
+  <h2>Changing your mind</h2>
+  <p>
+    “Cookie settings” in the footer of every page brings the banner back. Choosing Reject
+    stops the analytics script from ever being requested; to remove cookies already set, clear
+    site data in your browser.
+  </p>
+
+  <h2>If we ever add advertising</h2>
+  <p>
+    We do not run ads and have none planned in the near term. Should that change, personalised
+    advertising would require a full IAB TCF-compliant consent platform rather than this
+    simple banner, and this page and the
+    <a href={withBase('/privacy/')}>privacy policy</a> would be rewritten first, with the
+    change described rather than quietly made.
+  </p>
+</BaseLayout>

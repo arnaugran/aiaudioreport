@@ -1,0 +1,21 @@
+---
+import { AFFILIATES_ENABLED, withBase } from '../consts';
+---
+<aside class="box">
+  <strong>Affiliate disclosure</strong>
+  {AFFILIATES_ENABLED ? (
+    <p>
+      Some links on this page are affiliate links. If you buy through one, we may earn a
+      commission at no extra cost to you. It never changes what we recommend or what we say
+      about a product — our <a href={withBase('/editorial-policy/')}>editorial policy</a>
+      explains how we keep those separate.
+    </p>
+  ) : (
+    <p>
+      This page contains no affiliate links and earns us nothing. The site is not currently
+      monetised. If that changes, every page carrying a paid link will say so here, in this
+      box, before the content it applies to. See our
+      <a href={withBase('/affiliate-disclosure/')}> full disclosure policy</a>.
+    </p>
+  )}
+</aside>

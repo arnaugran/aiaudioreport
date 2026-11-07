@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_NAME, SITE_DESCRIPTION, withBase } from '../consts';
+
+const articles = (await getCollection('articles', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_NAME,
+  description: SITE_DESCRIPTION,
+  url: new URL(withBase('/'), Astro.site).href,
+};
+---
+<BaseLayout title={SITE_NAME} schema={schema}>
+  <section style="margin-top:2.5rem">
+    <h1>Prices with a date on them.</h1>
+    <p class="lede">
+      Most pages ranking for “best AI music tool” are written by the companies selling the tool,
+      or by somebody who has not checked a price since last year. We read the terms and the
+      pricing pages ourselves, write down the date we read them, and link to them so you can
+      check our work.
+    </p>
+    <p>
+      Fader Report covers the software musicians and audio people actually pay for: what it
+      costs, what the licence lets you do with the output, and which one fits the job you have.
+      We do not run listening tests, because we have no test rig —
+      <a href={withBase('/editorial-policy/')}>here is exactly how we work</a>, including what
+      that means you should and should not trust us on.
+    </p>
+  </section>
+
+  <section>
+    <h2>Articles</h2>
+    <ul class="cards">
+      {articles.map((a) => (
+        <li>
+          <h3><a href={withBase(`/articles/${a.id}/`)}>{a.data.title}</a></h3>
+          <p>{a.data.description}</p>
+          <p class="meta">
+            <span>{fmt(a.data.pubDate)}</span>
+            {a.data.pricesCheckedOn && <span>Prices checked {fmt(a.data.pricesCheckedOn)}</span>}
+          </p>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

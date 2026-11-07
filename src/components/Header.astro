@@ -1,0 +1,20 @@
+---
+import { SITE_NAME, withBase } from '../consts';
+const path = Astro.url.pathname;
+const links = [
+  { href: '/articles/', label: 'Articles' },
+  { href: '/about/', label: 'About' },
+  { href: '/editorial-policy/', label: 'How we research' },
+  { href: '/contact/', label: 'Contact' },
+];
+---
+<header class="masthead">
+  <div class="wrap wide masthead-in">
+    <a class="brand" href={withBase('/')}>Fader<span>Report</span></a>
+    <nav class="nav" aria-label="Main">
+      {links.map((l) => (
+        <a href={withBase(l.href)} aria-current={path === withBase(l.href) ? 'page' : undefined}>{l.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>

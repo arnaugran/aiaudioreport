@@ -1,0 +1,24 @@
+---
+interface Props { basis: string; pricesCheckedOn?: Date }
+const { basis, pricesCheckedOn } = Astro.props;
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const text: Record<string, string> = {
+  documentation:
+    'This piece is based on the vendors’ own published documentation and terms, read directly and linked below.',
+  'documentation+published-reviews':
+    'This comparison is based on vendor documentation, published pricing pages and third-party reviews, all linked below. We did not run listening tests: we have no test rig, and we are not going to pretend otherwise. Where quality is judged, the judgement is attributed to whoever made it.',
+  analysis:
+    'This is analysis and opinion built on the sources linked below, not a report of hands-on testing.',
+};
+---
+<aside class="box box--method">
+  <strong>How we know this</strong>
+  <p>{text[basis] ?? text.analysis}</p>
+  {pricesCheckedOn && (
+    <p>
+      Every price here was checked on <strong style="display:inline;text-transform:none;font-size:inherit;color:inherit">{fmt(pricesCheckedOn)}</strong>.
+      Vendors change pricing without notice — follow the source links before you buy.
+    </p>
+  )}
+</aside>

@@ -1,0 +1,9 @@
+---
+import { ADS_ENABLED } from '../consts';
+interface Props { slot: string }
+const { slot } = Astro.props;
+// Phase 3 placeholder. Renders absolutely nothing — no reserved space, no
+// script, no layout shift — until display advertising is switched on, and that
+// decision needs current network requirements re-fetched first.
+---
+{ADS_ENABLED && <div class="adslot" data-slot={slot}></div>}

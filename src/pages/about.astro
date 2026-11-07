@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../consts';
+---
+<BaseLayout
+  title="About"
+  description="Fader Report is a small independent publication covering what music-production software costs and what its licences permit, with every fact dated and sourced."
+>
+  <h1 style="margin-top:2.5rem">About Fader Report</h1>
+
+  <p class="lede">
+    A small independent publication about the software musicians and audio people pay for —
+    what it costs, what the licence actually permits, and which option fits the job.
+  </p>
+
+  <h2>Why it exists</h2>
+  <p>
+    Search for almost any AI audio tool and you will get three kinds of page: the vendor's own
+    blog explaining why its product won the comparison it ran, an affiliate round-up whose
+    prices were accurate eighteen months ago, and a post that confidently answers a legal
+    question by guessing. We checked. The prices in those pages contradict each other, and
+    several of the licensing answers are flatly out of date, because the terms were rewritten
+    underneath them.
+  </p>
+  <p>
+    None of that is hard to beat. It just requires doing the boring part: opening the actual
+    pricing page, reading the actual terms, writing down the date, and linking to both.
+  </p>
+
+  <h2>What we are good for, and what we are not</h2>
+  <p>
+    Good for: current prices with a verification date, what a licence permits read from the
+    source document, cost arithmetic nobody else bothers to do, and picking between options
+    for a specific situation.
+  </p>
+  <p>
+    Not good for: how something sounds. We do not test hardware or run listening tests, and we
+    will not pretend to. For that, go to people who do it properly, and we will link to them
+    when their judgement is what matters. The
+    <a href={withBase('/editorial-policy/')}>editorial policy</a> spells all of this out,
+    including our use of AI in research and drafting.
+  </p>
+
+  <h2>Who writes it</h2>
+  <p>
+    Fader Report is run by one person based in Europe, and articles are published under a
+    <strong>Fader Report editorial team</strong> byline rather than a personal one. We would
+    rather use an honest collective byline than dress the site up as a masthead of experts it
+    does not have.
+  </p>
+
+  <h2>Independence</h2>
+  <p>
+    No advertising, no sponsored content, and at the moment no affiliate links and no revenue
+    at all. If that changes, it gets disclosed on every page it touches —
+    the <a href={withBase('/affiliate-disclosure/')}>rules are published in advance</a>.
+  </p>
+
+  <p>
+    Corrections, tip-offs and “your price is wrong” emails are all welcome:
+    <a href={withBase('/contact/')}>contact us</a>.
+  </p>
+</BaseLayout>

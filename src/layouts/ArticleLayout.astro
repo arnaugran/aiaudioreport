@@ -1,0 +1,63 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import MethodologyNote from '../components/MethodologyNote.astro';
+import NotLegalAdvice from '../components/NotLegalAdvice.astro';
+import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
+import { SITE_NAME, withBase } from '../consts';
+
+const { entry } = Astro.props;
+const d = entry.data;
+const fmt = (x: Date) =>
+  x.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const iso = (x: Date) => x.toISOString().slice(0, 10);
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: d.title,
+  description: d.description,
+  datePublished: iso(d.pubDate),
+  dateModified: iso(d.updatedDate ?? d.pubDate),
+  author: { '@type': 'Organization', name: d.byline },
+  publisher: { '@type': 'Organization', name: SITE_NAME },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+  isAccessibleForFree: true,
+  citation: d.sources.map((s: any) => ({ '@type': 'CreativeWork', name: s.title, url: s.url })),
+};
+---
+<BaseLayout title={d.title} description={d.description} schema={schema}>
+  <article>
+    <p class="meta" style="margin-top:2rem">
+      {d.tags.map((t: string) => <span class="tag">{t}</span>)}
+    </p>
+    <h1>{d.title}</h1>
+    <p class="lede">{d.description}</p>
+    <p class="meta">
+      <span>By {d.byline}</span>
+      <span>Published {fmt(d.pubDate)}</span>
+      {d.updatedDate && <span>Updated {fmt(d.updatedDate)}</span>}
+    </p>
+
+    {d.notLegalAdvice && <NotLegalAdvice />}
+    <MethodologyNote basis={d.basis} pricesCheckedOn={d.pricesCheckedOn} />
+    <AffiliateDisclosure />
+
+    <slot />
+
+    <hr />
+    <h2 id="sources">Sources</h2>
+    <p class="meta">Every one of these was opened and read on the date shown.</p>
+    <ol class="sources">
+      {d.sources.map((s: any) => (
+        <li>
+          <a href={s.url} rel="noopener">{s.title}</a> — read {fmt(s.checked)}
+        </li>
+      ))}
+    </ol>
+    <p class="meta" style="margin-top:2rem">
+      Spotted something out of date or wrong? That is worth more to us than a compliment —
+      <a href={withBase('/contact/')}>tell us</a> and we will fix it and say that we did.
+    </p>
+  </article>
+</BaseLayout>

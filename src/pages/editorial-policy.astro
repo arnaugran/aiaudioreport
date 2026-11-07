@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../consts';
+---
+<BaseLayout
+  title="How we research and write"
+  description="What Fader Report does and does not do: no hands-on testing, every price dated, AI used in drafting under human oversight, and corrections published openly."
+>
+  <h1 style="margin-top:2.5rem">How we research and write</h1>
+  <p class="lede">
+    The useful version of this page is the list of things we cannot do. Here it is first.
+  </p>
+
+  <h2>What we do not do</h2>
+  <ul>
+    <li>
+      <strong>We do not test products by hand.</strong> We own no test rig and no plugin
+      licences. We never write “we tested”, “in our testing” or “after weeks of use”, because
+      none of that would be true. When a comparison judges sound quality, the judgement belongs
+      to a named third party and is linked.
+    </li>
+    <li>
+      <strong>We do not invent people.</strong> No stock-photo reviewers, no fictional
+      engineers with twenty years in the industry, no made-up credentials.
+    </li>
+    <li>
+      <strong>We do not invent numbers.</strong> No estimated market sizes, no “studies show”
+      without the study. If we could not verify a figure, the article says the figure could not
+      be verified rather than quietly rounding a guess.
+    </li>
+    <li>
+      <strong>We do not publish undated prices.</strong> A price with no date is a price you
+      cannot trust.
+    </li>
+  </ul>
+
+  <h2>How a piece gets made</h2>
+  <ol>
+    <li>
+      A topic is chosen because people are trying to make a specific decision and the existing
+      results answer it badly — usually because they are stale, or written by the vendor.
+    </li>
+    <li>
+      Primary sources are fetched and read: terms of service, pricing pages, official policy
+      documents, source repositories. Secondary sources are used only where a primary one does
+      not exist, and are named in the text.
+    </li>
+    <li>
+      The piece is drafted, then fact-checked claim by claim against those sources. Anything
+      that cannot be traced to a source is cut, not softened.
+    </li>
+    <li>Every source is listed at the bottom with the date it was read.</li>
+  </ol>
+
+  <h2>Our use of AI, stated plainly</h2>
+  <p>
+    Research and drafting on this site are done with AI assistance. We think you are entitled
+    to know that, so we are telling you rather than hoping you do not ask.
+  </p>
+  <p>
+    What that does not change: every factual claim is checked against a source that was
+    actually retrieved, and those sources are listed so you can check them too. What it does
+    change: you should treat the source list as the real product and the prose as our reading
+    of it. If our reading and the source disagree, the source wins, and we want to hear about
+    it.
+  </p>
+  <p>
+    Articles are published under a <strong>Fader Report editorial team</strong> byline. We do
+    not attribute work to a named individual unless that individual personally reviewed it.
+  </p>
+
+  <h2>Pricing and licence maintenance</h2>
+  <p>
+    Prices and licence terms in this niche move constantly, so pages carry the date their
+    facts were verified and are scheduled for re-checking roughly every 30 days. When we
+    update a page we change the “updated” date. A page whose dates have gone stale is a
+    liability, and we would rather you could see that at a glance than be quietly misled.
+  </p>
+
+  <h2>Corrections</h2>
+  <p>
+    If we get something wrong we fix it and note that we did. We do not silently edit an error
+    out of existence. <a href={withBase('/contact/')}>Report a mistake</a> — a correction is
+    more useful to us than praise, and we mean that literally.
+  </p>
+
+  <h2>Money</h2>
+  <p>
+    The site currently earns nothing. No affiliate links, no advertising, no sponsored posts,
+    no paid placement, ever. If and when affiliate links are added, they will be disclosed on
+    every page that carries them, before the content, and nothing about our recommendations
+    will be for sale. The full policy is on the
+    <a href={withBase('/affiliate-disclosure/')}>affiliate disclosure page</a>.
+  </p>
+</BaseLayout>
