@@ -3,6 +3,7 @@ title: "Can You Sell Music Made With Suno? What the Terms Actually Say"
 description: "Suno rewrote its terms in August 2026. Paid tiers get an assignment of rights, free tiers get none, and commercial use hinges on downloads rather than songs."
 pubDate: 2026-11-08
 byline: "Fader Report editorial team"
+reviewedBy: "Arnau Grani Romero"
 basis: documentation
 notLegalAdvice: true
 tags: ["licensing", "AI music"]

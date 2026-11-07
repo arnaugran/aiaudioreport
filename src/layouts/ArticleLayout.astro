@@ -20,6 +20,7 @@ const schema = {
   datePublished: iso(d.pubDate),
   dateModified: iso(d.updatedDate ?? d.pubDate),
   author: { '@type': 'Organization', name: d.byline },
+  ...(d.reviewedBy && { reviewedBy: { '@type': 'Person', name: d.reviewedBy } }),
   publisher: { '@type': 'Organization', name: SITE_NAME },
   mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
   isAccessibleForFree: true,
@@ -37,6 +38,7 @@ const schema = {
       <span>By {d.byline}</span>
       <span>Published {fmt(d.pubDate)}</span>
       {d.updatedDate && <span>Updated {fmt(d.updatedDate)}</span>}
+      {d.reviewedBy && <span>Reviewed by {d.reviewedBy}</span>}
     </p>
 
     {d.notLegalAdvice && <NotLegalAdvice />}

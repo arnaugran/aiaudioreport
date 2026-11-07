@@ -9,6 +9,8 @@ const articles = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     byline: z.string().default('Fader Report editorial team'),
+    // Only ever set for an article a named human has actually read.
+    reviewedBy: z.string().optional(),
     // Hard gate: an article claiming prices must declare when they were checked.
     pricesCheckedOn: z.coerce.date().optional(),
     // Every comparison must state what the analysis is based on.

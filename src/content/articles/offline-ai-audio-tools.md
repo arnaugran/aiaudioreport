@@ -3,6 +3,7 @@ title: "Which AI Audio Tools Run Offline, and What Hardware They Need"
 description: "Whisper releases its model weights under MIT. Demucs does not, and says so. If your audio cannot be uploaded, that distinction decides what you can actually use."
 pubDate: 2026-11-08
 byline: "Fader Report editorial team"
+reviewedBy: "Arnau Grani Romero"
 basis: documentation
 tags: ["local tools", "licensing"]
 sources:

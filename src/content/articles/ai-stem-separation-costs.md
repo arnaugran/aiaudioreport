@@ -4,6 +4,7 @@ description: "LALAL.AI's annual plans cost exactly twelve times the monthly pric
 pubDate: 2026-11-08
 pricesCheckedOn: 2026-11-07
 byline: "Fader Report editorial team"
+reviewedBy: "Arnau Grani Romero"
 basis: documentation+published-reviews
 tags: ["pricing", "stem separation"]
 sources:
