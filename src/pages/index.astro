@@ -16,7 +16,7 @@ const schema = {
 };
 ---
 <BaseLayout title={SITE_NAME} schema={schema}>
-  <section style="margin-top:2.5rem">
+  <section class="hero">
     <h1>Prices with a date on them.</h1>
     <p class="lede">
       Most pages ranking for “best AI music tool” are written by the companies selling the tool,
@@ -34,7 +34,7 @@ const schema = {
   </section>
 
   <section>
-    <h2>Articles</h2>
+    <p class="rule-label">Latest</p>
     <ul class="cards">
       {articles.map((a) => (
         <li>

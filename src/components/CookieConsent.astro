@@ -24,17 +24,23 @@
   </div>
 </div>
 <style>
-  .cc { position: fixed; inset-inline: 0; bottom: 0; z-index: 60; background: var(--bg-raised);
-    border-top: 1px solid var(--rule); box-shadow: 0 -6px 24px rgb(0 0 0 / 8%); }
-  .cc-in { max-width: 60rem; margin-inline: auto; padding: 1rem 16px 1.1rem; }
-  .cc-t { margin: 0 0 .25rem; font-weight: 650; font-size: .98rem; }
-  .cc-b { margin: 0 0 .8rem; font-size: .87rem; color: var(--ink-soft); max-width: 46rem; }
+  .cc { position: fixed; inset-inline: 0; bottom: 0; z-index: 60; background: var(--surface);
+    border-top: 2px solid var(--accent); box-shadow: 0 -8px 32px rgb(0 0 0 / 10%);
+    font-family: var(--sans); }
+  .cc-in { max-width: var(--wide); margin-inline: auto; padding: 1.15rem var(--gutter) 1.3rem;
+    display: grid; gap: .5rem 2.5rem; align-items: center; }
+  @media (min-width: 48rem) { .cc-in { grid-template-columns: 1fr auto; } }
+  .cc-t { margin: 0 0 .3rem; font-weight: 650; font-size: .95rem; letter-spacing: -0.005em;
+    color: var(--ink); }
+  .cc-b { margin: 0; font-size: .83rem; line-height: 1.55; color: var(--ink-soft); max-width: 44rem; }
   .cc-row { display: flex; gap: .6rem; flex-wrap: wrap; }
-  .cc-btn { font: inherit; font-size: .9rem; padding: .45rem 1.3rem; border-radius: 4px;
-    border: 1px solid var(--ink-soft); background: transparent; color: var(--ink); cursor: pointer; }
+  .cc-btn { font-family: var(--sans); font-size: .78rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .08em; padding: .6rem 1.4rem; border-radius: 3px;
+    border: 1px solid var(--rule-firm); background: transparent; color: var(--ink);
+    cursor: pointer; white-space: nowrap; }
+  .cc-btn:hover { border-color: var(--ink-soft); }
   .cc-btn--y { border-color: var(--accent); background: var(--accent); color: #fff; }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cc-btn--y { color: #111317; } }
-  .cc-btn:hover { filter: brightness(.95); }
+  .cc-btn--y:hover { filter: brightness(1.08); border-color: var(--accent); }
 </style>
 <script is:inline data-cc>
   (function () {

@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { withBase } from '../consts';
 ---
 <BaseLayout title="Page not found" noindex={true} description="That page does not exist on Fader Report.">
-  <h1 style="margin-top:3rem">That page isn’t here</h1>
+  <h1 class="pagetitle">That page isn’t here</h1>
   <p class="lede">Either the link is wrong or we moved something and failed to redirect it.</p>
   <p>
     Try <a href={withBase('/articles/')}>the article index</a>, or
