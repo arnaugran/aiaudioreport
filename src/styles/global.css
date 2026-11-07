@@ -185,6 +185,7 @@ td strong { font-weight: 650; color: var(--ink); }
 .cards li::before { content: counter(idx, decimal-leading-zero);
   font-family: var(--sans); font-size: .72rem; font-weight: 700; letter-spacing: .06em;
   color: var(--accent); padding-top: .42rem; }
+.cards li > * { grid-column: 2; }
 .cards h3 { margin: 0 0 .3rem; font-size: 1.32rem; line-height: 1.25; letter-spacing: -0.013em; }
 .cards h3 a { color: var(--ink); text-decoration: none;
   background-image: linear-gradient(var(--accent), var(--accent));
