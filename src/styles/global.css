@@ -97,7 +97,7 @@ h3 { font-size: 1.2rem; margin: 2.2rem 0 .4rem; font-weight: 650; }
   font-size: .8rem; color: var(--ink-faint); letter-spacing: .005em;
   display: flex; flex-wrap: wrap; gap: .2rem .55rem; line-height: 1.5;
 }
-.meta > span + span::before { content: "·"; margin-right: .55rem; color: var(--rule-firm); }
+.meta > span:not(:last-child)::after { content: "·"; margin-left: .5rem; color: var(--rule-firm); }
 
 /* ---------- masthead ---------- */
 .masthead { border-bottom: 1px solid var(--rule); background: var(--surface); }
@@ -153,7 +153,7 @@ pre code { background: none; padding: 0; }
 .box--method { border-left-color: var(--accent); background: var(--accent-bg); }
 .box p { margin-block: .55rem; } .box p:first-of-type { margin-top: 0; }
 .box p:last-child { margin-bottom: 0; }
-.box strong:first-child {
+.box > strong:first-child {
   display: block; margin-bottom: .45rem; font-size: .68rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: .12em; color: var(--ink-faint);
 }

@@ -17,7 +17,7 @@ const text: Record<string, string> = {
   <p>{text[basis] ?? text.analysis}</p>
   {pricesCheckedOn && (
     <p>
-      Every price here was checked on <strong style="display:inline;text-transform:none;font-size:inherit;color:inherit">{fmt(pricesCheckedOn)}</strong>.
+      Every price here was checked on <strong>{fmt(pricesCheckedOn)}</strong>.
       Vendors change pricing without notice — follow the source links before you buy.
     </p>
   )}
