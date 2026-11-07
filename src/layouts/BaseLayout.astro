@@ -9,13 +9,12 @@ import { SITE_NAME, SITE_DESCRIPTION, withBase } from '../consts';
 interface Props {
   title: string;
   description?: string;
-  wide?: boolean;
   schema?: object | null;
   noindex?: boolean;
 }
-const { title, description = SITE_DESCRIPTION, wide = false, schema = null, noindex = false } = Astro.props;
+const { title, description = SITE_DESCRIPTION, schema = null, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
-const fullTitle = title === SITE_NAME ? title : `${title} — ${SITE_NAME}`;
+const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
 const ogImage = new URL(withBase('/og-default.svg'), Astro.site).href;
 ---
 <!doctype html>
@@ -47,7 +46,7 @@ const ogImage = new URL(withBase('/og-default.svg'), Astro.site).href;
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <Header />
-    <main id="main" class={wide ? 'wrap wide' : 'wrap'}>
+    <main id="main" class="container">
       <slot />
     </main>
     <Footer />

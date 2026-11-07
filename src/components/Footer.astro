@@ -11,17 +11,15 @@ const links = [
 ];
 ---
 <footer class="foot">
-  <div class="wrap wide">
+  <div class="container">
     <nav aria-label="Footer">
       {links.map((l) => <a href={withBase(l.href)}>{l.label}</a>)}
       <a href={withBase('/rss.xml')}>RSS</a>
     </nav>
     <p>
-      © {year} {SITE_NAME}. Prices and licence terms are reported with the date they were
-      checked. They change often — follow the source links before you spend money.
+      Every price and licence term on this site carries the date we checked it. They change
+      often, so follow the source links before you spend money.
     </p>
-    <p>
-      <button type="button" id="cookie-reopen" class="linklike">Cookie settings</button>
-    </p>
+    <p>© {year} {SITE_NAME}. <button type="button" id="cookie-reopen">Cookie settings</button></p>
   </div>
 </footer>

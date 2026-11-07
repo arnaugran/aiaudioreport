@@ -1,4 +1,4 @@
-# Fader Report
+# AI Audio Report
 
 Static site, Astro 7, deployed to GitHub Pages by GitHub Actions on push to `main`.
 
@@ -6,7 +6,7 @@ Static site, Astro 7, deployed to GitHub Pages by GitHub Actions on push to `mai
 
 ```sh
 npm install
-npm run dev      # http://localhost:4321/faderreport/
+npm run dev      # http://localhost:4321/aiaudioreport/
 npm run build    # -> dist/
 ```
 
@@ -18,7 +18,7 @@ Two env vars control where the site thinks it lives. They are set in
 | Var | Temporary (now) | After the domain is bought |
 |---|---|---|
 | `SITE_URL` | `https://arnaugran.github.io` | `https://<domain>` |
-| `BASE_PATH` | `/faderreport` | `/` |
+| `BASE_PATH` | `/aiaudioreport` | `/` |
 
 Moving to the custom domain: change those two values, add a `public/CNAME` file
 containing the bare domain, point DNS at GitHub Pages, and set the custom

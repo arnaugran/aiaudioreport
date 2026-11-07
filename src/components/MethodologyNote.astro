@@ -5,20 +5,17 @@ const fmt = (d: Date) =>
   d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 const text: Record<string, string> = {
   documentation:
-    'This piece is based on the vendors’ own published documentation and terms, read directly and linked below.',
+    'Everything here comes from the companies’ own terms and documentation. We read those pages ourselves and linked them at the bottom.',
   'documentation+published-reviews':
-    'This comparison is based on vendor documentation, published pricing pages and third-party reviews, all linked below. We did not run listening tests: we have no test rig, and we are not going to pretend otherwise. Where quality is judged, the judgement is attributed to whoever made it.',
+    'This comes from vendor documentation, published pricing pages and third-party reviews, all linked at the bottom. We did not run listening tests. We have no test rig, so we are not going to pretend we did. Where something is judged on sound quality, we say who judged it.',
   analysis:
-    'This is analysis and opinion built on the sources linked below, not a report of hands-on testing.',
+    'This is our reading of the sources linked at the bottom. It is analysis, not a report of hands-on testing.',
 };
 ---
-<aside class="box box--method">
+<aside class="note note--method">
   <strong>How we know this</strong>
   <p>{text[basis] ?? text.analysis}</p>
   {pricesCheckedOn && (
-    <p>
-      Every price here was checked on <strong>{fmt(pricesCheckedOn)}</strong>.
-      Vendors change pricing without notice — follow the source links before you buy.
-    </p>
+    <p>Every price here was checked on {fmt(pricesCheckedOn)}. Companies change pricing without warning, so check the source links before you buy.</p>
   )}
 </aside>

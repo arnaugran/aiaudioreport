@@ -1,7 +1,7 @@
 ---
 import { GA4_ID } from '../consts';
 // Renders nothing at all until a GA4 ID exists. Even then the script is only
-// injected after the visitor actively consents — never on page load.
+// injected after the visitor actively consents, never on page load.
 ---
 {GA4_ID && (
   <script is:inline define:vars={{ GA4_ID }}>

@@ -20,7 +20,7 @@ jobs:
     env:
       # Switch these two when the custom domain is attached, and add public/CNAME.
       SITE_URL: https://arnaugran.github.io
-      BASE_PATH: /faderreport
+      BASE_PATH: /aiaudioreport
       # PUBLIC_GA4_ID: set as a repository variable once a GA4 property exists.
       PUBLIC_GA4_ID: ${{ vars.PUBLIC_GA4_ID }}
     steps:

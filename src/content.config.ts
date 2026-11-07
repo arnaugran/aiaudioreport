@@ -8,7 +8,7 @@ const articles = defineCollection({
     description: z.string().min(50).max(165),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
-    byline: z.string().default('Fader Report editorial team'),
+    byline: z.string().default('AI Audio Report editorial team'),
     // Only ever set for an article a named human has actually read.
     reviewedBy: z.string().optional(),
     // Hard gate: an article claiming prices must declare when they were checked.

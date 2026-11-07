@@ -1,10 +1,10 @@
-export const SITE_NAME = 'Fader Report';
+export const SITE_NAME = 'AI Audio Report';
 export const SITE_TAGLINE =
-  'What AI and software audio tools cost, and what you may actually do with them.';
+  'What AI and software audio tools cost, and what you can actually do with them.';
 export const SITE_DESCRIPTION =
-  'Independent, dated analysis of music-production software: real prices with the date they were checked, licensing terms read from the source, and decision frameworks instead of rankings.';
-export const PUBLISHER = 'Fader Report';
-export const DEFAULT_BYLINE = 'Fader Report editorial team';
+  'Independent, dated analysis of music production software. Real prices with the date we checked them, licence terms read from the source, and straight answers instead of rankings.';
+export const PUBLISHER = 'AI Audio Report';
+export const DEFAULT_BYLINE = 'AI Audio Report editorial team';
 export const CONTACT_EMAIL = 'editor@aiaudioreport.com';
 
 /** GA4 only loads when this is set AND the visitor has consented. */

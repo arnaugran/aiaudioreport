@@ -8,19 +8,22 @@ const articles = (await getCollection('articles', ({ data }) => !data.draft)).so
 );
 const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 ---
-<BaseLayout title="Articles" description="Every Fader Report article, newest first. Each one carries the date its prices and licence terms were last verified against the source.">
-  <p class="kicker" style="margin-top:3.2rem">Index</p>
-  <h1>Articles</h1>
-  <p class="lede">Newest first. Each carries the date its facts were last checked.</p>
-  <ul class="cards">
+<BaseLayout
+  title="Articles"
+  description="Every AI Audio Report article, newest first. Each one carries the date its prices and licence terms were last checked against the source."
+>
+  <div class="page-head">
+    <h1>Articles</h1>
+    <p class="lede">Newest first. Each one shows when its facts were last checked.</p>
+  </div>
+  <ul class="list">
     {articles.map((a) => (
       <li>
-        <h3><a href={withBase(`/articles/${a.id}/`)}>{a.data.title}</a></h3>
+        <h2><a href={withBase(`/articles/${a.id}/`)}>{a.data.title}</a></h2>
         <p>{a.data.description}</p>
         <p class="meta">
           <span>{fmt(a.data.pubDate)}</span>
           {a.data.pricesCheckedOn && <span>Prices checked {fmt(a.data.pricesCheckedOn)}</span>}
-          {a.data.tags.map((t: string) => <span class="tag">{t}</span>)}
         </p>
       </li>
     ))}

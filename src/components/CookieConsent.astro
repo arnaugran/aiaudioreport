@@ -6,7 +6,7 @@
  *
  * Scope note: the site currently sets NO cookies of its own. The only thing
  * gated here is GA4. If personalised advertising is ever added (Phase 3), this
- * must be replaced with a full IAB TCF-compliant CMP — see /cookies/.
+ * must be replaced with a full IAB TCF-compliant CMP. See /cookies/.
  */
 ---
 <div id="cc" class="cc" role="dialog" aria-modal="false" aria-label="Cookie choice" hidden>
@@ -24,28 +24,19 @@
   </div>
 </div>
 <style>
-  .cc { position: fixed; inset-inline: 0; bottom: 0; z-index: 60; background: var(--surface);
-    border-top: 2px solid var(--accent); box-shadow: 0 -8px 32px rgb(0 0 0 / 10%);
-    font-family: var(--sans); }
-  .cc-in { max-width: var(--wide); margin-inline: auto; padding: 1.15rem var(--gutter) 1.3rem;
-    display: grid; gap: .5rem 2.5rem; align-items: center; }
-  @media (min-width: 48rem) {
-    .cc-in { grid-template-columns: 1fr auto; }
-    /* text stacks in column 1; buttons sit beside it, spanning both rows */
-    .cc-t, .cc-b { grid-column: 1; }
-    .cc-row { grid-column: 2; grid-row: 1 / span 2; }
-  }
-  .cc-t { margin: 0 0 .3rem; font-weight: 650; font-size: .95rem; letter-spacing: -0.005em;
-    color: var(--ink); }
-  .cc-b { margin: 0; font-size: .83rem; line-height: 1.55; color: var(--ink-soft); max-width: 44rem; }
+  .cc { position: fixed; inset-inline: 0; bottom: 0; z-index: 60; background: var(--bg);
+    border-top: 1px solid var(--line-2); box-shadow: 0 -4px 20px rgb(0 0 0 / 8%); }
+  .cc-in { max-width: var(--content); margin-inline: auto; padding: 1rem var(--pad) 1.15rem; }
+  .cc-t { margin: 0 0 .25rem; font-weight: 650; font-size: .9375rem; }
+  .cc-b { margin: 0 0 .85rem; font-size: .875rem; line-height: 1.55; color: var(--ink-2); }
   .cc-row { display: flex; gap: .6rem; flex-wrap: wrap; }
-  .cc-btn { font-family: var(--sans); font-size: .78rem; font-weight: 600;
-    text-transform: uppercase; letter-spacing: .08em; padding: .6rem 1.4rem; border-radius: 3px;
-    border: 1px solid var(--rule-firm); background: transparent; color: var(--ink);
-    cursor: pointer; white-space: nowrap; }
-  .cc-btn:hover { border-color: var(--ink-soft); }
+  .cc-btn { font: inherit; font-size: .875rem; font-weight: 550; padding: .5rem 1.25rem;
+    border-radius: 5px; border: 1px solid var(--line-2); background: var(--bg);
+    color: var(--ink); cursor: pointer; }
+  .cc-btn:hover { border-color: var(--ink-3); }
   .cc-btn--y { border-color: var(--accent); background: var(--accent); color: #fff; }
   .cc-btn--y:hover { filter: brightness(1.08); border-color: var(--accent); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cc-btn--y { color: #15171a; } }
 </style>
 <script is:inline data-cc>
   (function () {

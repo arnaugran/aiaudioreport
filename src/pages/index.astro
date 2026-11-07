@@ -16,36 +16,35 @@ const schema = {
 };
 ---
 <BaseLayout title={SITE_NAME} schema={schema}>
-  <section class="hero">
-    <h1>Prices with a date on them.</h1>
+  <div class="page-head">
+    <h1>Prices with a date on them</h1>
     <p class="lede">
-      Most pages ranking for “best AI music tool” are written by the companies selling the tool,
-      or by somebody who has not checked a price since last year. We read the terms and the
-      pricing pages ourselves, write down the date we read them, and link to them so you can
+      What AI and software audio tools cost, and what their licences let you do with the output.
+    </p>
+    <p>
+      Search for any AI music tool and most of what comes back was written by the company
+      selling it, or by someone who last checked a price a year ago. We read the pricing pages
+      and the terms ourselves, write down the date we read them, and link to them so you can
       check our work.
     </p>
     <p>
-      Fader Report covers the software musicians and audio people actually pay for: what it
-      costs, what the licence lets you do with the output, and which one fits the job you have.
-      We do not run listening tests, because we have no test rig —
-      <a href={withBase('/editorial-policy/')}>here is exactly how we work</a>, including what
-      that means you should and should not trust us on.
+      We do not run listening tests. We have no test rig, so we do not pretend to.
+      <a href={withBase('/editorial-policy/')}>How we work</a> sets out what that means you
+      should and should not trust us on.
     </p>
-  </section>
+  </div>
 
-  <section>
-    <p class="rule-label">Latest</p>
-    <ul class="cards">
-      {articles.map((a) => (
-        <li>
-          <h3><a href={withBase(`/articles/${a.id}/`)}>{a.data.title}</a></h3>
-          <p>{a.data.description}</p>
-          <p class="meta">
-            <span>{fmt(a.data.pubDate)}</span>
-            {a.data.pricesCheckedOn && <span>Prices checked {fmt(a.data.pricesCheckedOn)}</span>}
-          </p>
-        </li>
-      ))}
-    </ul>
-  </section>
+  <div class="section-head"><h2>Latest</h2></div>
+  <ul class="list">
+    {articles.map((a) => (
+      <li>
+        <h2><a href={withBase(`/articles/${a.id}/`)}>{a.data.title}</a></h2>
+        <p>{a.data.description}</p>
+        <p class="meta">
+          <span>{fmt(a.data.pubDate)}</span>
+          {a.data.pricesCheckedOn && <span>Prices checked {fmt(a.data.pricesCheckedOn)}</span>}
+        </p>
+      </li>
+    ))}
+  </ul>
 </BaseLayout>

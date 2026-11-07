@@ -29,37 +29,35 @@ const schema = {
 ---
 <BaseLayout title={d.title} description={d.description} schema={schema}>
   <article>
-    <header class="artheader">
-      {d.tags.length > 0 && <p class="kicker">{d.tags.join(' \u00b7 ')}</p>}
+    <div class="page-head">
+      {d.tags.length > 0 && <p class="eyebrow">{d.tags.join(' / ')}</p>}
       <h1>{d.title}</h1>
       <p class="lede">{d.description}</p>
       <p class="meta">
-        <span>By {d.byline}</span>
-        <span>Published {fmt(d.pubDate)}</span>
+        <span>{d.byline}</span>
+        <span>{fmt(d.pubDate)}</span>
         {d.updatedDate && <span>Updated {fmt(d.updatedDate)}</span>}
         {d.reviewedBy && <span>Reviewed by {d.reviewedBy}</span>}
       </p>
-    </header>
+    </div>
 
     {d.notLegalAdvice && <NotLegalAdvice />}
     <MethodologyNote basis={d.basis} pricesCheckedOn={d.pricesCheckedOn} />
     <AffiliateDisclosure />
 
-    <div class="prose"><slot /></div>
+    <slot />
 
     <hr />
     <h2 id="sources">Sources</h2>
-    <p class="meta">Every one of these was opened and read on the date shown.</p>
+    <p class="meta" style="margin-bottom:1rem">Each of these was opened and read on the date shown.</p>
     <ol class="sources">
       {d.sources.map((s: any) => (
-        <li>
-          <a href={s.url} rel="noopener">{s.title}</a> — read {fmt(s.checked)}
-        </li>
+        <li><a href={s.url} rel="noopener">{s.title}</a>, read {fmt(s.checked)}</li>
       ))}
     </ol>
-    <p class="meta" style="margin-top:2rem">
-      Spotted something out of date or wrong? That is worth more to us than a compliment —
-      <a href={withBase('/contact/')}>tell us</a> and we will fix it and say that we did.
+    <p class="meta" style="margin-top:1.75rem">
+      Found something out of date or wrong? <a href={withBase('/contact/')}>Tell us</a>. We
+      will fix it and say that we did.
     </p>
   </article>
 </BaseLayout>

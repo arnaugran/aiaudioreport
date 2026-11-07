@@ -1,21 +1,21 @@
 ---
 import { AFFILIATES_ENABLED, withBase } from '../consts';
 ---
-<aside class="box">
+<aside class="note">
   <strong>Affiliate disclosure</strong>
   {AFFILIATES_ENABLED ? (
     <p>
-      Some links on this page are affiliate links. If you buy through one, we may earn a
-      commission at no extra cost to you. It never changes what we recommend or what we say
-      about a product — our <a href={withBase('/editorial-policy/')}>editorial policy</a>
-      explains how we keep those separate.
+      Some links on this page are affiliate links. If you buy through one we may earn a
+      commission, at no extra cost to you. It does not change what we recommend. Our
+      <a href={withBase('/editorial-policy/')}> editorial policy</a> explains how we keep
+      those two things apart.
     </p>
   ) : (
     <p>
-      This page contains no affiliate links and earns us nothing. The site is not currently
-      monetised. If that changes, every page carrying a paid link will say so here, in this
-      box, before the content it applies to. See our
-      <a href={withBase('/affiliate-disclosure/')}> full disclosure policy</a>.
+      This page has no affiliate links and earns us nothing. The site is not monetised yet.
+      If that changes, every page with a paid link will say so here, above the content it
+      applies to. Our <a href={withBase('/affiliate-disclosure/')}>disclosure policy</a> is
+      already written.
     </p>
   )}
 </aside>

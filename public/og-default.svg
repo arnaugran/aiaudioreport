@@ -1,16 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#16181c"/>
-  <g stroke="#2a2e35" stroke-width="6" stroke-linecap="round">
-    <line x1="820" y1="150" x2="820" y2="480"/>
-    <line x1="920" y1="150" x2="920" y2="480"/>
-    <line x1="1020" y1="150" x2="1020" y2="480"/>
+  <rect width="1200" height="630" fill="#15171a"/>
+  <g fill="#7fa8f5">
+    <rect x="90"  y="150" width="16" height="40"  rx="8"/>
+    <rect x="120" y="128" width="16" height="84"  rx="8"/>
+    <rect x="150" y="142" width="16" height="56"  rx="8"/>
+    <rect x="180" y="160" width="16" height="20"  rx="8"/>
   </g>
-  <g fill="#f0945c">
-    <rect x="795" y="350" width="50" height="26" rx="8"/>
-    <rect x="895" y="210" width="50" height="26" rx="8"/>
-    <rect x="995" y="300" width="50" height="26" rx="8"/>
-  </g>
-  <text x="90" y="300" font-family="Helvetica, Arial, sans-serif" font-size="78" font-weight="700" fill="#e9e7e3">Fader<tspan fill="#f0945c">Report</tspan></text>
-  <text x="90" y="360" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#a9aeb6">Prices with a date on them.</text>
-  <rect x="90" y="400" width="120" height="5" fill="#f0945c"/>
+  <text x="90" y="330" font-family="Helvetica, Arial, sans-serif" font-size="76" font-weight="700" fill="#eceef1">AI Audio <tspan fill="#7fa8f5">Report</tspan></text>
+  <text x="90" y="392" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#b2b8c0">Prices with a date on them.</text>
 </svg>

@@ -5,10 +5,10 @@ import { rehypeBaseLinks } from './src/plugins/rehype-base-links.mjs';
 
 // Host is switched with two env vars so moving from the temporary GitHub Pages
 // path to a bought custom domain is a config change, not a rewrite.
-//   SITE_URL   e.g. https://arnaugran.github.io   or  https://faderreport.com
-//   BASE_PATH  e.g. /faderreport                  or  /
+//   SITE_URL   e.g. https://arnaugran.github.io   or  https://aiaudioreport.com
+//   BASE_PATH  e.g. /aiaudioreport                  or  /
 const SITE_URL = process.env.SITE_URL ?? 'https://arnaugran.github.io';
-const BASE_PATH = process.env.BASE_PATH ?? '/faderreport';
+const BASE_PATH = process.env.BASE_PATH ?? '/aiaudioreport';
 
 export default defineConfig({
   site: SITE_URL,

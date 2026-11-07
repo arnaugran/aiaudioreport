@@ -3,7 +3,7 @@
  * Astro's `base`. Lets articles be written with clean `/articles/foo/` links
  * that keep working whether the site is served from a subpath or a root domain.
  */
-const BASE = (process.env.BASE_PATH ?? '/faderreport').replace(/\/+$/, '');
+const BASE = (process.env.BASE_PATH ?? '/aiaudioreport').replace(/\/+$/, '');
 
 function walk(node, visit) {
   visit(node);
