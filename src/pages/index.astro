@@ -3,40 +3,61 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_NAME, SITE_DESCRIPTION, withBase } from '../consts';
 
-const articles = (await getCollection('articles', ({ data }) => !data.draft)).sort(
+const all = (await getCollection('articles', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
-const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
+// Readers arrive with one of two questions: what does this cost, or am I
+// allowed to do this. Reverse-chronological answers neither, so the list is
+// split on that instead of on date. Licensing wins when a piece carries both
+// tags, because that is always the harder half to find elsewhere.
+const isLicensing = (a: any) => a.data.tags.includes('licensing');
+const costs = all.filter((a) => !isLicensing(a));
+const rights = all.filter(isLicensing);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
+// The freshest check date on the site. It is the one number that says most
+// about whether any of this is still true.
+const checked = all.map((a) => a.data.pricesCheckedOn).filter(Boolean) as Date[];
+const lastChecked = checked.length
+  ? new Date(Math.max(...checked.map((d) => d.valueOf())))
+  : null;
+
+const home = new URL(withBase('/'), Astro.site).href;
 const schema = {
   '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: SITE_NAME,
-  description: SITE_DESCRIPTION,
-  url: new URL(withBase('/'), Astro.site).href,
+  '@graph': [
+    { '@type': 'WebSite', name: SITE_NAME, description: SITE_DESCRIPTION, url: home },
+    {
+      '@type': 'ItemList',
+      name: 'Articles',
+      itemListElement: all.map((a, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: new URL(withBase(`/articles/${a.id}/`), Astro.site).href,
+        name: a.data.title,
+      })),
+    },
+  ],
 };
 ---
 <BaseLayout title={SITE_NAME} schema={schema}>
   <div class="page-head">
     <h1>Prices with a date on them</h1>
     <p class="lede">
-      What AI and software audio tools cost, and what their licences let you do with the output.
-    </p>
-    <p>
-      Search for any AI music tool and most of what comes back was written by the company
-      selling it, or by someone who last checked a price a year ago. We read the pricing pages
-      and the terms ourselves, write down the date we read them, and link to them so you can
-      check our work.
-    </p>
-    <p>
-      We do not run listening tests. We have no test rig, so we do not pretend to. Where
-      something is judged on how it sounds, the judgement belongs to a named source and is
-      linked, and every article ends with the sources it was built from.
+      What AI and software audio tools cost, and what their licences let you do with what you
+      make. Every figure carries the day it was read off the vendor's own page.
     </p>
   </div>
 
-  <div class="section-head"><h2>Latest</h2></div>
+  <div class="section-head">
+    <h2>What it costs</h2>
+    {lastChecked && <span class="meta">Last checked {fmt(lastChecked)}</span>}
+  </div>
   <ul class="list">
-    {articles.map((a) => (
+    {costs.map((a) => (
       <li>
         <h2><a href={withBase(`/articles/${a.id}/`)}>{a.data.title}</a></h2>
         <p>{a.data.description}</p>
@@ -47,4 +68,39 @@ const schema = {
       </li>
     ))}
   </ul>
+
+  <div class="section-head">
+    <h2>What you are allowed to do with it</h2>
+    <span class="meta">Read from the terms</span>
+  </div>
+  <ul class="list">
+    {rights.map((a) => (
+      <li>
+        <h2><a href={withBase(`/articles/${a.id}/`)}>{a.data.title}</a></h2>
+        <p>{a.data.description}</p>
+        <p class="meta">
+          <span>{fmt(a.data.pubDate)}</span>
+          {a.data.pricesCheckedOn && <span>Prices checked {fmt(a.data.pricesCheckedOn)}</span>}
+        </p>
+      </li>
+    ))}
+  </ul>
+
+  <div class="section-head"><h2>How this is put together</h2></div>
+  <p>
+    Search for any AI music tool and most of what comes back was written by the company
+    selling it, or by someone who last checked the price a year ago. Everything here is read
+    off the vendor's own pricing page or licence, dated, and linked at the foot of the article
+    so you can check it.
+  </p>
+  <p>
+    There are no listening tests, because there is no test rig here and pretending otherwise
+    would be the easiest thing on this site to fake. Where something turns on how it sounds,
+    the judgement belongs to a named source. Where a figure could not be verified, the article
+    says that instead of rounding a guess.
+  </p>
+  <p class="meta">
+    Nothing here earns a commission today. If that changes, the page carrying a paid link will
+    say so above the content, not in the footer.
+  </p>
 </BaseLayout>
