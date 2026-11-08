@@ -71,19 +71,15 @@ That was 2024. Two and a bit years later, the legislation still has not happened
   <rect class="node-on" x="2" y="4" width="430" height="46" rx="6"/>
   <text class="nlab" x="18" y="24">1. Platform policy</text>
   <text class="nsub" x="18" y="41">In force now. Spotify bans unauthorised vocal impersonation.</text>
-
   <rect class="node-on" x="2" y="58" width="430" height="46" rx="6"/>
   <text class="nlab" x="18" y="78">2. The tool's contract</text>
   <text class="nsub" x="18" y="95">In force now. Binds you the moment you accept it.</text>
-
   <rect class="node-on" x="2" y="112" width="430" height="46" rx="6"/>
   <text class="nlab" x="18" y="132">3. State law</text>
   <text class="nsub" x="18" y="149">In force now. Rights of publicity and privacy, not preempted.</text>
-
   <rect class="node" x="2" y="166" width="430" height="46" rx="6" stroke-dasharray="5 4"/>
   <text class="nsub" x="18" y="186">4. Federal digital replica law</text>
   <text class="nsub" x="18" y="203">Does not exist. Recommended July 2024, still a bill.</text>
-
   <text class="nsub" x="450" y="33">Binds you</text>
   <text class="nsub" x="450" y="87">Binds you</text>
   <text class="nsub" x="450" y="141">Binds you</text>

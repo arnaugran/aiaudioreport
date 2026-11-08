@@ -62,17 +62,14 @@ pick one, answer that, and leave you assuming the other two are settled as well.
   <text class="nlab" x="18" y="52">1. The contract</text>
   <text class="nsub" x="18" y="72">Can you sell it?</text>
   <text class="nsub" x="18" y="89">Suno decides</text>
-
   <rect class="node" x="214" y="26" width="178" height="74" rx="6"/>
   <text class="nlab" x="230" y="52">2. Copyright</text>
   <text class="nsub" x="230" y="72">Can you defend it?</text>
   <text class="nsub" x="230" y="89">The law decides</text>
-
   <rect class="node" x="426" y="26" width="178" height="74" rx="6"/>
   <text class="nlab" x="442" y="52">3. The platform</text>
   <text class="nsub" x="442" y="72">Will it stay up?</text>
   <text class="nsub" x="442" y="89">Spotify decides</text>
-
   <path class="flow" d="M180 63 L214 63"/>
   <path class="flow" d="M392 63 L426 63"/>
   <text class="nsub" x="2" y="132">Yes, on a paid tier</text>
