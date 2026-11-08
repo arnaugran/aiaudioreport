@@ -242,3 +242,23 @@ img { max-width: 100%; height: auto; }
 
 /* heading anchors for the TOC */
 article h2[id] { scroll-margin-top: 1.5rem; }
+
+/* ---------- inline calculator ---------- */
+.calc { border: 1px solid var(--line); border-radius: 6px; background: var(--bg-alt);
+  padding: 1.15rem 1.25rem 1.25rem; margin: 1.75rem 0; }
+.calc-row { display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding: .45rem 0; }
+.calc-row + .calc-row { border-top: 1px solid var(--line); }
+.calc-row label { font-size: .9375rem; color: var(--ink-2); }
+.calc-row input { width: 6.5rem; font: inherit; font-size: .9375rem; text-align: right;
+  padding: .35rem .55rem; border: 1px solid var(--line-2); border-radius: 4px;
+  background: var(--bg); color: var(--ink); font-variant-numeric: tabular-nums; }
+.calc-row input:focus-visible { border-color: var(--accent); }
+.calc-out { margin: 1rem 0 .35rem; padding-top: .9rem; border-top: 2px solid var(--ink);
+  font-size: 1.125rem; font-weight: 700; letter-spacing: -0.012em; }
+.calc-verdict { margin: 0 0 .35rem; font-size: 1rem; color: var(--accent); font-weight: 650; }
+.calc-note { margin: 0; font-size: .875rem; color: var(--ink-3); line-height: 1.5; }
+@media (max-width: 30rem) {
+  .calc-row { flex-direction: column; align-items: stretch; gap: .3rem; }
+  .calc-row input { width: 100%; text-align: left; }
+}
