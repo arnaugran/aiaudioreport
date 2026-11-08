@@ -109,6 +109,11 @@ strong { font-weight: 650; }
 .nav a { color: var(--ink-2); text-decoration: none; }
 .nav a:hover { color: var(--accent); text-decoration: underline; }
 .nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+.nav-search { display: inline-flex; align-items: center; gap: .35rem; }
+.nav-search svg { display: block; }
+.nav-search:hover { color: var(--accent); }
+@media (max-width: 26rem) { .nav-search span { position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } }
 
 /* ---------- shared bits ---------- */
 .meta { font-size: .875rem; color: var(--ink-3); margin: 0; }
@@ -232,10 +237,16 @@ img { max-width: 100%; height: auto; }
 /* The rotating pick on the articles index. Set apart by a rule and weight
    rather than a card, so it reads as the editor pointing at something and not
    as a promo box. */
-.pick { margin: .25rem 0 .5rem; padding: 1.1rem 0 1.3rem;
+/* Today's pick. The other section heads rule off in ink; this one uses the
+   accent, and the entry itself gets more air and a larger headline, so the
+   eye lands on it first without it borrowing the left-rule system that
+   already means takeaway, caution or quotation. */
+.section-head--pick { border-bottom-color: var(--accent); }
+.section-head--pick h2 { color: var(--accent); }
+.pick { margin: .25rem 0 .75rem; padding: 1.3rem 0 1.5rem;
   border-bottom: 1px solid var(--line); }
-.pick h3 { margin: 0 0 .4rem; font-size: 1.3125rem; line-height: 1.3;
-  letter-spacing: -0.012em; }
+.pick h3 { margin: 0 0 .5rem; font-size: 1.5rem; line-height: 1.25;
+  letter-spacing: -0.016em; }
 .pick h3 a { color: var(--ink); text-decoration: none; }
 .pick h3 a:hover { color: var(--accent); text-decoration: underline; }
 .pick p { margin: 0; color: var(--ink-2); }

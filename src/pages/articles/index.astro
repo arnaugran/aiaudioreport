@@ -59,10 +59,6 @@ const picks = all.map((a) => ({
 >
   <div class="page-head">
     <h1>Articles</h1>
-    <p class="lede">
-      {all.length} pieces, grouped by what you are trying to decide. Every figure carries the
-      date it was read off the vendor's own page.
-    </p>
   </div>
 
   <form class="search" role="search" id="search" onsubmit="return false">
@@ -77,7 +73,7 @@ const picks = all.map((a) => ({
   </div>
 
   <div id="browse">
-  <div class="section-head">
+  <div class="section-head section-head--pick">
     <h2>Today's pick</h2>
     <span class="meta">Rotates daily</span>
   </div>
@@ -227,6 +223,17 @@ const picks = all.map((a) => ({
           render(hits, q);
         });
       }
+
+      // Arriving from the magnifying glass in the header lands on #search.
+      // Deferred, because the browser performs its own scroll-to-anchor after
+      // inline scripts run and takes the focus back if we claim it too early.
+      function focusSearch() { setTimeout(function () { input.focus(); }, 0); }
+      if (location.hash === '#search') focusSearch();
+      // Clicking the header icon while already on this page changes only the
+      // hash, which fires no navigation, so listen for that too.
+      window.addEventListener('hashchange', function () {
+        if (location.hash === '#search') focusSearch();
+      });
 
       var t;
       input.addEventListener('input', function () { clearTimeout(t); t = setTimeout(run, 90); });

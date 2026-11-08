@@ -14,9 +14,17 @@ faq:
     a: "Waveform Free. Tracktion describes it as a completely unlimited free DAW with no track-count restrictions and no trial expiry, supporting VST, VST3 and AU plugins. Some features are sold separately as expansion packs from 30 dollars."
   - q: "Is Ardour free?"
     a: "The software is, and its own site says you are under no obligation to pay. The nuance is that ready-to-run builds sit behind a payment step, and the download page describes the source code as where to start if you cannot or do not want to pay for the pre-built versions. Subscriptions run from 1 to 50 dollars a month."
+  - q: "How many tracks does Pro Tools Intro allow?"
+    a: "Eight audio tracks, eight instrument tracks and eight MIDI tracks, per Avid's own knowledge base. Opening a session with more than eight tracks truncates it to the first eight, so it is a poor fit for anyone receiving sessions from collaborators. It includes 36 effects and instrument plugins and community-only support."
   - q: "How many tracks does the free BandLab plan give you?"
     a: "Sixteen, with an effects chain limit of ten. Pro and Max both raise the track limit to 32. The free plan also includes 436 virtual instruments, four mastering presets, two beats a week and twenty samples a week."
 sources:
+  - title: "Avid knowledge base, Pro Tools Intro FAQ"
+    url: "https://kb.avid.com/pkb/articles/faq/Pro-Tools-Intro-FAQ"
+    checked: 2026-11-08
+  - title: "Apple, GarageBand on the Mac App Store"
+    url: "https://apps.apple.com/us/app/garageband/id682658836"
+    checked: 2026-11-08
   - title: "BandLab, Membership plans and pricing"
     url: "https://www.bandlab.com/membership-pricing"
     checked: 2026-11-08
@@ -46,6 +54,8 @@ the BandLab name on it is a different piece of software.
 - Waveform Free has no track limit and no expiry, and takes VST, VST3 and AU plugins.
 - Ardour's licence is free and its site says so, but the ready-to-run builds sit behind a payment step.
 - On Linux, Waveform unlocks its Pro features automatically.
+- Pro Tools Intro is free but caps you at eight audio tracks, and truncates bigger sessions on open.
+- GarageBand is free on the Mac App Store, and Mac only.
 
 </div>
 
@@ -119,14 +129,36 @@ $14,033 a month.
 We did not complete the download flow, so we cannot tell you the minimum one-off payment it
 asks for. If that number decides it for you, check it yourself before planning around it.
 
-## What we did not check
+## Pro Tools Intro, and the number that decides it
 
-This is not a complete survey and we are not going to pretend otherwise.
+Avid gives Pro Tools away as Intro, and its knowledge base calls it "a free
+DAW" with "no hidden costs". The limit is the track count, and it is strict:
+**eight audio tracks, eight instrument tracks and eight MIDI tracks.**
 
-Avid's Pro Tools comparison page did not render its table for us, so Pro Tools Intro's track
-limits are absent here rather than guessed. Apple's GarageBand page does not state a price
-anywhere on it, so we have not claimed one, though it is Mac and iOS only and there is no
-Windows version. Audacity and LMMS were not examined for this piece.
+That ceiling is enforced on the way in as well as the way up. Open a session
+with more than eight tracks and Intro truncates it to the first eight, which
+makes Intro a poor choice for anyone who expects to receive sessions from
+other people. Projects from the old Pro Tools First are truncated the same
+way.
+
+You get 36 effects and instrument plugins, including Xpand!2 and 34 others.
+Support is community only, and you cannot start a Cloud Collaboration project
+of your own without a paid plan, though you can join one you are invited to.
+
+Eight tracks is enough to finish a sparse song and nowhere near enough for a
+dense one. Compare that against Waveform Free's absence of any track limit
+and the choice makes itself, unless Pro Tools specifically is the thing you
+need to learn.
+
+## GarageBand, if you own a Mac
+
+Apple does not print a price on GarageBand's own product page, which is why
+this needs stating plainly: on the Mac App Store it is listed as **Free**. It
+requires macOS 15.6 or later and is a 731.9 MB download.
+
+It is Mac only. There is no Windows version and there never has been, so if
+you are reading this on a PC it is not an option however often it appears on
+lists of free DAWs.
 
 ## What we would do
 

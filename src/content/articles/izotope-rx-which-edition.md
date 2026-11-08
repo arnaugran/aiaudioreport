@@ -15,7 +15,7 @@ faq:
   - q: "Is there a cheaper iZotope option for stem separation?"
     a: "Photon, at 284.25 euros on sale from 379 euros when we looked. It is a standalone app and ARA2 plugin built specifically for stem separation and noise removal, with 12 models, and iZotope states it runs locally on your GPU with no uploads."
   - q: "What does RX Advanced add?"
-    a: "It is 1,499 euros and lists Dialogue Isolate, Ambience Match, Spectral Repair, stem separation and advanced noise reduction as its key features. It is aimed at audio post production rather than music."
+    a: "Four things Standard does not have: Scene Rebalance, Ambience Match, De-rustle and Trim Silence. All four are film and television post-production tools, so for music work the 1,060 euro gap between Standard and Advanced buys nothing you would open."
 sources:
   - title: "iZotope, RX 12 Elements"
     url: "https://www.izotope.com/products/rx-elements"
@@ -117,18 +117,32 @@ iZotope publishes no SDR figure we could find. What we can say is that the paid 
 you a graphical interface, an ARA2 plugin that sits in your DAW, and no command line, and that
 those are the things you are actually paying for rather than measured superiority.
 
-## What we could not verify
+## What €1,060 more actually buys
 
-iZotope's edition comparison table did not load for us, the same failure we hit writing about
-Ozone. So this piece reports what each product page states about itself and stops there.
+The jump from Standard at €439 to Advanced at €1,499 is the biggest number in
+this comparison, so it is worth knowing exactly what crosses that line.
 
-In particular, we cannot tell you whether Dialogue Isolate is genuinely available in Standard
-or only in Advanced. Standard's body copy names it as one route into Stems View, while
-Advanced lists it as a headline feature. Those two statements can both be true in several
-ways and we are not going to pick one. If Dialogue Isolate is the reason you are buying, check
-the comparison table on iZotope's site before paying the difference.
+Reading iZotope's own edition comparison, Advanced adds **four** things that
+Standard does not have:
 
-The Photon price was a sale price. Sales end. The regular price on the same page was €379, and
+| Advanced only | What it is for |
+|---|---|
+| Scene Rebalance | Separating dialogue, music and effects in a finished scene |
+| Ambience Match | Matching room tone across edits |
+| De-rustle | Removing clothing noise from lavalier mics |
+| Trim Silence | Bulk-trimming silence from long recordings |
+
+Every one of those is a film and television post-production tool. None of them
+touches music. If you are mastering tracks or pulling stems out of a mix, the
+€1,060 between Standard and Advanced buys you nothing you will open.
+
+The same table settles the Elements question from the other direction.
+Elements carries seven modules: Repair Assistant, Voice De-noise, De-click,
+De-clip, De-hum, De-reverb and the improved Repair Assistant neural nets.
+Stems View, Music Rebalance and Dialogue Isolate all appear first at Standard.
+
+One caveat on price rather than features. The €284.25 we quote for Photon was
+a sale price, and sales end. The regular price on the same page was €379, and
 that is the number to plan around.
 
 ## What we would do

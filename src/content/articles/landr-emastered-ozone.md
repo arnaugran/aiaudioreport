@@ -15,7 +15,7 @@ faq:
   - q: "Is eMastered's unlimited distribution really unlimited?"
     a: "No. Its Fair Usage Policy caps distribution at 20 new recordings per rolling 30-day period and says submissions beyond that are automatically blocked. The unlimited mastering and stem separation carry no documented numeric cap."
   - q: "Which Ozone edition should I buy?"
-    a: "Elements at 59 euros includes Master Assistant, which is the feature most people actually want from AI mastering. Standard is 239 euros and Advanced 549. We could not load iZotope's edition comparison table, so we are not going to list which modules each tier adds."
+    a: "Elements at 59 euros is Master Assistant, Custom Flow, Assistant View and Assistive Vocal Balance, and not the individual modules. Standard at 239 euros adds the actual suite: Equalizer, Dynamics, Maximizer, Imager, Match EQ, Master Rebalance and the Vintage modules. Advanced at 549 adds Clarity, Impact, Low End Focus, Spectral Shaper, Stem EQ, Unlimiter and the ability to run modules as separate plugins."
 sources:
   - title: "LANDR, pricing and subscriptions"
     url: "https://www.landr.com/pricing"
@@ -172,19 +172,38 @@ And LANDR's annual pricing was discounted sharply when we looked, with Studio Pr
 is not a standing rate and we would not plan around it, but if you are buying today it is real
 and it roughly halves the figures above.
 
-## What we could not check
+## What each Ozone edition actually contains
 
-iZotope's edition comparison table did not load for us, so we cannot tell you which modules
-separate Elements from Standard from Advanced. We confirmed that Elements includes Master
-Assistant and we confirmed the three prices. Beyond that, check the comparison on iZotope's
-own site before paying €239 or €549, because the gap between those tiers is most of the cost
-of this entire comparison.
+Reading iZotope's own edition comparison settles what the three prices buy,
+and the answer reframes the cheapest one.
+
+**Elements, €59.** Master Assistant, with the new Custom Flow and the Assistant
+View, plus Assistive Vocal Balance. That is close to the whole list. Elements
+does not give you the individual modules, so you get the chain the assistant
+builds and you do not get to take it apart.
+
+**Standard, €239.** This is where Ozone becomes a mastering suite rather than
+an assistant: Equalizer, Dynamics, Dynamic EQ, Maximizer, Imager, Exciter,
+Match EQ, Bass Control, Stabilizer, Master Rebalance, the four Vintage modules,
+Dither and Track Referencing.
+
+**Advanced, €549.** Adds Clarity, Impact, Low End Focus, Spectral Shaper, Stem
+EQ, Unlimiter, Stem Focus, Codec Preview, the Relay bonus plugin, and the
+ability to run the modules as separate plugins outside Ozone.
+
+That changes how to read the break-even above. If you want AI mastering, which
+is the thing LANDR and eMastered sell, Elements at €59 is a fair comparison
+and the arithmetic holds. If you want to adjust what the assistant did, you
+are comparing against Standard at €239, and the break-even against LANDR Pro
+stretches to about ten months.
 
 ## What we would do
 
-Buy Ozone Elements if mastering is the thing you need. At €59 it beats every subscription here
-within five months, it keeps working when you stop paying, and it includes the assistant that
-does the work.
+Buy Ozone Elements if what you want is the assistant. At €59 it beats every subscription here
+within five months and it keeps working when you stop paying. Know what you are buying: the
+assistant builds you a chain, and Elements does not let you open the individual modules to
+change it. For most people comparing this against LANDR, that is the same deal LANDR offers
+anyway, at a fifth of the annual cost.
 
 Subscribe to LANDR if you want distribution and mastering from one place, and take the annual
 billing while the discount is running. Essentials at €12 a month is the one to skip, because

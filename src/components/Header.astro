@@ -14,6 +14,17 @@ const links = [
       {links.map((l) => (
         <a href={withBase(l.href)} aria-current={path === withBase(l.href) ? 'page' : undefined}>{l.label}</a>
       ))}
+      {/* Goes to the articles index and focuses the field there, rather than
+          putting a second search box in the header on every page. One search,
+          one place, reachable from anywhere. */}
+      <a class="nav-search" href={withBase('/articles/#search')} title="Search articles">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <circle cx="7" cy="7" r="4.6" fill="none" stroke="currentColor" stroke-width="1.7"/>
+          <line x1="10.6" y1="10.6" x2="14.4" y2="14.4" stroke="currentColor"
+                stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+        <span>Search</span>
+      </a>
     </nav>
   </div>
 </header>

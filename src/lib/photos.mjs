@@ -42,14 +42,19 @@ export function headerPhoto(seed, tags = []) {
 }
 
 /**
- * A second photograph for further down a long article. Always different from
- * the header where the pool allows it, otherwise there is no second image at
- * all rather than the same picture twice on one page.
+ * Photographs for further down a long article, in order. Never repeats the
+ * header, and never repeats itself, so a page can only carry as many extra
+ * images as its subject has spare photographs. Asking for more than that
+ * returns fewer rather than the same picture twice.
  */
-export function secondPhoto(seed, tags = []) {
+export function bodyPhotos(seed, tags = [], want = 1) {
   const pool = poolFor(tags);
-  if (pool.length < 2) return null;
-  const first = hash(seed) % pool.length;
-  const rest = pool.filter((_, i) => i !== first);
-  return rest[hash(seed + '2') % rest.length];
+  if (pool.length < 2 || want < 1) return [];
+  const headerIndex = hash(seed) % pool.length;
+  const rest = pool.filter((_, i) => i !== headerIndex);
+  // Rotate the remainder by a second hash so two articles sharing a subject
+  // do not place the same picture at the same point.
+  const offset = hash(seed + '#body') % rest.length;
+  const ordered = rest.map((_, i) => rest[(i + offset) % rest.length]);
+  return ordered.slice(0, Math.min(want, ordered.length));
 }

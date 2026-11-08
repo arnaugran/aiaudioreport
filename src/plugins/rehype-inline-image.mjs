@@ -11,12 +11,16 @@
  * the subject has only one suitable photograph, because the same picture twice
  * on one page looks like a mistake.
  */
-import { secondPhoto } from '../lib/photos.mjs';
+import { bodyPhotos } from '../lib/photos.mjs';
 
-const MIN_SECTIONS = 5;
-// Counted in h2s, so the image lands after a section break rather than in the
-// middle of an argument.
-const AFTER_SECTION = 3;
+// How many extra images an article earns, by length in words.
+//
+// Heading count was the first attempt and it was wrong: the longest article
+// on the site, at nearly 2,000 words, happens to have only four headings and
+// so received nothing, which is exactly the case this is meant to fix. Words
+// measure how far a reader actually scrolls; headings do not.
+const ONE_IMAGE_FROM = 700;
+const TWO_IMAGES_FROM = 1150;
 
 const el = (tagName, properties, children = []) => ({
   type: 'element',
@@ -64,18 +68,36 @@ export function rehypeInlineImage() {
     if (!slug) return;
 
     const kids = tree.children ?? [];
+
+    // Rough word count of the rendered text, which is what a reader scrolls
+    // through, rather than of the markdown source with its tables and SVG.
+    let words = 0;
+    const walk = (n) => {
+      if (n.type === 'text') words += (n.value.match(/\S+/g) || []).length;
+      (n.children || []).forEach(walk);
+    };
+    kids.forEach(walk);
+    if (words < ONE_IMAGE_FROM) return;
+    const want = words >= TWO_IMAGES_FROM ? 2 : 1;
+
     const h2s = kids
       .map((n, i) => (n.type === 'element' && n.tagName === 'h2' ? i : -1))
       .filter((i) => i !== -1);
-    if (h2s.length < MIN_SECTIONS) return;
+    if (h2s.length < 2) return;
 
-    const photo = secondPhoto(slug, fm.tags ?? []);
-    if (!photo) return;
+    const photos = bodyPhotos(slug, fm.tags ?? [], want);
+    if (!photos.length) return;
 
-    // Insert immediately before the chosen heading so the image closes the
-    // previous section rather than separating a heading from its text.
-    const at = h2s[AFTER_SECTION];
-    if (at === undefined) return;
-    kids.splice(at, 0, figure(photo));
+    // Spread the images through the article rather than clustering them, and
+    // never before the first heading, where the header image already sits.
+    const n = h2s.length;
+    const slots = photos
+      .map((_, i) => Math.min(n - 1, Math.max(1, Math.round(((i + 1) * n) / (photos.length + 1)))))
+      .filter((v, i, arr) => arr.indexOf(v) === i);
+
+    // Insert from the end so earlier indices stay valid as the array grows.
+    for (let i = slots.length - 1; i >= 0; i--) {
+      kids.splice(h2s[slots[i]], 0, figure(photos[i]));
+    }
   };
 }
