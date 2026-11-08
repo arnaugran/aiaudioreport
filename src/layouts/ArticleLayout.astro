@@ -77,7 +77,7 @@ const schema = { '@context': 'https://schema.org', '@graph': graph };
       </p>
     </div>
 
-    <Banner seed={entry.id} />
+    <Banner seed={entry.id} tags={d.tags} />
 
     {d.notLegalAdvice && <NotLegalAdvice />}
     <Toc headings={headings} />

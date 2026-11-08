@@ -1,48 +1,29 @@
 ---
 import { withBase } from '../consts';
-interface Props { seed: string }
-const { seed } = Astro.props;
+import { headerPhoto } from '../lib/photos.mjs';
+interface Props { seed: string; tags?: string[] }
+const { seed, tags = [] } = Astro.props;
 
 // Article header photograph.
 //
-// Source and licence: Unsplash, read 8 November 2026. Commercial use with no
-// permission and no attribution required. Full provenance, including the two
-// things that licence forbids and which we do not do, is in
-// public/img/CREDITS.txt.
+// Source and licence: Unsplash, read 8 November 2026. Commercial use, no
+// permission needed, attribution not required. Full provenance for every file
+// is in public/img/CREDITS.txt.
 //
-// Self-hosted rather than hot-linked, for two reasons: the site's CSP sets
-// img-src to 'self', and loading images from a third party would disclose
-// every reader's IP address to that third party, which the privacy policy
-// says we do not do.
+// Self-hosted rather than hot-linked, for two concrete reasons: the CSP sets
+// img-src to 'self' so hot-linked images would be blocked, and loading them
+// from a third party would disclose every reader's IP to that third party,
+// which the privacy policy says we do not do.
 //
-// The photo is chosen by hashing the slug, so an article keeps the same
-// header for good and adding new articles never reshuffles the existing
-// ones. With eight photographs across fifteen articles some repeat, which is
-// why the set is picked to be tonally consistent rather than attention
-// grabbing.
-// Filenames are approximate labels for what the photograph roughly shows,
-// not descriptions. They are never shown to a reader: the images are
+// Photographs are chosen by SUBJECT, not at random. An article about mastering
+// gets a console, one about voice rights gets a microphone. The pairs exist so
+// that two articles in the same group do not open with the same picture, and
+// the choice inside a pair is a hash of the slug, so an article keeps its
+// photograph permanently and new articles never reshuffle the old ones.
+//
+// Filenames are rough labels, never shown to a reader. The images are
 // decorative and carry an empty alt, so nothing is claimed by them.
-const PHOTOS = [
-  'mixing-desk',
-  'headphones-keys',
-  'studio-console',
-  'daw-screens',
-  'desk-monitors',
-  'production-setup',
-  'mic-headphones',
-  'keys-dark',
-];
-
-function hash(s: string): number {
-  let h = 2166136261;
-  for (let i = 0; i < s.length; i++) {
-    h ^= s.charCodeAt(i);
-    h = Math.imul(h, 16777619);
-  }
-  return h >>> 0;
-}
-const photo = PHOTOS[hash(seed) % PHOTOS.length];
+const photo = headerPhoto(seed, tags);
 const p = (w: number, ext: string) => withBase(`/img/${photo}-${w}.${ext}`);
 ---
 <figure class="banner">

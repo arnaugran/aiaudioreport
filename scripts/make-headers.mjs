@@ -44,6 +44,18 @@ for (const file of files) {
   written.push(name);
 }
 
+// Enumerate everything in the output directory, not just this run's batch.
+// Writing only the files just processed silently truncated the record the
+// first time this was run twice, which is the one thing this file must not do:
+// it is the licence provenance for every image on the site.
+const allImages = [
+  ...new Set(
+    readdirSync(OUT)
+      .filter((f) => f.endsWith('-1600.avif'))
+      .map((f) => f.replace('-1600.avif', ''))
+  ),
+].sort();
+
 writeFileSync(
   `${OUT}/CREDITS.txt`,
   [
@@ -58,7 +70,7 @@ writeFileSync(
     'unaltered, or compiling them to replicate a competing image service.',
     '',
     'Files (cropped to 3:1 and re-encoded, served as AVIF with a WebP fallback):',
-    ...written.map((n) => `  ${n}`),
+    ...allImages.map((n) => `  ${n}`),
     '',
   ].join('\n')
 );

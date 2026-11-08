@@ -260,6 +260,9 @@ img { max-width: 100%; height: auto; }
    the rules and boxes elsewhere all carry meaning. The fixed aspect ratio
    reserves the space so the headline does not jump while the image loads. */
 .banner { margin: .4rem 0 2rem; }
+/* The second image in a long article. More air than the header, because it
+   has to separate two sections rather than sit under a headline. */
+.banner--inline { margin: 2.75rem 0; }
 .banner img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 1;
   object-fit: cover; border-radius: 6px; background: var(--bg-alt); }
 @media print { .banner { display: none; } }
