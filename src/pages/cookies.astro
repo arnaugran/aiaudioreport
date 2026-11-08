@@ -1,7 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { withBase } from '../consts';
+import { ADS_ENABLED, ANALYTICS_CONFIGURED, withBase } from '../consts';
 const updated = '8 November 2026';
+// Every claim below is derived from the build flags rather than typed as
+// prose. An earlier version of this page hard-coded "analytics is not
+// configured yet" and became untrue the day GA4 went live, which is exactly
+// the failure a policy page cannot afford.
 ---
 <BaseLayout
   title="Cookies"
@@ -31,7 +35,7 @@ const updated = '8 November 2026';
     </table>
   </div>
   <p>
-    That is the complete list. No cookies are set by this site unless you opt in below.
+    That is the complete list. No cookies are set by this site unless you opt in.
   </p>
 
   <h2>Set only if you press Accept</h2>
@@ -47,29 +51,68 @@ const updated = '8 November 2026';
           <td>Distinguishes visitors so we can count how many people read a page and which pages are worth expanding.</td>
           <td>Up to 2 years (Google's default)</td>
         </tr>
+        {ADS_ENABLED && (
+          <tr>
+            <td><code>__gads</code>, <code>__gpi</code> and related</td>
+            <td>Google AdSense</td>
+            <td>Serves and measures advertising, and limits how often you see the same ad.</td>
+            <td>Up to 13 months (Google's default)</td>
+          </tr>
+        )}
       </tbody>
     </table>
   </div>
-  <p>
-    These are not set at the moment: analytics has not been configured yet, so Accept
-    currently results in nothing being loaded. When it is configured, the script is fetched
-    only after an explicit Accept, with IP anonymisation on and all advertising-related
-    storage denied.
-  </p>
+  {ANALYTICS_CONFIGURED ? (
+    <p>
+      Analytics is live. The script is fetched only after an explicit Accept, with IP
+      anonymisation on and advertising storage, ad personalisation and ad user data all
+      explicitly denied. Press Reject, or ignore the banner, and it is never requested.
+    </p>
+  ) : (
+    <p>
+      Analytics is not configured at the moment, so pressing Accept currently results in
+      nothing being loaded.
+    </p>
+  )}
 
   <h2>Changing your mind</h2>
   <p>
     “Cookie settings” in the footer of every page brings the banner back. Choosing Reject
-    stops the analytics script from ever being requested; to remove cookies already set, clear
-    site data in your browser.
+    stops the scripts from ever being requested; to remove cookies already set, clear site
+    data in your browser.
   </p>
 
-  <h2>If we ever add advertising</h2>
+  <h2>Advertising</h2>
+  {ADS_ENABLED ? (
+    <p>
+      This site carries advertising supplied by Google AdSense. Ad units are labelled
+      “Advertisement” so you can tell them from the writing. Nothing from Google's ad network
+      is requested until you press Accept, and choosing Reject means no ad script is fetched
+      and no advertising cookie is set.
+    </p>
+  ) : (
+    <p>
+      <strong>No advertising runs on this site today.</strong> No ad script is requested, no
+      ad slot is rendered, and no advertising cookie can be set, whichever button you press.
+    </p>
+  )}
   <p>
-    We do not run ads and have none planned in the near term. Should that change, personalised
-    advertising would require a full IAB TCF-compliant consent platform rather than this
-    simple banner, and this page and the
-    <a href={withBase('/privacy/')}>privacy policy</a> would be rewritten first, with the
-    change described rather than quietly made.
+    For transparency about what is coming: we have applied to Google AdSense and the
+    application is under review. If it is approved, two labelled ad slots would appear on
+    article pages, both below the article text rather than inside it.
+  </p>
+  <p>
+    One thing worth stating plainly, because it constrains what we can do. Since 16 January
+    2024 Google has required a certified consent platform integrated with the IAB
+    Transparency and Consent Framework in order to serve <em>personalised</em> advertising to
+    visitors in the EEA and the UK. The banner on this site is our own and is not certified,
+    so until a certified platform is in place this site would be limited to non-personalised
+    or limited ads. We would rather tell you that than imply a level of compliance we have
+    not reached.
+  </p>
+  <p>
+    Whatever happens, the rule does not change: nothing loads before you choose, and this
+    page is updated before the behaviour changes rather than afterwards. The
+    <a href={withBase('/privacy/')}>privacy policy</a> covers the rest.
   </p>
 </BaseLayout>

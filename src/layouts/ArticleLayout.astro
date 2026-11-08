@@ -5,7 +5,8 @@ import NotLegalAdvice from '../components/NotLegalAdvice.astro';
 import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
 import Toc from '../components/Toc.astro';
 import Related from '../components/Related.astro';
-import { SITE_NAME, AFFILIATES_ENABLED, withBase } from '../consts';
+import AdSlot from '../components/AdSlot.astro';
+import { SITE_NAME, AFFILIATES_ENABLED, AD_SLOTS, withBase } from '../consts';
 
 const { entry, headings = [], all = [] } = Astro.props;
 const d = entry.data;
@@ -79,6 +80,8 @@ const schema = { '@context': 'https://schema.org', '@graph': graph };
 
     <slot />
 
+    <AdSlot slot={AD_SLOTS.articleEnd} />
+
     {d.faq?.length > 0 && (
       <section>
         <h2 id="faq">Questions people actually ask</h2>
@@ -109,5 +112,7 @@ const schema = { '@context': 'https://schema.org', '@graph': graph };
     </p>
 
     <Related current={entry} all={all} />
+
+    <AdSlot slot={AD_SLOTS.articleFooter} />
   </article>
 </BaseLayout>

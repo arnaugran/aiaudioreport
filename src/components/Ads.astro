@@ -1,0 +1,45 @@
+---
+import { ADS_ENABLED, ADSENSE_CLIENT } from '../consts';
+// Loads the AdSense script, and only ever after the visitor has consented.
+//
+// This deliberately mirrors Analytics.astro, including the lesson learned
+// there: the consent gate dispatches its event synchronously while its own
+// inline script runs, so a listener registered later would miss it. This reads
+// the stored decision itself as well as listening, so it does not depend on
+// the order components appear in the layout.
+//
+// Note for whoever switches ads on: Google requires a certified IAB TCF CMP to
+// serve personalised ads in the EEA and UK. This gate satisfies prior consent,
+// but it is not a certified CMP and does not make the site eligible for
+// personalised ads on its own. See the comment on ADS_ENABLED in consts.ts.
+---
+{ADS_ENABLED && ADSENSE_CLIENT && (
+  <script is:inline define:vars={{ ADSENSE_CLIENT }}>
+    (function () {
+      var KEY = 'fr-consent-v1';
+
+      function load() {
+        if (window.__adsLoaded) return;
+        window.__adsLoaded = true;
+        var units = document.querySelectorAll('ins.adsbygoogle');
+        if (!units.length) return;
+        var s = document.createElement('script');
+        s.async = true;
+        s.crossOrigin = 'anonymous';
+        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + ADSENSE_CLIENT;
+        s.onload = function () {
+          for (var i = 0; i < units.length; i++) {
+            try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+          }
+        };
+        document.head.appendChild(s);
+      }
+
+      document.addEventListener('fr:consent-granted', load);
+
+      var stored = null;
+      try { stored = localStorage.getItem(KEY); } catch (e) {}
+      if (stored === 'granted') load();
+    })();
+  </script>
+)}

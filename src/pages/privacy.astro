@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { CONTACT_EMAIL, withBase } from '../consts';
+import { CONTACT_EMAIL, ADS_ENABLED, ANALYTICS_CONFIGURED, withBase } from '../consts';
 const updated = '8 November 2026';
 ---
 <BaseLayout
@@ -13,9 +13,10 @@ const updated = '8 November 2026';
   <aside class="note">
     <strong>Short version</strong>
     <p>
-      We set no cookies unless you say yes. There are no accounts, no mailing list, no
-      advertising and no trackers. We sell nothing to anybody. Our hosting provider sees your
-      IP address, because that is how the web works.
+      We set no cookies unless you say yes. There are no accounts, no mailing list and no
+      trackers{ADS_ENABLED ? ', and advertising loads only after you consent' : ' or advertising'}.
+      We sell nothing to anybody. Our hosting provider sees your IP address, because that is
+      how the web works.
     </p>
   </aside>
 
@@ -53,8 +54,8 @@ const updated = '8 November 2026';
   <p>
     Press Reject, or ignore the banner, and no analytics script is ever fetched. Nothing is
     loaded before you choose: this is a genuine prior-consent gate, not a banner that tracks
-    you while it asks. At the time of writing, analytics is not yet configured at all, so
-    even Accept currently loads nothing.
+    you while it asks.
+    {!ANALYTICS_CONFIGURED && ' Analytics is not configured at the moment, so even Accept currently loads nothing.'}
   </p>
   <p>
     The only thing stored in your browser by us is a single <code>localStorage</code> entry
@@ -73,10 +74,38 @@ const updated = '8 November 2026';
   <h2>What we never do</h2>
   <ul>
     <li>Sell, rent or trade personal data. There is no scenario in which this changes.</li>
-    <li>Run advertising cookies, retargeting pixels, fingerprinting or session recording.</li>
+    <li>
+      {ADS_ENABLED
+        ? 'Run retargeting pixels, fingerprinting or session recording. Advertising is served by Google AdSense and only after you consent.'
+        : 'Run advertising cookies, retargeting pixels, fingerprinting or session recording.'}
+    </li>
     <li>Load third-party fonts, embeds or widgets that would disclose your IP to someone else.</li>
     <li>Use dark patterns to extract consent. Reject is as easy to press as Accept.</li>
   </ul>
+
+  <h3>Advertising</h3>
+  {ADS_ENABLED ? (
+    <p>
+      This site carries advertising from Google AdSense. The ad script is requested only
+      after you press Accept, and Google may then set its own cookies to serve and measure
+      ads and to cap repetition. Google acts as an independent controller for that
+      processing. Reject means the script is never fetched.
+    </p>
+  ) : (
+    <p>
+      No advertising runs on this site today, and no ad script or advertising cookie is
+      requested whichever button you press. An application to Google AdSense is under
+      review. If advertising is ever switched on, this policy and the
+      <a href={withBase('/cookies/')}> cookies page</a> are updated before the change, not
+      after it.
+    </p>
+  )}
+  <p>
+    Separately, note that serving personalised advertising to visitors in the EEA and the UK
+    requires a certified consent platform integrated with the IAB Transparency and Consent
+    Framework. The banner used here is our own and is not certified, which limits what could
+    be served even if advertising were enabled.
+  </p>
 
   <h2>Your rights</h2>
   <p>

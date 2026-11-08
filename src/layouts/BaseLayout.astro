@@ -4,7 +4,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import Analytics from '../components/Analytics.astro';
-import { SITE_NAME, SITE_DESCRIPTION, withBase } from '../consts';
+import Ads from '../components/Ads.astro';
+import { SITE_NAME, SITE_DESCRIPTION, ADS_ENABLED, withBase } from '../consts';
 
 interface Props {
   title: string;
@@ -40,22 +41,33 @@ const ogImage = new URL(withBase('/og-default.png'), Astro.site).href;
       has no auth and embeds no third-party content, so the residual risk is
       small, but it is a real trade-off rather than an oversight.
     */}
+    {/*
+      Ad hosts are added ONLY when ADS_ENABLED is true, so the policy stays
+      tight while the site runs no advertising. frame-src matters most here:
+      AdSense renders every unit inside an iframe, so leaving it at 'none'
+      would block ads completely while looking correctly configured.
+    */}
     <meta http-equiv="Content-Security-Policy" content={[
       "default-src 'self'",
       "base-uri 'self'",
       "object-src 'none'",
       "form-action 'none'",
-      "frame-src 'none'",
-      "script-src 'self' 'unsafe-inline' https://*.googletagmanager.com",
+      ADS_ENABLED
+        ? "frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://*.safeframe.googlesyndication.com"
+        : "frame-src 'none'",
+      "script-src 'self' 'unsafe-inline' https://*.googletagmanager.com"
+        + (ADS_ENABLED ? " https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.doubleclick.net" : ""),
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com",
+      "img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com"
+        + (ADS_ENABLED ? " https://*.googlesyndication.com https://*.doubleclick.net https://*.gstatic.com" : ""),
       "font-src 'self'",
       // Analytics hits go to a REGIONAL host, region1.google-analytics.com for
       // European visitors, so the wildcard is required and not laziness. An
       // exact www host silently dropped every EU pageview. The apex
       // analytics.google.com is listed separately because *.analytics.google.com
       // does not match a bare domain with no subdomain label.
-      "connect-src 'self' https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://*.googletagmanager.com",
+      "connect-src 'self' https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://*.googletagmanager.com"
+        + (ADS_ENABLED ? " https://*.googlesyndication.com https://*.doubleclick.net" : ""),
       "manifest-src 'self'",
       "upgrade-insecure-requests",
     ].join('; ')} />
@@ -94,5 +106,6 @@ const ogImage = new URL(withBase('/og-default.png'), Astro.site).href;
     <Footer />
     <CookieConsent />
     <Analytics />
+    <Ads />
   </body>
 </html>

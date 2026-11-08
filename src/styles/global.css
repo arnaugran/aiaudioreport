@@ -204,6 +204,18 @@ img { max-width: 100%; height: auto; }
    Article furniture: things that break up a wall of text.
    ========================================================== */
 
+/* Advertising slot. Labelled, set apart by rules rather than a box, and given
+   a minimum height so a loading ad does not shove the article down the page.
+   Nothing renders at all while ADS_ENABLED is false, so this costs a reader
+   nothing today. The label is required reading-wise and by most ad policies:
+   an ad has to be distinguishable from editorial content. */
+.adslot { margin: 2.5rem 0; padding: .9rem 0; border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line); min-height: 110px; }
+.adslot-label { display: block; margin-bottom: .5rem; font-size: .75rem;
+  letter-spacing: .02em; color: var(--ink-3); }
+.adslot .adsbygoogle { display: block; width: 100%; }
+@media print { .adslot { display: none; } }
+
 /* A commercial-relationship or conflict-of-interest disclosure. Uses the
    catch colour deliberately and never the good one: this is a caution aimed
    at the reader, and on this site green carries the opposite meaning. */
