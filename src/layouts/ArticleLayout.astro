@@ -5,7 +5,7 @@ import NotLegalAdvice from '../components/NotLegalAdvice.astro';
 import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
 import Toc from '../components/Toc.astro';
 import Related from '../components/Related.astro';
-import { SITE_NAME, withBase } from '../consts';
+import { SITE_NAME, AFFILIATES_ENABLED, withBase } from '../consts';
 
 const { entry, headings = [], all = [] } = Astro.props;
 const d = entry.data;
@@ -55,7 +55,6 @@ const schema = { '@context': 'https://schema.org', '@graph': graph };
 <BaseLayout title={d.title} description={d.description} schema={schema}>
   <article>
     <div class="page-head">
-      {d.tags.length > 0 && <p class="eyebrow">{d.tags.join(' / ')}</p>}
       <h1>{d.title}</h1>
       <p class="lede">{d.description}</p>
       <p class="meta">
@@ -64,11 +63,18 @@ const schema = { '@context': 'https://schema.org', '@graph': graph };
         {d.updatedDate && <span>Updated {fmt(d.updatedDate)}</span>}
         {d.reviewedBy && <span>Reviewed by {d.reviewedBy}</span>}
       </p>
+      <p class="provenance">
+        {AFFILIATES_ENABLED
+          ? 'Some links on this page are affiliate links and may earn us a commission. '
+          : 'No affiliate links on this page, and nothing here earns us anything. '}
+        {d.pricesCheckedOn
+          ? `Prices were checked on ${fmt(d.pricesCheckedOn)} against the sources listed at the end. `
+          : 'Every figure comes from the sources listed at the end. '}
+        <a href="#how-we-know">How we know this</a>.
+      </p>
     </div>
 
     {d.notLegalAdvice && <NotLegalAdvice />}
-    <MethodologyNote basis={d.basis} pricesCheckedOn={d.pricesCheckedOn} />
-    <AffiliateDisclosure />
     <Toc headings={headings} />
 
     <slot />
@@ -85,7 +91,11 @@ const schema = { '@context': 'https://schema.org', '@graph': graph };
       </section>
     )}
 
-    <hr />
+    <section class="endmatter" id="how-we-know">
+      <MethodologyNote basis={d.basis} pricesCheckedOn={d.pricesCheckedOn} />
+      <AffiliateDisclosure />
+    </section>
+
     <h2 id="sources">Sources</h2>
     <p class="meta" style="margin-bottom:1rem">Each of these was opened and read on the date shown.</p>
     <ol class="sources">

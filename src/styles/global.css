@@ -5,35 +5,55 @@
    System fonts only: no third-party requests.
    ========================================================== */
 :root {
-  --bg:        #ffffff;
-  --bg-alt:    #f7f8fa;
-  --ink:       #15171a;
-  --ink-2:     #4a4f57;
-  --ink-3:     #767d87;
-  --line:      #e3e6ea;
-  --line-2:    #c8cdd4;
-  --accent:    #1550c4;
-  --accent-bg: #eef3fd;
-  --note-bg:   #f7f8fa;
+  /* Surfaces. A cool off-white, not paper-cream: this is a measurement
+     publication, not a magazine. */
+  --bg:        #fcfcfd;
+  --bg-alt:    #f4f5f7;
+  --ink:       #14171b;
+  --ink-2:     #474c54;
+  --ink-3:     #737a84;
+  --line:      #e2e5e9;
+  --line-2:    #c3c8cf;
+
+  /* Colour carries meaning here and nowhere else.
+     --good  = the thing that is actually worth buying, or a confirmed fact.
+     --catch = the restriction, the limit, the "unlimited" that isn't.
+     Neither is ever used for decoration. */
+  --good:      #1a6b42;
+  --good-bg:   #eaf3ee;
+  --catch:     #8f4a12;
+  --catch-bg:  #f7efe7;
+
+  --accent:    #0e5a62;   /* links only */
+  --accent-bg: #e8f1f2;
+  --note-bg:   #f4f5f7;
 
   --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  --content: 44rem;
+  /* 40rem at 18px body lands the measure near 66 characters. */
+  --content: 40rem;
   --pad: 24px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg:        #15171a;
-    --bg-alt:    #1c1f24;
-    --ink:       #eceef1;
-    --ink-2:     #b2b8c0;
-    --ink-3:     #878e98;
-    --line:      #2a2e35;
-    --line-2:    #3d434c;
-    --accent:    #7fa8f5;
-    --accent-bg: #192234;
-    --note-bg:   #1c1f24;
+    /* Re-stepped against a dark surface, not an inversion of the light set. */
+    --bg:        #16181c;
+    --bg-alt:    #1d2026;
+    --ink:       #e9ebee;
+    --ink-2:     #aeb4bd;
+    --ink-3:     #848b95;
+    --line:      #2b2f36;
+    --line-2:    #3f454e;
+
+    --good:      #5cc08a;
+    --good-bg:   #16281f;
+    --catch:     #d99a5b;
+    --catch-bg:  #2a2017;
+
+    --accent:    #5fb9c4;
+    --accent-bg: #15262a;
+    --note-bg:   #1d2026;
   }
 }
 
@@ -44,8 +64,8 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font);
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  font-size: 1.125rem;
+  line-height: 1.62;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -58,10 +78,10 @@ a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
 
 h1, h2, h3 { font-weight: 700; line-height: 1.25; letter-spacing: -0.016em; text-wrap: balance; }
-h1 { font-size: 2rem; margin: 0 0 .75rem; letter-spacing: -0.024em; }
-h2 { font-size: 1.3rem; margin: 2.75rem 0 .75rem; }
-h3 { font-size: 1.125rem; margin: 2.1rem 0 .55rem; letter-spacing: -0.01em; }
-@media (min-width: 40rem) { h1 { font-size: 2.4rem; } h2 { font-size: 1.45rem; } }
+h1 { font-size: 2.05rem; margin: 0 0 .85rem; letter-spacing: -0.026em; }
+h2 { font-size: 1.4rem; margin: 3rem 0 .8rem; }
+h3 { font-size: 1.15rem; margin: 2.2rem 0 .5rem; letter-spacing: -0.008em; font-weight: 650; }
+@media (min-width: 40rem) { h1 { font-size: 2.55rem; } h2 { font-size: 1.55rem; } }
 
 p, ul, ol { margin: 0 0 1.15rem; }
 li { margin-bottom: .45rem; }
@@ -83,11 +103,16 @@ strong { font-weight: 650; }
 .nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
 
 /* ---------- shared bits ---------- */
-.eyebrow { font-size: .78rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
-  color: var(--ink-3); margin: 0 0 .6rem; }
 .meta { font-size: .875rem; color: var(--ink-3); margin: 0; }
-.meta span + span::before { content: "·"; padding: 0 .45rem; color: var(--line-2); }
-.lede { font-size: 1.1875rem; line-height: 1.55; color: var(--ink-2); margin: 0 0 1.5rem; }
+.meta span + span { margin-left: 1.1rem; }
+.lede { font-size: 1.25rem; line-height: 1.5; color: var(--ink-2); margin: 0 0 1.6rem;
+  letter-spacing: -0.004em; }
+
+/* Provenance: one quiet sentence under the byline, not a stack of cards. */
+.provenance { font-size: .875rem; line-height: 1.6; color: var(--ink-3);
+  margin: 1.1rem 0 0; padding-top: .9rem; border-top: 1px solid var(--line); }
+.provenance a { color: var(--ink-3); }
+.provenance a:hover { color: var(--accent); }
 
 /* ---------- article ---------- */
 .page-head { padding-top: 2.75rem; margin-bottom: 1.75rem; }
@@ -105,12 +130,17 @@ code { font-family: var(--mono); font-size: .875em; background: var(--bg-alt);
   border: 1px solid var(--line); padding: .05em .3em; border-radius: 3px; }
 
 /* ---------- notes ---------- */
-.note { background: var(--note-bg); border: 1px solid var(--line); border-radius: 6px;
-  padding: 1rem 1.15rem; margin: 1.5rem 0; font-size: .9375rem; line-height: 1.6; }
-.note--method { background: var(--accent-bg); border-color: color-mix(in srgb, var(--accent) 22%, transparent); }
-.note p { margin: 0; } .note p + p { margin-top: .7rem; }
-.note > strong:first-child { display: block; margin-bottom: .4rem; font-size: .75rem;
-  font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); }
+.note { margin: 1.5rem 0; font-size: .9375rem; line-height: 1.65; color: var(--ink-2); }
+.note p { margin: 0; } .note p + p { margin-top: .6rem; }
+.note > strong:first-child { display: block; margin-bottom: .3rem; font-weight: 650;
+  color: var(--ink); font-size: 1rem; letter-spacing: -0.006em; }
+
+/* The endmatter block: methodology, disclosure and the correction offer.
+   Set apart by a rule and a quieter colour, not by a box. */
+.endmatter { margin-top: 3rem; padding-top: 1.6rem; border-top: 2px solid var(--ink);
+  display: grid; gap: 1.6rem; }
+@media (min-width: 46rem) { .endmatter { grid-template-columns: 1fr 1fr; } }
+.endmatter .note { margin: 0; }
 
 /* ---------- tables ---------- */
 .tablewrap { overflow-x: auto; margin: 1.75rem 0; border: 1px solid var(--line);
@@ -134,7 +164,7 @@ tbody tr:last-child td { border-bottom: 0; }
 .section-head { display: flex; align-items: baseline; justify-content: space-between;
   gap: 1rem; margin: 2.75rem 0 .25rem; padding-bottom: .5rem;
   border-bottom: 2px solid var(--ink); }
-.section-head h2 { margin: 0; font-size: 1rem; letter-spacing: .02em; text-transform: uppercase; }
+.section-head h2 { margin: 0; font-size: 1rem; font-weight: 650; letter-spacing: -0.004em; color: var(--ink-2); }
 
 /* ---------- sources ---------- */
 .sources { font-size: .9375rem; }
@@ -170,12 +200,13 @@ img { max-width: 100%; height: auto; }
    ========================================================== */
 
 /* key takeaways, sits near the top of a long piece */
-.takeaways { border: 1px solid var(--line); border-left: 3px solid var(--accent);
-  background: var(--bg-alt); border-radius: 6px; padding: 1.1rem 1.25rem; margin: 1.75rem 0; }
-.takeaways h2 { margin: 0 0 .6rem; font-size: .75rem; font-weight: 700; letter-spacing: .05em;
-  text-transform: uppercase; color: var(--ink-3); }
-.takeaways ul { margin: 0; padding-left: 1.15rem; font-size: .9688rem; }
-.takeaways li { margin-bottom: .4rem; }
+.takeaways { margin: 2rem 0 2.25rem; padding: 0 0 0 1.1rem;
+  border-left: 3px solid var(--good); }
+.takeaways h2 { margin: 0 0 .55rem; font-size: 1.05rem; font-weight: 650; color: var(--ink);
+  letter-spacing: -0.008em; text-transform: none; }
+.takeaways ul { margin: 0; padding-left: 1.1rem; font-size: 1.0625rem; line-height: 1.55; }
+.takeaways li { margin-bottom: .5rem; }
+.takeaways li::marker { color: var(--line-2); }
 .takeaways li:last-child { margin-bottom: 0; }
 
 /* stat tiles: a single headline number needs no chart */
@@ -214,18 +245,18 @@ img { max-width: 100%; height: auto; }
   letter-spacing: -0.012em; }
 
 /* table of contents */
-.toc { border: 1px solid var(--line); border-radius: 6px; padding: .9rem 1.1rem;
-  margin: 1.75rem 0; background: var(--bg-alt); font-size: .9063rem; }
-.toc h2 { margin: 0 0 .5rem; font-size: .75rem; font-weight: 700; letter-spacing: .05em;
-  text-transform: uppercase; color: var(--ink-3); }
+.toc { margin: 2rem 0 2.5rem; font-size: .9375rem; }
+.toc h2 { margin: 0 0 .4rem; font-size: .9375rem; font-weight: 650; color: var(--ink-3);
+  letter-spacing: 0; text-transform: none; }
 .toc ol { margin: 0; padding-left: 1.15rem; }
-.toc li { margin-bottom: .3rem; }
+.toc li { margin-bottom: .22rem; }
+.toc li::marker { color: var(--line-2); font-variant-numeric: tabular-nums; }
 .toc a { color: var(--ink-2); text-decoration: none; }
 .toc a:hover { color: var(--accent); text-decoration: underline; }
 
 /* related reading */
 .related { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 2px solid var(--ink); }
-.related h2 { margin: 0 0 .9rem; font-size: 1rem; text-transform: uppercase; letter-spacing: .02em; }
+.related h2 { margin: 0 0 .9rem; font-size: 1rem; font-weight: 650; letter-spacing: -0.004em; color: var(--ink-2); }
 .related ul { list-style: none; padding: 0; margin: 0; }
 .related li { padding: .75rem 0; border-bottom: 1px solid var(--line); }
 .related li:last-child { border-bottom: 0; }
@@ -262,3 +293,32 @@ article h2[id] { scroll-margin-top: 1.5rem; }
   .calc-row { flex-direction: column; align-items: stretch; gap: .3rem; }
   .calc-row input { width: 100%; text-align: left; }
 }
+
+
+/* ----------------------------------------------------------
+   Verdict colour. The only colour in the body text, and it
+   always means something: good = worth the money / confirmed,
+   catch = the restriction the vendor buries.
+   ---------------------------------------------------------- */
+.good, .catch { font-weight: 650; }
+.good  { color: var(--good); }
+.catch { color: var(--catch); }
+
+/* A verdict line: the single finding the piece exists to deliver. */
+.verdict { margin: 2rem 0; padding: 1rem 0 1rem 1.1rem;
+  border-left: 3px solid var(--catch); font-size: 1.0625rem; line-height: 1.55;
+  color: var(--ink); }
+.verdict p { margin: 0; }
+.verdict p + p { margin-top: .6rem; }
+.verdict--good { border-left-color: var(--good); }
+
+/* Evidence screenshots: these are receipts, so they are framed and dated. */
+.shot { margin: 2rem 0; }
+.shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line-2);
+  border-radius: 4px; background: #fff; }
+.shot figcaption { margin-top: .6rem; font-size: .8438rem; line-height: 1.5;
+  color: var(--ink-3); }
+.shot figcaption b { color: var(--ink-2); font-weight: 650; }
+
+/* Tables earn their containment; nothing else does. */
+td .good, td .catch { font-weight: 650; }
