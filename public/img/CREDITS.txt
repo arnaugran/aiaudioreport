@@ -1,0 +1,19 @@
+Article header photographs.
+
+Source: Unsplash (https://unsplash.com). Downloaded 8 November 2026.
+Licence: https://unsplash.com/license
+  "All images can be downloaded and used for free"
+  Commercial and non-commercial purposes, no permission needed,
+  attribution not required.
+Not permitted by that licence, and not done here: selling the images
+unaltered, or compiling them to replicate a competing image service.
+
+Files (cropped to 3:1 and re-encoded, served as AVIF with a WebP fallback):
+  daw-screens
+  desk-monitors
+  headphones-keys
+  keys-dark
+  mic-headphones
+  mixing-desk
+  production-setup
+  studio-console

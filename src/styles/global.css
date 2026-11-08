@@ -241,18 +241,12 @@ img { max-width: 100%; height: auto; }
 .pick p { margin: 0; color: var(--ink-2); }
 .group-blurb { margin: .55rem 0 .2rem; }
 
-/* Generated article header mark. Deliberately NOT boxed: a filled bordered
-   box means "data object" here, and this is ornament. Sits on the page
-   background with a hairline under it so it reads as a masthead rule rather
-   than as a chart. */
-.banner { margin: .25rem 0 2rem; padding-bottom: .9rem;
-  border-bottom: 1px solid var(--line); }
-.banner svg { display: block; width: 100%; height: 56px; }
-.banner .bar-base { fill: var(--line-2); }
-.banner .bar-mid { fill: var(--ink-3); }
-.banner .bar-accent { fill: var(--accent); }
-@media (max-width: 34rem) { .banner svg { height: 40px; } }
-@media (prefers-reduced-motion: no-preference) { .banner svg { transition: none; } }
+/* Article header photograph. No border or caption: it is illustration, and
+   the rules and boxes elsewhere all carry meaning. The fixed aspect ratio
+   reserves the space so the headline does not jump while the image loads. */
+.banner { margin: .4rem 0 2rem; }
+.banner img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 1;
+  object-fit: cover; border-radius: 6px; background: var(--bg-alt); }
 @media print { .banner { display: none; } }
 
 /* Newsletter sign-up. Framed by rules rather than a filled card, for the same
