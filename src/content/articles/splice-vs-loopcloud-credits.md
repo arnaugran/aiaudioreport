@@ -48,7 +48,7 @@ If you make music in bursts, that one line decides this for you.
 - Splice wipes unspent credits 28 days after cancellation. Pausing, up to two months, is safe.
 - One Loopcloud point is not one sample. A loop usually costs two.
 - Both let you keep and re-download sounds you already took.
-- Loopcloud's annual plans are exactly two months free. Splice advertises a yearly saving we could not verify.
+- Both charge ten months' money for a year. Splice's "SAVE 50%" badge is a first-year promo, not the standing annual rate.
 
 </div>
 
@@ -107,30 +107,46 @@ rate, so read each block on its own.
 
 <div class="tablewrap">
 
-| Splice | Monthly | Downloads |
-| --- | --- | --- |
-| Sounds | $12.99/mo | ~100/mo |
-| Creator | $19.99/mo (first month $4.99 on the current trial offer) | ~200/mo |
+| Splice | Monthly | Yearly | Downloads |
+| --- | --- | --- | --- |
+| Sounds | $12.99/mo | $10.84/mo billed yearly | ~100/mo |
+| Creator | $19.99/mo | $16.67/mo billed yearly | ~200/mo |
 
 </div>
 
-Two notes on the Splice table. Its plans page offered a Yearly toggle advertising "SAVE 50%",
-but the yearly figures would not load for us, so we are not quoting them. And its support FAQ
-lists three tiers, Sounds+, Creator and Creator+ at 100, 200 and 500 credits, while the live
-plans page shows two. We are reporting the live page and flagging the mismatch rather than
-blending them.
+Splice also runs promotional first-period pricing: $4.99 for a first month on Creator monthly,
+or $10.00/mo for a first year on Creator yearly.
 
-### Loopcloud's annual plans are exactly two months free
+One mismatch worth flagging. Splice's support FAQ lists three tiers, Sounds+, Creator and
+Creator+ at 100, 200 and 500 credits, while the live plans page shows two. We are reporting
+the live page and noting the discrepancy rather than blending them.
+
+### "Save 50%" is the promo, not the annual rate
+
+The Yearly toggle on Splice's plans page carries a "SAVE 50%" badge. That 50% is the
+first-year promotional rate, $10.00 against the $19.99 monthly list. The standing yearly
+price is $16.67/mo, which is a saving of about 16.6%.
+
+Which, once you do the arithmetic, is the same deal Loopcloud offers.
+
+### Both of them charge ten months for twelve
 
 Worth checking rather than assuming, because [we found the opposite at
 LALAL.AI](/articles/ai-stem-separation-costs/), where the annual price is exactly twelve times
-the monthly one.
+the monthly one and the discount is zero.
 
-Here the discount is real and consistent. Artist is €119.40 billed monthly against €99.50
-annually. Studio is €179.40 against €149.50. Professional is €275.40 against €229.50. Every
-one of those gaps is precisely two months of the monthly price. The annual point allowance is
-also exactly twelve times the monthly one, so you are buying the same thing for ten months'
-money.
+Loopcloud: Artist is €119.40 billed monthly against €99.50 annually. Studio is €179.40
+against €149.50. Professional is €275.40 against €229.50. Every gap is precisely two months of
+the monthly price, and the annual point allowance is exactly twelve times the monthly one, so
+you get the same thing for ten months' money.
+
+Splice: Sounds is $155.88 billed monthly against $130.08 yearly. Creator is $239.88 against
+$200.04. Both work out at a hair under two months saved.
+
+Two companies, different currencies, different units, same underlying offer. If you are
+confident you will use the service for a year, take the annual on either. If you are not,
+read the next section first, because that confidence is exactly what the cancellation terms
+test.
 
 ### Cost per sound, within each currency
 
@@ -142,8 +158,10 @@ money.
 | Loopcloud Studio, monthly | €0.0498 | €0.0997 |
 | Loopcloud Professional, monthly | €0.0383 | €0.0765 |
 | Loopcloud Professional, annual | €0.0319 | €0.0638 |
-| Splice Sounds | $0.130 | $0.130 |
-| Splice Creator | $0.100 | $0.100 |
+| Splice Sounds, monthly | $0.130 | $0.130 |
+| Splice Sounds, yearly | $0.108 | $0.108 |
+| Splice Creator, monthly | $0.100 | $0.100 |
+| Splice Creator, yearly | $0.083 | $0.083 |
 
 </div>
 
