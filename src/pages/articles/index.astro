@@ -65,6 +65,18 @@ const picks = all.map((a) => ({
     </p>
   </div>
 
+  <form class="search" role="search" id="search" onsubmit="return false">
+    <label class="search-label" for="q">Search articles</label>
+    <input id="q" type="search" autocomplete="off" spellcheck="false"
+           placeholder="Search prices, tools, licence terms&hellip;" />
+    <p class="search-status meta" id="search-status" role="status" aria-live="polite"></p>
+  </form>
+
+  <div id="results" hidden>
+    <ul class="list" id="results-list"></ul>
+  </div>
+
+  <div id="browse">
   <div class="section-head">
     <h2>Today's pick</h2>
     <span class="meta">Rotates daily</span>
@@ -111,6 +123,8 @@ const picks = all.map((a) => ({
     </>
   )}
 
+  </div>
+
   {lastChecked && (
     <p class="meta" style="margin-top:2.5rem">
       The most recent price check on this site was {fmt(lastChecked)}. Anything older than
@@ -118,6 +132,110 @@ const picks = all.map((a) => ({
       otherwise.
     </p>
   )}
+
+  <script is:inline>
+    // Search runs entirely in the browser. The index is fetched on the first
+    // keystroke rather than on page load, so a reader who never searches pays
+    // nothing for it, and nothing anyone types is ever sent anywhere.
+    (function () {
+      var input = document.getElementById('q');
+      var results = document.getElementById('results');
+      var list = document.getElementById('results-list');
+      var browse = document.getElementById('browse');
+      var status = document.getElementById('search-status');
+      if (!input || !results || !list || !browse) return;
+
+      var docs = null, loading = null;
+
+      function load() {
+        if (docs) return Promise.resolve(docs);
+        if (!loading) {
+          loading = fetch('/search-index.json')
+            .then(function (r) { return r.json(); })
+            .then(function (d) { docs = d; return d; })
+            .catch(function () { docs = []; return []; });
+        }
+        return loading;
+      }
+
+      function tokens(s) {
+        return (s.toLowerCase().match(/[a-z0-9][a-z0-9+.\-]*/g) || []).filter(Boolean);
+      }
+
+      // Field weights: a hit in the headline means more than a hit in the
+      // body. Prefix matching so "splic" finds "Splice" and "master" finds
+      // "mastering", which is what people actually type.
+      function scoreDoc(doc, qs) {
+        var fields = [
+          [doc.t, 6], [doc.h, 3], [(doc.g || []).join(' '), 3],
+          [doc.d, 2], [doc.b, 1]
+        ];
+        var total = 0;
+        for (var i = 0; i < qs.length; i++) {
+          var q = qs[i], best = 0;
+          for (var f = 0; f < fields.length; f++) {
+            var words = tokens(fields[f][0] || '');
+            for (var w = 0; w < words.length; w++) {
+              if (words[w] === q) { best = Math.max(best, fields[f][1] * 2); break; }
+              if (words[w].indexOf(q) === 0) best = Math.max(best, fields[f][1]);
+            }
+          }
+          // Every word typed has to land somewhere, otherwise searching for
+          // two things returns articles about one of them.
+          if (best === 0) return 0;
+          total += best;
+        }
+        return total;
+      }
+
+      function esc(s) {
+        return String(s).replace(/[&<>"]/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+        });
+      }
+
+      function render(hits, q) {
+        list.innerHTML = hits.map(function (h) {
+          return '<li><h3><a href="/articles/' + esc(h.s) + '/">' + esc(h.t) + '</a></h3>' +
+                 '<p>' + esc(h.d) + '</p>' +
+                 (h.p ? '<p class="meta"><span>Prices checked ' + esc(h.p) + '</span></p>' : '') +
+                 '</li>';
+        }).join('');
+        status.textContent = hits.length
+          ? hits.length + (hits.length === 1 ? ' article matches ' : ' articles match ') + '\u201c' + q + '\u201d'
+          : 'Nothing matches \u201c' + q + '\u201d. Try a product name, a price or a licence term.';
+      }
+
+      function run() {
+        var q = input.value.trim();
+        if (!q) {
+          results.hidden = true; browse.hidden = false; status.textContent = '';
+          return;
+        }
+        // On the very first keystroke the index is still downloading. Without
+        // this the page shows an empty result area and looks broken.
+        if (!docs) { browse.hidden = true; results.hidden = false; list.innerHTML = '';
+                     status.textContent = 'Searching\u2026'; }
+        load().then(function (d) {
+          if (input.value.trim() !== q) return;
+          var qs = tokens(q);
+          var hits = d.map(function (doc) { return { doc: doc, score: scoreDoc(doc, qs) }; })
+            .filter(function (x) { return x.score > 0; })
+            .sort(function (a, b) { return b.score - a.score; })
+            .map(function (x) { return x.doc; });
+          browse.hidden = true; results.hidden = false;
+          render(hits, q);
+        });
+      }
+
+      var t;
+      input.addEventListener('input', function () { clearTimeout(t); t = setTimeout(run, 90); });
+      input.addEventListener('focus', load, { once: true });
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { input.value = ''; run(); }
+      });
+    })();
+  </script>
 
   <script is:inline define:vars={{ picks }}>
     // The pick changes with the date rather than at random, so the same day

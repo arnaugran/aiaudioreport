@@ -88,13 +88,27 @@ const updated = '8 November 2026';
 
   <h3>The newsletter</h3>
   {NEWSLETTER_ENABLED ? (
-    <p>
-      If you subscribe, your email address is stored by our newsletter provider in order to
-      send you the newsletter, and for nothing else. The legal basis is your consent, which
-      you give by subscribing and can withdraw at any time using the unsubscribe link in
-      every email. We do not sell, rent or share the list, and we do not add anyone who has
-      merely written to us.
-    </p>
+    <>
+      <p>
+        If you subscribe, your email address is stored in order to send you the newsletter,
+        and for nothing else. The legal basis is your consent, which you give by subscribing
+        and can withdraw at any time using the unsubscribe link in every email. We do not
+        sell, rent or share the list, and nobody who merely writes to us is ever added.
+      </p>
+      <p>
+        The newsletter is operated for us by <strong>Buttondown, LLC</strong>, which acts as
+        our processor and stores subscriber addresses in the United States. That transfer is
+        covered by the Standard Contractual Clauses, incorporated into Buttondown's data
+        processing agreement, which forms part of its service agreement. Buttondown is
+        therefore a recipient of your address, and you can read how it handles data in its
+        own privacy policy.
+      </p>
+      <p>
+        Subscribing uses confirmed opt-in: you receive an email asking you to confirm, and
+        you are not added to the list until you do. If you never confirm, nothing further is
+        sent to you.
+      </p>
+    </>
   ) : (
     <p>
       There is no newsletter and no mailing list. Nothing on this site collects an email

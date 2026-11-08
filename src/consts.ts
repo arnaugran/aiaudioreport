@@ -59,8 +59,8 @@ export const ANALYTICS_CONFIGURED = Boolean(import.meta.env.PUBLIC_GA4_ID ?? '')
  * The privacy and cookies pages update themselves from this flag, so the
  * wording cannot be left behind.
  */
-export const NEWSLETTER_ENABLED = false;
-export const NEWSLETTER_ACTION = '';
+export const NEWSLETTER_ENABLED = true;
+export const NEWSLETTER_ACTION = 'https://buttondown.com/api/emails/embed-subscribe/aiaudioreport';
 
 /** Phase 2 only. No affiliate links exist on the site while this is false. */
 export const AFFILIATES_ENABLED = false;
