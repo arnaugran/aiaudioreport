@@ -1,0 +1,11 @@
+# ads.txt, IAB Tech Lab authorised digital sellers.
+# Declares who is allowed to sell advertising on aiaudioreport.com.
+#
+# Present for AdSense site verification. The site is NOT currently running
+# advertising: ADS_ENABLED is false in src/consts.ts and AdSlot.astro renders
+# nothing. This file loads no script and sets no cookie, which is exactly why
+# it was chosen over the AdSense JavaScript snippet for verification.
+#
+# Format verified against Google's own documentation on 8 November 2026.
+# Note the publisher ID here has no "ca-" prefix, unlike the ad code.
+google.com, pub-3517106202087026, DIRECT, f08c47fec0942fa0
