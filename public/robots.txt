@@ -2,9 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arnaugran.github.io/aiaudioreport/sitemap-index.xml
-
-# Note: while the site is served from a GitHub Pages sub-path, this file is not
-# at the domain root, so crawlers will not read it. It becomes effective as soon
-# as the custom domain is attached. The sitemap is submitted directly in Search
-# Console in the meantime.
+Sitemap: https://aiaudioreport.com/sitemap-index.xml
