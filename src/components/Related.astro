@@ -1,0 +1,27 @@
+---
+import { withBase } from '../consts';
+interface Props { current: any; all: any[] }
+const { current, all } = Astro.props;
+const tags = new Set(current.data.tags);
+// Rank by shared tags, then recency. Internal links are the cheapest ranking
+// signal we have and the main way readers find the second article.
+const related = all
+  .filter((a: any) => a.id !== current.id)
+  .map((a: any) => ({ a, score: a.data.tags.filter((t: string) => tags.has(t)).length }))
+  .sort((x: any, y: any) => y.score - x.score || y.a.data.pubDate - x.a.data.pubDate)
+  .slice(0, 3)
+  .map((x: any) => x.a);
+---
+{related.length > 0 && (
+  <section class="related">
+    <h2>Read next</h2>
+    <ul>
+      {related.map((a: any) => (
+        <li>
+          <a href={withBase(`/articles/${a.id}/`)}>{a.data.title}</a>
+          <p>{a.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

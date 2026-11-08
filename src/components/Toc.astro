@@ -1,0 +1,14 @@
+---
+interface Props { headings: { depth: number; slug: string; text: string }[] }
+const { headings } = Astro.props;
+// h2 only, and skip the Sources heading the layout adds itself.
+const items = headings.filter((h) => h.depth === 2 && h.slug !== 'sources');
+---
+{items.length >= 3 && (
+  <nav class="toc" aria-label="On this page">
+    <h2>On this page</h2>
+    <ol>
+      {items.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+    </ol>
+  </nav>
+)}

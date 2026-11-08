@@ -4,9 +4,16 @@ description: "LALAL.AI's annual plans cost exactly twelve times the monthly pric
 pubDate: 2026-11-08
 pricesCheckedOn: 2026-11-07
 byline: "AI Audio Report editorial team"
-reviewedBy: "Arnau Grani Romero"
+reviewedBy: "Arnau Gran i Romero"
 basis: documentation+published-reviews
 tags: ["pricing", "stem separation"]
+faq:
+  - q: "Is there a free stem separation tool that is actually good?"
+    a: "Demucs is free and its documentation reports 9.00 dB SDR on the MUSDB HQ test set for the fine-tuned v4 model, the highest published figure of anything covered here. It needs roughly 3 GB of GPU memory as a minimum, or runs on CPU at about 1.5 times the track's duration."
+  - q: "Does LALAL.AI give a discount for paying annually?"
+    a: "No. As published on 7 November 2026, Lite is EUR 6.75 a month or EUR 81 a year, and Pro is EUR 13.50 a month or EUR 162 a year. Both annual figures are exactly twelve times the monthly price, so paying up front saves nothing."
+  - q: "Do unused LALAL.AI minutes roll over?"
+    a: "No. Fast Queue minutes reset at the start of each billing period and do not carry forward. The Relaxed Queue is unlimited on both paid plans, so only the Fast Queue allowance is metered."
 sources:
   - title: "LALAL.AI, Pricing"
     url: "https://www.lalal.ai/pricing/"
@@ -29,6 +36,16 @@ that catch settles it. Which is why cloud services can charge for the same job.
 
 So the useful question isn't which one is best. It's what the paid services actually charge
 once you read the pricing page properly. That turns out to contain two surprises.
+
+<div class="takeaways">
+<h2>The short version</h2>
+
+- The free option, Demucs, has the highest published quality score here. It needs a GPU or patience.
+- LALAL.AI's annual plans cost exactly twelve times the monthly price. There is no discount.
+- The unlimited queue is free on both paid tiers. Only the fast queue is metered.
+- Fast minutes do not roll over, which quietly doubles your real cost per minute if you underuse them.
+
+</div>
 
 ## LALAL.AI: the metered thing isn't what you think
 
@@ -94,6 +111,35 @@ Two things fall out of it. Within the subscriptions, Pro's Fast minutes cost abo
 each than Lite's. The marginal maths is better still: the extra €6.75 between the tiers buys
 160 more Fast minutes, which works out at roughly €0.042 per extra minute, about 44% below
 Lite's rate. If you reliably go past 90 Fast minutes a month, upgrading is good value.
+
+<figure class="figure">
+<p class="f-title">What a Pro Fast minute really costs, by how much of the allowance you use</p>
+<svg viewBox="0 0 620 165" role="img" aria-label="Cost per Fast minute on the LALAL.AI Pro plan rises as you use less of the monthly allowance: 0.054 euros at full use, 0.072 at three quarters, 0.108 at half, 0.216 at a quarter.">
+  <g>
+    <text class="lab" x="0" y="17">All 250 minutes</text>
+    <rect class="bar" x="150" y="6" width="83" height="14" rx="3"/>
+    <text class="val" x="241" y="17">&#8364;0.054</text>
+  </g>
+  <g>
+    <text class="lab" x="0" y="54">188 minutes (75%)</text>
+    <rect class="bar" x="150" y="43" width="110" height="14" rx="3"/>
+    <text class="val" x="268" y="54">&#8364;0.072</text>
+  </g>
+  <g>
+    <text class="lab" x="0" y="91">125 minutes (50%)</text>
+    <rect class="bar" x="150" y="80" width="165" height="14" rx="3"/>
+    <text class="val" x="323" y="91">&#8364;0.108</text>
+  </g>
+  <g>
+    <text class="lab" x="0" y="128">63 minutes (25%)</text>
+    <rect class="bar" x="150" y="117" width="330" height="14" rx="3"/>
+    <text class="val" x="488" y="128">&#8364;0.216</text>
+  </g>
+  <line class="axis" x1="149" y1="0" x2="149" y2="140"/>
+  <text class="lab" x="150" y="158">Lite's rate is &#8364;0.075, so Pro stops paying for itself below about 70% use</text>
+</svg>
+<figcaption>Pro costs EUR 13.50 a month for 250 Fast minutes. Because unused minutes are wiped at the end of each period, the advertised EUR 0.054 only applies if you spend the lot. Our arithmetic, from LALAL.AI's published prices, checked 7 November 2026.</figcaption>
+</figure>
 
 The counterweight is that **unused Fast minutes don't roll over**. The balance resets each
 billing period. So those per-minute figures are a best case that assumes you burn the whole

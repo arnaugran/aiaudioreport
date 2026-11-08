@@ -18,6 +18,8 @@ const articles = defineCollection({
     hasAffiliateLinks: z.boolean().default(false),
     notLegalAdvice: z.boolean().default(false),
     tags: z.array(z.string()).default([]),
+    // Only real questions people ask. Rendered visibly and as FAQPage schema.
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
     sources: z
       .array(z.object({ title: z.string(), url: z.string().url(), checked: z.coerce.date() }))
       .min(1),

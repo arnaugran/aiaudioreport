@@ -3,9 +3,16 @@ title: "Which AI Audio Tools Run Offline, and What Hardware They Need"
 description: "Whisper releases its model weights under MIT. Demucs doesn't, and says so. If your audio can't be uploaded, that difference decides what you can use."
 pubDate: 2026-11-08
 byline: "AI Audio Report editorial team"
-reviewedBy: "Arnau Grani Romero"
+reviewedBy: "Arnau Gran i Romero"
 basis: documentation
 tags: ["local tools", "licensing"]
+faq:
+  - q: "Can I use Whisper commercially?"
+    a: "Yes. The Whisper repository states that both its code and its model weights are released under the MIT License, which permits commercial use. That is unusual, and it is the main practical difference between Whisper and Demucs."
+  - q: "Can I use Demucs stems in work I sell?"
+    a: "Demucs releases its code under MIT, but the project states that the licence of the model weights is not clear, citing research-only MUSDB data and internal Meta datasets. For paid work that is a real ambiguity, and nobody outside the project can resolve it."
+  - q: "Which Whisper model should I run?"
+    a: "Turbo, if you have about 6 GB of VRAM and no translation requirement. The repository describes it as an optimised large-v3 with minimal accuracy loss at roughly eight times the speed of large. Turbo is not trained for translation, so cross-language work needs large."
 sources:
   - title: "OpenAI Whisper, source repository, licence and model size table"
     url: "https://github.com/openai/whisper"
@@ -27,6 +34,16 @@ For that work the question stops being which tool is best and becomes which tool
 entirely on your own hardware. Then, straight away, whether their licences let you use the
 results for paid work. Those two questions have different answers, and the second one is
 where this gets interesting.
+
+<div class="takeaways">
+<h2>The short version</h2>
+
+- Whisper is MIT on both code and weights, so commercial use is unambiguous.
+- Demucs is MIT on code only. The project says its weights licence "is not clear".
+- About 6 GB of VRAM is the practical entry point for all of this.
+- No GPU still works. Demucs on CPU runs at roughly 1.5 times the track's length.
+
+</div>
 
 ## The split that decides everything: code versus weights
 
@@ -79,6 +96,45 @@ The repository publishes a model size table, which is the only thing you need to
 | turbo | 809 M | ~6 GB | ~8x |
 
 </div>
+
+<figure class="figure">
+<p class="f-title">Whisper VRAM requirement by model</p>
+<svg viewBox="0 0 620 215" role="img" aria-label="VRAM required by Whisper model: tiny and base about 1 GB, small 2 GB, medium 5 GB, turbo 6 GB, large 10 GB.">
+  <g>
+    <text class="lab" x="0" y="17">tiny</text>
+    <rect class="bar-muted" x="110" y="6" width="37" height="14" rx="3"/>
+    <text class="val" x="155" y="17">~1 GB</text>
+  </g>
+  <g>
+    <text class="lab" x="0" y="50">base</text>
+    <rect class="bar-muted" x="110" y="39" width="37" height="14" rx="3"/>
+    <text class="val" x="155" y="50">~1 GB</text>
+  </g>
+  <g>
+    <text class="lab" x="0" y="83">small</text>
+    <rect class="bar-muted" x="110" y="72" width="74" height="14" rx="3"/>
+    <text class="val" x="192" y="83">~2 GB</text>
+  </g>
+  <g>
+    <text class="lab" x="0" y="116">medium</text>
+    <rect class="bar-muted" x="110" y="105" width="185" height="14" rx="3"/>
+    <text class="val" x="303" y="116">~5 GB</text>
+  </g>
+  <g>
+    <text class="lab" x="0" y="149">turbo</text>
+    <rect class="bar" x="110" y="138" width="222" height="14" rx="3"/>
+    <text class="val" x="340" y="149">~6 GB</text>
+  </g>
+  <g>
+    <text class="lab" x="0" y="182">large</text>
+    <rect class="bar-muted" x="110" y="171" width="370" height="14" rx="3"/>
+    <text class="val" x="488" y="182">~10 GB</text>
+  </g>
+  <line class="axis" x1="109" y1="0" x2="109" y2="194"/>
+  <text class="lab" x="110" y="208">Highlighted: turbo, roughly 8x the speed of large for 6 GB instead of 10</text>
+</svg>
+<figcaption>Figures as published in the Whisper repository, read 7 November 2026. We have not benchmarked these ourselves.</figcaption>
+</figure>
 
 Speeds are relative to `large`, measured by the project on an A100 transcribing English. Your
 machine isn't an A100, so treat that column as ratios between the models rather than a

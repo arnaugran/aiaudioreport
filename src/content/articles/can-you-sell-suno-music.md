@@ -3,10 +3,17 @@ title: "Can You Sell Music Made With Suno? What the Terms Actually Say"
 description: "Suno rewrote its terms in August 2026. Paid tiers get an assignment of rights, free tiers get none, and commercial use depends on downloads, not songs."
 pubDate: 2026-11-08
 byline: "AI Audio Report editorial team"
-reviewedBy: "Arnau Grani Romero"
+reviewedBy: "Arnau Gran i Romero"
 basis: documentation
 notLegalAdvice: true
 tags: ["licensing", "AI music"]
+faq:
+  - q: "Do I keep commercial rights to Suno tracks if I cancel my subscription?"
+    a: "Yes, for tracks you downloaded through Suno while subscribed. Suno's terms say commercial use rights on a Download are perpetual and are not affected by the expiry, cancellation, downgrade or suspension of your subscription. Tracks you never downloaded through an approved channel are not covered."
+  - q: "Is music generated from a Suno prompt protected by copyright?"
+    a: "On the US Copyright Office's stated position, no. Its January 2025 report concludes that copyright does not extend to purely AI-generated material, and that prompts alone do not provide sufficient human control. Human contributions such as your own lyrics, arrangement or substantial edits can be protected."
+  - q: "Can I sell a remix I made from someone else's Suno track?"
+    a: "Not under the current terms. Suno defines a Remix as a joint work owned jointly and equally by you and the Remixer, usable only for lawful, personal and non-commercial purposes, regardless of your subscription tier."
 sources:
   - title: "Suno, Terms of Service (last revised 10 August 2026, effective 3 September 2026)"
     url: "https://suno.com/terms"
@@ -28,6 +35,17 @@ contract says you can sell it. On the free tier it says you can't. That part is 
 The hard part is that "can I sell this?" is really three questions. Most pages answering it
 pick one, answer that, and leave you assuming the other two are settled as well.
 
+<div class="takeaways">
+<h2>The short version</h2>
+
+- Pro and Premier can sell. Free and Basic cannot. That is in the contract.
+- Commercial rights attach to **downloads**, not songs, and only downloads taken through Suno itself.
+- Those rights are perpetual. They survive you cancelling.
+- Suno states it cannot promise any copyright exists in the output at all.
+- Remixes are non-commercial on every tier, including Premier.
+
+</div>
+
 ## Three questions, not one
 
 1. **Does Suno's contract let you use it commercially?** That's an agreement between you and
@@ -36,6 +54,34 @@ pick one, answer that, and leave you assuming the other two are settled as well.
    it, and says so itself.
 3. **Will the platform you upload to accept it and keep it there?** Distributor and streaming
    policy, which is stricter than either of the above and changes faster.
+
+<figure class="figure">
+<p class="f-title">Three separate gates, three separate answers</p>
+<svg viewBox="0 0 620 190" role="img" aria-label="Three gates between a generated track and a release: Suno's contract, copyright law, and platform policy. Passing one does not mean passing the next.">
+  <rect class="node-on" x="2" y="26" width="178" height="74" rx="6"/>
+  <text class="nlab" x="18" y="52">1. The contract</text>
+  <text class="nsub" x="18" y="72">Can you sell it?</text>
+  <text class="nsub" x="18" y="89">Suno decides</text>
+
+  <rect class="node" x="214" y="26" width="178" height="74" rx="6"/>
+  <text class="nlab" x="230" y="52">2. Copyright</text>
+  <text class="nsub" x="230" y="72">Can you defend it?</text>
+  <text class="nsub" x="230" y="89">The law decides</text>
+
+  <rect class="node" x="426" y="26" width="178" height="74" rx="6"/>
+  <text class="nlab" x="442" y="52">3. The platform</text>
+  <text class="nsub" x="442" y="72">Will it stay up?</text>
+  <text class="nsub" x="442" y="89">Spotify decides</text>
+
+  <path class="flow" d="M180 63 L214 63"/>
+  <path class="flow" d="M392 63 L426 63"/>
+  <text class="nsub" x="2" y="132">Yes, on a paid tier</text>
+  <text class="nsub" x="214" y="132">Often no, on prompts alone</text>
+  <text class="nsub" x="426" y="132">Yes, if not spam or</text>
+  <text class="nsub" x="426" y="149">impersonation</text>
+</svg>
+<figcaption>A yes at gate one tells you nothing about gates two and three. Most articles on this question answer one gate and imply all three.</figcaption>
+</figure>
 
 You can get a yes on the first and a no on the second. That isn't a contradiction, and
 understanding why is most of what you need.
@@ -59,8 +105,9 @@ Read the Pro and Premier wording closely. Suno assigns the rights **it owns**. A
 later it adds that "Suno makes no representation or warranty to you that any copyright will
 vest in any Output."
 
-That is a company saying, in its own contract: we are giving you whatever we have, and we are
-not promising that what we have is anything at all. It isn't sharp practice. Given where the
+<p class="pullquote">A company saying, in its own contract: we are giving you whatever we have, and we are not promising that what we have is anything at all.</p>
+
+That wording is deliberate, and it isn't sharp practice. Given where the
 law currently sits, it's close to the only honest thing they could write. But it's the most
 important sentence in the document, and it's missing from nearly every summary of it.
 
