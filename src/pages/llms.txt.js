@@ -43,8 +43,6 @@ export async function GET(context) {
     '',
     '## How we work',
     '',
-    `- [Editorial policy](${site}/editorial-policy/): how sources are chosen, checked and dated.`,
-    `- [About](${site}/about/): who publishes this.`,
     `- [Affiliate disclosure](${site}/affiliate-disclosure/): current monetisation status.`,
     '',
     '## Machine-readable',
