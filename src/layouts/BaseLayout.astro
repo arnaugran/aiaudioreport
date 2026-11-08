@@ -46,11 +46,16 @@ const ogImage = new URL(withBase('/og-default.png'), Astro.site).href;
       "object-src 'none'",
       "form-action 'none'",
       "frame-src 'none'",
-      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
+      "script-src 'self' 'unsafe-inline' https://*.googletagmanager.com",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data:",
+      "img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com",
       "font-src 'self'",
-      "connect-src 'self' https://www.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com",
+      // Analytics hits go to a REGIONAL host, region1.google-analytics.com for
+      // European visitors, so the wildcard is required and not laziness. An
+      // exact www host silently dropped every EU pageview. The apex
+      // analytics.google.com is listed separately because *.analytics.google.com
+      // does not match a bare domain with no subdomain label.
+      "connect-src 'self' https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://*.googletagmanager.com",
       "manifest-src 'self'",
       "upgrade-insecure-requests",
     ].join('; ')} />

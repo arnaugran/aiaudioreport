@@ -1,25 +1,40 @@
 ---
 import { GA4_ID } from '../consts';
 // Renders nothing at all until a GA4 ID exists. Even then the script is only
-// injected after the visitor actively consents, never on page load.
+// injected after the visitor has consented, never on page load.
+//
+// Order independence matters here. The consent gate dispatches its event
+// synchronously while its own inline script runs, so a listener registered
+// afterwards would miss it and analytics would silently never load for a
+// returning visitor. So this reads the stored decision itself as well as
+// listening, and the loader is guarded against running twice.
 ---
 {GA4_ID && (
   <script is:inline define:vars={{ GA4_ID }}>
-    document.addEventListener('fr:consent-granted', function load() {
-      document.removeEventListener('fr:consent-granted', load);
-      if (window.__ga4Loaded) return;
-      window.__ga4Loaded = true;
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { window.dataLayer.push(arguments); }
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied',
-        ad_personalization: 'denied', analytics_storage: 'granted' });
-      gtag('config', GA4_ID, { anonymize_ip: true });
-    });
+    (function () {
+      var KEY = 'fr-consent-v1';
+
+      function load() {
+        if (window.__ga4Loaded) return;
+        window.__ga4Loaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { window.dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied',
+          ad_personalization: 'denied', analytics_storage: 'granted' });
+        gtag('config', GA4_ID, { anonymize_ip: true });
+      }
+
+      document.addEventListener('fr:consent-granted', load);
+
+      var stored = null;
+      try { stored = localStorage.getItem(KEY); } catch (e) {}
+      if (stored === 'granted') load();
+    })();
   </script>
 )}
