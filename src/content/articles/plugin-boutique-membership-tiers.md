@@ -15,8 +15,11 @@ faq:
   - q: "How much do you need to spend to reach Gold?"
     a: "The membership page states 180 euros or more in the last 12 months for Gold and 90 euros or more for Silver. Plugin Boutique's own explainer article gives the same tiers as 150 pounds and 75 pounds, so the figure you see depends on your store currency. Note that the explainer still carries an unremoved [CONFIRM] placeholder next to the Silver threshold."
   - q: "What is Virtual Cash worth?"
-    a: "We could not establish this from published terms. Plugin Boutique's Terms and Conditions do not define Virtual Cash, set an expiry for it, or state what it can be redeemed against. A percentage rate is only meaningful once you know what the unit is, so treat 5% and 7.5% as incomparable to a straight discount until you have those rules in writing."
+    a: "Store credit, spendable at checkout in any amount you have. Plugin Boutique's help centre says you can apply any amount available in your Virtual Wallet and that you can save enough to get plugins free of charge using only what you have earned. So 5% back behaves close to a 5% discount deferred to a later order, rather than a points currency with its own exchange rate."
 sources:
+  - title: "Plugin Boutique help centre, What is Virtual Cash and how can I use it?"
+    url: "https://help.pluginboutique.com/hc/en-us/articles/6232614952340-What-is-Virtual-Cash-and-how-can-I-use-it"
+    checked: 2026-11-09
   - title: "Plugin Boutique, Membership and rewards programme"
     url: "https://www.pluginboutique.com/membership"
     checked: 2026-11-08
@@ -43,7 +46,7 @@ published.
 - Silver adds partner discounts but leaves Virtual Cash at 5%. Only Gold raises it, to 7.5%.
 - That is 2.50 more per 100 spent. Gold's real draw is the monthly free plugin, not the rate.
 - The Discovery Bundle grants Gold. Paying for it monthly costs 30 more a year and drops you back to 5%.
-- Plugin Boutique's Terms and Conditions never define Virtual Cash, its expiry or what it redeems against.
+- Virtual Cash is plain store credit: spendable in any amount, enough of it buys a plugin outright.
 
 </div>
 
@@ -121,22 +124,26 @@ Paying monthly for the same product is therefore worse twice over. That is unusu
 be worth saying out loud, because the normal pattern is that monthly costs a little more and
 is otherwise identical.
 
-## The number nobody published
+## Virtual Cash is store credit, and it spends like cash
 
-All of the above rests on Virtual Cash, and we cannot tell you what it is worth.
+All of the above rests on what Virtual Cash actually is, and the help centre answers it
+plainly even though the Terms and Conditions never mention it.
 
-Plugin Boutique's Terms and Conditions run to roughly 13,000 characters. Virtual Cash appears
-in them only in the site footer that renders on every page, never in the terms themselves.
-There is no published definition, no expiry rule, and no statement of what it can be spent
-against or whether it can be combined with sale pricing.
+> With every transaction, you will earn 5% back in Virtual Cash that you can apply at the
+> checkout.
 
-That matters more than the difference between 5% and 7.5%. A percentage of an undefined unit
-is not comparable to a discount. If Virtual Cash expires, or is capped, or cannot be used on
-the sale items that make up most of what people buy there, the real return is lower than the
-headline, and none of that is knowable from the published pages.
+The useful part is what comes next. You can "apply any amount that you have available in your
+Virtual Wallet", and Plugin Boutique is explicit that it stacks: "You can even save up enough
+Virtual Cash to get some plugins free of charge, using only what you have earned."
 
-We are not saying any of those restrictions exist. We are saying the documents do not rule
-them out, and that we asked the same question you would.
+So there is no per-order cap and no minimum, and a balance can cover a whole product. That
+makes 5% back behave very close to a 5% discount deferred to a later order, and 7.5% to a
+7.5% one. The balance sits in the Rewards section of your Library, under the wallet icon, and
+also shows at checkout.
+
+That is worth knowing because loyalty currencies usually are not this simple. Loopcloud
+points, for example, cost two per loop rather than one, so the headline number and the real
+one differ. Here they do not.
 
 ## What we would do
 

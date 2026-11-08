@@ -1,0 +1,116 @@
+---
+import { NEWSLETTER_ENABLED, NEWSLETTER_ACTION, withBase } from '../consts';
+
+// A prompt to subscribe, shown once to readers who are actually reading.
+//
+// Rules it follows, because the default version of this is the most hated
+// pattern on the web:
+//  - It never interrupts. It is a corner panel, not a modal, so it covers no
+//    text and blocks no scrolling.
+//  - It waits for engagement: time on the page AND some scrolling. A reader
+//    who opened the tab and left never sees it.
+//  - It waits for the cookie banner to be answered, because that is also
+//    anchored to the bottom of the screen and two of them at once is a mess.
+//  - Dismissing it is remembered for good, and so is subscribing.
+//  - Escape closes it, focus moves into it when it opens and returns when it
+//    closes, and it is hidden entirely under prefers-reduced-motion? No: it
+//    still shows, it simply does not animate.
+const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
+---
+{show && (
+  <div
+    class="nlpop"
+    id="nlpop"
+    role="dialog"
+    aria-modal="false"
+    aria-labelledby="nlpop-h"
+    hidden
+  >
+    <button type="button" class="nlpop-x" id="nlpop-x" aria-label="Dismiss">
+      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+        <line x1="2" y1="2" x2="12" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="12" y1="2" x2="2" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <h2 class="nlpop-h" id="nlpop-h">Prices move. We will tell you.</h2>
+    <p class="nlpop-p">
+      One email when a price on this site changes, when a vendor rewrites a licence term, or
+      when something new goes up. Two a month at most.
+    </p>
+    <form class="nlpop-form" action={NEWSLETTER_ACTION} method="post" target="_blank" id="nlpop-form">
+      <label class="nlpop-label" for="nlpop-email">Email address</label>
+      <input id="nlpop-email" type="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="nlpop-small">
+      Confirmed opt-in, one-click unsubscribe, and the list is never shared.
+      <a href={withBase('/privacy/')}>How we handle it</a>.
+    </p>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var pop = document.getElementById('nlpop');
+      if (!pop) return;
+      var SEEN = 'fr-nl-dismissed-v1';
+      var CONSENT = 'fr-consent-v1';
+      var DELAY_MS = 40000;
+      var SCROLL_MIN = 0.25;
+
+      function stored(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+      function remember(k) { try { localStorage.setItem(k, '1'); } catch (e) {} }
+
+      // Already dismissed, or already subscribed through any form on the site.
+      if (stored(SEEN)) return;
+
+      var lastFocus = null;
+      var shown = false;
+
+      function open() {
+        if (shown || stored(SEEN)) return;
+        // The consent banner owns the bottom of the screen until it is
+        // answered. Wait rather than stack two panels on top of each other.
+        if (!stored(CONSENT)) return;
+        shown = true;
+        lastFocus = document.activeElement;
+        pop.hidden = false;
+        requestAnimationFrame(function () { pop.classList.add('is-in'); });
+        var input = document.getElementById('nlpop-email');
+        if (input) input.focus({ preventScroll: true });
+      }
+
+      function close(permanent) {
+        pop.classList.remove('is-in');
+        pop.hidden = true;
+        if (permanent) remember(SEEN);
+        if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+      }
+
+      document.getElementById('nlpop-x').addEventListener('click', function () { close(true); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !pop.hidden) close(true);
+      });
+      // Submitting opens Buttondown in a new tab; treat that as done and never
+      // ask this reader again.
+      var form = document.getElementById('nlpop-form');
+      if (form) form.addEventListener('submit', function () { remember(SEEN); close(false); });
+
+      function scrolled() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        return h <= 0 ? 1 : window.scrollY / h;
+      }
+
+      var elapsed = false;
+      setTimeout(function () { elapsed = true; if (scrolled() >= SCROLL_MIN) open(); }, DELAY_MS);
+      window.addEventListener(
+        'scroll',
+        function () { if (elapsed && scrolled() >= SCROLL_MIN) open(); },
+        { passive: true }
+      );
+      // If the reader answers the cookie banner after the timer has run.
+      document.addEventListener('fr:consent-granted', function () {
+        if (elapsed && scrolled() >= SCROLL_MIN) open();
+      });
+    })();
+  </script>
+)}

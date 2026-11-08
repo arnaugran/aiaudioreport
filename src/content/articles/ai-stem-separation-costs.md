@@ -15,6 +15,9 @@ faq:
   - q: "Do unused LALAL.AI minutes roll over?"
     a: "No. Fast Queue minutes reset at the start of each billing period and do not carry forward. The Relaxed Queue is unlimited on both paid plans, so only the Fast Queue allowance is metered."
 sources:
+  - title: "iZotope, RX 12 edition comparison"
+    url: "https://www.izotope.com/products/rx-standard?tab=compare"
+    checked: 2026-11-09
   - title: "LALAL.AI, Pricing"
     url: "https://www.lalal.ai/pricing/"
     checked: 2026-11-07
@@ -223,13 +226,15 @@ describes a free tier with "a limited number of uploads each month" and points t
 inside the logged-in app at `studio.moises.ai/billing/pricing`, which returned no plan data
 to us. It does publish that it separates into 27 stem types.
 
-**iZotope RX**, which includes the Music Rebalance feature often grouped with these tools,
-rate-limited our request when we tried to read its product page.
+**iZotope RX** carries Music Rebalance, the feature usually grouped with these tools, but not
+in the cheap edition. RX 12 Elements is €109 and does not include it. Music Rebalance starts
+at RX 12 Standard, €439, and Advanced is €1,499. iZotope also sells Photon, a dedicated stem
+separation app, at €284.25 reduced from €379. We went through which edition does what in
+[iZotope RX: Which Edition Has Music Rebalance?](/articles/izotope-rx-which-edition/).
 
-Both are on the list to verify properly and add. Until then, treat any third-party page
-quoting their current prices with suspicion unless it says when it checked. The secondary
-sources we sampled while researching this disagreed with each other, and several were quoting
-figures over a year old.
+Treat any third-party page quoting current prices for these tools with suspicion unless it
+says when it checked. The secondary sources we sampled while researching this disagreed with
+each other, and several were quoting figures over a year old.
 
 We also have no quality comparison between LALAL.AI and Demucs, because LALAL.AI doesn't
 publish an SDR figure and we don't run listening tests. The only head-to-head benchmark we

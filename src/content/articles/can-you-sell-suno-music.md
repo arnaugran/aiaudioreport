@@ -15,6 +15,9 @@ faq:
   - q: "Can I sell a remix I made from someone else's Suno track?"
     a: "Not under the current terms. Suno defines a Remix as a joint work owned jointly and equally by you and the Remixer, usable only for lawful, personal and non-commercial purposes, regardless of your subscription tier."
 sources:
+  - title: "Udio, Terms of Service"
+    url: "https://www.udio.com/terms-of-service"
+    checked: 2026-11-09
   - title: "Suno, Terms of Service (last revised 10 August 2026, effective 3 September 2026)"
     url: "https://suno.com/terms"
     checked: 2026-11-07
@@ -220,15 +223,33 @@ from a primary source, and the third-party write-ups we found disagree with each
 how strict each one is, so we're not going to repeat their numbers. Check your distributor's
 own help pages before you build a release date around the answer.
 
-## We couldn't read Udio's terms
+## Udio takes the opposite position
 
-We tried. On 7 November 2026, both `udio.com/terms` and `udio.com/terms-of-service` returned
-a login wall rather than the agreement.
+Suno assigns the output to you on a paid plan. Udio's Terms of Service, last revised on
+12 November 2025 and operated by Uncharted Labs, Inc., go the other way, and they are blunt
+about it:
 
-We're not going to tell you what Udio permits based on second-hand summaries, especially in a
-space where the second-hand summaries have already been wrong about Suno. If you use Udio,
-log in and read the terms yourself. A service that wants an account before it will show you
-the agreement you're bound by is worth noticing on its own.
+> You agree that the Company and/or its licensors own all right, title and interest in and to
+> the Services and the Output (including any and all intellectual property rights therein) and
+> you agree not to take any action(s) inconsistent with such ownership interests.
+
+If any ownership did somehow land with you, the next clause takes it back. You "hereby assign
+and agree to assign all right, title and interest in and to such Output" to the company.
+
+Then the sentence that settles the question this article is about:
+
+> We and/or our licensors (as applicable) reserve all rights in connection with the Services,
+> Output and all related content, including, without limitation, the exclusive right to create
+> derivative works, and you agree that you will have no ownership, royalty or other interests
+> in connection therewith.
+
+No ownership, no royalty interest. The licence Udio does grant you is "personal,
+non-assignable, non-sublicensable, non-transferrable, and non-exclusive", and it covers
+accessing and displaying the service rather than exploiting what comes out of it.
+
+Read plainly, that is a service you make music with rather than a service you get a sellable
+master from. If you intend to release commercially, that distinction between the two
+companies is the whole decision, and it is worth more than any comparison of how they sound.
 
 ## What we'd actually do
 

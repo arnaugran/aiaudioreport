@@ -8,6 +8,7 @@ import Related from '../components/Related.astro';
 import AdSlot from '../components/AdSlot.astro';
 import Banner from '../components/Banner.astro';
 import Newsletter from '../components/Newsletter.astro';
+import NewsletterPopup from '../components/NewsletterPopup.astro';
 import { SITE_NAME, AFFILIATES_ENABLED, AD_SLOTS, withBase } from '../consts';
 
 const { entry, headings = [], all = [] } = Astro.props;
@@ -118,6 +119,8 @@ const schema = { '@context': 'https://schema.org', '@graph': graph };
     </p>
 
     <Related current={entry} all={all} />
+
+    <NewsletterPopup />
 
     <AdSlot slot={AD_SLOTS.articleFooter} />
   </article>
