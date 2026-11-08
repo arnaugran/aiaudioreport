@@ -22,6 +22,34 @@ const ogImage = new URL(withBase('/og-default.png'), Astro.site).href;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {/*
+      GitHub Pages cannot set response headers, so the policy that can be
+      expressed in a meta tag is set here. frame-ancestors, HSTS,
+      X-Content-Type-Options and Permissions-Policy are header-only and are
+      applied at the Cloudflare edge instead.
+
+      script-src keeps 'unsafe-inline' because the consent gate and the
+      analytics loader are inline by design: they must run before anything
+      else and must not be a separate request. The site takes no user input,
+      has no auth and embeds no third-party content, so the residual risk is
+      small, but it is a real trade-off rather than an oversight.
+    */}
+    <meta http-equiv="Content-Security-Policy" content={[
+      "default-src 'self'",
+      "base-uri 'self'",
+      "object-src 'none'",
+      "form-action 'none'",
+      "frame-src 'none'",
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data:",
+      "font-src 'self'",
+      "connect-src 'self' https://www.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com",
+      "manifest-src 'self'",
+      "upgrade-insecure-requests",
+    ].join('; ')} />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
