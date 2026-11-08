@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { CONTACT_EMAIL, ADS_ENABLED, ANALYTICS_CONFIGURED, withBase } from '../consts';
+import { CONTACT_EMAIL, ADS_ENABLED, ANALYTICS_CONFIGURED, NEWSLETTER_ENABLED, withBase } from '../consts';
 const updated = '8 November 2026';
 ---
 <BaseLayout
@@ -13,8 +13,11 @@ const updated = '8 November 2026';
   <aside class="note">
     <strong>Short version</strong>
     <p>
-      We set no cookies unless you say yes. There are no accounts, no mailing list and no
+      We set no cookies unless you say yes. There are no accounts and no
       trackers{ADS_ENABLED ? ', and advertising loads only after you consent' : ' or advertising'}.
+      {NEWSLETTER_ENABLED
+        ? ' There is a newsletter, and you are only on it if you asked to be.'
+        : ' There is no mailing list.'}
       We sell nothing to anybody. Our hosting provider sees your IP address, because that is
       how the web works.
     </p>
@@ -66,9 +69,9 @@ const updated = '8 November 2026';
 
   <h3>If you email us</h3>
   <p>
-    We receive your address and whatever you write, in order to reply. That is the legal basis
-    is our legitimate interest in answering correspondence. It is not added to any list, because
-    we do not operate one, and it is not shared with anyone.
+    We receive your address and whatever you write, in order to reply. The legal basis is our
+    legitimate interest in answering correspondence. It is not shared with anyone, and it is
+    never added to the newsletter: that only happens if you subscribe yourself.
   </p>
 
   <h2>What we never do</h2>
@@ -82,6 +85,23 @@ const updated = '8 November 2026';
     <li>Load third-party fonts, embeds or widgets that would disclose your IP to someone else.</li>
     <li>Use dark patterns to extract consent. Reject is as easy to press as Accept.</li>
   </ul>
+
+  <h3>The newsletter</h3>
+  {NEWSLETTER_ENABLED ? (
+    <p>
+      If you subscribe, your email address is stored by our newsletter provider in order to
+      send you the newsletter, and for nothing else. The legal basis is your consent, which
+      you give by subscribing and can withdraw at any time using the unsubscribe link in
+      every email. We do not sell, rent or share the list, and we do not add anyone who has
+      merely written to us.
+    </p>
+  ) : (
+    <p>
+      There is no newsletter and no mailing list. Nothing on this site collects an email
+      address. If that changes, this policy is updated before the first address is collected,
+      naming the provider that would process it.
+    </p>
+  )}
 
   <h3>Advertising</h3>
   {ADS_ENABLED ? (

@@ -6,6 +6,8 @@ import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
 import Toc from '../components/Toc.astro';
 import Related from '../components/Related.astro';
 import AdSlot from '../components/AdSlot.astro';
+import Banner from '../components/Banner.astro';
+import Newsletter from '../components/Newsletter.astro';
 import { SITE_NAME, AFFILIATES_ENABLED, AD_SLOTS, withBase } from '../consts';
 
 const { entry, headings = [], all = [] } = Astro.props;
@@ -53,7 +55,7 @@ if (d.faq?.length) {
 }
 const schema = { '@context': 'https://schema.org', '@graph': graph };
 ---
-<BaseLayout title={d.title} description={d.description} schema={schema}>
+<BaseLayout title={d.title} description={d.description} schema={schema} ogPath={`/og/${entry.id}.png`}>
   <article>
     <div class="page-head">
       <h1>{d.title}</h1>
@@ -75,6 +77,8 @@ const schema = { '@context': 'https://schema.org', '@graph': graph };
       </p>
     </div>
 
+    <Banner seed={entry.id} />
+
     {d.notLegalAdvice && <NotLegalAdvice />}
     <Toc headings={headings} />
 
@@ -93,6 +97,8 @@ const schema = { '@context': 'https://schema.org', '@graph': graph };
         ))}
       </section>
     )}
+
+    <Newsletter />
 
     <section class="endmatter" id="how-we-know">
       <MethodologyNote basis={d.basis} pricesCheckedOn={d.pricesCheckedOn} />

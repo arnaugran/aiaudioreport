@@ -241,6 +241,43 @@ img { max-width: 100%; height: auto; }
 .pick p { margin: 0; color: var(--ink-2); }
 .group-blurb { margin: .55rem 0 .2rem; }
 
+/* Generated article header mark. Deliberately NOT boxed: a filled bordered
+   box means "data object" here, and this is ornament. Sits on the page
+   background with a hairline under it so it reads as a masthead rule rather
+   than as a chart. */
+.banner { margin: .25rem 0 2rem; padding-bottom: .9rem;
+  border-bottom: 1px solid var(--line); }
+.banner svg { display: block; width: 100%; height: 56px; }
+.banner .bar-base { fill: var(--line-2); }
+.banner .bar-mid { fill: var(--ink-3); }
+.banner .bar-accent { fill: var(--accent); }
+@media (max-width: 34rem) { .banner svg { height: 40px; } }
+@media (prefers-reduced-motion: no-preference) { .banner svg { transition: none; } }
+@media print { .banner { display: none; } }
+
+/* Newsletter sign-up. Framed by rules rather than a filled card, for the same
+   reason as the banner: filled boxes are reserved for data. */
+.signup { margin: 3rem 0 0; padding: 1.5rem 0 0; border-top: 2px solid var(--ink); }
+.signup--inline { margin: 2.5rem 0; padding: 1.4rem 0; border-bottom: 1px solid var(--line); }
+.signup-h { margin: 0 0 .5rem; font-size: 1.25rem; font-weight: 700; letter-spacing: -0.014em; }
+.signup-h::before { content: none; }
+.signup-p { margin: 0 0 1rem; color: var(--ink-2); font-size: .9688rem; line-height: 1.6; }
+.signup-label { position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; }
+.signup-row { display: flex; gap: .5rem; flex-wrap: wrap; }
+.signup-row input { flex: 1 1 15rem; min-width: 0; font: inherit; font-size: 1rem;
+  padding: .6rem .8rem; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line-2); border-radius: 5px; }
+.signup-row input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px;
+  border-color: var(--accent); }
+.signup-row button { font: inherit; font-size: 1rem; font-weight: 600; cursor: pointer;
+  padding: .6rem 1.3rem; border-radius: 5px; border: 1px solid var(--accent);
+  background: var(--accent); color: #fff; }
+.signup-row button:hover { filter: brightness(1.08); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .signup-row button { color: #15171a; } }
+:root[data-theme="dark"] .signup-row button { color: #15171a; }
+.signup-small { margin: .8rem 0 0; font-size: .8125rem; line-height: 1.55; color: var(--ink-3); }
+
 /* Advertising slot. Labelled, set apart by rules rather than a box, and given
    a minimum height so a loading ad does not shove the article down the page.
    Nothing renders at all while ADS_ENABLED is false, so this costs a reader

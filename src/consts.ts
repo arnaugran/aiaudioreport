@@ -43,6 +43,25 @@ export const AD_SLOTS = {
 /** True once a GA4 measurement ID is actually configured. */
 export const ANALYTICS_CONFIGURED = Boolean(import.meta.env.PUBLIC_GA4_ID ?? '');
 
+/**
+ * Newsletter. Renders nothing at all while NEWSLETTER_ENABLED is false, and
+ * the legal pages describe the site as operating no list, which is then true.
+ *
+ * DO NOT flip this until ALL of these are done, because turning it on starts
+ * collecting personal data:
+ *  1. An account exists with a provider and NEWSLETTER_ACTION holds its real
+ *     form endpoint. With an empty action a form would post to this page.
+ *  2. That provider's data processing agreement has been read and accepted.
+ *     The audience here is largely European, so the provider must be able to
+ *     act as a processor under the GDPR.
+ *  3. Double opt-in is switched on in the provider, which is the safe default
+ *     for EU consent.
+ * The privacy and cookies pages update themselves from this flag, so the
+ * wording cannot be left behind.
+ */
+export const NEWSLETTER_ENABLED = false;
+export const NEWSLETTER_ACTION = '';
+
 /** Phase 2 only. No affiliate links exist on the site while this is false. */
 export const AFFILIATES_ENABLED = false;
 

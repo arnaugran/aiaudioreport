@@ -1,0 +1,64 @@
+---
+interface Props { seed: string }
+const { seed } = Astro.props;
+
+// A generated header mark, unique per article and stable across builds.
+//
+// Why generated rather than a photograph: a stock studio photo would be
+// decoration that says nothing true about the piece, and we would have to
+// license it. This is derived from the article's own slug, so every article
+// gets its own recognisable shape for free and nothing is claimed by it.
+//
+// Two deliberate constraints:
+//  - Unboxed. A filled, bordered box means "data object" on this site, and
+//    this is ornament. It must not be mistaken for one of the figures.
+//  - Monochrome plus the single accent bar from the logo. Colour carries
+//    verdict meaning here (--good, --catch) and giving banners their own
+//    palette would dilute that.
+
+// xmushash-style integer hash, then a small LCG, so the shape is a pure
+// function of the slug: same article, same mark, every build.
+function hash(s: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+let state = hash(seed) || 1;
+const rand = () => {
+  state = (Math.imul(state, 1664525) + 1013904223) >>> 0;
+  return state / 4294967296;
+};
+
+const COUNT = 56;
+const W = 620;
+const H = 84;
+const gap = 2;
+const barW = (W - gap * (COUNT - 1)) / COUNT;
+
+// A slow wave plus per-bar jitter, so the row reads as a level meter rather
+// than as noise. The accent lands on the tallest bar.
+const phase = rand() * Math.PI * 2;
+const bars = Array.from({ length: COUNT }, (_, i) => {
+  const wave = (Math.sin(phase + (i / COUNT) * Math.PI * 3) + 1) / 2;
+  const h = Math.max(4, Math.round((wave * 0.72 + rand() * 0.28) * H));
+  return { x: +(i * (barW + gap)).toFixed(2), h, w: +barW.toFixed(2) };
+});
+const tallest = bars.reduce((best, b, i) => (b.h > bars[best].h ? i : best), 0);
+---
+<div class="banner" aria-hidden="true">
+  <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" focusable="false">
+    {bars.map((b, i) => (
+      <rect
+        x={b.x}
+        y={H - b.h}
+        width={b.w}
+        height={b.h}
+        rx={Math.min(2, b.w / 2)}
+        class={i === tallest ? 'bar-accent' : i % 7 === 0 ? 'bar-mid' : 'bar-base'}
+      />
+    ))}
+  </svg>
+</div>

@@ -12,8 +12,11 @@ interface Props {
   description?: string;
   schema?: object | null;
   noindex?: boolean;
+  /** Path to a page-specific social card. Falls back to the site card. */
+  ogPath?: string;
 }
-const { title, description = SITE_DESCRIPTION, schema = null, noindex = false } = Astro.props;
+const { title, description = SITE_DESCRIPTION, schema = null, noindex = false,
+        ogPath = '/og-default.png' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 // Google truncates the title around 60 characters. The brand suffix costs 18 of
 // them, which on a long article title buys recognition we do not have yet at the
@@ -21,7 +24,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
 // when it still fits.
 const withBrand = `${title} | ${SITE_NAME}`;
 const fullTitle = title === SITE_NAME ? title : (withBrand.length <= 60 ? withBrand : title);
-const ogImage = new URL(withBase('/og-default.png'), Astro.site).href;
+// Articles pass their own card. Sharing any page previously produced the same
+// generic image, which wastes the one piece of visual real estate a link gets.
+const ogImage = new URL(withBase(ogPath), Astro.site).href;
 ---
 <!doctype html>
 <html lang="en" data-cookies-url={withBase('/cookies/')}>
