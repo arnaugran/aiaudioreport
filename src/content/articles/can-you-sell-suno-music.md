@@ -1,5 +1,5 @@
 ---
-title: "Can You Sell Suno Songs? What the Terms Actually Say"
+title: "Can You Sell Suno Songs? Only on a Paid Tier"
 description: "Suno rewrote its terms in August 2026. Paid tiers get an assignment of rights, free tiers get none, and commercial use depends on downloads, not songs."
 pubDate: 2026-11-08
 byline: "AI Audio Report editorial team"

@@ -1,5 +1,5 @@
 ---
-title: "Can You Upload AI Music? What Each Platform Allows"
+title: "Can You Upload AI Music? Spotify Yes, Beatport No"
 description: "Spotify accepts AI music. Beatport refuses anything wholly or substantially AI-generated. DistroKid and CD Baby contracts never mention AI. Read 8 November 2026."
 pubDate: 2026-11-08
 byline: "AI Audio Report editorial team"
