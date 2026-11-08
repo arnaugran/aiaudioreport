@@ -1,5 +1,6 @@
 ---
 import { withBase } from '../consts';
+import Logo from './Logo.astro';
 const path = Astro.url.pathname;
 const links = [
   { href: '/articles/', label: 'Articles' },
@@ -10,7 +11,7 @@ const links = [
 ---
 <header class="masthead">
   <div class="container">
-    <a class="brand" href={withBase('/')}>AI Audio <span>Report</span></a>
+    <a class="brand" href={withBase('/')}><Logo /><span class="wordmark">AI Audio <span>Report</span></span></a>
     <nav class="nav" aria-label="Main">
       {links.map((l) => (
         <a href={withBase(l.href)} aria-current={path === withBase(l.href) ? 'page' : undefined}>{l.label}</a>

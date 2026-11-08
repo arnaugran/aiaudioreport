@@ -1,0 +1,15 @@
+---
+// Five bars on a shared centre line: reads as an audio level meter up close
+// and as a bar chart at a glance, which is what the site is: data about audio.
+interface Props { size?: number }
+const { size = 22 } = Astro.props;
+const bars = [
+  { x: 0.5, h: 8 }, { x: 5, h: 14 }, { x: 9.5, h: 20 }, { x: 14, h: 12 }, { x: 18.5, h: 6 },
+];
+---
+<svg class="logo" width={size} height={size} viewBox="0 0 22 24" aria-hidden="true" focusable="false">
+  {bars.map((b, i) => (
+    <rect x={b.x} y={(24 - b.h) / 2} width="3" height={b.h} rx="1.5"
+          fill={i === 2 ? 'var(--accent)' : 'currentColor'} opacity={i === 2 ? 1 : 0.55} />
+  ))}
+</svg>
