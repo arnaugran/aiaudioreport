@@ -7,36 +7,41 @@ import { CONTACT_EMAIL, withBase } from '../consts';
   description="How to reach AI Audio Report: corrections, pricing updates, licensing changes and general enquiries."
 >
   <h1 class="page-title">Contact</h1>
-  <p class="lede">One address, read by a human.</p>
+  <p class="lede">One address. It goes straight to the editor.</p>
 
   <p style="font-size:1.2rem"><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
 
-  <h2>Especially worth emailing about</h2>
-  <ul>
-    <li>
-      <strong>A price we got wrong, or that has changed.</strong> Include the page and what
-      you see now. This is the single most useful thing you can send us.
-    </li>
-    <li>
-      <strong>Licence terms that have been updated.</strong> Vendors rewrite these quietly.
-    </li>
-    <li><strong>A broken link, or a page that reads like it was written by a machine that did not care.</strong></li>
-    <li>
-      <strong>A vendor correction.</strong> If you work for a company we cover and we have
-      misread your terms, tell us and we will fix it. We will not take your marketing copy in
-      exchange, and coverage is not for sale.
-    </li>
-  </ul>
-
-  <h2>What we will not do</h2>
+  <h2>Worth emailing about</h2>
   <p>
-    We do not accept guest posts, paid links, sponsored reviews or link exchanges, so there is
-    no need to send that email. We also cannot give legal advice on whether your specific
-    release is in the clear. The note on any licensing article explains why.
+    <strong>A price that is wrong, or has changed.</strong> Tell us which page and what you see
+    now. This is the single most useful thing anyone sends us, and it goes to the front of the
+    queue.
+  </p>
+  <p>
+    <strong>Licence terms that have been rewritten.</strong> Vendors change these quietly and
+    rarely announce it, so a heads-up is genuinely valuable.
+  </p>
+  <p>
+    <strong>A broken link, or a page that reads badly.</strong> If something here feels padded,
+    evasive or like it is avoiding the actual question, say so and point at the paragraph.
+  </p>
+  <p>
+    <strong>A correction from a vendor.</strong> If you work for a company covered here and we
+    have misread your terms, tell us and it gets fixed. We will not run your marketing copy in
+    exchange, and coverage is not for sale at any price.
+  </p>
+
+  <h2>Not worth emailing about</h2>
+  <p>
+    Guest posts, paid links, sponsored reviews and link exchanges are all declined, so there is
+    no need to send that one. We also cannot tell you whether your particular release is legally
+    in the clear. The note on any licensing article explains why that is reporting rather than
+    advice.
   </p>
 
   <p>
-    Our <a href={withBase('/privacy/')}>privacy policy</a> covers what happens to an email you
-    send us: it is read, replied to, and not added to any list, because there is no list.
+    The <a href={withBase('/privacy/')}>privacy policy</a> covers what happens to an email you
+    send: it is read, it is replied to, and it is not added to any list, because there is no
+    list.
   </p>
 </BaseLayout>
