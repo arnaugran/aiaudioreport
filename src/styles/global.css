@@ -204,6 +204,15 @@ img { max-width: 100%; height: auto; }
    Article furniture: things that break up a wall of text.
    ========================================================== */
 
+/* A commercial-relationship or conflict-of-interest disclosure. Uses the
+   catch colour deliberately and never the good one: this is a caution aimed
+   at the reader, and on this site green carries the opposite meaning. */
+.disclose { margin: 2rem 0 2.25rem; padding: 0 0 0 1.1rem;
+  border-left: 3px solid var(--catch); }
+.disclose h2 { margin: 0 0 .55rem; font-size: 1.05rem; font-weight: 650; color: var(--ink);
+  letter-spacing: -0.008em; text-transform: none; }
+.disclose p { margin: 0; color: var(--ink-2); }
+
 /* key takeaways, sits near the top of a long piece */
 .takeaways { margin: 2rem 0 2.25rem; padding: 0 0 0 1.1rem;
   border-left: 3px solid var(--good); }
