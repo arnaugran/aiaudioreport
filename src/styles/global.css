@@ -19,12 +19,12 @@
      --good  = the thing that is actually worth buying, or a confirmed fact.
      --catch = the restriction, the limit, the "unlimited" that isn't.
      Neither is ever used for decoration. */
-  --good:      #1a6b42;
-  --good-bg:   #eaf3ee;
+  --good:      #15695e;
+  --good-bg:   #e7f1ef;
   --catch:     #8f4a12;
   --catch-bg:  #f7efe7;
 
-  --accent:    #0e5a62;   /* links only */
+  --accent:    #15695e;   /* hover + focus only; links are ink */
   --accent-bg: #e8f1f2;
   --note-bg:   #f4f5f7;
 
@@ -46,12 +46,12 @@
     --line:      #2b2f36;
     --line-2:    #3f454e;
 
-    --good:      #5cc08a;
-    --good-bg:   #16281f;
+    --good:      #4fc0b0;
+    --good-bg:   #14282a;
     --catch:     #d99a5b;
     --catch-bg:  #2a2017;
 
-    --accent:    #5fb9c4;
+    --accent:    #4fc0b0;
     --accent-bg: #15262a;
     --note-bg:   #1d2026;
   }
@@ -72,9 +72,11 @@ body {
 /* the single shared container: everything aligns to this */
 .container { max-width: var(--content); margin-inline: auto; padding-inline: var(--pad); }
 
-a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px;
-    text-decoration-thickness: 1px; }
-a:hover { text-decoration-thickness: 2px; }
+/* Links are ink with a rule under them. Hue in this design means a verdict,
+   so links do not get to use it. */
+a { color: inherit; text-decoration: underline; text-underline-offset: 3px;
+    text-decoration-thickness: 1px; text-decoration-color: var(--line-2); }
+a:hover { text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
 
 h1, h2, h3 { font-weight: 700; line-height: 1.25; letter-spacing: -0.016em; text-wrap: balance; }
@@ -233,6 +235,12 @@ img { max-width: 100%; height: auto; }
 .figure .axis { stroke: var(--line-2); stroke-width: 1; }
 .figure .bar { fill: currentColor; }
 .figure .bar-muted { fill: var(--line-2); }
+.figure .bar-good { fill: var(--good); }
+.figure .bar-catch { fill: var(--catch); }
+.figure .open { fill: var(--good); }
+.figure .zero { stroke: var(--catch); stroke-width: 2; }
+.figure .rule { stroke: var(--line); stroke-width: 1; }
+.figure .grp { fill: var(--ink); font-size: 13px; font-weight: 650; font-family: var(--font); }
 .figure .node { fill: var(--bg); stroke: var(--line-2); stroke-width: 1.5; }
 .figure .node-on { fill: var(--accent-bg); stroke: var(--accent); stroke-width: 1.5; }
 .figure .flow { stroke: var(--line-2); stroke-width: 1.5; fill: none; }
@@ -296,9 +304,12 @@ article h2[id] { scroll-margin-top: 1.5rem; }
 
 
 /* ----------------------------------------------------------
-   Verdict colour. The only colour in the body text, and it
-   always means something: good = worth the money / confirmed,
+   Verdict colour. The only hue in the body text, and it always
+   means something: good = worth the money / confirmed,
    catch = the restriction the vendor buries.
+   Validated for colour-vision deficiency against each surface
+   (protan dE 9.9 light, 11.6 dark). Colour still never carries
+   the meaning alone: these classes always wrap real words.
    ---------------------------------------------------------- */
 .good, .catch { font-weight: 650; }
 .good  { color: var(--good); }

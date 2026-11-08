@@ -68,6 +68,29 @@ the plan's capacity, which gets the product backwards. On a €6.75 plan you can
 much audio as you like. What the extra €6.75 buys you at Pro isn't more separation, it's less
 waiting.
 
+<figure class="figure">
+<p class="f-title">What each paid plan actually gives you, by queue</p>
+<svg viewBox="0 0 620 196" role="img" aria-label="On both LALAL.AI paid plans the Relaxed Queue is unlimited. Only the Fast Queue is metered: 90 minutes a month on Lite, 250 minutes a month on Pro. The extra money buys queue priority, not extra separation.">
+  <text class="grp" x="0" y="13">Lite, &#8364;6.75 a month</text>
+  <text class="lab" x="0" y="40">Relaxed queue</text>
+  <rect class="bar-good" x="150" y="29" width="330" height="14" rx="3"/>
+  <text class="val" x="488" y="40">unlimited</text>
+  <text class="lab" x="0" y="66">Fast queue</text>
+  <rect class="bar-catch" x="150" y="55" width="72" height="14" rx="3"/>
+  <text class="val" x="230" y="66">90 min/month</text>
+  <line class="rule" x1="0" y1="86" x2="620" y2="86"/>
+  <text class="grp" x="0" y="110">Pro, &#8364;13.50 a month</text>
+  <text class="lab" x="0" y="137">Relaxed queue</text>
+  <rect class="bar-good" x="150" y="126" width="330" height="14" rx="3"/>
+  <text class="val" x="488" y="137">unlimited</text>
+  <text class="lab" x="0" y="163">Fast queue</text>
+  <rect class="bar-catch" x="150" y="152" width="200" height="14" rx="3"/>
+  <text class="val" x="358" y="163">250 min/month</text>
+  <text class="lab" x="0" y="190">The extra &#8364;6.75 buys 160 more minutes of queue skipping, not more separation</text>
+</svg>
+<figcaption>Both paid tiers separate as much audio as you like. The monthly minute figure that comparisons quote as the plan's capacity only limits the Fast Queue. From LALAL.AI's published pricing, checked 7 November 2026.</figcaption>
+</figure>
+
 That changes the decision. Working through an archive on your own schedule? Lite isn't a
 90 minute plan, it's an unlimited plan with 90 minutes of queue skipping attached. Turning
 stems around against a deadline? The Fast minutes are the whole product, and you should price

@@ -59,6 +59,25 @@ collaborator. It is not the file you keep as your master. So on Essentials you a
 a month for an unlimited supply of files you would not archive, and on Standard you are
 paying €18 for three real ones.
 
+<figure class="figure">
+<p class="f-title">Lossless masters you can actually release, per month</p>
+<svg viewBox="0 0 620 170" role="img" aria-label="WAV masters per month by LANDR plan: Studio Essentials at 12 euros a month gives none, Studio Standard at 18 euros gives three, Studio Pro at 23 euros is unlimited. All three plans include unlimited MP3 masters, which are lossy.">
+  <text class="lab" x="0" y="26">Essentials, &#8364;12</text>
+  <line class="zero" x1="152" y1="14" x2="168" y2="30"/>
+  <line class="zero" x1="168" y1="14" x2="152" y2="30"/>
+  <text class="val" x="180" y="26">no WAV master at all</text>
+  <text class="lab" x="0" y="72">Standard, &#8364;18</text>
+  <rect class="bar-catch" x="150" y="61" width="39" height="14" rx="3"/>
+  <text class="val" x="197" y="72">3 a month</text>
+  <text class="lab" x="0" y="118">Pro, &#8364;23</text>
+  <rect class="bar-good" x="150" y="107" width="330" height="14" rx="3"/>
+  <text class="val" x="488" y="118">unlimited</text>
+  <line class="rule" x1="0" y1="140" x2="620" y2="140"/>
+  <text class="lab" x="0" y="162">All three include unlimited MP3. An MP3 is lossy, so it is not a release master.</text>
+</svg>
+<figcaption>Every tier advertises unlimited mastering. Only the top tier is unlimited in the format you would keep. From LANDR's published plan pages, checked 7 November 2026.</figcaption>
+</figure>
+
 <p class="pullquote">The thing most people are buying a mastering subscription for is capped on every tier except the most expensive one.</p>
 
 ## What a releasable master actually costs
