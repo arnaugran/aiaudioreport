@@ -1,0 +1,144 @@
+---
+title: "Free DAWs in 2026: What Each One Actually Limits"
+description: "Cakewalk is not free any more. Sonar now needs a paid BandLab membership at 99 dollars rising to 149. Waveform Free still has no track limit at all."
+pubDate: 2026-11-08
+pricesCheckedOn: 2026-11-08
+byline: "AI Audio Report editorial team"
+reviewedBy: "Arnau Gran i Romero"
+basis: documentation
+tags: ["pricing", "DAWs"]
+faq:
+  - q: "Is Cakewalk still free?"
+    a: "No. BandLab's own pricing table lists Cakewalk Next and Sonar as not included on the Free plan and included on Pro and Max. Pro is 99 dollars for the first year and 149 dollars a year after that. The free tier is BandLab's own 16-track Studio, which is a different product from Cakewalk."
+  - q: "Which free DAW has no track limit?"
+    a: "Waveform Free. Tracktion describes it as a completely unlimited free DAW with no track-count restrictions and no trial expiry, supporting VST, VST3 and AU plugins. Some features are sold separately as expansion packs from 30 dollars."
+  - q: "Is Ardour free?"
+    a: "The software is, and its own site says you are under no obligation to pay. The nuance is that ready-to-run builds sit behind a payment step, and the download page describes the source code as where to start if you cannot or do not want to pay for the pre-built versions. Subscriptions run from 1 to 50 dollars a month."
+  - q: "How many tracks does the free BandLab plan give you?"
+    a: "Sixteen, with an effects chain limit of ten. Pro and Max both raise the track limit to 32. The free plan also includes 436 virtual instruments, four mastering presets, two beats a week and twenty samples a week."
+sources:
+  - title: "BandLab, Membership plans and pricing"
+    url: "https://www.bandlab.com/membership-pricing"
+    checked: 2026-11-08
+  - title: "Tracktion, Waveform Free"
+    url: "https://www.tracktion.com/products/waveform-free"
+    checked: 2026-11-08
+  - title: "Ardour, subscriptions"
+    url: "https://community.ardour.org/subscribe"
+    checked: 2026-11-08
+  - title: "Ardour, download"
+    url: "https://community.ardour.org/download"
+    checked: 2026-11-08
+---
+
+Most lists of free DAWs open with Cakewalk. That recommendation is now wrong, and it is wrong
+in a way that costs money rather than time.
+
+BandLab's own pricing table settles it. Against the row "Cakewalk Next and Sonar", the Free
+column says no. Pro and Max say yes. Cakewalk is a paid product now, and the free thing with
+the BandLab name on it is a different piece of software.
+
+<div class="takeaways">
+<h2>The short version</h2>
+
+- Cakewalk Sonar and Next require BandLab Pro, $99 for the first year then $149 a year.
+- BandLab's actual free tier is a 16-track browser studio, not Cakewalk.
+- Waveform Free has no track limit and no expiry, and takes VST, VST3 and AU plugins.
+- Ardour's licence is free and its site says so, but the ready-to-run builds sit behind a payment step.
+- On Linux, Waveform unlocks its Pro features automatically.
+
+</div>
+
+## The renewal is the part to notice
+
+BandLab prices membership in a way that is easy to misread. The large number is the first
+year. The number underneath it is what you pay from year two.
+
+<figure class="figure">
+<p class="f-title">BandLab Membership: first year against every year after</p>
+<svg viewBox="0 0 620 190" role="img" aria-label="BandLab Membership pricing: Pro is 99 dollars for the first year then 149 dollars a year, and Max is 199 dollars for the first year then 299 dollars a year.">
+  <text class="lab" x="0" y="24">Pro, first year</text>
+  <rect class="bar-good" x="196" y="13" width="109" height="14" rx="3"/>
+  <text class="val" x="313" y="24">$99</text>
+  <text class="lab" x="0" y="60">Pro, year two onward</text>
+  <rect class="bar-catch" x="196" y="49" width="164" height="14" rx="3"/>
+  <text class="val" x="368" y="60">$149</text>
+  <text class="lab" x="0" y="104">Max, first year</text>
+  <rect class="bar-good" x="196" y="93" width="220" height="14" rx="3"/>
+  <text class="val" x="424" y="104">$199</text>
+  <text class="lab" x="0" y="140">Max, year two onward</text>
+  <rect class="bar-catch" x="196" y="129" width="330" height="14" rx="3"/>
+  <text class="val" x="534" y="140">$299</text>
+  <line class="rule" x1="0" y1="160" x2="620" y2="160"/>
+  <text class="lab" x="0" y="182">Cakewalk Next and Sonar are included on Pro and Max, and excluded from Free.</text>
+</svg>
+<figcaption>Read from BandLab's membership pricing table on 8 November 2026, which shows the annual option with the renewal price printed beneath the introductory one.</figcaption>
+</figure>
+
+Pro goes from $99 to $149, a rise of just over 50%. Max goes from $199 to $299. Neither is
+hidden, both are printed on the card, and both are easy to skim past because the larger
+typeface shows the cheaper number.
+
+## What the genuinely free options limit
+
+**BandLab Free, $0.** A 16-track studio with an effects chain limit of ten, 436 virtual
+instruments, four mastering presets and six AutoPitch effects. You also get two free beats and
+twenty samples a week, and three Splitter separations a day. It is a real DAW and it costs
+nothing. It is not Cakewalk.
+
+**Waveform Free.** Tracktion calls it a "completely unlimited free DAW for all music
+creators", with "no track-count restrictions" and "no trial expiry". It loads VST, VST3 and AU
+plugins, and ships 14 audio effects, 8 MIDI effects, 11 utility plugins and 4 instruments.
+
+The catch is modular rather than crippling: features are sold as expansion packs from $30,
+covering things like multi-channel routing, the synth collection and video. You are not
+stopped from working, you are stopped from specific capabilities.
+
+One detail worth knowing if you run Linux: Tracktion says Waveform Pro features "are unlocked
+automatically while running on Linux". The same download is a more capable program on one
+operating system than another.
+
+**Ardour.** This one needs care, because both the "it's free" and "it's paid" answers are
+half right.
+
+The licence is free, and the project is unusually direct about it: "you are under no
+obligation to pay for Ardour. You are welcome to copy it, give copies to your friends, and
+modify it". The program is under the GNU Public License v2.
+
+The ready-to-run builds are a different matter. Ardour's download page offers two routes, and
+describes the source code route as where to start "if you're hoping to modify Ardour or get
+involved in our development process, or don't want to or cannot pay for our pre-built
+versions". So the compiled builds sit behind a payment step, while the software itself remains
+free to copy.
+
+Subscriptions are $10 a month standard, $4 low cost, $1 developing world, and $50
+institutional. The site states that "A 1 year subscription to Ardour will likely span 2 major
+releases and will cost you US$120". At the time we looked, 5,720 subscribers were providing
+$14,033 a month.
+
+We did not complete the download flow, so we cannot tell you the minimum one-off payment it
+asks for. If that number decides it for you, check it yourself before planning around it.
+
+## What we did not check
+
+This is not a complete survey and we are not going to pretend otherwise.
+
+Avid's Pro Tools comparison page did not render its table for us, so Pro Tools Intro's track
+limits are absent here rather than guessed. Apple's GarageBand page does not state a price
+anywhere on it, so we have not claimed one, though it is Mac and iOS only and there is no
+Windows version. Audacity and LMMS were not examined for this piece.
+
+## What we would do
+
+Take Waveform Free if you want a full DAW with no artificial ceiling. No track limit and no
+expiry is a stronger offer than most paid entry tiers, and the expansion model means you pay
+only for the specific thing you turn out to need.
+
+Take BandLab Free if you want to start in a browser with nothing to install, and accept 16
+tracks as the price of that.
+
+Take Ardour if you are comfortable with free software and either willing to pay for a build or
+able to compile one. The $1 a month tier exists precisely so that money is not the barrier.
+
+Do not take a 2024 blog post's word that Cakewalk is free. It was, it is not, and the page
+that proves it is BandLab's own pricing table.
