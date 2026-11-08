@@ -47,17 +47,6 @@ published.
 
 </div>
 
-<div class="disclose">
-<h2>Our conflict on this one, stated up front</h2>
-
-Plugin Boutique runs an affiliate programme paying 15%, and we intend to apply to it. We have
-not applied yet, there are no affiliate links on this page, and nothing here earns us
-anything today. We are telling you now rather than in a footer later, because an article
-about whether a shop's loyalty scheme is worth chasing is exactly the kind of page a future
-commission could quietly bend.
-
-</div>
-
 ## The three tiers
 
 | Tier | How you get it | Virtual Cash | Monthly free plugin | Partner perks |
