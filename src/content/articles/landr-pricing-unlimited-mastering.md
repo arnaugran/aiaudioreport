@@ -1,5 +1,5 @@
 ---
-title: "LANDR Pricing: What \"Unlimited Mastering\" Actually Includes"
+title: "LANDR Pricing: What Unlimited Mastering Actually Includes"
 description: "Unlimited mastering on LANDR's entry plan means unlimited MP3s. The mid plan caps you at three WAV masters a month. Only the top plan is genuinely unlimited."
 pubDate: 2026-11-08
 pricesCheckedOn: 2026-11-08

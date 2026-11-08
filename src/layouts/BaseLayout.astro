@@ -14,7 +14,12 @@ interface Props {
 }
 const { title, description = SITE_DESCRIPTION, schema = null, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
-const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
+// Google truncates the title around 60 characters. The brand suffix costs 18 of
+// them, which on a long article title buys recognition we do not have yet at the
+// price of the keywords we are trying to rank for. So the suffix is only added
+// when it still fits.
+const withBrand = `${title} | ${SITE_NAME}`;
+const fullTitle = title === SITE_NAME ? title : (withBrand.length <= 60 ? withBrand : title);
 const ogImage = new URL(withBase('/og-default.png'), Astro.site).href;
 ---
 <!doctype html>

@@ -1,5 +1,5 @@
 ---
-title: "AI Voice Cloning: There Is Still No Federal Law. What Binds You"
+title: "AI Voice Cloning Law: What Actually Binds You"
 description: "The US has no federal digital replica law. The NO FAKES Act cleared committee in June 2026 and stalled. Platform policy and contracts are what actually bind you."
 pubDate: 2026-11-08
 byline: "AI Audio Report editorial team"

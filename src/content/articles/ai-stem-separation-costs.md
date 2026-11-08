@@ -1,5 +1,5 @@
 ---
-title: "AI Stem Separation: What It Costs and Where the Catches Are"
+title: "AI Stem Separation Pricing: The Costs and the Catches"
 description: "LALAL.AI's annual plans cost exactly twelve times the monthly price. Its unlimited queue is free on every paid tier. The best-scoring option costs nothing."
 pubDate: 2026-11-08
 pricesCheckedOn: 2026-11-07
