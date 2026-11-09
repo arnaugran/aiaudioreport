@@ -1,6 +1,6 @@
 ---
-title: "Plugin Boutique Silver and Gold: the value of each tier"
-description: "Membership is free. Silver adds little; Gold raises store credit to 7.5% and includes a monthly plugin after you meet its spend threshold."
+title: "Plugin Boutique Gold vs Silver: What the Tiers Actually Add"
+description: "Nobody sells you this membership: you are moved up a tier by what you already spent. Only one tier changes the cash-back rate, and the terms never define it."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08

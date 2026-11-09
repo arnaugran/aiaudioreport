@@ -1,6 +1,6 @@
 ---
-title: "The cost per sound when you buy packs or subscribe"
-description: "A Loopmasters pack costs more up front and stays yours. Loopcloud can cost less per sound if you use the monthly points."
+title: "Sample Packs vs Subscription: The Real Cost Per Sound"
+description: "Sixteen cents a sound if you buy the pack outright, less if you subscribe and actually spend the points. The difference is what happens when you stop paying."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08

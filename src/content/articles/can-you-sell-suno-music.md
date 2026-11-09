@@ -1,6 +1,6 @@
 ---
-title: "Suno plans and commercial rights: copyright and release rules"
-description: "A paid Suno plan can grant commercial rights to downloaded tracks. Copyright and distributor rules are separate questions before release."
+title: "Can You Sell Suno Music? Only If You Were Paying"
+description: "Suno's terms turn on one detail: which plan you were on when you pressed download. Copyright and the distributor's own rules are separate questions."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 byline: "Arnau Gran i Romero"

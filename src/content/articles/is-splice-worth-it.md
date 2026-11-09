@@ -1,6 +1,6 @@
 ---
-title: "Splice Creator pricing and the value of 200 monthly credits"
-description: "Splice Creator costs $19.99 a month for 200 credits, not always 200 sounds. Presets and MIDI can use three credits each."
+title: "Is Splice Worth It? What $19.99 a Month Actually Buys"
+description: "Sold as roughly 200 downloads a month, it is really 200 credits, and some files cost three of them. Here is the maths before you hand over the card."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08

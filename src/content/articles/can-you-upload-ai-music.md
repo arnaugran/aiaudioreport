@@ -1,6 +1,6 @@
 ---
-title: "Releasing AI music on Spotify, Beatport and other platforms"
-description: "Spotify accepts AI music; Beatport rejects tracks it considers mostly AI-generated. Other distributor agreements don't give a clear answer."
+title: "Can You Put AI Music on Spotify? Yes. On Beatport, No."
+description: "One platform publishes a rule, one publishes a refusal, and the rest of the agreements say nothing at all. The silence is the part worth planning around."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 byline: "Arnau Gran i Romero"

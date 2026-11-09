@@ -1,6 +1,6 @@
 ---
-title: "Free Splice alternatives and the sample licences behind them"
-description: "Free sample libraries have different licences. Looperman allows commercial releases; on Freesound, check the licence on each file."
+title: "Free Splice Alternatives: Which Ones You Can Legally Sell"
+description: "Free does not mean cleared. One library grants commercial release in its terms, another leaves it to whoever uploaded the file, and some of those files say no."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08

@@ -1,6 +1,6 @@
 ---
-title: "Splice and Loopcloud: credits, cancellation and the cost per sound"
-description: "Splice credits expire after cancellation; Loopcloud points stay in your account. The services also charge different amounts for each sound."
+title: "Splice vs Loopcloud: What You Keep If You Cancel"
+description: "One service lets unused credits expire 28 days after your last bill. The other says yours stay put. That clause matters more than the monthly price."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08

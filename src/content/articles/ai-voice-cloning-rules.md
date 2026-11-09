@@ -1,6 +1,6 @@
 ---
-title: "AI voice cloning law: consent, copyright and platform rules"
-description: "US law is unsettled, but platform rules and tool contracts already apply. Here's what the NO FAKES Act and current voice policies say."
+title: "Is AI Voice Cloning Legal? What Actually Stops You"
+description: "Consent, copyright and the platform's own policy pull in different directions. Which document decides, and where the NO FAKES Act currently stands."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 byline: "Arnau Gran i Romero"
