@@ -1,6 +1,6 @@
 ---
-title: "Splice vs Loopcloud: What You Keep When You Cancel"
-description: "Loopcloud points always roll over, including after you cancel. Splice credits expire 28 days after your final cancellation date. That difference is the decision."
+title: "Splice vs Loopcloud 2026: What You Keep If You Cancel"
+description: "Loopcloud points always roll over, even after you cancel. Splice credits expire 28 days after your final cancellation date. That difference is the decision."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08

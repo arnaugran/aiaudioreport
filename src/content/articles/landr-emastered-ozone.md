@@ -1,5 +1,5 @@
 ---
-title: "LANDR vs eMastered vs Ozone: Rent or Buy Outright?"
+title: "LANDR vs eMastered vs Ozone: Rent or Buy Your Mastering"
 description: "LANDR's cheapest tier is 12 euros a month and gives you no WAV at all. Ozone Elements is 59 euros once and keeps working forever. The break-even is five months."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09

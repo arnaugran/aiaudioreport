@@ -1,5 +1,5 @@
 ---
-title: "Plugin Boutique Membership: What Silver and Gold Add"
+title: "Plugin Boutique Gold vs Silver: What the Tiers Actually Add"
 description: "Membership is free and automatic, not a subscription. Gold lifts Virtual Cash from 5% to 7.5% and adds a monthly plugin. The terms never define Virtual Cash."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09

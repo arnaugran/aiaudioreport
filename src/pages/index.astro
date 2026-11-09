@@ -1,7 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Newsletter from '../components/Newsletter.astro';
 import { SITE_NAME, SITE_DESCRIPTION, withBase } from '../consts';
+import { headerPhoto } from '../lib/photos.mjs';
 
 const all = (await getCollection('articles', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -12,8 +14,29 @@ const all = (await getCollection('articles', ({ data }) => !data.draft)).sort(
 // split on that instead of on date. Licensing wins when a piece carries both
 // tags, because that is always the harder half to find elsewhere.
 const isLicensing = (a: any) => a.data.tags.includes('licensing');
-const costs = all.filter((a) => !isLicensing(a));
-const rights = all.filter(isLicensing);
+
+// The newest piece leads the page on its own. Pulling it out of the grid below
+// stops it appearing twice, which reads as a bug rather than as emphasis.
+const [featured, ...rest] = all;
+
+const sections = [
+  {
+    id: 'costs',
+    chip: 'Cost',
+    tone: 'a',
+    name: 'What it costs',
+    blurb: 'Prices off the vendor page, with the catch that the pricing table leaves out.',
+    items: rest.filter((a) => !isLicensing(a)),
+  },
+  {
+    id: 'rights',
+    chip: 'Rights',
+    tone: 'b',
+    name: 'What you are allowed to do',
+    blurb: 'Licence terms read in full, so you know what you can sell before you make it.',
+    items: rest.filter(isLicensing),
+  },
+];
 
 const fmt = (d: Date) =>
   d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
@@ -24,6 +47,11 @@ const checked = all.map((a) => a.data.pricesCheckedOn).filter(Boolean) as Date[]
 const lastChecked = checked.length
   ? new Date(Math.max(...checked.map((d) => d.valueOf())))
   : null;
+
+// Card art reuses each article's own header photograph, so the picture a reader
+// clicks is the picture at the top of the page they land on.
+const pic = (a: any, ext: string, w: number) =>
+  withBase(`/img/${headerPhoto(a.id, a.data.tags)}-${w}.${ext}`);
 
 const home = new URL(withBase('/'), Astro.site).href;
 const schema = {
@@ -44,59 +72,114 @@ const schema = {
 };
 ---
 <BaseLayout title={SITE_NAME} schema={schema}>
-  <div class="page-head">
+  <section class="bleed hero">
+    <p class="hero-kicker">Independent, dated, sourced</p>
     <h1>Audio tools, without the guesswork</h1>
-    <p class="lede">
+    <p class="hero-lede">
       I look at what music and audio software costs, what the small print allows, and which
-      option makes sense for the job. Prices come with a check date and a link to the source.
+      option makes sense for the job. Every price comes with a check date and a link to the
+      page I read it on.
     </p>
-  </div>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href={withBase('/articles/')}>Browse all {all.length} articles</a>
+      <a class="btn btn-ghost" href="#method">How I check</a>
+    </div>
+    <ul class="hero-stats">
+      <li><strong>{all.length}</strong><span>articles, every figure sourced</span></li>
+      {lastChecked && <li><strong>{fmt(lastChecked)}</strong><span>most recent price check</span></li>}
+      <li><strong>None</strong><span>sponsored, paid for or ranked</span></li>
+    </ul>
+    <svg class="hero-wave" viewBox="0 0 320 90" aria-hidden="true" focusable="false">
+      {Array.from({ length: 40 }, (_, i) => {
+        const h = 10 + ((i * 37) % 31) + ((i % 5) * 7);
+        return <rect x={i * 8} y={90 - h} width="4" height={h} rx="2" />;
+      })}
+    </svg>
+  </section>
 
-  <div class="section-head">
-    <h2>Choosing and paying for tools</h2>
-    {lastChecked && <span class="meta">Last checked {fmt(lastChecked)}</span>}
-  </div>
-  <ul class="list">
-    {costs.map((a) => (
+  <a class="bleed feat" href={withBase(`/articles/${featured.id}/`)}>
+    <picture>
+      <source type="image/avif" srcset={pic(featured, 'avif', 800)} />
+      <img src={pic(featured, 'webp', 800)} alt="" width="800" height="267" decoding="async" />
+    </picture>
+    <div class="feat-txt">
+      <span class="chip chip-a">Latest</span>
+      <h2>{featured.data.title}</h2>
+      <p>{featured.data.description}</p>
+      <p class="feat-meta">
+        <span>{fmt(featured.data.pubDate)}</span>
+        {featured.data.pricesCheckedOn && <span>Prices checked {fmt(featured.data.pricesCheckedOn)}</span>}
+      </p>
+    </div>
+  </a>
+
+  {sections.map((s) => (
+    <div class="bleed">
+      <div class="sec-head">
+        <h2>{s.name}</h2>
+        <span class="meta">{s.items.length} {s.items.length === 1 ? 'piece' : 'pieces'}</span>
+      </div>
+      <p class="sec-blurb">{s.blurb}</p>
+      <ul class="cards">
+        {s.items.map((a) => (
+          <li class="card">
+            <a href={withBase(`/articles/${a.id}/`)}>
+              <picture>
+                <source type="image/avif" srcset={pic(a, 'avif', 800)} />
+                <img src={pic(a, 'webp', 800)} alt="" width="800" height="450"
+                     loading="lazy" decoding="async" />
+              </picture>
+              <div class="card-body">
+                <span class={`chip chip-${s.tone}`}>{s.chip}</span>
+                <h3>{a.data.title}</h3>
+                <p>{a.data.description}</p>
+                <p class="card-meta">
+                  {a.data.pricesCheckedOn
+                    ? <span>Prices checked {fmt(a.data.pricesCheckedOn)}</span>
+                    : <span>{fmt(a.data.pubDate)}</span>}
+                </p>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+
+  <section class="bleed method" id="method">
+    <h2>How I check</h2>
+    <ol class="steps">
       <li>
-        <h2><a href={withBase(`/articles/${a.id}/`)}>{a.data.title}</a></h2>
-        <p>{a.data.description}</p>
-        <p class="meta">
-          <span>{fmt(a.data.pubDate)}</span>
-          {a.data.pricesCheckedOn && <span>Prices checked {fmt(a.data.pricesCheckedOn)}</span>}
+        <span class="step-n">1</span>
+        <h3>Straight to the source</h3>
+        <p>
+          The pricing page, the terms, the help centre. Not a roundup, not a press release,
+          and never another blog quoting a figure with no date on it.
         </p>
       </li>
-    ))}
-  </ul>
-
-  <div class="section-head">
-    <h2>Terms, rights and releasing music</h2>
-    <span class="meta">Read from the terms</span>
-  </div>
-  <ul class="list">
-    {rights.map((a) => (
       <li>
-        <h2><a href={withBase(`/articles/${a.id}/`)}>{a.data.title}</a></h2>
-        <p>{a.data.description}</p>
-        <p class="meta">
-          <span>{fmt(a.data.pubDate)}</span>
-          {a.data.pricesCheckedOn && <span>Prices checked {fmt(a.data.pricesCheckedOn)}</span>}
+        <span class="step-n">2</span>
+        <h3>Dated on the page</h3>
+        <p>
+          Every price carries the day I read it, and every source is linked with its own
+          check date. Prices move, so you can see how much to trust mine.
         </p>
       </li>
-    ))}
-  </ul>
+      <li>
+        <span class="step-n">3</span>
+        <h3>The catch stated plainly</h3>
+        <p>
+          The credits that expire, the tier that will not give you a WAV, the clause about
+          who owns the output. That part is usually the answer.
+        </p>
+      </li>
+    </ol>
+    <p class="method-foot">
+      I don't run listening tests, so when sound quality matters I name the source of the
+      comparison instead of pretending to have made one. If a link ever earns a commission,
+      the page says so, and it changes nothing about the prices quoted.
+    </p>
+  </section>
 
-  <div class="section-head"><h2>How I work</h2></div>
-  <p>
-    I go to the source first: the pricing page, terms, help centre or official documentation.
-    I link the pages I used and date the check so you can see how fresh the information is.
-  </p>
-  <p>
-    I don't publish hands-on sound comparisons. When sound quality matters, I name the source
-    of the comparison; when I can't verify a price or a claim, I leave it out or say so.
-  </p>
-  <p class="meta">
-    If a link earns a commission, I'll label it on the page. It won't change the prices or terms
-    quoted here.
-  </p>
+  <Newsletter variant="inline" />
 </BaseLayout>

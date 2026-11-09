@@ -1,5 +1,5 @@
 ---
-title: "How Many Loopcloud Points Do You Need a Month?"
+title: "Loopcloud Points Explained: How Many You Actually Need"
 description: "A one-shot costs one point, a loop costs two, and some vocals cost eight. Work out which plan fits your month before you pay for one that doesn't."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09

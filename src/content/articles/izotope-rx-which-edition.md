@@ -1,5 +1,5 @@
 ---
-title: "iZotope RX: Which Edition Has Music Rebalance?"
+title: "Which iZotope RX Edition Has Music Rebalance? Not Elements"
 description: "Not the cheap one. RX 12 Elements is 109 euros and does not separate stems. Music Rebalance starts at 439 euros, and a separate tool undercuts it."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
@@ -89,7 +89,7 @@ Advanced is over €1,200.
 That local-processing claim matters beyond price. Most of the convenient stem separators
 upload your audio to someone else's server, which is a problem if the material is not yours
 to share. I went through which tools avoid that in
-[Which AI Audio Tools Run Offline](/articles/offline-ai-audio-tools/).
+[which AI audio tools run offline](/articles/offline-ai-audio-tools/).
 
 ## Before you spend anything
 

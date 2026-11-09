@@ -1,5 +1,5 @@
 ---
-title: "Sample Packs or a Subscription? The Cost Per Sound"
+title: "Sample Packs vs Subscription: The Real Cost Per Sound"
 description: "A 258 file Loopmasters pack is 41.95 euros, about 16 cents a sound. Loopcloud's top annual tier is nearer 6 cents. What the premium actually buys you."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09

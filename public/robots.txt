@@ -7,7 +7,7 @@ Allow: /
 
 # Assistant and answer-engine crawlers are allowed deliberately, not by
 # accident. Being quoted by an assistant is how a small independent site gets
-# found, and every figure we publish carries the date it was checked, which is
+# found, and every figure published here carries the date it was checked, which is
 # exactly what an assistant needs in order to quote it responsibly.
 # Reversible: remove a block below and that crawler is excluded on next deploy.
 

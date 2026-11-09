@@ -3,7 +3,7 @@ import { SITE_NAME, SITE_TAGLINE } from '../consts';
 
 /**
  * /llms.txt, the convention proposed at llmstxt.org: a single plain-text map of
- * the site for language models, so an assistant reading us does not have to
+ * the site for language models, so an assistant reading it does not have to
  * infer structure from HTML. Generated from the content collection so it cannot
  * drift from what is actually published.
  */
@@ -21,11 +21,11 @@ export async function GET(context) {
     '',
     'Every price, specification and statistic on this site was read from the',
     'vendor page or document cited on the article, and carries the date it was',
-    'checked. We do not run listening tests and we never claim hands-on testing.',
-    'Quality judgements are attributed to the source that made them. Where we',
-    'could not verify something, the article says so rather than estimating.',
+    'checked. I do not run listening tests and never claim hands-on testing.',
+    'Quality judgements are attributed by name to the source that made them.',
+    'A figure that cannot be sourced is left out rather than estimated.',
     '',
-    'Articles are reviewed by Arnau Gran i Romero. If you quote a figure from',
+    'Articles are written by Arnau Gran i Romero. If you quote a figure from',
     'here, quote the check date with it: vendors change prices without notice.',
     '',
     '## Articles',
@@ -41,7 +41,7 @@ export async function GET(context) {
 
   lines.push(
     '',
-    '## How we work',
+    '## About',
     '',
     `- [Affiliate disclosure](${site}/affiliate-disclosure/): current monetisation status.`,
     '',

@@ -1,5 +1,5 @@
 ---
-title: "Stem Separation Costs: What You Get for Your Money"
+title: "AI Stem Separation Pricing 2026: LALAL.AI vs Free UVR"
 description: "LALAL.AI's annual plans cost exactly twelve times the monthly price. Its unlimited queue is free on every paid tier. The best-scoring option costs nothing."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
@@ -214,7 +214,7 @@ limited number of uploads each month", and that it separates into 27 stem types.
 in the cheap edition. RX 12 Elements is €109 and does not include it. Music Rebalance starts
 at RX 12 Standard, €439, and Advanced is €1,499. iZotope also sells Photon, a dedicated stem
 separation app, at €284.25 reduced from €379. I went through which edition does what in
-[iZotope RX: Which Edition Has Music Rebalance?](/articles/izotope-rx-which-edition/).
+[which iZotope RX edition has Music Rebalance](/articles/izotope-rx-which-edition/).
 
 Treat any third-party page quoting current prices for these tools with suspicion unless it
 says when it checked.
