@@ -5,7 +5,7 @@ pubDate: 2026-11-09
 pricesCheckedOn: 2026-11-09
 byline: "Arnau Gran i Romero"
 basis: documentation
-tags: ["pricing", "stem separation", "DAW"]
+tags: ["pricing", "stem separation", "DAWs"]
 faq:
   - q: "Does Ableton Live Standard have stem separation?"
     a: "No. Ableton's Compare Editions page marks Stem Separation as Suite only, with a cross against both Intro and Standard, and its Stem Separation FAQ says the feature is included in Live Suite from version 12.3 onwards."
