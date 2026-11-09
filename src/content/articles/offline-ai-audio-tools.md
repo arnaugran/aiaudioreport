@@ -1,6 +1,6 @@
 ---
 title: "AI Audio Tools That Run Offline, and the Hardware You Need"
-description: "Transcription and stem splitting without uploading a thing. What each one asks of your graphics card, and which licence actually covers the model weights."
+description: "Nothing leaves your machine, which is the whole point. What each tool asks of your hardware, and the licence difference that matters if you sell what comes out."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 byline: "Arnau Gran i Romero"

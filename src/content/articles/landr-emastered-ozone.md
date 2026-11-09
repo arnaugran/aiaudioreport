@@ -1,6 +1,6 @@
 ---
 title: "LANDR vs eMastered vs Ozone: Rent or Buy Your Mastering"
-description: "Renting costs less this month and more by spring. The break-even lands around five months, and the entry subscription will not hand you a WAV at all."
+description: "Renting feels cheaper on the first invoice and stops being cheaper around month five. Where each option wins, and what the entry tier will not let you export."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08

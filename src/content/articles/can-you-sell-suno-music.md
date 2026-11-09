@@ -1,6 +1,6 @@
 ---
 title: "Can You Sell Suno Music? What the Terms Actually Allow"
-description: "Suno's terms turn on one detail: which plan you were on when you pressed download. Copyright and the distributor's own rules are separate questions."
+description: "Suno rewrote its terms in August 2026. Three things decide whether you can sell a track: your plan at download, who owns the copyright, and your distributor."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 byline: "Arnau Gran i Romero"

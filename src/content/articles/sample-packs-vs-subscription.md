@@ -1,6 +1,6 @@
 ---
 title: "Sample Packs vs Subscription: The Real Cost Per Sound"
-description: "Sixteen cents a sound if you buy the pack outright, less if you subscribe and actually spend the points. The difference is what happens when you stop paying."
+description: "Per sound the subscription wins while you keep paying, and buying wins the day you stop. The arithmetic on a real pack and a real monthly allowance."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08

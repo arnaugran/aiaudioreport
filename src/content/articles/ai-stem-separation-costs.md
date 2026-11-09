@@ -1,6 +1,6 @@
 ---
 title: "AI Stem Separation Pricing 2026: Free, Paid and the Catch"
-description: "Paid services meter the fast queue, charge by the minute, or bury the feature in a 439 euro tier. What each one costs, and which part of the bill you can skip."
+description: "Three ways to split a track: a free tool that wants a decent graphics card, a service that meters its fast queue, and a 439 euro plugin. The cost of each."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-07

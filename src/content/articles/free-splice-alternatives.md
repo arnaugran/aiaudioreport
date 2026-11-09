@@ -1,6 +1,6 @@
 ---
 title: "Free Splice Alternatives: Which Ones You Can Legally Sell"
-description: "Free does not mean cleared. One library grants commercial release in its terms, another leaves it to whoever uploaded the file, and some of those files say no."
+description: "Two big free libraries, two different answers to the only question that matters: can you sell what you make. One is simple, the other changes file by file."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08

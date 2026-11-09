@@ -1,6 +1,6 @@
 ---
 title: "Loopcloud Points Explained: How Many You Actually Need"
-description: "A monthly allowance in points tells you nothing until you know what you download. Work out your own number before you pick a plan you will never finish."
+description: "Plans are sold in points, not sounds, and the exchange rate changes with the file type. Work out your own monthly number before you commit to a tier."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08
