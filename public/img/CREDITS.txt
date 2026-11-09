@@ -1,6 +1,6 @@
-Article header photographs.
+Article photographs.
 
-Source: Unsplash (https://unsplash.com). Downloaded 8 November 2026.
+Source: Unsplash (https://unsplash.com).
 Licence: https://unsplash.com/license
   "All images can be downloaded and used for free"
   Commercial and non-commercial purposes, no permission needed,
@@ -8,7 +8,14 @@ Licence: https://unsplash.com/license
 Not permitted by that licence, and not done here: selling the images
 unaltered, or compiling them to replicate a competing image service.
 
-Files (cropped to 3:1 and re-encoded, served as AVIF with a WebP fallback):
+Each file is cropped to 3:1 and re-encoded, served as AVIF with a WebP
+fallback at 800 and 1600 pixels wide.
+
+No photograph is used by more than one article. The assignment lives in
+src/lib/photos.mjs and the build fails if two articles are ever given the
+same file.
+
+Downloaded 8 November 2026. Source ids were not recorded at the time:
   daw-screens
   desk-monitors
   headphones-keys
@@ -21,3 +28,39 @@ Files (cropped to 3:1 and re-encoded, served as AVIF with a WebP fallback):
   studio-console
   vocal-mic
   vocal-mic-mono
+
+Downloaded 9 November 2026, each from https://images.unsplash.com/<id>:
+  channel-strip        photo-1517522628113-2a66a330a878
+  cone-macro           photo-1608538770329-65941f62f9f8
+  console-vu           photo-1570334310431-b732bb10ac1c
+  console-warm         photo-1574517947730-55cb23e608c2
+  control-room         photo-1760780567530-389d8a3fba75
+  crate-digging        photo-1785061384417-62d8b3212f98
+  daw-waveform         photo-1632582204758-5ac65783517a
+  desk-piano           photo-1627407660893-fe01f60d44c4
+  drum-machine-808     photo-1571512379940-716326f35dbd
+  engineer-desk        photo-1563330232-57114bb0823c
+  headphones-black     photo-1585298723682-7115561c51b7
+  headphones-grey      photo-1599669454699-248893623440
+  headphones-pink      photo-1613040809024-b4ef7ba99bc3
+  headphones-red       photo-1593121925328-369cc8459c08
+  headphones-teal      photo-1628202926206-c63a34b1618f
+  headphones-yellow    photo-1505740420928-5e560c06d30e
+  home-studio-corner   photo-1681683967405-7efef2cd810c
+  keys-headphones      photo-1727383196205-7205669078f7
+  linn-drum            photo-1571512379797-4613cb587cc0
+  live-room            photo-1758336717046-c475fc6f45ce
+  mic-dark             photo-1478737270239-2f02b77fc618
+  mic-popfilter        photo-1531651008558-ed1740375b39
+  midi-controller      photo-1781120199798-35e140ec4474
+  mixer-lit            photo-1618609377864-68609b857e90
+  modular-synth        photo-1776785941157-a1b8c3890300
+  monitor-teal         photo-1545454675-3531b543be5d
+  monitor-wood         photo-1631972234521-24e9d4fbb841
+  record-crate         photo-1789139993656-0e8d90dd935a
+  record-shop          photo-1760302318644-40cb22d44a99
+  sampler-ko           photo-1781120199876-bace37a4671e
+  speakers-row         photo-1609702847389-b8aec1b0b929
+  studio-desk-two      photo-1636226570637-3fbda7ca09dc
+  synth-panel          photo-1776785941048-04236245b052
+  vu-vintage           photo-1776785941008-3b9d8797e108
