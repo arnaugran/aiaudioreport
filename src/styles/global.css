@@ -263,6 +263,67 @@ img { max-width: 100%; height: auto; }
 .pick p { margin: 0; color: var(--ink-2); }
 .group-blurb { margin: .55rem 0 .2rem; }
 
+/* Subscribe prompt. A centred dialog over a blurred page: the corner panel
+   it replaces was easy to miss entirely. What stops it being the pattern
+   everybody hates is in the script, not here: when it shows up, and that
+   three different things dismiss it for good. */
+.nlpop { position: fixed; inset: 0; z-index: 70; display: grid; place-items: center;
+  padding: 1rem; }
+.nlpop[hidden] { display: none; }
+.nlpop-back { position: fixed; inset: 0; background: rgb(8 10 12 / 58%);
+  opacity: 0; transition: opacity .2s ease; }
+@supports (backdrop-filter: blur(3px)) {
+  .nlpop-back { background: rgb(8 10 12 / 42%); backdrop-filter: blur(5px); }
+}
+.nlpop.is-in .nlpop-back { opacity: 1; }
+.nlpop-card { position: relative; width: min(27rem, 100%); padding: 1.6rem 1.6rem 1.5rem;
+  text-align: center; background: var(--bg); border: 1px solid var(--line-2);
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 16%), 0 28px 64px -12px rgb(0 0 0 / 42%);
+  opacity: 0; transform: translateY(10px) scale(.985);
+  transition: opacity .2s ease, transform .24s cubic-bezier(.16,.84,.34,1); }
+.nlpop.is-in .nlpop-card { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .nlpop-back, .nlpop-card { transition: none; } }
+.nlpop-x { position: absolute; top: .6rem; right: .6rem; display: grid; place-items: center;
+  width: 1.9rem; height: 1.9rem; padding: 0; cursor: pointer; color: var(--ink-3);
+  background: none; border: 0; border-radius: 5px; }
+.nlpop-x:hover { color: var(--ink); background: var(--bg-alt); }
+.nlpop-x:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.nlpop-mark { display: grid; place-items: center; width: 2.9rem; height: 2.9rem;
+  margin: .2rem auto .85rem; color: var(--accent); background: var(--accent-bg);
+  border: 1px solid var(--line-2); border-radius: 10px; }
+.nlpop-kicker { margin: 0 0 .25rem; font-size: .6875rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.nlpop-h { margin: 0 0 .55rem; font-size: 1.3125rem; font-weight: 700;
+  letter-spacing: -0.017em; line-height: 1.22; }
+.nlpop-h::before { content: none; display: none; }
+.nlpop-p { margin: 0 auto 1.15rem; max-width: 22rem; font-size: .9375rem; line-height: 1.55;
+  color: var(--ink-2); }
+.nlpop-label { position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; }
+.nlpop-form { display: flex; gap: .45rem; flex-wrap: wrap; margin: 0; }
+.nlpop-form input { flex: 1 1 11rem; min-width: 0; font: inherit; font-size: 1rem;
+  padding: .62rem .8rem; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line-2); border-radius: 7px; }
+.nlpop-form input::placeholder { color: var(--ink-3); }
+.nlpop-form input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px;
+  border-color: var(--accent); }
+.nlpop-form button { flex: 0 0 auto; font: inherit; font-size: 1rem; font-weight: 650;
+  cursor: pointer; padding: .62rem 1.3rem; border-radius: 7px;
+  border: 1px solid var(--accent); background: var(--accent); color: #fff; }
+.nlpop-form button:hover { filter: brightness(1.07); }
+.nlpop-form button:active { transform: translateY(1px); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .nlpop-form button { color: #15171a; } }
+:root[data-theme="dark"] .nlpop-form button { color: #15171a; }
+.nlpop-small { margin: .9rem 0 0; font-size: .75rem; line-height: 1.55; color: var(--ink-3); }
+.nlpop-small a { color: inherit; }
+@media (max-width: 30rem) {
+  .nlpop-card { padding: 1.35rem 1.1rem 1.25rem; }
+  .nlpop-form button { flex: 1 1 100%; }
+}
+@media print { .nlpop { display: none; } }
+
 /* In-page search on the articles index. A real field, not a button that
    opens something: on that page the list itself becomes the results. */
 .pgsearch { position: relative; display: flex; align-items: center; gap: .6rem;
@@ -358,10 +419,21 @@ img { max-width: 100%; height: auto; }
   object-fit: cover; border-radius: 6px; background: var(--bg-alt); }
 @media print { .banner { display: none; } }
 
-.signup { margin: 2.75rem 0 0; padding: 1.25rem 0 1.35rem;
-  border-block: 1px solid var(--line); }
-.signup--inline { margin: 2.5rem 0; }
-.signup-kicker { margin: 0 0 .25rem; font-size: .75rem; font-weight: 650;
+/* Newsletter sign-up. The one filled panel on the site, and the exception is
+   deliberate: it is not article content, and a reader scrolling past needs to
+   see that at a glance rather than start reading it as another section. The
+   accent edge, the mark and the ticked list are what make it read as a
+   considered block instead of a form bolted to the bottom of the page. */
+.signup { margin: 3.25rem 0 0; padding: 1.4rem 1.35rem 1.5rem;
+  background: var(--bg-alt); border: 1px solid var(--line);
+  border-top: 3px solid var(--accent); border-radius: 10px; }
+.signup--inline { margin: 2.75rem 0; }
+.signup-top { display: flex; align-items: flex-start; gap: .85rem; margin-bottom: .8rem; }
+.signup-mark { flex: none; display: grid; place-items: center; width: 2.5rem; height: 2.5rem;
+  color: var(--accent); background: var(--accent-bg); border: 1px solid var(--line-2);
+  border-radius: 8px; }
+.signup-head { min-width: 0; }
+.signup-kicker { margin: .1rem 0 .15rem; font-size: .6875rem; font-weight: 700;
   letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
 .signup-h { margin: 0; font-size: 1.3125rem; font-weight: 700; line-height: 1.2;
   letter-spacing: -0.017em; padding-top: 0; }
@@ -386,7 +458,10 @@ img { max-width: 100%; height: auto; }
 :root[data-theme="dark"] .signup-row button { color: #15171a; }
 .signup-small { margin: .85rem 0 0; font-size: .8125rem; line-height: 1.55; color: var(--ink-3); }
 .signup-small a { color: inherit; }
-@media (max-width: 30rem) { .signup-row button { flex: 1 1 100%; } }
+@media (max-width: 30rem) {
+  .signup { padding: 1.2rem 1.1rem 1.3rem; }
+  .signup-row button { flex: 1 1 100%; }
+}
 
 /* Advertising slot. Labelled, set apart by rules rather than a box, and given
    a minimum height so a loading ad does not shove the article down the page.
@@ -543,33 +618,156 @@ article h2[id] { scroll-margin-top: 1.5rem; }
 td .good, td .catch { font-weight: 650; }
 
 
-/* Home page: a short introduction and a readable guide index. */
-.home-intro { padding: 3.5rem 0 2.25rem; border-bottom: 1px solid var(--line); }
-.home-intro h1 { max-width: 16ch; margin: 0 0 .8rem; font-size: clamp(2rem, 6vw, 2.65rem); }
-.home-intro > p:first-of-type { max-width: 56ch; color: var(--ink-2); font-size: 1.125rem; }
-.home-browse { display: inline-block; margin: .15rem 0 1rem; font-weight: 650; }
-.home-browse span { display: inline-block; margin-left: .15rem; text-decoration: none; }
-.home-intro .home-checked { margin: 0; color: var(--ink-3); font-size: .84rem; }
+/* ==========================================================
+   Home page
+   The rest of the site is one 40rem column on purpose. The
+   home page is the exception: it is the only page whose job
+   is to make someone pick something, so it gets width, art
+   and colour that the articles deliberately do not have.
+   ========================================================== */
 
-.home-section { margin-top: 2.5rem; }
-.home-section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
-  padding-bottom: .45rem; border-bottom: 1px solid var(--line-2); }
-.home-section-head h2 { margin: 0; font-size: 1.4rem; }
-.home-section-head span { flex: none; color: var(--ink-3); font-size: .82rem; }
-.home-section-blurb { margin: .6rem 0 1.1rem; color: var(--ink-2); font-size: .94rem; }
-.home-guides { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.35rem 1.8rem;
-  list-style: none; margin: 0; padding: 0; }
-.home-guides li { min-width: 0; padding-top: .8rem; border-top: 1px solid var(--line); }
-.home-guides li > a { text-decoration: none; }
-.home-guides h3 { margin: 0 0 .35rem; font-size: 1.03rem; line-height: 1.35; }
-.home-guides li > a:hover h3 { text-decoration: underline; text-decoration-color: var(--accent); }
-.home-guides li > a p { margin: 0; color: var(--ink-2); font-size: .9rem; line-height: 1.5; }
-.home-guide-date { margin: .55rem 0 0; color: var(--ink-3); font-size: .76rem; }
-.home-about { margin: 3rem 0 1rem; padding-top: 1.25rem; border-top: 2px solid var(--ink); }
-.home-about h2 { margin: 0 0 .55rem; font-size: 1.15rem; }
-.home-about p { max-width: 62ch; margin: 0; color: var(--ink-2); font-size: .94rem; }
+/* Widens a block past the shared column without leaving the
+   normal flow. min() against the viewport keeps it from ever
+   causing a horizontal scrollbar on a phone. */
+.bleed {
+  width: min(62rem, calc(100vw - 2 * var(--pad)));
+  margin-inline: auto;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-@media (max-width: 38rem) {
-  .home-intro { padding-top: 2.5rem; }
-  .home-guides { grid-template-columns: 1fr; gap: 1rem; }
+.hero {
+  margin: 1.5rem 0 2rem;
+  padding: clamp(1.6rem, 4.5vw, 2.8rem) clamp(1.2rem, 4vw, 2.4rem) 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, var(--accent-bg) 0%, var(--bg-alt) 55%, var(--topic-b-bg) 100%);
+}
+.hero-kicker {
+  margin: 0 0 .7rem;
+  font-size: .75rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--accent);
+}
+.hero h1 {
+  margin: 0 0 .7rem;
+  font-size: clamp(1.95rem, 5.4vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  max-width: 17ch;
+}
+.hero-lede {
+  margin: 0 0 1.4rem;
+  font-size: clamp(1rem, 2.4vw, 1.18rem);
+  line-height: 1.5;
+  color: var(--ink-2);
+  max-width: 48ch;
+}
+.hero-cta { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: clamp(1.6rem, 4vw, 2.2rem); }
+
+.btn {
+  display: inline-block; padding: .7rem 1.2rem; border-radius: 999px;
+  font-size: .97rem; font-weight: 600; text-decoration: none;
+  border: 1px solid transparent; transition: transform .14s ease, background .14s ease;
+}
+.btn:hover { transform: translateY(-1px); text-decoration: none; }
+.btn-primary { background: var(--accent); color: var(--btn-ink); }
+.btn-ghost { border-color: var(--line-2); color: var(--ink); background: transparent; }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+.hero-stats {
+  list-style: none; margin: 0; padding: 1rem 0 1.1rem;
+  border-top: 1px solid var(--line);
+  display: grid; gap: .9rem 1.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+}
+.hero-stats li { display: flex; flex-direction: column; gap: .1rem; }
+.hero-stats strong { font-size: 1.25rem; letter-spacing: -0.02em; color: var(--accent); }
+.hero-stats span { font-size: .84rem; color: var(--ink-3); }
+
+/* Decorative only: a level meter, not data. */
+.hero-wave {
+  display: none;
+  position: absolute; right: -10px; bottom: 0; width: 320px; height: 90px;
+  fill: var(--accent); opacity: .13; pointer-events: none;
+}
+@media (min-width: 52rem) { .hero-wave { display: block; } }
+
+.feat {
+  display: grid; grid-template-columns: 1fr;
+  margin: 0 0 2.4rem;
+  border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+  text-decoration: none; color: inherit; background: var(--bg-alt);
+  transition: border-color .16s ease, box-shadow .16s ease;
+}
+.feat:hover { border-color: var(--line-2); box-shadow: 0 10px 26px rgb(0 0 0 / 8%); text-decoration: none; }
+.feat picture { display: block; }
+.feat img { display: block; width: 100%; height: 100%; min-height: 190px; object-fit: cover; }
+.feat-txt { padding: clamp(1.1rem, 3vw, 1.9rem); display: flex; flex-direction: column; justify-content: center; }
+.feat-txt h2 {
+  margin: .6rem 0 .5rem; font-size: clamp(1.3rem, 3vw, 1.8rem);
+  line-height: 1.2; letter-spacing: -0.02em;
+}
+.feat-txt p { margin: 0; color: var(--ink-2); }
+.feat-meta { margin-top: .9rem !important; font-size: .82rem; color: var(--ink-3) !important; }
+.feat-meta span + span::before { content: '·'; margin: 0 .45rem; }
+@media (min-width: 46rem) { .feat { grid-template-columns: 1.02fr .98fr; } }
+
+.chip {
+  display: inline-block; align-self: flex-start;
+  font-size: .7rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+  padding: .24rem .6rem; border-radius: 999px;
+}
+.chip-a { background: var(--good-bg); color: var(--good); }
+.chip-b { background: var(--topic-b-bg); color: var(--topic-b); }
+
+.sec-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+  margin: 0 0 .3rem; padding-bottom: .5rem; border-bottom: 2px solid var(--accent);
+}
+.sec-head h2 { margin: 0; font-size: 1.15rem; letter-spacing: -0.015em; }
+.sec-blurb { margin: .55rem 0 1.1rem; color: var(--ink-3); font-size: .92rem; }
+
+.cards {
+  list-style: none; margin: 0 0 2.4rem; padding: 0;
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+}
+.card {
+  border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--bg);
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+}
+.card:hover { transform: translateY(-2px); border-color: var(--line-2); box-shadow: 0 8px 20px rgb(0 0 0 / 7%); }
+.card > a { display: block; height: 100%; text-decoration: none; color: inherit; }
+.card > a:hover { text-decoration: none; }
+.card img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.card-body { padding: .85rem 1rem 1rem; display: flex; flex-direction: column; }
+.card-body h3 { margin: .5rem 0 .35rem; font-size: 1.04rem; line-height: 1.3; letter-spacing: -0.012em; }
+.card-body p { margin: 0; font-size: .9rem; line-height: 1.5; color: var(--ink-2); }
+.card-body .card-meta { margin-top: .7rem; font-size: .78rem; color: var(--ink-3); }
+.card:hover .card-body h3 { color: var(--accent); }
+
+.method {
+  margin: 0 0 2.5rem; padding: clamp(1.3rem, 3.6vw, 2.1rem);
+  background: var(--bg-alt); border: 1px solid var(--line); border-radius: 16px;
+}
+.method > h2 { margin: 0; font-size: 1.15rem; letter-spacing: -0.015em; }
+.steps {
+  list-style: none; margin: 1.2rem 0 0; padding: 0;
+  display: grid; gap: 1.3rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+.steps h3 { margin: .55rem 0 .3rem; font-size: 1rem; letter-spacing: -0.01em; }
+.steps p { margin: 0; font-size: .9rem; line-height: 1.5; color: var(--ink-2); }
+.step-n {
+  display: grid; place-items: center; width: 1.85rem; height: 1.85rem; border-radius: 50%;
+  background: var(--accent); color: var(--btn-ink); font-size: .88rem; font-weight: 700;
+}
+.method-foot { margin: 1.4rem 0 0; padding-top: 1.1rem; border-top: 1px solid var(--line);
+  font-size: .88rem; color: var(--ink-3); }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .card, .feat { transition: none; }
+  .btn:hover, .card:hover { transform: none; }
 }

@@ -1,0 +1,175 @@
+---
+import { NEWSLETTER_ENABLED, NEWSLETTER_ACTION, withBase } from '../consts';
+
+// A prompt to subscribe, shown once to readers who are actually reading.
+//
+// It is a centred dialog over a blurred page, because a corner panel was easy
+// to not see at all. What keeps it from being the pattern everybody hates is
+// when it appears and how easily it goes away:
+//  - It waits for engagement: time on the page and some scrolling, or the
+//    pointer leaving towards the tabs, which is the moment someone is done.
+//  - It waits for the cookie banner to be answered, so there are never two.
+//  - Escape, the backdrop and a labelled Close button all dismiss it, and the
+//    dismissal is remembered for good. So is subscribing.
+//  - Under prefers-reduced-motion it appears without animating.
+const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
+---
+{show && (
+  <div class="nlpop" id="nlpop" hidden>
+    <div class="nlpop-back" id="nlpop-back"></div>
+    <div class="nlpop-card" role="dialog" aria-modal="true" aria-labelledby="nlpop-h">
+      <button type="button" class="nlpop-x" id="nlpop-x" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+          <line x1="2" y1="2" x2="12" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="12" y1="2" x2="2" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <span class="nlpop-mark" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <rect x="2.6" y="5" width="18.8" height="14" rx="2.4" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M3.4 7.2 12 13.2l8.6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+
+      <p class="nlpop-kicker">Newsletter</p>
+      <h2 class="nlpop-h" id="nlpop-h">Get new guides by email</h2>
+      <p class="nlpop-p">
+        I send a note when I publish a guide or when a price or policy I've covered changes. No
+        more than two emails a month.
+      </p>
+
+      <form class="nlpop-form" action={NEWSLETTER_ACTION} method="post" id="nlpop-form">
+        <label class="nlpop-label" for="nlpop-email">Email address</label>
+        <input id="nlpop-email" type="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+        <button type="submit">Subscribe</button>
+      </form>
+
+      <p class="nlpop-small">
+        Confirm your email to subscribe. Unsubscribe any time.
+        <a href={withBase('/privacy/')}>Privacy details</a>.
+      </p>
+    </div>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var pop = document.getElementById('nlpop');
+      if (!pop) return;
+      // Version 2 of this key, because version 1 recorded a dismissal that
+      // never expired. Waving this away once should not mean never again, and
+      // it left anyone who had dismissed the old corner panel unable to see
+      // this one at all.
+      var SEEN = 'fr-nl-v2';
+      var CONSENT = 'fr-consent-v1';
+      var SNOOZE_DAYS = 60;
+      // Earlier than it was. Long enough that a reader who bounced in two
+      // seconds never sees it, short enough to land while they are still on
+      // the page rather than after they have gone.
+      var DELAY_MS = 22000;
+      var SCROLL_MIN = 0.18;
+
+      function stored(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+
+      // "done" is forever, because they subscribed. "later" wears off, so
+      // someone who waved it away in March can be asked again in May.
+      function remember(what) {
+        try { localStorage.setItem(SEEN, what + ':' + Date.now()); } catch (e) {}
+      }
+      function suppressed() {
+        var v = stored(SEEN);
+        if (!v) return false;
+        if (v.indexOf('done') === 0) return true;
+        var at = Number(v.split(':')[1]);
+        if (!at) return true;
+        return Date.now() - at < SNOOZE_DAYS * 86400000;
+      }
+
+      // Already subscribed, or dismissed recently enough to still mean it.
+      if (suppressed()) return;
+
+      var lastFocus = null;
+      var shown = false;
+
+      function open() {
+        if (shown || suppressed()) return;
+        // The consent banner owns the bottom of the screen until it is
+        // answered. Wait rather than stack two dialogs on one screen.
+        if (!stored(CONSENT)) return;
+        shown = true;
+        lastFocus = document.activeElement;
+        pop.hidden = false;
+        document.documentElement.style.overflow = 'hidden';
+        // A forced reflow, not requestAnimationFrame, which does not fire in
+        // an unpainted tab and would leave the card at opacity zero.
+        void pop.offsetWidth;
+        pop.classList.add('is-in');
+        var input = document.getElementById('nlpop-email');
+        if (input) input.focus({ preventScroll: true });
+      }
+
+      function close(dismissed) {
+        pop.classList.remove('is-in');
+        if (dismissed) remember('later');
+        document.documentElement.style.overflow = '';
+        var done = function () { pop.hidden = true; };
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) done();
+        else setTimeout(done, 200);
+        if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+      }
+
+      document.getElementById('nlpop-x').addEventListener('click', function () { close(true); });
+      document.getElementById('nlpop-back').addEventListener('click', function () { close(true); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape' || pop.hidden) return;
+        // The search overlay also closes on Escape and sits on top. One press
+        // should dismiss the thing in front, not quietly kill this as well.
+        var overlay = document.getElementById('srch');
+        if (overlay && !overlay.hidden) return;
+        close(true);
+      });
+
+      // Submitting hands over to Buttondown, which asks for confirmation. Mark
+      // it seen on the way out so this reader is never asked twice.
+      var form = document.getElementById('nlpop-form');
+      if (form) form.addEventListener('submit', function () { remember('done'); });
+
+      // Keep focus inside the dialog while it is open.
+      pop.addEventListener('keydown', function (e) {
+        if (e.key !== 'Tab') return;
+        var f = pop.querySelectorAll('button, input, a[href]');
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      });
+
+      function scrolled() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        return h <= 0 ? 1 : window.scrollY / h;
+      }
+
+      var elapsed = false;
+      function tryOpen() { if (elapsed && scrolled() >= SCROLL_MIN) open(); }
+
+      setTimeout(function () { elapsed = true; tryOpen(); }, DELAY_MS);
+      window.addEventListener('scroll', tryOpen, { passive: true });
+      // If the reader answers the cookie banner after the timer has run.
+      document.addEventListener('fr:consent-granted', tryOpen);
+
+      // Exit intent, desktop only: the pointer leaving through the top of the
+      // viewport means they are reaching for a tab or the address bar, which is
+      // the one moment an invitation is not an interruption. Requires some
+      // reading first, so it cannot fire on arrival.
+      var reading = false;
+      setTimeout(function () { reading = true; }, 12000);
+      if (window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        document.addEventListener('mouseout', function (e) {
+          if (!reading || shown) return;
+          if (e.relatedTarget || e.clientY > 6) return;
+          open();
+        });
+      }
+    })();
+  </script>
+)}

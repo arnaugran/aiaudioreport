@@ -10,12 +10,22 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
 ---
 {show && (
   <aside class={`signup${variant === 'inline' ? ' signup--inline' : ''}`} aria-labelledby="signup-h">
-    <p class="signup-kicker">Email updates</p>
-    <h2 id="signup-h" class="signup-h">Get new guides by email</h2>
+    <div class="signup-top">
+      <span class="signup-mark" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <rect x="2.6" y="5" width="18.8" height="14" rx="2.4" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M3.4 7.2 12 13.2l8.6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <div class="signup-head">
+        <p class="signup-kicker">Newsletter</p>
+        <h2 id="signup-h" class="signup-h">Get new guides by email</h2>
+      </div>
+    </div>
 
     <p class="signup-p">
-      I send an occasional note when I publish a guide or update a price or policy. No more
-      than two emails a month.
+      I send a note when I publish a guide or when a price or policy I've covered changes. No
+      more than two emails a month.
     </p>
 
     {/* Posts in this tab, which is what Buttondown's own embed code does.
