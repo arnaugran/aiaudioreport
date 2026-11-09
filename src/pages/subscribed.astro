@@ -11,6 +11,22 @@ import { withBase } from '../consts';
   noindex={true}
   description="One more step to finish subscribing to the AI Audio Report price watch: confirm the address from the email we just sent."
 >
+  {/* Buttondown sends the reader here with ?email_address=... on the end.
+      Strip it before anything reads the URL: an address in a query string
+      ends up in analytics, in the browser's history and in any Referer the
+      page sends. This runs first on the page, ahead of the analytics tag. */}
+  <script is:inline>
+    (function () {
+      try {
+        if (!location.search) return;
+        var u = new URL(location.href);
+        if (!u.searchParams.has('email_address')) return;
+        u.search = '';
+        history.replaceState(null, '', u.pathname + u.hash);
+      } catch (e) {}
+    })();
+  </script>
+
   <h1 class="page-title">Check your inbox</h1>
   <p class="lede">
     We have sent you an email with one link in it. Click it and you are on the list. Nothing
