@@ -32,11 +32,11 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
         </svg>
       </span>
 
-      <p class="nlpop-kicker">The price watch</p>
-      <h2 class="nlpop-h" id="nlpop-h">Prices change quietly. We notice.</h2>
+      <p class="nlpop-kicker">Newsletter</p>
+      <h2 class="nlpop-h" id="nlpop-h">Keep in touch</h2>
       <p class="nlpop-p">
-        Vendors move a number or rewrite a licence term, and almost nobody announces it. We
-        re-read these pages so you are not the one who finds out at checkout.
+        Two emails a month at most. New pieces as they go up, changes to the ones you have
+        already read, and a word on what I am looking at next.
       </p>
 
       <form class="nlpop-form" action={NEWSLETTER_ACTION} method="post" id="nlpop-form">
@@ -46,9 +46,9 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
       </form>
 
       <p class="nlpop-small">
-        Two a month at most. You confirm by email first, so nothing arrives unless you ask for
-        it twice, and one click gets you out again.
-        <a href={withBase('/privacy/')}>What we do with your address</a>.
+        You confirm by email first, so nothing turns up unless you ask for it twice, and one
+        click gets you out again.
+        <a href={withBase('/privacy/')}>What happens to your address</a>.
       </p>
     </div>
   </div>

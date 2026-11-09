@@ -428,14 +428,6 @@ img { max-width: 100%; height: auto; }
   letter-spacing: -0.017em; padding-top: 0; }
 .signup-h::before { content: none; display: none; }
 .signup-p { margin: 0 0 .95rem; color: var(--ink-2); font-size: .9688rem; line-height: 1.58; }
-.signup-list { margin: 0 0 1.15rem; padding: 0; list-style: none; }
-.signup-list li { position: relative; padding-left: 1.6rem; font-size: .9375rem;
-  line-height: 1.5; color: var(--ink-2); }
-.signup-list li + li { margin-top: .5rem; }
-/* A tick drawn from two borders: no icon font, no extra request. */
-.signup-list li::before { content: ""; position: absolute; left: .25rem; top: .42em;
-  width: .5rem; height: .28rem; border-left: 2px solid var(--accent);
-  border-bottom: 2px solid var(--accent); transform: rotate(-45deg); }
 .signup-label { position: absolute; width: 1px; height: 1px; overflow: hidden;
   clip: rect(0 0 0 0); white-space: nowrap; }
 .signup-form { margin: 0; }

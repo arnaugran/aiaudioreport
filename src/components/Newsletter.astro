@@ -18,21 +18,16 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
         </svg>
       </span>
       <div class="signup-head">
-        <p class="signup-kicker">The price watch</p>
-        <h2 id="signup-h" class="signup-h">Prices change quietly. We notice.</h2>
+        <p class="signup-kicker">Newsletter</p>
+        <h2 id="signup-h" class="signup-h">Keep in touch</h2>
       </div>
     </div>
 
     <p class="signup-p">
-      A tier gets renamed, a number goes up four euros, a licence clause is reworded. Almost
-      none of it is announced. We re-read these pages every month and send a short email when
-      something moves, so you are not the one who finds out at checkout.
+      Two emails a month at most. One when something new goes up, one when a price or a
+      licence term in a piece you have already read has changed. I will also say what I am
+      digging into next, which is usually the interesting part.
     </p>
-
-    <ul class="signup-list">
-      <li>A price change, with the old number sitting next to the new one</li>
-      <li>A licence term rewritten, which is usually where the catch is hiding</li>
-    </ul>
 
     {/* Posts in this tab, which is what Buttondown's own embed code does.
         Opening it in a new tab looked tidier and did not work: the request
@@ -53,10 +48,9 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
     </form>
 
     <p class="signup-small">
-      Two a month at most. You confirm by email first, so nothing arrives unless you ask for it
-      twice, and one click in any email gets you out again. We never sell or share the list,
-      and what happens to your address is set out in the
-      <a href={withBase('/privacy/')}>privacy policy</a>.
+      You confirm by email first, so nothing turns up unless you ask for it twice, and one
+      click in any email gets you out again. I never sell or share the list, and the detail is
+      in the <a href={withBase('/privacy/')}>privacy policy</a>.
     </p>
   </aside>
 )}
