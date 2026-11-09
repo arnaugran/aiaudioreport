@@ -1,5 +1,5 @@
 ---
-title: "Can You Sell Suno Music? Only If You Were Paying"
+title: "Can You Sell Suno Music? What the Terms Actually Allow"
 description: "Suno's terms turn on one detail: which plan you were on when you pressed download. Copyright and the distributor's own rules are separate questions."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09

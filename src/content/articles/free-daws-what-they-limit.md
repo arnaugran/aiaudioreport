@@ -1,5 +1,5 @@
 ---
-title: "Best Free DAWs in 2026: Cakewalk No Longer Counts"
+title: "Best Free DAWs in 2026: What Each One Limits"
 description: "The one everybody still recommends now needs a paid membership. The rest are free for good, and the difference between them is where each one stops."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09

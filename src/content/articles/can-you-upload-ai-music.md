@@ -1,5 +1,5 @@
 ---
-title: "Can You Put AI Music on Spotify? Yes. On Beatport, No."
+title: "Can You Put AI Music on Spotify and Beatport?"
 description: "One platform publishes a rule, one publishes a refusal, and the rest of the agreements say nothing at all. The silence is the part worth planning around."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09

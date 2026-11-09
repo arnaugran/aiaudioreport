@@ -37,6 +37,21 @@ nothing else changes.
 - declares no `sources` (at least one, each with a URL and a `checked` date),
 - omits `basis`, which states what the analysis rests on.
 
+### Headlines
+
+A title asks the question or names the subject. It never answers it. "Which
+iZotope RX Edition Has Music Rebalance?" is the headline; "Not Elements" is
+the article. Giving the answer away in the title is the one thing the owner
+has asked twice not to do, so it is written here rather than left to taste.
+
+A second clause is welcome when it promises the answer without spending it:
+"Is Splice Worth It? What $19.99 a Month Actually Buys" works, and so does
+"Splice vs Loopcloud: What You Keep If You Cancel".
+
+The meta description must not restate the article's opening sentence. The
+snippet in the results and the first line of the page are read seconds apart,
+and repeating yourself there wastes both.
+
 `pricesCheckedOn` is required in practice for any article quoting prices — the
 methodology box renders the date from it.
 

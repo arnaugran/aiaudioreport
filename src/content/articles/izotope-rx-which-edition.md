@@ -1,5 +1,5 @@
 ---
-title: "Which iZotope RX Edition Has Music Rebalance? Not Elements"
+title: "Which iZotope RX Edition Has Music Rebalance?"
 description: "The cheap edition leaves it out and the one that has it costs 439 euros. If separating stems is the only reason you are buying, there is a smaller bill."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
