@@ -33,10 +33,11 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
       </span>
 
       <p class="nlpop-kicker">Newsletter</p>
-      <h2 class="nlpop-h" id="nlpop-h">Get new guides by email</h2>
+      <h2 class="nlpop-h" id="nlpop-h">Keep in touch</h2>
       <p class="nlpop-p">
-        I send a note when I publish a guide or when a price or policy I've covered changes. No
-        more than two emails a month.
+        Two emails a month at most. Be the first to know when one of the companies I write
+        about here changes its prices or updates its policies, plus exclusive news about which
+        posts are coming next.
       </p>
 
       <form class="nlpop-form" action={NEWSLETTER_ACTION} method="post" id="nlpop-form">
@@ -46,8 +47,9 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
       </form>
 
       <p class="nlpop-small">
-        Confirm your email to subscribe. Unsubscribe any time.
-        <a href={withBase('/privacy/')}>Privacy details</a>.
+        You confirm by email first, so nothing turns up unless you ask for it twice, and one
+        click gets you out again.
+        <a href={withBase('/privacy/')}>What happens to your address</a>.
       </p>
     </div>
   </div>

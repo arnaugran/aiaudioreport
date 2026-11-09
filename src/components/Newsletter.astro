@@ -19,13 +19,14 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
       </span>
       <div class="signup-head">
         <p class="signup-kicker">Newsletter</p>
-        <h2 id="signup-h" class="signup-h">Get new guides by email</h2>
+        <h2 id="signup-h" class="signup-h">Keep in touch</h2>
       </div>
     </div>
 
     <p class="signup-p">
-      I send a note when I publish a guide or when a price or policy I've covered changes. No
-      more than two emails a month.
+      Two emails a month at most. You will be the first to know when one of the companies I
+      write about here changes its prices or updates its policies. You will also get exclusive
+      news about which posts are coming next to the blog.
     </p>
 
     {/* Posts in this tab, which is what Buttondown's own embed code does.
@@ -47,8 +48,9 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
     </form>
 
     <p class="signup-small">
-      Confirm your email to subscribe. Unsubscribe any time. See the
-      <a href={withBase('/privacy/')}>privacy policy</a>.
+      You confirm by email first, so nothing turns up unless you ask for it twice, and one
+      click in any email gets you out again. I never sell or share the list, and the detail is
+      in the <a href={withBase('/privacy/')}>privacy policy</a>.
     </p>
   </aside>
 )}
