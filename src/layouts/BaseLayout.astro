@@ -7,7 +7,7 @@ import SiteSearch from '../components/SiteSearch.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import Analytics from '../components/Analytics.astro';
 import Ads from '../components/Ads.astro';
-import { SITE_NAME, SITE_DESCRIPTION, ADS_ENABLED, withBase } from '../consts';
+import { SITE_NAME, SITE_DESCRIPTION, ADS_ENABLED, NEWSLETTER_ENABLED, withBase } from '../consts';
 
 interface Props {
   title: string;
@@ -58,7 +58,11 @@ const ogImage = new URL(withBase(ogPath), Astro.site).href;
       "default-src 'self'",
       "base-uri 'self'",
       "object-src 'none'",
-      "form-action 'none'",
+      // Exactly one destination, and it is the newsletter. This said 'none'
+      // from the day the newsletter went live, which silently blocked every
+      // subscribe: the browser refused the POST and the reader saw nothing
+      // happen. Anything wider would let an injected form post elsewhere.
+      NEWSLETTER_ENABLED ? "form-action https://buttondown.com" : "form-action 'none'",
       ADS_ENABLED
         ? "frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://*.safeframe.googlesyndication.com"
         : "frame-src 'none'",
