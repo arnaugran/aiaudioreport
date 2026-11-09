@@ -1,6 +1,6 @@
 ---
 title: "Free Splice Alternatives and What You Can Legally Release"
-description: "Looperman grants a broad royalty-free commercial licence. On Freesound it changes per file, and some of it bars you from earning anything at all."
+description: "Free sample libraries have different licences. Looperman allows commercial releases; on Freesound, check the licence on each file."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08

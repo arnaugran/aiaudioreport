@@ -1,6 +1,6 @@
 ---
 title: "Which iZotope RX Edition Has Music Rebalance? Not Elements"
-description: "Not the cheap one. RX 12 Elements is 109 euros and does not separate stems. Music Rebalance starts at 439 euros, and a separate tool undercuts it."
+description: "Music Rebalance starts in RX Standard. If you only need stem separation, iZotope's Photon app costs less."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08

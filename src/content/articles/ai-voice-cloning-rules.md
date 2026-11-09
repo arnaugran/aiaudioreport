@@ -1,6 +1,6 @@
 ---
 title: "Is AI Voice Cloning Legal? What Actually Stops You in 2026"
-description: "There is no federal voice-cloning law yet. A September 2026 attempt to pass the NO FAKES Act failed; platform rules and contracts already apply."
+description: "US law is unsettled, but platform rules and tool contracts already apply. Here's what the NO FAKES Act and current voice policies say."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 byline: "Arnau Gran i Romero"

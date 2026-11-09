@@ -1,6 +1,6 @@
 ---
 title: "AI Stem Separation Pricing 2026: LALAL.AI vs Free UVR"
-description: "LALAL.AI's annual plans cost exactly twelve times the monthly price. Its unlimited queue is free on every paid tier. The best-scoring option costs nothing."
+description: "Demucs is free and scores well. LALAL.AI's paid plans meter the fast queue but leave the slower one unlimited."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-07

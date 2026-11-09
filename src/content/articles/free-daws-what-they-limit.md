@@ -1,6 +1,6 @@
 ---
 title: "Best Free DAWs in 2026: Cakewalk No Longer Counts"
-description: "Cakewalk is not free any more. Sonar now needs a paid BandLab membership at 99 dollars rising to 149. Waveform Free still has no track limit at all."
+description: "Cakewalk Sonar now requires a paid BandLab membership. Waveform Free has no track cap; other free DAWs come with different limits."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08

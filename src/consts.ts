@@ -1,8 +1,8 @@
 export const SITE_NAME = 'AI Audio Report';
 export const SITE_TAGLINE =
-  'What AI and software audio tools cost, and what you can actually do with them.';
+  'Music and audio software prices, licences and limits.';
 export const SITE_DESCRIPTION =
-  'Real prices for AI and music production software, each with the date we checked it, plus licence terms read from the source. Independent and dated, not ranked.';
+  'Guides to music and audio software prices, licences and limits, with links to the original sources and dates for every price.';
 export const PUBLISHER = 'AI Audio Report';
 export const DEFAULT_BYLINE = 'Arnau Gran i Romero';
 export const CONTACT_EMAIL = 'editor@aiaudioreport.com';

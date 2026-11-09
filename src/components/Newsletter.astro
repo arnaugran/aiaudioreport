@@ -10,23 +10,12 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
 ---
 {show && (
   <aside class={`signup${variant === 'inline' ? ' signup--inline' : ''}`} aria-labelledby="signup-h">
-    <div class="signup-top">
-      <span class="signup-mark" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-          <rect x="2.6" y="5" width="18.8" height="14" rx="2.4" stroke="currentColor" stroke-width="1.7"/>
-          <path d="M3.4 7.2 12 13.2l8.6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </span>
-      <div class="signup-head">
-        <p class="signup-kicker">Newsletter</p>
-        <h2 id="signup-h" class="signup-h">Keep in touch</h2>
-      </div>
-    </div>
+    <p class="signup-kicker">Email updates</p>
+    <h2 id="signup-h" class="signup-h">Get new guides by email</h2>
 
     <p class="signup-p">
-      Two emails a month at most. You will be the first to know when one of the companies I
-      write about here changes its prices or updates its policies. You will also get exclusive
-      news about which posts are coming next to the blog.
+      I send an occasional note when I publish a guide or update a price or policy. No more
+      than two emails a month.
     </p>
 
     {/* Posts in this tab, which is what Buttondown's own embed code does.
@@ -48,9 +37,8 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
     </form>
 
     <p class="signup-small">
-      You confirm by email first, so nothing turns up unless you ask for it twice, and one
-      click in any email gets you out again. I never sell or share the list, and the detail is
-      in the <a href={withBase('/privacy/')}>privacy policy</a>.
+      Confirm your email to subscribe. Unsubscribe any time. See the
+      <a href={withBase('/privacy/')}>privacy policy</a>.
     </p>
   </aside>
 )}
