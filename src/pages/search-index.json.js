@@ -54,7 +54,15 @@ export async function GET() {
       g: a.data.tags,
       h: headings,
       b: bodyTokens.join(' '),
-      p: a.data.pricesCheckedOn ? a.data.pricesCheckedOn.toISOString().slice(0, 10) : null,
+      // Formatted here rather than in the browser: the result row shows it
+      // as written everywhere else on the site, not as an ISO string.
+      p: a.data.pricesCheckedOn
+        ? a.data.pricesCheckedOn.toLocaleDateString('en-GB', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric',
+          })
+        : null,
     };
   });
 

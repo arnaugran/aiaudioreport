@@ -7,14 +7,13 @@ import { NEWSLETTER_ENABLED, NEWSLETTER_ACTION, withBase } from '../consts';
 // pattern on the web:
 //  - It never interrupts. It is a corner panel, not a modal, so it covers no
 //    text and blocks no scrolling.
-//  - It waits for engagement: time on the page AND some scrolling. A reader
-//    who opened the tab and left never sees it.
+//  - It waits for engagement: time on the page, some scrolling, or the pointer
+//    leaving towards the tabs, which is the moment someone is done reading.
 //  - It waits for the cookie banner to be answered, because that is also
 //    anchored to the bottom of the screen and two of them at once is a mess.
 //  - Dismissing it is remembered for good, and so is subscribing.
 //  - Escape closes it, focus moves into it when it opens and returns when it
-//    closes, and it is hidden entirely under prefers-reduced-motion? No: it
-//    still shows, it simply does not animate.
+//    closes, and under prefers-reduced-motion it appears without animating.
 const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
 ---
 {show && (
@@ -27,25 +26,53 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
     hidden
   >
     <button type="button" class="nlpop-x" id="nlpop-x" aria-label="Dismiss">
-      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+      <svg width="13" height="13" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
         <line x1="2" y1="2" x2="12" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
         <line x1="12" y1="2" x2="2" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
       </svg>
     </button>
-    <h2 class="nlpop-h" id="nlpop-h">Prices move. We will tell you.</h2>
-    <p class="nlpop-p">
-      One email when a price on this site changes, when a vendor rewrites a licence term, or
-      when something new goes up. Two a month at most.
-    </p>
-    <form class="nlpop-form" action={NEWSLETTER_ACTION} method="post" target="_blank" id="nlpop-form">
-      <label class="nlpop-label" for="nlpop-email">Email address</label>
-      <input id="nlpop-email" type="email" name="email" required autocomplete="email" placeholder="you@example.com" />
-      <button type="submit">Subscribe</button>
-    </form>
-    <p class="nlpop-small">
-      Confirmed opt-in, one-click unsubscribe, and the list is never shared.
-      <a href={withBase('/privacy/')}>How we handle it</a>.
-    </p>
+
+    <div class="nlpop-body" id="nlpop-body">
+      <div class="nlpop-top">
+        <span class="nlpop-mark" aria-hidden="true">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+            <rect x="2.6" y="5" width="18.8" height="14" rx="2.4" stroke="currentColor" stroke-width="1.7"/>
+            <path d="M3.4 7.2 12 13.2l8.6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="nlpop-head">
+          <p class="nlpop-kicker">The price watch</p>
+          <h2 class="nlpop-h" id="nlpop-h">Prices move. We will tell you.</h2>
+        </div>
+      </div>
+
+      <p class="nlpop-p">
+        One email when a number on this site changes or a vendor rewrites a licence term.
+        Two a month at most.
+      </p>
+
+      <form class="nlpop-form" action={NEWSLETTER_ACTION} method="post" target="_blank" id="nlpop-form">
+        <label class="nlpop-label" for="nlpop-email">Email address</label>
+        <input id="nlpop-email" type="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+        <button type="submit">Subscribe</button>
+      </form>
+
+      <p class="nlpop-small">
+        Confirmed opt-in, one-click unsubscribe, never shared.
+        <a href={withBase('/privacy/')}>How we handle it</a>.
+      </p>
+    </div>
+
+    <div class="nlpop-done" id="nlpop-done" hidden>
+      <span class="nlpop-tick" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <path d="M5 12.5 10 17.5 19.5 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <p class="nlpop-done-p">
+        One step left. Confirm in the tab that just opened and you are on the list.
+      </p>
+    </div>
   </div>
 
   <script is:inline>
@@ -54,8 +81,11 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
       if (!pop) return;
       var SEEN = 'fr-nl-dismissed-v1';
       var CONSENT = 'fr-consent-v1';
-      var DELAY_MS = 40000;
-      var SCROLL_MIN = 0.25;
+      // Earlier than it was. Long enough that a reader who bounced in two
+      // seconds never sees it, short enough to land while they are still on
+      // the page rather than after they have gone.
+      var DELAY_MS = 22000;
+      var SCROLL_MIN = 0.18;
 
       function stored(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
       function remember(k) { try { localStorage.setItem(k, '1'); } catch (e) {} }
@@ -74,26 +104,45 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
         shown = true;
         lastFocus = document.activeElement;
         pop.hidden = false;
-        requestAnimationFrame(function () { pop.classList.add('is-in'); });
+        // See SiteSearch: a forced reflow, not requestAnimationFrame, which
+        // does not fire in an unpainted tab.
+        void pop.offsetWidth;
+        pop.classList.add('is-in');
         var input = document.getElementById('nlpop-email');
         if (input) input.focus({ preventScroll: true });
       }
 
       function close(permanent) {
         pop.classList.remove('is-in');
-        pop.hidden = true;
         if (permanent) remember(SEEN);
+        var done = function () { pop.hidden = true; };
+        // Let the exit transition run, unless the reader asked for no motion.
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) done();
+        else setTimeout(done, 220);
         if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
       }
 
       document.getElementById('nlpop-x').addEventListener('click', function () { close(true); });
       document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && !pop.hidden) close(true);
+        if (e.key !== 'Escape' || pop.hidden) return;
+        // The search overlay also closes on Escape and sits on top. One press
+        // should dismiss the thing in front, not quietly kill this as well.
+        var overlay = document.getElementById('srch');
+        if (overlay && !overlay.hidden) return;
+        close(true);
       });
-      // Submitting opens Buttondown in a new tab; treat that as done and never
+
+      // Submitting opens Buttondown in a new tab. Swap the panel for a
+      // confirmation rather than letting it vanish, so the reader knows the
+      // click registered and that a confirmation email is coming, and never
       // ask this reader again.
       var form = document.getElementById('nlpop-form');
-      if (form) form.addEventListener('submit', function () { remember(SEEN); close(false); });
+      if (form) form.addEventListener('submit', function () {
+        remember(SEEN);
+        document.getElementById('nlpop-body').hidden = true;
+        document.getElementById('nlpop-done').hidden = false;
+        setTimeout(function () { close(false); }, 6000);
+      });
 
       function scrolled() {
         var h = document.documentElement.scrollHeight - window.innerHeight;
@@ -101,16 +150,26 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
       }
 
       var elapsed = false;
-      setTimeout(function () { elapsed = true; if (scrolled() >= SCROLL_MIN) open(); }, DELAY_MS);
-      window.addEventListener(
-        'scroll',
-        function () { if (elapsed && scrolled() >= SCROLL_MIN) open(); },
-        { passive: true }
-      );
+      function tryOpen() { if (elapsed && scrolled() >= SCROLL_MIN) open(); }
+
+      setTimeout(function () { elapsed = true; tryOpen(); }, DELAY_MS);
+      window.addEventListener('scroll', tryOpen, { passive: true });
       // If the reader answers the cookie banner after the timer has run.
-      document.addEventListener('fr:consent-granted', function () {
-        if (elapsed && scrolled() >= SCROLL_MIN) open();
-      });
+      document.addEventListener('fr:consent-granted', tryOpen);
+
+      // Exit intent, desktop only: the pointer leaving through the top of the
+      // viewport means they are reaching for a tab or the address bar, which is
+      // the one moment an invitation is not an interruption. Requires some
+      // reading first, so it cannot fire on arrival.
+      var reading = false;
+      setTimeout(function () { reading = true; }, 12000);
+      if (window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        document.addEventListener('mouseout', function (e) {
+          if (!reading || shown) return;
+          if (e.relatedTarget || e.clientY > 6) return;
+          open();
+        });
+      }
     })();
   </script>
 )}

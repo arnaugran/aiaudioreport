@@ -10,12 +10,29 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
 ---
 {show && (
   <aside class={`signup${variant === 'inline' ? ' signup--inline' : ''}`} aria-labelledby="signup-h">
-    <h2 id="signup-h" class="signup-h">One email when prices change</h2>
+    <div class="signup-top">
+      <span class="signup-mark" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <rect x="2.6" y="5" width="18.8" height="14" rx="2.4" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M3.4 7.2 12 13.2l8.6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <div class="signup-head">
+        <p class="signup-kicker">The price watch</p>
+        <h2 id="signup-h" class="signup-h">One email when a price moves</h2>
+      </div>
+    </div>
+
     <p class="signup-p">
-      We re-read the pricing pages and licence terms every month. When a figure on this site
-      moves, or a vendor quietly rewrites a term, that goes out in one short email. No more
-      than two a month, and nothing else is ever sent to the list.
+      Every figure here was read off a vendor's own page on a stated date, and those pages keep
+      changing. We re-read them, so you do not have to. New comparisons go out the same way.
     </p>
+
+    <ul class="signup-list">
+      <li>Price changes on the tools covered here, with the old number and the new one</li>
+      <li>Licence and terms rewrites, which is usually where the catch turns up</li>
+    </ul>
+
     <form class="signup-form" action={NEWSLETTER_ACTION} method="post" target="_blank">
       <label class="signup-label" for="signup-email">Email address</label>
       <div class="signup-row">
@@ -29,11 +46,12 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
         />
         <button type="submit">Subscribe</button>
       </div>
-      <p class="signup-small">
-        You are consenting to receive this newsletter and nothing else. Unsubscribe from any
-        email, in one click. We do not sell or share the list, and what happens to your
-        address is set out in the <a href={withBase('/privacy/')}>privacy policy</a>.
-      </p>
     </form>
+
+    <p class="signup-small">
+      Two emails a month at most, and the address is used for nothing else. Unsubscribe from
+      any email in one click. We never sell or share the list, and what happens to your
+      address is set out in the <a href={withBase('/privacy/')}>privacy policy</a>.
+    </p>
   </aside>
 )}

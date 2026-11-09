@@ -1,0 +1,189 @@
+---
+// Site-wide search overlay. Opens in place from the header on any page, so
+// searching never costs you the page you were reading.
+//
+// The index is fetched on first open, not on page load, so a reader who never
+// searches pays nothing for it, and nothing typed ever leaves the browser.
+---
+<div class="srch" id="srch" hidden>
+  <div class="srch-back" id="srch-back"></div>
+  <div class="srch-panel" role="dialog" aria-modal="true" aria-labelledby="srch-label">
+    <label class="srch-label" id="srch-label" for="srch-input">Search articles</label>
+    <div class="srch-bar">
+      <svg class="srch-icon" width="18" height="18" viewBox="0 0 16 16" aria-hidden="true">
+        <circle cx="7" cy="7" r="4.6" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <line x1="10.6" y1="10.6" x2="14.4" y2="14.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </svg>
+      <input id="srch-input" type="search" autocomplete="off" spellcheck="false"
+             placeholder="Search prices, tools, licence terms&hellip;" aria-controls="srch-results" />
+      <kbd class="srch-kbd">Esc</kbd>
+    </div>
+    <div class="srch-body">
+      <p class="srch-hint" id="srch-hint">
+        Try a product name, a price, or a licence term. Everything is searched, including
+        the body of each article.
+      </p>
+      <ul class="srch-results" id="srch-results" role="listbox" aria-label="Search results"></ul>
+    </div>
+    <div class="srch-foot">
+      <span><kbd>&uarr;</kbd><kbd>&darr;</kbd> to move</span>
+      <span><kbd>&crarr;</kbd> to open</span>
+      <span id="srch-count"></span>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var root = document.getElementById('srch');
+    if (!root) return;
+    var input = document.getElementById('srch-input');
+    var list = document.getElementById('srch-results');
+    var hint = document.getElementById('srch-hint');
+    var count = document.getElementById('srch-count');
+    var back = document.getElementById('srch-back');
+
+    var docs = null, loading = null, hits = [], cursor = -1, lastFocus = null;
+
+    function load() {
+      if (docs) return Promise.resolve(docs);
+      if (!loading) {
+        loading = fetch('/search-index.json')
+          .then(function (r) { return r.json(); })
+          .then(function (d) { docs = d; return d; })
+          .catch(function () { docs = []; return []; });
+      }
+      return loading;
+    }
+
+    function open() {
+      if (!root.hidden) return;
+      lastFocus = document.activeElement;
+      root.hidden = false;
+      document.documentElement.style.overflow = 'hidden';
+      // Force a layout so the transition has a starting point, then add the
+      // class in the same tick. requestAnimationFrame looks tidier but never
+      // fires in a background or unpainted tab, which would leave the panel
+      // laid out at opacity zero and the page unusable behind it.
+      void root.offsetWidth;
+      root.classList.add('is-in');
+      input.focus();
+      input.select();
+      load();
+    }
+
+    function close() {
+      if (root.hidden) return;
+      root.classList.remove('is-in');
+      root.hidden = true;
+      document.documentElement.style.overflow = '';
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    function tokens(s) {
+      return (s.toLowerCase().match(/[a-z0-9][a-z0-9+.\-]*/g) || []).filter(Boolean);
+    }
+
+    // Weighted so a hit in the headline outranks a hit in the body, with
+    // prefix matching because people type "splic" and "master".
+    function score(doc, qs) {
+      var fields = [[doc.t, 6], [doc.h, 3], [(doc.g || []).join(' '), 3], [doc.d, 2], [doc.b, 1]];
+      var total = 0;
+      for (var i = 0; i < qs.length; i++) {
+        var q = qs[i], best = 0;
+        for (var f = 0; f < fields.length; f++) {
+          var words = tokens(fields[f][0] || '');
+          for (var w = 0; w < words.length; w++) {
+            if (words[w] === q) { best = Math.max(best, fields[f][1] * 2); break; }
+            if (words[w].indexOf(q) === 0) best = Math.max(best, fields[f][1]);
+          }
+        }
+        if (best === 0) return 0;   // every word typed has to land somewhere
+        total += best;
+      }
+      return total;
+    }
+
+    function esc(s) {
+      return String(s).replace(/[&<>"]/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+      });
+    }
+
+    function mark(text, qs) {
+      var out = esc(text);
+      for (var i = 0; i < qs.length; i++) {
+        if (qs[i].length < 2) continue;
+        var re = new RegExp('(' + qs[i].replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig');
+        out = out.replace(re, '<mark>$1</mark>');
+      }
+      return out;
+    }
+
+    function render(qs) {
+      list.innerHTML = hits.map(function (h, i) {
+        return '<li role="option" aria-selected="' + (i === cursor) + '"' +
+               (i === cursor ? ' class="is-on"' : '') + '>' +
+               '<a href="/articles/' + esc(h.s) + '/">' +
+               '<span class="srch-t">' + mark(h.t, qs) + '</span>' +
+               '<span class="srch-d">' + mark(h.d, qs) + '</span>' +
+               (h.p ? '<span class="srch-m">Prices checked ' + esc(h.p) + '</span>' : '') +
+               '</a></li>';
+      }).join('');
+      var on = list.querySelector('.is-on');
+      if (on) on.scrollIntoView({ block: 'nearest' });
+    }
+
+    function run() {
+      var q = input.value.trim();
+      if (!q) { hits = []; cursor = -1; list.innerHTML = ''; hint.hidden = false; count.textContent = ''; return; }
+      hint.hidden = true;
+      if (!docs) { count.textContent = 'Searching…'; }
+      load().then(function (d) {
+        if (input.value.trim() !== q) return;
+        var qs = tokens(q);
+        hits = d.map(function (doc) { return { d: doc, s: score(doc, qs) }; })
+                .filter(function (x) { return x.s > 0; })
+                .sort(function (a, b) { return b.s - a.s; })
+                .map(function (x) { return x.d; });
+        cursor = hits.length ? 0 : -1;
+        render(qs);
+        count.textContent = hits.length
+          ? hits.length + (hits.length === 1 ? ' result' : ' results')
+          : 'No match for “' + q + '”';
+      });
+    }
+
+    var t;
+    input.addEventListener('input', function () { clearTimeout(t); t = setTimeout(run, 80); });
+
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        if (!hits.length) return;
+        e.preventDefault();
+        cursor = (cursor + (e.key === 'ArrowDown' ? 1 : -1) + hits.length) % hits.length;
+        render(tokens(input.value.trim()));
+      } else if (e.key === 'Enter') {
+        var a = list.querySelector('.is-on a');
+        if (a) { e.preventDefault(); window.location.href = a.getAttribute('href'); }
+      }
+    });
+
+    back.addEventListener('click', close);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !root.hidden) { e.preventDefault(); close(); }
+      // Cmd+K and Ctrl+K are the shortcuts people already have in their hands.
+      if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); open(); }
+      // Bare "/" opens too, unless the reader is already typing somewhere.
+      if (e.key === '/' && root.hidden) {
+        var tag = (document.activeElement && document.activeElement.tagName) || '';
+        if (tag !== 'INPUT' && tag !== 'TEXTAREA') { e.preventDefault(); open(); }
+      }
+    });
+
+    // Every trigger on the page, wherever it lives.
+    Array.prototype.forEach.call(document.querySelectorAll('[data-search-open]'), function (el) {
+      el.addEventListener('click', function (e) { e.preventDefault(); open(); });
+    });
+  })();
+</script>

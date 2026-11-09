@@ -254,55 +254,135 @@ img { max-width: 100%; height: auto; }
 
 /* Subscribe prompt. A corner panel rather than a modal: it covers no text,
    blocks no scrolling and can be ignored. On a phone it spans the width but
-   still sits at the bottom, out of the way of what is being read. */
+   still sits at the bottom, out of the way of what is being read.
+   The two-layer shadow is what stops it reading as a flat rectangle pasted
+   over the page: a tight dark edge for the lift, a wide soft one for depth. */
 .nlpop { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 55;
-  width: min(23rem, calc(100vw - 2.5rem)); padding: 1.15rem 1.25rem 1.2rem;
-  background: var(--bg); border: 1px solid var(--line-2); border-radius: 8px;
-  box-shadow: 0 10px 34px rgb(0 0 0 / 22%);
-  opacity: 0; transform: translateY(8px); transition: opacity .22s ease, transform .22s ease; }
+  width: min(23.5rem, calc(100vw - 2.5rem)); padding: 1.15rem 1.2rem 1.2rem;
+  background: var(--bg); border: 1px solid var(--line-2); border-radius: 12px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 14%), 0 18px 44px -8px rgb(0 0 0 / 28%);
+  opacity: 0; transform: translateY(14px) scale(.985);
+  transition: opacity .24s ease, transform .28s cubic-bezier(.16,.84,.34,1); }
 .nlpop.is-in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .nlpop { transition: none; } }
-.nlpop-x { position: absolute; top: .55rem; right: .55rem; display: grid; place-items: center;
+.nlpop-x { position: absolute; top: .5rem; right: .5rem; display: grid; place-items: center;
   width: 1.75rem; height: 1.75rem; padding: 0; cursor: pointer; color: var(--ink-3);
-  background: none; border: 0; border-radius: 4px; }
+  background: none; border: 0; border-radius: 5px; }
 .nlpop-x:hover { color: var(--ink); background: var(--bg-alt); }
-.nlpop-h { margin: 0 1.75rem .4rem 0; font-size: 1.0625rem; font-weight: 700;
-  letter-spacing: -0.012em; line-height: 1.3; }
-.nlpop-h::before { content: none; }
-.nlpop-p { margin: 0 0 .85rem; font-size: .9063rem; line-height: 1.55; color: var(--ink-2); }
+.nlpop-top { display: flex; align-items: flex-start; gap: .7rem; margin-bottom: .6rem; }
+.nlpop-mark { flex: none; display: grid; place-items: center; width: 2.1rem; height: 2.1rem;
+  color: var(--accent); background: var(--accent-bg); border: 1px solid var(--line-2);
+  border-radius: 7px; }
+.nlpop-head { min-width: 0; padding-right: 1.5rem; }
+.nlpop-kicker { margin: 0 0 .1rem; font-size: .625rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.nlpop-h { margin: 0; font-size: 1.0625rem; font-weight: 700;
+  letter-spacing: -0.013em; line-height: 1.28; }
+.nlpop-h::before { content: none; display: none; }
+.nlpop-p { margin: 0 0 .9rem; font-size: .9063rem; line-height: 1.55; color: var(--ink-2); }
 .nlpop-label { position: absolute; width: 1px; height: 1px; overflow: hidden;
   clip: rect(0 0 0 0); white-space: nowrap; }
-.nlpop-form { display: flex; gap: .4rem; flex-wrap: wrap; }
-.nlpop-form input { flex: 1 1 10rem; min-width: 0; font: inherit; font-size: .9375rem;
-  padding: .5rem .65rem; color: var(--ink); background: var(--bg);
-  border: 1px solid var(--line-2); border-radius: 5px; }
+.nlpop-form { display: flex; gap: .4rem; flex-wrap: wrap; margin: 0; }
+.nlpop-form input { flex: 1 1 9rem; min-width: 0; font: inherit; font-size: .9375rem;
+  padding: .55rem .7rem; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line-2); border-radius: 6px; }
+.nlpop-form input::placeholder { color: var(--ink-3); }
 .nlpop-form input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px;
   border-color: var(--accent); }
-.nlpop-form button { font: inherit; font-size: .9375rem; font-weight: 600; cursor: pointer;
-  padding: .5rem 1rem; border-radius: 5px; border: 1px solid var(--accent);
-  background: var(--accent); color: #fff; }
-.nlpop-form button:hover { filter: brightness(1.08); }
+.nlpop-form button { flex: 0 0 auto; font: inherit; font-size: .9375rem; font-weight: 650;
+  cursor: pointer; padding: .55rem 1.05rem; border-radius: 6px;
+  border: 1px solid var(--accent); background: var(--accent); color: #fff; }
+.nlpop-form button:hover { filter: brightness(1.07); }
+.nlpop-form button:active { transform: translateY(1px); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .nlpop-form button { color: #15171a; } }
 :root[data-theme="dark"] .nlpop-form button { color: #15171a; }
 .nlpop-small { margin: .7rem 0 0; font-size: .75rem; line-height: 1.5; color: var(--ink-3); }
+.nlpop-small a { color: inherit; }
+/* The state after a submit: the panel confirms rather than disappearing. */
+.nlpop-done { display: flex; align-items: flex-start; gap: .7rem; padding: .2rem 1.25rem .1rem 0; }
+.nlpop-done[hidden] { display: none; }
+.nlpop-tick { flex: none; display: grid; place-items: center; width: 2.1rem; height: 2.1rem;
+  color: var(--good); background: var(--good-bg); border-radius: 7px; }
+.nlpop-done-p { margin: .25rem 0 0; font-size: .9063rem; line-height: 1.5; color: var(--ink); }
 @media (max-width: 30rem) { .nlpop { right: .75rem; left: .75rem; bottom: .75rem;
   width: auto; } }
 @media print { .nlpop { display: none; } }
 
-/* Article search. Framed as a single field rather than a card: it is a tool,
-   not a section of content. */
-.search { margin: 1.5rem 0 .5rem; }
-.search-label { position: absolute; width: 1px; height: 1px; overflow: hidden;
+/* Search trigger on the articles index, drawn as a field because that is
+   what it behaves like, even though it opens the overlay rather than
+   accepting typing in place. */
+.searchbtn { display: flex; align-items: center; gap: .6rem; width: 100%;
+  margin: 1.5rem 0 .5rem; padding: .7rem .9rem; font: inherit; font-size: 1.0625rem;
+  text-align: left; cursor: pointer; color: var(--ink-3); background: var(--bg);
+  border: 1px solid var(--line-2); border-radius: 8px; }
+.searchbtn:hover { border-color: var(--ink-3); color: var(--ink-2); }
+.searchbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.searchbtn svg { flex: none; }
+.searchbtn span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis;
+  white-space: nowrap; }
+.searchbtn kbd, .nav-kbd { flex: none; font: inherit; font-size: .75rem; line-height: 1;
+  padding: .2rem .4rem; color: var(--ink-3); background: var(--bg-alt);
+  border: 1px solid var(--line); border-radius: 4px; }
+.nav-search { background: none; border: 0; cursor: pointer; font: inherit;
+  font-size: .9rem; color: var(--ink-2); padding: 0; }
+@media (max-width: 40rem) { .nav-kbd { display: none; } }
+
+/* The search overlay itself. Anchored near the top rather than centred, so
+   the results list grows downward into empty space instead of pushing the
+   field around as you type. */
+.srch { position: fixed; inset: 0; z-index: 90; display: grid;
+  grid-template-rows: minmax(3rem, 10vh) auto 1fr; justify-items: center; }
+/* A class that sets display beats the browser's own [hidden] rule, and a
+   closed overlay that still lays out swallows every click on the page. */
+.srch[hidden] { display: none; }
+.srch-back { position: fixed; inset: 0; background: rgb(0 0 0 / 55%);
+  opacity: 0; transition: opacity .16s ease; }
+.srch.is-in .srch-back { opacity: 1; }
+.srch-panel { grid-row: 2; position: relative; width: min(40rem, calc(100vw - 2rem));
+  background: var(--bg); border: 1px solid var(--line-2); border-radius: 12px;
+  box-shadow: 0 24px 60px rgb(0 0 0 / 38%); overflow: hidden;
+  opacity: 0; transform: translateY(-6px) scale(.99);
+  transition: opacity .16s ease, transform .16s ease; }
+.srch.is-in .srch-panel { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .srch-back, .srch-panel { transition: none; } }
+.srch-label { position: absolute; width: 1px; height: 1px; overflow: hidden;
   clip: rect(0 0 0 0); white-space: nowrap; }
-.search input { width: 100%; font: inherit; font-size: 1.0625rem;
-  padding: .7rem .9rem; color: var(--ink); background: var(--bg);
-  border: 1px solid var(--line-2); border-radius: 6px; }
-.search input::placeholder { color: var(--ink-3); }
-.search input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px;
-  border-color: var(--accent); }
-.search input::-webkit-search-cancel-button { cursor: pointer; }
-.search-status:empty { display: none; }
-.search-status { margin: .6rem 0 0; }
+.srch-bar { display: flex; align-items: center; gap: .65rem; padding: .85rem 1rem;
+  border-bottom: 1px solid var(--line); }
+.srch-icon { flex: none; color: var(--ink-3); }
+.srch-bar input { flex: 1; min-width: 0; font: inherit; font-size: 1.0625rem;
+  color: var(--ink); background: none; border: 0; padding: .15rem 0; }
+.srch-bar input:focus { outline: none; }
+/* The native clear button is a blue system glyph that belongs to no part of
+   this design. Esc clears and closes, and the footer says so. */
+.srch-bar input::-webkit-search-cancel-button,
+.srch-bar input::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }
+.srch-bar input::placeholder { color: var(--ink-3); }
+.srch-kbd { font: inherit; font-size: .7rem; line-height: 1; padding: .25rem .4rem;
+  color: var(--ink-3); background: var(--bg-alt); border: 1px solid var(--line);
+  border-radius: 4px; }
+.srch-body { max-height: min(26rem, 56vh); overflow-y: auto; }
+.srch-hint { margin: 0; padding: 1.1rem 1rem 1.2rem; font-size: .9063rem;
+  line-height: 1.55; color: var(--ink-3); }
+.srch-results { list-style: none; margin: 0; padding: .35rem; }
+.srch-results li + li { margin-top: 1px; }
+.srch-results a { display: block; padding: .6rem .7rem; border-radius: 7px;
+  text-decoration: none; color: inherit; }
+.srch-results li.is-on a, .srch-results a:hover { background: var(--bg-alt); }
+.srch-t { display: block; font-weight: 650; font-size: 1rem; line-height: 1.3;
+  color: var(--ink); letter-spacing: -0.01em; }
+.srch-d { display: block; margin-top: .2rem; font-size: .875rem; line-height: 1.5;
+  color: var(--ink-2); }
+.srch-m { display: block; margin-top: .3rem; font-size: .75rem; color: var(--ink-3); }
+.srch-results mark { background: none; color: var(--accent); font-weight: 700; }
+.srch-foot { display: flex; align-items: center; gap: 1rem; padding: .55rem 1rem;
+  font-size: .75rem; color: var(--ink-3); border-top: 1px solid var(--line);
+  background: var(--bg-alt); }
+.srch-foot kbd { font: inherit; font-size: .7rem; padding: .1rem .3rem; margin-right: .2rem;
+  border: 1px solid var(--line-2); border-radius: 3px; }
+.srch-foot span:last-child { margin-left: auto; }
+@media (max-width: 34rem) { .srch-foot span:not(:last-child) { display: none; } }
 
 /* Article header photograph. No border or caption: it is illustration, and
    the rules and boxes elsewhere all carry meaning. The fixed aspect ratio
@@ -315,28 +395,57 @@ img { max-width: 100%; height: auto; }
   object-fit: cover; border-radius: 6px; background: var(--bg-alt); }
 @media print { .banner { display: none; } }
 
-/* Newsletter sign-up. Framed by rules rather than a filled card, for the same
-   reason as the banner: filled boxes are reserved for data. */
-.signup { margin: 3rem 0 0; padding: 1.5rem 0 0; border-top: 2px solid var(--ink); }
-.signup--inline { margin: 2.5rem 0; padding: 1.4rem 0; border-bottom: 1px solid var(--line); }
-.signup-h { margin: 0 0 .5rem; font-size: 1.25rem; font-weight: 700; letter-spacing: -0.014em; }
-.signup-h::before { content: none; }
-.signup-p { margin: 0 0 1rem; color: var(--ink-2); font-size: .9688rem; line-height: 1.6; }
+/* Newsletter sign-up. The one filled panel on the site, and the exception is
+   deliberate: it is not article content, and a reader scrolling past needs to
+   see that at a glance rather than start reading it as another section. The
+   accent edge, the mark and the ticked list are what make it read as a
+   considered block instead of a form bolted to the bottom of the page. */
+.signup { margin: 3.25rem 0 0; padding: 1.4rem 1.35rem 1.5rem;
+  background: var(--bg-alt); border: 1px solid var(--line);
+  border-top: 3px solid var(--accent); border-radius: 10px; }
+.signup--inline { margin: 2.75rem 0; }
+.signup-top { display: flex; align-items: flex-start; gap: .85rem; margin-bottom: .8rem; }
+.signup-mark { flex: none; display: grid; place-items: center; width: 2.5rem; height: 2.5rem;
+  color: var(--accent); background: var(--accent-bg); border: 1px solid var(--line-2);
+  border-radius: 8px; }
+.signup-head { min-width: 0; }
+.signup-kicker { margin: .1rem 0 .15rem; font-size: .6875rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.signup-h { margin: 0; font-size: 1.3125rem; font-weight: 700; line-height: 1.2;
+  letter-spacing: -0.017em; padding-top: 0; }
+.signup-h::before { content: none; display: none; }
+.signup-p { margin: 0 0 .95rem; color: var(--ink-2); font-size: .9688rem; line-height: 1.58; }
+.signup-list { margin: 0 0 1.15rem; padding: 0; list-style: none; }
+.signup-list li { position: relative; padding-left: 1.6rem; font-size: .9375rem;
+  line-height: 1.5; color: var(--ink-2); }
+.signup-list li + li { margin-top: .5rem; }
+/* A tick drawn from two borders: no icon font, no extra request. */
+.signup-list li::before { content: ""; position: absolute; left: .25rem; top: .42em;
+  width: .5rem; height: .28rem; border-left: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent); transform: rotate(-45deg); }
 .signup-label { position: absolute; width: 1px; height: 1px; overflow: hidden;
   clip: rect(0 0 0 0); white-space: nowrap; }
+.signup-form { margin: 0; }
 .signup-row { display: flex; gap: .5rem; flex-wrap: wrap; }
-.signup-row input { flex: 1 1 15rem; min-width: 0; font: inherit; font-size: 1rem;
-  padding: .6rem .8rem; color: var(--ink); background: var(--bg);
-  border: 1px solid var(--line-2); border-radius: 5px; }
+.signup-row input { flex: 1 1 14rem; min-width: 0; font: inherit; font-size: 1rem;
+  padding: .66rem .8rem; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line-2); border-radius: 7px; }
+.signup-row input::placeholder { color: var(--ink-3); }
 .signup-row input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px;
   border-color: var(--accent); }
-.signup-row button { font: inherit; font-size: 1rem; font-weight: 600; cursor: pointer;
-  padding: .6rem 1.3rem; border-radius: 5px; border: 1px solid var(--accent);
-  background: var(--accent); color: #fff; }
-.signup-row button:hover { filter: brightness(1.08); }
+.signup-row button { flex: 0 0 auto; font: inherit; font-size: 1rem; font-weight: 650;
+  cursor: pointer; padding: .66rem 1.35rem; border-radius: 7px;
+  border: 1px solid var(--accent); background: var(--accent); color: #fff; }
+.signup-row button:hover { filter: brightness(1.07); }
+.signup-row button:active { transform: translateY(1px); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .signup-row button { color: #15171a; } }
 :root[data-theme="dark"] .signup-row button { color: #15171a; }
-.signup-small { margin: .8rem 0 0; font-size: .8125rem; line-height: 1.55; color: var(--ink-3); }
+.signup-small { margin: .85rem 0 0; font-size: .8125rem; line-height: 1.55; color: var(--ink-3); }
+.signup-small a { color: inherit; }
+@media (max-width: 30rem) {
+  .signup { padding: 1.2rem 1.1rem 1.3rem; }
+  .signup-row button { flex: 1 1 100%; }
+}
 
 /* Advertising slot. Labelled, set apart by rules rather than a box, and given
    a minimum height so a loading ad does not shove the article down the page.
