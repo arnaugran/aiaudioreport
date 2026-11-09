@@ -64,3 +64,23 @@ Downloaded 9 November 2026, each from https://images.unsplash.com/<id>:
   studio-desk-two      photo-1636226570637-3fbda7ca09dc
   synth-panel          photo-1776785941048-04236245b052
   vu-vintage           photo-1776785941008-3b9d8797e108
+
+Also downloaded 9 November 2026, held in SPARE for future articles:
+  amp-stack            photo-1535712534465-8ac1112ed593
+  console-hand         photo-1615268734097-12b6b02ca8ff
+  console-purple       photo-1748698534440-4888a47b3097
+  desk-dark-mouse      photo-1731612166799-2fbba4e93c42
+  desk-lamp-clock      photo-1660145379964-963759927f9c
+  faders-row           photo-1585666176811-45c61b840ad4
+  guitar-amp-mini      photo-1633451078197-b3dbf22e123a
+  guitar-pedalboard    photo-1560849898-d058f7d93b23
+  monitor-screen       photo-1698825598805-c9e788e6cff3
+  pedal-green          photo-1612306178575-6611cac27c51
+  pedal-red            photo-1527865118650-b28bc059d09a
+  pedal-shop           photo-1614413970884-6dba7310bd2d
+  pedal-wall           photo-1662434243640-42988ab42db8
+  pedalboard-feet      photo-1503506870038-6fdbcb0ea01a
+  pedalboard-top       photo-1625803054219-af6065d51ee3
+  pedals-bokeh         photo-1511203438670-49f8ea8441c6
+  studio-blue          photo-1626126525134-fbbc07afb32c
+  synth-headphones     photo-1634041695335-ee19a4155abd

@@ -41,7 +41,12 @@ export const ARTICLE_PHOTOS = {
 };
 
 /** Unused files sitting in public/img, waiting for the next article. */
-export const SPARE = ['studio-console', 'desk-monitors'];
+export const SPARE = ['studio-console', 'desk-monitors', 'pedal-wall', 'pedalboard-top',
+  'guitar-amp-mini', 'pedal-red', 'guitar-pedalboard', 'amp-stack', 'pedals-bokeh',
+  'pedalboard-feet', 'pedal-green', 'pedal-shop', 'faders-row', 'desk-lamp-clock',
+  'synth-headphones', 'desk-dark-mouse', 'console-purple', 'studio-blue', 'monitor-screen',
+  'console-hand'
+];
 
 // Enforced at build time. If two articles are ever given the same picture the
 // build stops here and names both of them, which is the whole point.
