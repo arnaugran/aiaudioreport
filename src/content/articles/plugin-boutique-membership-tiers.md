@@ -2,9 +2,9 @@
 title: "Plugin Boutique Membership: What Silver and Gold Add"
 description: "Membership is free and automatic, not a subscription. Gold lifts Virtual Cash from 5% to 7.5% and adds a monthly plugin. The terms never define Virtual Cash."
 pubDate: 2026-11-08
+updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08
-byline: "AI Audio Report editorial team"
-reviewedBy: "Arnau Gran i Romero"
+byline: "Arnau Gran i Romero"
 basis: documentation
 tags: ["pricing", "plugins"]
 faq:
@@ -31,24 +31,9 @@ sources:
     checked: 2026-11-08
 ---
 
-Start with the thing the name gets wrong. Plugin Boutique Membership is not something you buy.
-You are a Member from the moment you make an account, and the higher tiers unlock on their own
-once your spending over the previous twelve months crosses a line.
+Plugin Boutique membership is free. Silver and Gold unlock automatically when your spending over the previous year passes the store's thresholds. Gold is the only tier that improves the cash-back rate, from 5% to 7.5%, and adds a monthly free plugin.
 
-So the real question is not whether to join. It is whether the two paid-for-by-spending tiers
-are worth steering your purchases toward, and that turns on a number Plugin Boutique has not
-published.
-
-<div class="takeaways">
-<h2>The short version</h2>
-
-- Membership is free and automatic. There is no fee and nothing to sign up for separately.
-- Silver adds partner discounts but leaves Virtual Cash at 5%. Only Gold raises it, to 7.5%.
-- That is 2.50 more per 100 spent. Gold's real draw is the monthly free plugin, not the rate.
-- The Discovery Bundle grants Gold. Paying for it monthly costs 30 more a year and drops you back to 5%.
-- Virtual Cash is plain store credit: spendable in any amount, enough of it buys a plugin outright.
-
-</div>
+The perks look better on paper than they are for everyone. Here's what I think is worth counting, and what I'd ignore unless you already shop there.
 
 ## The three tiers
 
@@ -92,7 +77,7 @@ claim. One plugin a month, every month, is worth considerably more than four eur
 long as you actually want what shows up, which you cannot know in advance.
 
 Plugin Boutique does not say whether the higher rate applies retroactively to the spending
-that qualified you, and we are not going to assume it either way.
+that qualified you, and I won't assume it either way.
 
 ## The Discovery Bundle has a monthly penalty
 
@@ -145,7 +130,7 @@ That is worth knowing because loyalty currencies usually are not this simple. Lo
 points, for example, cost two per loop rather than one, so the headline number and the real
 one differ. Here they do not.
 
-## What we would do
+## What I'd do
 
 Do nothing. Membership is free, automatic, and you are already in it.
 
@@ -159,4 +144,4 @@ is the tail wagging the dog.
 If you are considering the Discovery Bundle, pay annually or not at all.
 
 Worth knowing for context: Plugin Boutique Limited is part of the Beatport Group, the same
-company whose [AI policy we read for a separate piece](/articles/can-you-upload-ai-music/).
+company whose [AI policy I read for a separate piece](/articles/can-you-upload-ai-music/).

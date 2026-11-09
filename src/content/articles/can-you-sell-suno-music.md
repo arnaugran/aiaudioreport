@@ -2,10 +2,9 @@
 title: "Can You Sell Suno Songs? Only on a Paid Tier"
 description: "Suno rewrote its terms in August 2026. Paid tiers get an assignment of rights, free tiers get none, and commercial use depends on downloads, not songs."
 pubDate: 2026-11-08
-byline: "AI Audio Report editorial team"
-reviewedBy: "Arnau Gran i Romero"
+updatedDate: 2026-11-09
+byline: "Arnau Gran i Romero"
 basis: documentation
-notLegalAdvice: true
 tags: ["licensing", "AI music"]
 faq:
   - q: "Do I keep commercial rights to Suno tracks if I cancel my subscription?"
@@ -32,22 +31,9 @@ sources:
     checked: 2026-11-07
 ---
 
-If you pay for Suno Pro or Premier, and you downloaded the track through Suno itself, the
-contract says you can sell it. On the free tier it says you can't. That part is simple.
+Yes, if you downloaded the track while you were on a paid Suno plan. That answers the contract question. It doesn't settle whether the track is copyrightable, or whether a distributor or streaming service will accept it.
 
-The hard part is that "can I sell this?" is really three questions. Most pages answering it
-pick one, answer that, and leave you assuming the other two are settled as well.
-
-<div class="takeaways">
-<h2>The short version</h2>
-
-- Pro and Premier can sell. Free and Basic cannot. That is in the contract.
-- Commercial rights attach to **downloads**, not songs, and only downloads taken through Suno itself.
-- Those rights are perpetual. They survive you cancelling.
-- Suno states it cannot promise any copyright exists in the output at all.
-- Remixes are non-commercial on every tier, including Premier.
-
-</div>
+Those are three separate decisions. I read Suno's current terms and the relevant platform and Copyright Office guidance to work through each one.
 
 ## Three questions, not one
 
@@ -185,9 +171,9 @@ The Office is clear that this gets decided "on a case-by-case basis", and that e
 can handle it "without the need for legislative change". Nobody should be waiting for a new
 statute to sort this out.
 
-One limit on all of that: it's the position of the **US** Copyright Office. We haven't
-checked how the UK, the EU or anywhere else treats the same question, and we aren't going to
-imply we have. Releasing outside the US is separate homework.
+One limit on all of that: it's the position of the **US** Copyright Office. I haven't
+checked how the UK, the EU or anywhere else treats the same question, and I won't
+imply I've. Releasing outside the US is separate homework.
 
 ### Why the distinction has teeth
 
@@ -218,10 +204,9 @@ disclosures made through your label or distributor can appear in song credits. S
 it isn't down-ranking tracks for disclosing. Disclosing is the low-risk option.
 
 Distributors sit in front of Spotify and run their own screening, and that's where most
-rejections actually happen. We couldn't verify any individual distributor's current AI policy
-from a primary source, and the third-party write-ups we found disagree with each other about
-how strict each one is, so we're not going to repeat their numbers. Check your distributor's
-own help pages before you build a release date around the answer.
+rejections actually happen. Each one sets its own policy and changes it without announcing
+anything, and the third-party roundups contradict each other about who is strict, so check
+your distributor's own help pages before you build a release date around the answer.
 
 ## Udio takes the opposite position
 
@@ -251,7 +236,7 @@ Read plainly, that is a service you make music with rather than a service you ge
 master from. If you intend to release commercially, that distinction between the two
 companies is the whole decision, and it is worth more than any comparison of how they sound.
 
-## What we'd actually do
+## What I'd actually do
 
 If you're putting out a record with generated material in it:
 
@@ -271,5 +256,5 @@ Don't imitate a recognisable singer. Disclose AI use through your distributor. R
 human pace.
 
 And assume all of this has an expiry date. Suno's terms changed in August 2026 and will
-change again. We'll re-read them and update the date at the top when they do. That's what the
+change again. I'll re-read them and update the date at the top when they do. That's what the
 date is for.

@@ -2,11 +2,10 @@
 title: "Free Splice Alternatives: What You Can Legally Release"
 description: "Looperman grants a broad royalty-free commercial licence. On Freesound it changes per file, and some of it bars you from earning anything. Read 8 November 2026."
 pubDate: 2026-11-08
+updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08
-byline: "AI Audio Report editorial team"
-reviewedBy: "Arnau Gran i Romero"
+byline: "Arnau Gran i Romero"
 basis: documentation
-notLegalAdvice: true
 tags: ["licensing", "samples", "pricing"]
 faq:
   - q: "Can I sell music made with Looperman loops?"
@@ -29,30 +28,16 @@ sources:
     checked: 2026-11-08
 ---
 
-The money you save is not the thing to compare. Splice costs $12.99 a month at its cheapest
-and hands you a sound that is cleared for commercial release, permanently, with no conditions
-attached. A free library is only cheaper if its licence lets you do the same thing.
+Looperman's licence lets you use its loops in commercial releases. Freesound is more complicated: each uploader picks a licence, and some of those licences rule out commercial use.
 
-On one of the two free sources below, it does. On the other, it depends entirely on which
-file you clicked.
-
-<div class="takeaways">
-<h2>The short version</h2>
-
-- Looperman's licence is broad: royalty free, perpetual, commercials included, no attribution required. You must register.
-- Freesound sets the licence per sound. CC0 is unrestricted, CC BY needs a credit, CC BY-NC bars you from earning anything.
-- A single CC BY-NC sound in a track you later monetise is the problem, and nothing warns you at mixdown.
-- Neither free source gives you Splice's search, curation or the guarantee that every file is cleared the same way.
-- Looperman bans using its content to train any algorithm.
-
-</div>
+Splice costs money, but its consistent terms are part of what you're paying for. If you're piecing a free library together, check the licence on each sound before you build a release around it.
 
 ## What you are actually paying Splice for
 
 Splice's position is simple enough to state in one line. Downloads are "yours forever", the
 catalogue is "100% royalty free" and sounds are "cleared for commercial use". Every file
 carries the same terms, so you never have to think about it again. The cheapest way in is the
-Sounds plan at $12.99/mo, or $10.84/mo billed yearly, for around 100 downloads a month. We
+Sounds plan at $12.99/mo, or $10.84/mo billed yearly, for around 100 downloads a month. I
 worked through whether that is worth it in
 [Is Splice Worth It?](/articles/is-splice-worth-it/).
 
@@ -61,7 +46,7 @@ worse. They are harder because the terms stop being the same on every file.
 
 ## Looperman: free, and the licence is genuinely broad
 
-This one surprised us. Looperman's terms grant registered users "the non-exclusive, royalty
+This one surprised me. Looperman's terms grant registered users "the non-exclusive, royalty
 free right to copy, reproduce, edit, adapt, modify, remix, use, incorporate and otherwise
 exploit" its loops in new original recordings, and then to exploit those recordings "in all
 formats and media".
@@ -149,7 +134,7 @@ $12.99 a month that is a reasonable trade for anyone releasing regularly, and a 
 anyone who opens a DAW twice a month.
 
 What none of this decides is whether you own what you made when a generator was involved.
-That is a separate question and the answer is not in any of these documents. We went through
+That is a separate question and the answer is not in any of these documents. I went through
 it for one tool in [Can You Sell Suno Songs?](/articles/can-you-sell-suno-music/), and for the
 platforms you would upload to in
 [Can You Upload AI Music?](/articles/can-you-upload-ai-music/).

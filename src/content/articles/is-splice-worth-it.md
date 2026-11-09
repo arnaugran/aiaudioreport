@@ -2,9 +2,9 @@
 title: "Is Splice Worth It? 200 Downloads Can Mean 66 Items"
 description: "Splice Creator costs $19.99 a month for around 200 downloads. Presets cost three credits each, so that can mean 66 items, not 200. Prices checked 8 November 2026."
 pubDate: 2026-11-08
+updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08
-byline: "AI Audio Report editorial team"
-reviewedBy: "Arnau Gran i Romero"
+byline: "Arnau Gran i Romero"
 basis: documentation
 tags: ["pricing", "samples"]
 faq:
@@ -15,7 +15,7 @@ faq:
   - q: "Do I keep the samples if I stop paying?"
     a: "Yes. Splice's plans page says every download is yours to keep, and the cancellation FAQ says you can still browse your library and re-download samples already in it. What you lose on cancelling is unspent credits, not downloaded sounds."
   - q: "Which Splice plan is the cheapest way in?"
-    a: "The Sounds plan at $12.99/mo, or $10.84/mo billed yearly, with around 100 downloads a month. Splice's support pages also document a 500 credit Creator+ plan, but the plans page does not list or price it, so we could not verify what it costs."
+    a: "The Sounds plan at $12.99/mo, or $10.84/mo billed yearly, with around 100 downloads a month. Splice's support pages also document a 500 credit Creator+ plan, but the plans page does not list or price it."
 sources:
   - title: "Splice, Plans and pricing"
     url: "https://splice.com/plans"
@@ -25,23 +25,9 @@ sources:
     checked: 2026-11-08
 ---
 
-It depends almost entirely on one number, and it is not the price. It is how many sounds you
-will genuinely pull down in an average month.
+Splice is worth it if you use the credits. The part that catches people is what counts as a download: samples and loops usually cost one credit, while presets and MIDI can cost three.
 
-Splice sells credits, not access. Every plan is a bucket of downloads with a price on it, so
-the subscription is good value at one usage level and poor value at another. The published
-figures are enough to work out which one you are.
-
-<div class="takeaways">
-<h2>The short version</h2>
-
-- Creator is $19.99/mo for roughly 200 downloads. That is about $0.10 a sound if you use all of them.
-- Most sounds cost one credit. MIDI and presets cost up to three, so 200 credits can be 66 items.
-- Unused credits roll over while you keep paying. They expire 28 days after cancelling.
-- Everything you download is yours permanently, royalty free, even after you stop paying.
-- Splice documents a 500 credit Creator+ plan that the pricing page does not show or price.
-
-</div>
+On the Creator plan, that turns 'around 200 downloads' into 200 one-credit sounds or about 66 presets. I went through the plan page and support articles to see what else changes the maths.
 
 ## The headline number hides a three-to-one swing
 
@@ -109,7 +95,7 @@ than that.
 | DAW integration plans | 100 intro credits, no refills | Support FAQ only |
 
 The naming does not line up either. The plans page sells a 100 credit tier called Sounds; the
-support FAQ describes a 100 credit tier called Sounds+. We could not find a price for Creator+
+support FAQ describes a 100 credit tier called Sounds+. I couldn't find a price for Creator+
 anywhere on the plans page, so if 500 credits a month is what you need, you will have to ask
 Splice what it costs.
 
@@ -121,7 +107,7 @@ cancellation FAQ on the plans page says you can "put your plan on hold for up to
 you do not wish to lose the credits you've accrued".
 
 One says pausing stops rollover. The other offers pausing as the way to protect accrued
-credits. We could not resolve which governs from the published pages, and we are not going to
+credits. I couldn't resolve which governs from the published pages, and I won't
 guess at it, because the answer decides whether a two month pause costs you a stockpile of
 credits. Ask support in writing before pausing a large balance.
 
@@ -140,7 +126,7 @@ taking. It is not half price.
 | Creator | $19.99/mo | $16.67/mo | $239.88 | $200.04 |
 
 Both annual options work out at a shade under two months free, which is the ordinary shape of
-software annual billing. We found the same two month
+software annual billing. I found the same two month
 gap on every [Loopcloud tier](/articles/splice-vs-loopcloud-credits/).
 
 ## What you keep, which is the part Splice gets right

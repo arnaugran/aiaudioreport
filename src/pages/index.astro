@@ -45,15 +45,15 @@ const schema = {
 ---
 <BaseLayout title={SITE_NAME} schema={schema}>
   <div class="page-head">
-    <h1>Prices with a date on them</h1>
+    <h1>Audio tools, without the guesswork</h1>
     <p class="lede">
-      What AI and software audio tools cost, and what their licences let you do with what you
-      make. Every figure carries the day it was read off the vendor's own page.
+      I look at what music and audio software costs, what the small print allows, and which
+      option makes sense for the job. Prices come with a check date and a link to the source.
     </p>
   </div>
 
   <div class="section-head">
-    <h2>What it costs</h2>
+    <h2>Choosing and paying for tools</h2>
     {lastChecked && <span class="meta">Last checked {fmt(lastChecked)}</span>}
   </div>
   <ul class="list">
@@ -70,7 +70,7 @@ const schema = {
   </ul>
 
   <div class="section-head">
-    <h2>What you are allowed to do with it</h2>
+    <h2>Terms, rights and releasing music</h2>
     <span class="meta">Read from the terms</span>
   </div>
   <ul class="list">
@@ -86,21 +86,17 @@ const schema = {
     ))}
   </ul>
 
-  <div class="section-head"><h2>How this is put together</h2></div>
+  <div class="section-head"><h2>How I work</h2></div>
   <p>
-    Search for any AI music tool and most of what comes back was written by the company
-    selling it, or by someone who last checked the price a year ago. Everything here is read
-    off the vendor's own pricing page or licence, dated, and linked at the foot of the article
-    so you can check it.
+    I go to the source first: the pricing page, terms, help centre or official documentation.
+    I link the pages I used and date the check so you can see how fresh the information is.
   </p>
   <p>
-    There are no listening tests, because there is no test rig here and pretending otherwise
-    would be the easiest thing on this site to fake. Where something turns on how it sounds,
-    the judgement belongs to a named source. Where a figure could not be verified, the article
-    says that instead of rounding a guess.
+    I don't publish hands-on sound comparisons. When sound quality matters, I name the source
+    of the comparison; when I can't verify a price or a claim, I leave it out or say so.
   </p>
   <p class="meta">
-    Nothing here earns a commission today. If that changes, the page carrying a paid link will
-    say so above the content, not in the footer.
+    If a link earns a commission, I'll label it on the page. It won't change the prices or terms
+    quoted here.
   </p>
 </BaseLayout>

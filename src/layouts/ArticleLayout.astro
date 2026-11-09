@@ -1,7 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import MethodologyNote from '../components/MethodologyNote.astro';
-import NotLegalAdvice from '../components/NotLegalAdvice.astro';
 import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
 import Toc from '../components/Toc.astro';
 import Related from '../components/Related.astro';
@@ -26,8 +25,7 @@ const graph: any[] = [
     description: d.description,
     datePublished: iso(d.pubDate),
     dateModified: iso(d.updatedDate ?? d.pubDate),
-    author: { '@type': 'Organization', name: d.byline },
-    ...(d.reviewedBy && { reviewedBy: { '@type': 'Person', name: d.reviewedBy } }),
+    author: { '@type': 'Person', name: d.byline },
     publisher: { '@type': 'Organization', name: SITE_NAME, url: home },
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
     isAccessibleForFree: true,
@@ -64,22 +62,18 @@ const schema = { '@context': 'https://schema.org', '@graph': graph };
         <span>{d.byline}</span>
         <span>{fmt(d.pubDate)}</span>
         {d.updatedDate && <span>Updated {fmt(d.updatedDate)}</span>}
-        {d.reviewedBy && <span>Reviewed by {d.reviewedBy}</span>}
       </p>
       <p class="provenance">
-        {AFFILIATES_ENABLED
-          ? 'Some links on this page are affiliate links and may earn us a commission. '
-          : 'No affiliate links on this page, and nothing here earns us anything. '}
+        {AFFILIATES_ENABLED && 'Some links may earn a commission. '}
         {d.pricesCheckedOn
-          ? `Prices were checked on ${fmt(d.pricesCheckedOn)} against the sources listed at the end. `
-          : 'Every figure comes from the sources listed at the end. '}
-        <a href="#how-we-know">How we know this</a>.
+          ? `Prices checked ${fmt(d.pricesCheckedOn)}. `
+          : 'Sources are linked at the end. '}
+        <a href="#sources">Sources and dates</a>.
       </p>
     </div>
 
     <Banner seed={entry.id} tags={d.tags} />
 
-    {d.notLegalAdvice && <NotLegalAdvice />}
     <Toc headings={headings} />
 
     <slot />
@@ -88,7 +82,7 @@ const schema = { '@context': 'https://schema.org', '@graph': graph };
 
     {d.faq?.length > 0 && (
       <section>
-        <h2 id="faq">Questions people actually ask</h2>
+        <h2 id="faq">A few quick answers</h2>
         {d.faq.map((f: any) => (
           <>
             <h3>{f.q}</h3>
@@ -100,21 +94,21 @@ const schema = { '@context': 'https://schema.org', '@graph': graph };
 
     <Newsletter />
 
-    <section class="endmatter" id="how-we-know">
+    <section class="endmatter">
       <MethodologyNote basis={d.basis} pricesCheckedOn={d.pricesCheckedOn} />
-      <AffiliateDisclosure />
+      {AFFILIATES_ENABLED && <AffiliateDisclosure />}
     </section>
 
     <h2 id="sources">Sources</h2>
-    <p class="meta" style="margin-bottom:1rem">Each of these was opened and read on the date shown.</p>
+    <p class="meta" style="margin-bottom:1rem">The date is when I last checked each source.</p>
     <ol class="sources">
       {d.sources.map((s: any) => (
-        <li><a href={s.url} rel="noopener">{s.title}</a>, read {fmt(s.checked)}</li>
+        <li><a href={s.url} rel="noopener">{s.title}</a>, checked {fmt(s.checked)}</li>
       ))}
     </ol>
     <p class="meta" style="margin-top:1.75rem">
-      Found something out of date or wrong? <a href={withBase('/contact/')}>Tell us</a>. We
-      will fix it and say that we did.
+      Spotted something out of date or wrong? <a href={withBase('/contact/')}>Let me know</a>.
+      I’ll check it and update the page if needed.
     </p>
 
     <Related current={entry} all={all} />

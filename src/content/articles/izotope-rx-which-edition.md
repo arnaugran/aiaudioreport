@@ -2,9 +2,9 @@
 title: "iZotope RX: Which Edition Has Music Rebalance?"
 description: "Not the cheap one. RX 12 Elements is 109 euros and does not separate stems. Music Rebalance starts at 439 euros, and a separate tool undercuts it."
 pubDate: 2026-11-08
+updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08
-byline: "AI Audio Report editorial team"
-reviewedBy: "Arnau Gran i Romero"
+byline: "Arnau Gran i Romero"
 basis: documentation
 tags: ["pricing", "stem separation"]
 faq:
@@ -13,7 +13,7 @@ faq:
   - q: "What is the cheapest RX edition with Music Rebalance?"
     a: "Standard, at 439 euros. Its product copy describes splitting audio into stems with Stems View via Scene Rebalance, Music Rebalance or Dialogue Isolate. That is a 330 euro step up from Elements."
   - q: "Is there a cheaper iZotope option for stem separation?"
-    a: "Photon, at 284.25 euros on sale from 379 euros when we looked. It is a standalone app and ARA2 plugin built specifically for stem separation and noise removal, with 12 models, and iZotope states it runs locally on your GPU with no uploads."
+    a: "Photon, at 284.25 euros on sale from 379 euros when I looked. It is a standalone app and ARA2 plugin built specifically for stem separation and noise removal, with 12 models, and iZotope states it runs locally on your GPU with no uploads."
   - q: "What does RX Advanced add?"
     a: "Four things Standard does not have: Scene Rebalance, Ambience Match, De-rustle and Trim Silence. All four are film and television post-production tools, so for music work the 1,060 euro gap between Standard and Advanced buys nothing you would open."
 sources:
@@ -31,22 +31,9 @@ sources:
     checked: 2026-11-08
 ---
 
-People buy RX for one of two reasons. Either they want to clean up a noisy recording, or they
-have heard it can pull a vocal out of a finished mix. Those two needs sit on opposite sides of
-a €330 price step, and the product names do not tell you where the line is.
+RX 12 Elements doesn't include Music Rebalance. The feature starts at RX Standard, listed at €439 when I checked. If stem separation is all you need, iZotope's separate Photon app costs less.
 
-The feature that splits a mix is called Music Rebalance. It is not in the cheap edition.
-
-<div class="takeaways">
-<h2>The short version</h2>
-
-- RX 12 Elements is €109 and does not list Music Rebalance among its features.
-- Music Rebalance appears at Standard, €439. That is the real entry price for stem separation in RX.
-- Advanced is €1,499 and is aimed at post production, not music.
-- Photon, a separate iZotope tool, was €284.25 on sale and does stem separation on its own, locally.
-- So the cheapest iZotope route to stem separation is not RX at all.
-
-</div>
+Here's what each option includes, and what the extra money buys if you're considering Advanced.
 
 ## The ladder, and where stems appear on it
 
@@ -88,7 +75,7 @@ audio post production rather than music.
 
 ## The thing that makes the ladder look silly
 
-iZotope also sells Photon, which was €284.25 when we looked, reduced from €379. It is a
+iZotope also sells Photon, which was €284.25 when I looked, reduced from €379. It is a
 standalone app and an ARA2 plugin, and it exists to do exactly the job that sends people to
 RX in the first place: "splits mixes into stems and cleans noisy audio".
 
@@ -101,19 +88,19 @@ Advanced is over €1,200.
 
 That local-processing claim matters beyond price. Most of the convenient stem separators
 upload your audio to someone else's server, which is a problem if the material is not yours
-to share. We went through which tools avoid that in
+to share. I went through which tools avoid that in
 [Which AI Audio Tools Run Offline](/articles/offline-ai-audio-tools/).
 
 ## Before you spend anything
 
 The uncomfortable comparison is with free software. Demucs publishes 9.00 dB SDR on the MUSDB
 HQ test set for its fine-tuned v4 model, which is the highest published separation figure
-among the tools we looked at, and it costs nothing. We set that out with the hardware
+among the tools I looked at, and it costs nothing. I set that out with the hardware
 requirements in
 [AI Stem Separation Pricing](/articles/ai-stem-separation-costs/).
 
-We have not compared Photon's output quality against Demucs, and we are not going to guess.
-iZotope publishes no SDR figure we could find. What we can say is that the paid products buy
+I haven't compared Photon's output quality against Demucs, and I won't guess.
+iZotope publishes no SDR figure I could find. What I can say is that the paid products buy
 you a graphical interface, an ARA2 plugin that sits in your DAW, and no command line, and that
 those are the things you are actually paying for rather than measured superiority.
 
@@ -141,11 +128,11 @@ Elements carries seven modules: Repair Assistant, Voice De-noise, De-click,
 De-clip, De-hum, De-reverb and the improved Repair Assistant neural nets.
 Stems View, Music Rebalance and Dialogue Isolate all appear first at Standard.
 
-One caveat on price rather than features. The €284.25 we quote for Photon was
+One caveat on price rather than features. The €284.25 I quote for Photon was
 a sale price, and sales end. The regular price on the same page was €379, and
 that is the number to plan around.
 
-## What we would do
+## My pick
 
 Do not buy RX Elements for stem separation. At €109 it is a reasonable noise repair toolkit
 and a poor stem separator, because it is not a stem separator at all.

@@ -2,8 +2,8 @@
 title: "Which AI Audio Tools Run Offline, and the Hardware Needed"
 description: "Whisper releases its model weights under MIT. Demucs doesn't, and says so. If your audio can't be uploaded, that difference decides what you can use."
 pubDate: 2026-11-08
-byline: "AI Audio Report editorial team"
-reviewedBy: "Arnau Gran i Romero"
+updatedDate: 2026-11-09
+byline: "Arnau Gran i Romero"
 basis: documentation
 tags: ["local tools", "licensing"]
 faq:
@@ -25,25 +25,9 @@ sources:
     checked: 2026-11-07
 ---
 
-There's a category of audio work where "just upload it to a cloud service" isn't an available
-answer. Unreleased material you're mixing for someone else. A session under an NDA.
-Interviews with people who never agreed to have their voice sent to a third party. Anything
-where the file leaving your machine is itself the problem.
+Whisper and Demucs can both run on your own computer. The important difference is in the licences: Whisper's repository covers its model weights, while Demucs says the weights' licence is unclear.
 
-For that work the question stops being which tool is best and becomes which tools run
-entirely on your own hardware. Then, straight away, whether their licences let you use the
-results for paid work. Those two questions have different answers, and the second one is
-where this gets interesting.
-
-<div class="takeaways">
-<h2>The short version</h2>
-
-- Whisper is MIT on both code and weights, so commercial use is unambiguous.
-- Demucs is MIT on code only. The project says its weights licence "is not clear".
-- About 6 GB of VRAM is the practical entry point for all of this.
-- No GPU still works. Demucs on CPU runs at roughly 1.5 times the track's length.
-
-</div>
+If the audio can't leave your machine, these are practical options for transcription and stem separation. Your hardware and what you plan to do with the result still matter.
 
 ## The split that decides everything: code versus weights
 
@@ -149,12 +133,12 @@ Two caveats the table doesn't show. `turbo` is **not trained for translation**, 
 need speech in one language turned into text in another, you're back to `large`. And the
 model list splits below `large`: English-only variants (`tiny.en` through `medium.en`) are
 published alongside the multilingual ones, but there's no `large.en` or `turbo.en`. If your
-material is all English, the `.en` build at your chosen size is worth trying first, though we
+material is all English, the `.en` build at your chosen size is worth trying first, though I
 haven't seen a published accuracy comparison between the two and aren't going to assert one.
 
 ## Separation: Demucs and UVR
 
-Covered in detail in our [stem separation pricing piece](/articles/ai-stem-separation-costs/),
+Covered in detail in my [stem separation pricing piece](/articles/ai-stem-separation-costs/),
 so briefly here, because the hardware numbers belong on this page.
 
 **Demucs** needs Python 3.10 or newer, roughly 3 GB of GPU memory as an absolute minimum, and
@@ -187,7 +171,7 @@ friction.
 
 </div>
 
-We haven't benchmarked any of this ourselves. Every figure above is the projects' own stated
+I haven't benchmarked any of this ourselves. Every figure above is the projects' own stated
 requirement, linked at the bottom, and real performance depends on your audio, your settings
 and your machine.
 
@@ -198,14 +182,13 @@ Worth stating, because the absence is the useful part.
 Cloud separation services, hosted mastering, and essentially all the well-known music
 *generation* tools are services, not downloads. Your audio goes to their servers, and with
 generation the output arrives with contract terms attached that decide what you may do with
-it. We went through that in detail for [Suno's terms](/articles/can-you-sell-suno-music/).
+it. I went through that in detail for [Suno's terms](/articles/can-you-sell-suno-music/).
 
-This page only covers the three tools we verified against their own repositories. It isn't a
-complete map of local AI audio tooling, and we'd rather it be short and checked than long and
-assumed. If something significant is missing,
-[tell us what we should be reading](/contact/).
+I picked these three because their own repositories explain what runs locally and what the
+licences cover. There are more tools worth looking at; if one has worked well for you,
+[send it my way](/contact/).
 
-## The short version
+## What I'd use
 
 For transcription, Whisper, at `turbo` if you have 6 GB of VRAM and no translation
 requirement. MIT on both code and weights, so there's nothing to think about on the licensing

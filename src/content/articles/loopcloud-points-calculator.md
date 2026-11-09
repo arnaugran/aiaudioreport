@@ -2,9 +2,9 @@
 title: "How Many Loopcloud Points Do You Need a Month?"
 description: "A one-shot costs one point, a loop costs two, and some vocals cost eight. Work out which plan fits your month before you pay for one that doesn't."
 pubDate: 2026-11-08
+updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08
-byline: "AI Audio Report editorial team"
-reviewedBy: "Arnau Gran i Romero"
+byline: "Arnau Gran i Romero"
 basis: documentation
 tags: ["pricing", "samples"]
 faq:
@@ -23,12 +23,9 @@ sources:
     checked: 2026-11-07
 ---
 
-Loopcloud sells plans in points, and almost nobody checks what a point buys
-before picking one. The answer is that it depends entirely on what you
-download, which makes the headline number on the plan page close to useless on
-its own.
+A Loopcloud one-shot costs one point, a loop usually costs two, and some vocal files cost as many as eight. That spread makes the advertised monthly allowance hard to translate into the number of sounds you'll actually take home.
 
-Here are the published costs, from Loopmasters' own help centre:
+Put in a rough month below and the calculator will estimate your points. It uses the published prices and point costs linked in this article.
 
 <div class="stats">
 <div class="stat"><b>1 pt</b><span>One shot: a drum hit, a single synth note</span></div>
@@ -138,7 +135,7 @@ compare the total against the plan allowances in the table below.
 Every annual price is exactly ten months of the monthly price, and the annual
 point allowance is exactly twelve times the monthly one. So if you are
 confident you will still want it in a year, annual is two months free with no
-catch we could find.
+catch I could find.
 
 ## Three things the calculator cannot tell you
 
@@ -161,9 +158,8 @@ lower, and the app shows each file's cost before you spend.
 
 Splice prices the same thing differently: every sample is one credit, whatever
 it is. That makes it predictable and makes loops relatively cheap, while
-Loopcloud rewards one shots and penalises long vocal files. We went through
+Loopcloud rewards one shots and penalises long vocal files. I went through
 both, and what happens to your balance when you stop paying, in
 [Splice vs Loopcloud](/articles/splice-vs-loopcloud-credits/).
 
-Prices read 7 and 8 November 2026. We re-check about every 30 days. If a figure
-has moved, [tell us](/contact/).
+I checked the prices on 7 and 8 November 2026. [Let me know](/contact/) if they've changed.

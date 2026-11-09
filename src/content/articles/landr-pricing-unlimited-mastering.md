@@ -2,9 +2,9 @@
 title: "LANDR Pricing: Only the Top Plan Is Truly Unlimited"
 description: "Unlimited mastering on LANDR's entry plan means unlimited MP3s. The mid plan caps you at three WAV masters a month. Only the top plan is genuinely unlimited."
 pubDate: 2026-11-08
+updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08
-byline: "AI Audio Report editorial team"
-reviewedBy: "Arnau Gran i Romero"
+byline: "Arnau Gran i Romero"
 basis: documentation
 tags: ["pricing", "mastering"]
 faq:
@@ -13,33 +13,20 @@ faq:
   - q: "How many WAV masters do you get on LANDR Studio Standard?"
     a: "Three per month on the monthly plan, or 36 a year on the yearly plan, alongside unlimited MP3 masters. Only Studio Pro lists unlimited WAV and HDWAV masters."
   - q: "Is LANDR's yearly plan better value than monthly?"
-    a: "During the sale we saw on 8 November 2026, clearly yes. At the struck-through list prices it depends on the tier: Standard's yearly rate is well under its monthly rate, while Pro's list yearly rate of EUR 22.50 a month sits just below its EUR 23 monthly price."
+    a: "During the sale I saw on 8 November 2026, clearly yes. At the struck-through list prices it depends on the tier: Standard's yearly rate is well under its monthly rate, while Pro's list yearly rate of EUR 22.50 a month sits just below its EUR 23 monthly price."
 sources:
   - title: "LANDR, Pricing and Subscriptions (monthly and yearly plan tables, read in-browser)"
     url: "https://www.landr.com/pricing"
     checked: 2026-11-08
 ---
 
-LANDR sells "unlimited AI mastering" and that is true in the same way an all-you-can-eat
-buffet is unlimited if you only want the bread. On the entry plan, unlimited means unlimited
-MP3s. There is no WAV master on it at all.
+LANDR's 'unlimited mastering' depends on which file you want back. Essentials gives you unlimited MP3s; Standard adds three WAV masters a month; Pro is the first tier with unlimited WAV.
 
-That one line changes which plan you need, so it is worth going through the tiers properly.
-
-<div class="takeaways">
-<h2>The short version</h2>
-
-- Studio Essentials, €12/month, lists unlimited MP3 masters and no WAV masters.
-- Studio Standard, €18/month, adds three WAV masters a month. Three.
-- Studio Pro, €23/month, is the only tier with unlimited WAV.
-- If you need more than three lossless masters a month, Pro is not the upsell, it is the entry point.
-- Yearly pricing was mid-sale when we checked. Read the struck-through numbers, not the headline.
-
-</div>
+I checked the plans during a sale, so the annual prices need a little context. The monthly prices make the feature differences easier to compare.
 
 ## The plans, as published
 
-Read on 8 November 2026. LANDR showed us euros.
+Read on 8 November 2026. LANDR showed me euros.
 
 <div class="tablewrap">
 
@@ -124,7 +111,7 @@ immediately.
 
 ## The yearly prices need a second look
 
-When we checked, a Black Friday sale was running, which makes the yearly column harder to
+When I checked, a Black Friday sale was running, which makes the yearly column harder to
 read than it should be.
 
 <div class="tablewrap">
@@ -151,17 +138,15 @@ on before paying twelve months up front.
 Yearly sample credits match twelve months of the monthly allowance exactly, at 1,200, 1,800
 and 2,400. No hidden bonus there in either direction.
 
-## What we are not telling you
+## What I left out
 
-We have not compared this to what a human mastering engineer charges. We could not find a
-primary, current rate card we were willing to quote, and inventing a "typical" figure to make
-a comparison look rigorous is exactly the thing this site exists not to do. That comparison
-is on the list for when we can source it properly.
+I haven't compared this to what a human mastering engineer charges. I couldn't find a current rate card I trusted enough to quote. A made-up average wouldn't
+help you decide, so I left the comparison out.
 
-We have also not assessed how LANDR's masters sound. We do not run listening tests. For that
+I've also not assessed how LANDR's masters sound. I don't run listening tests. For that
 judgement, find someone who does and who says what they listened on.
 
-## Who should buy what
+## Which plan fits your month
 
 **One or two tracks a month, and you want lossless.** Studio Standard. Three WAV masters is
 enough and €6 a master is fair.
@@ -176,5 +161,4 @@ If a lossless file ever becomes necessary, the plan you are on does not produce 
 subscribing. The plugin bundles are quoted at large notional values, and a "€2,000 value"
 bundle is worth what you would otherwise have spent, which for most people is not €2,000.
 
-Prices read 8 November 2026, during a sale. We re-check this page about every 30 days and
-change the date at the top when we do. If a figure has moved, [tell us](/contact/).
+I checked these prices on 8 November 2026, during a sale. [Let me know](/contact/) if they've changed.

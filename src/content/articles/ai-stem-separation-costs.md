@@ -1,10 +1,10 @@
 ---
-title: "AI Stem Separation Pricing: The Costs and the Catches"
+title: "Stem Separation Costs: What You Get for Your Money"
 description: "LALAL.AI's annual plans cost exactly twelve times the monthly price. Its unlimited queue is free on every paid tier. The best-scoring option costs nothing."
 pubDate: 2026-11-08
+updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-07
-byline: "AI Audio Report editorial team"
-reviewedBy: "Arnau Gran i Romero"
+byline: "Arnau Gran i Romero"
 basis: documentation+published-reviews
 tags: ["pricing", "stem separation"]
 faq:
@@ -32,23 +32,10 @@ sources:
     checked: 2026-11-07
 ---
 
-The highest published separation score of anything here belongs to the tool that costs
-nothing. Demucs v4 reports 9.00 dB SDR on the MUSDB HQ test set, it's free, and it runs on
-your own machine. The catch is a GPU requirement and a command line, and for plenty of people
-that catch settles it. Which is why cloud services can charge for the same job.
-
-So the useful question isn't which one is best. It's what the paid services actually charge
-once you read the pricing page properly. That turns out to contain two surprises.
-
-<div class="takeaways">
-<h2>The short version</h2>
-
-- The free option, Demucs, has the highest published quality score here. It needs a GPU or patience.
-- LALAL.AI's annual plans cost exactly twelve times the monthly price. There is no discount.
-- The unlimited queue is free on both paid tiers. Only the fast queue is metered.
-- Fast minutes do not roll over, which quietly doubles your real cost per minute if you underuse them.
-
-</div>
+If you've got an Nvidia GPU and don't mind a little setup, Demucs costs nothing and has the
+best published score in this group. If you'd rather drag in a file and get stems back, a paid
+service may be worth it. The price pages don't make that choice as straightforward as they
+look: LALAL.AI meters its fast queue, while its slower queue is unlimited.
 
 ## LALAL.AI: the metered thing isn't what you think
 
@@ -66,7 +53,7 @@ on 7 November 2026.
 </div>
 
 On both paid plans the Relaxed Queue is **unlimited**. The monthly minute allowance only
-applies to the Fast Queue. Nearly every comparison we read treats that Fast Queue figure as
+applies to the Fast Queue. Nearly every comparison I read treats that Fast Queue figure as
 the plan's capacity, which gets the product backwards. On a €6.75 plan you can separate as
 much audio as you like. What the extra €6.75 buys you at Pro isn't more separation, it's less
 waiting.
@@ -108,7 +95,7 @@ Check the arithmetic on those annual figures.
 
 There's no annual discount. Paying twelve months up front gets you exactly the same rate as
 paying monthly, with your money handed over earlier, and the pricing page FAQ says
-subscriptions are non-refundable. We checked twice, because the usual pattern in this
+subscriptions are non-refundable. I checked twice, because the usual pattern in this
 industry is two months free, and its absence is easy to assume away.
 
 Unless you specifically want to be locked in, monthly is simply better. It's rare to be able
@@ -128,8 +115,8 @@ to say that about a SaaS pricing page without qualifying it.
 
 </div>
 
-Subscription prices were shown to us in euros and the top-ups in US dollars, so the two
-halves of that table aren't directly comparable without a conversion we aren't going to
+Subscription prices were shown to me in euros and the top-ups in US dollars, so the two
+halves of that table aren't directly comparable without a conversion I won't
 invent. LALAL.AI also appears to localise pricing, so your figures may differ from ours. The
 per-minute column is the part worth carrying away either way.
 
@@ -211,37 +198,32 @@ and internal Meta datasets used in training.
 If you're separating stems for your own practice, remixing at home, or transcription, this is
 academic. If separated stems are going into something you intend to sell, you're relying on
 weights whose licence the authors themselves describe as unclear, and that's a different risk
-from a commercial service that has explicitly granted you rights. It's the same shape of
-problem we ran into reading [what Suno's terms permit](/articles/can-you-sell-suno-music/):
-a tool working is not the same as a tool being licensed for what you're doing with it.
+from a commercial service that has explicitly granted you rights. The same issue comes up in
+[what Suno's terms permit](/articles/can-you-sell-suno-music/): a tool working is not the same
+as a tool being licensed for what you're doing with it.
 
-We're flagging the ambiguity, not resolving it. Nobody can resolve it from outside.
+I'm flagging the ambiguity, not resolving it. Nobody can resolve it from outside.
 
-## What we couldn't price, and why
+## Moises and iZotope RX
 
-We won't publish a price we didn't read.
-
-**Moises** doesn't expose its plan pricing on a crawlable page. Its public pricing page
-describes a free tier with "a limited number of uploads each month" and points to a table
-inside the logged-in app at `studio.moises.ai/billing/pricing`, which returned no plan data
-to us. It does publish that it separates into 27 stem types.
+**Moises** keeps its plan prices inside the logged-in app, at
+`studio.moises.ai/billing/pricing`. What the public page does state is a free tier with "a
+limited number of uploads each month", and that it separates into 27 stem types.
 
 **iZotope RX** carries Music Rebalance, the feature usually grouped with these tools, but not
 in the cheap edition. RX 12 Elements is €109 and does not include it. Music Rebalance starts
 at RX 12 Standard, €439, and Advanced is €1,499. iZotope also sells Photon, a dedicated stem
-separation app, at €284.25 reduced from €379. We went through which edition does what in
+separation app, at €284.25 reduced from €379. I went through which edition does what in
 [iZotope RX: Which Edition Has Music Rebalance?](/articles/izotope-rx-which-edition/).
 
 Treat any third-party page quoting current prices for these tools with suspicion unless it
-says when it checked. The secondary sources we sampled while researching this disagreed with
-each other, and several were quoting figures over a year old.
+says when it checked.
 
-We also have no quality comparison between LALAL.AI and Demucs, because LALAL.AI doesn't
-publish an SDR figure and we don't run listening tests. The only head-to-head benchmark we
-found in this space was published by one of the vendors being compared, which tells you what
-it's worth.
+On quality, LALAL.AI publishes no SDR figure, so there is no like-for-like number to set
+against Demucs. The head-to-head benchmark that does circulate came from one of the vendors
+being compared in it, which tells you what it's worth.
 
-## Who should pick what
+## My picks, by workload
 
 **An Nvidia GPU with 8 GB, separating stems regularly.** Install UVR. The best published
 score in this article costs nothing, and your audio never leaves your machine. If you're
@@ -258,6 +240,4 @@ is the part worth paying for.
 month. The minutes vanish at the end of each period, and the upgrade stops paying for itself
 the moment you stop consuming it.
 
-Prices here were read on 7 November 2026. We re-check this page roughly every 30 days and
-change the date at the top when we do. If you spot a figure that's moved before we do,
-[tell us](/contact/).
+I checked the listed prices on 7 November 2026. If one has changed since, [let me know](/contact/).

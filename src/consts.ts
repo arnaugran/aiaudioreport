@@ -4,7 +4,7 @@ export const SITE_TAGLINE =
 export const SITE_DESCRIPTION =
   'Real prices for AI and music production software, each with the date we checked it, plus licence terms read from the source. Independent and dated, not ranked.';
 export const PUBLISHER = 'AI Audio Report';
-export const DEFAULT_BYLINE = 'AI Audio Report editorial team';
+export const DEFAULT_BYLINE = 'Arnau Gran i Romero';
 export const CONTACT_EMAIL = 'editor@aiaudioreport.com';
 
 /** GA4 only loads when this is set AND the visitor has consented. */

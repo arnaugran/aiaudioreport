@@ -2,9 +2,9 @@
 title: "Splice vs Loopcloud: What You Keep When You Cancel"
 description: "Loopcloud points always roll over, including after you cancel. Splice credits expire 28 days after your final cancellation date. That difference is the decision."
 pubDate: 2026-11-08
+updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08
-byline: "AI Audio Report editorial team"
-reviewedBy: "Arnau Gran i Romero"
+byline: "Arnau Gran i Romero"
 basis: documentation
 tags: ["pricing", "samples"]
 faq:
@@ -31,26 +31,9 @@ sources:
     checked: 2026-11-07
 ---
 
-Both services rent you access to a sample library and both let you keep what you download
-after you stop paying. The real difference shows up in the month after you cancel, and almost
-nobody leads with it.
+The biggest difference shows up when you cancel. Loopcloud says unused points stay in your account; Splice says leftover credits expire 28 days after your final billing period.
 
-Loopcloud's position is that unspent points "will always roll over" and that "You won't lose
-any points or purchases if you cancel". Splice's is that after cancelling, leftover credits
-"will expire 28 days after your final cancellation date".
-
-If you make music in bursts, that one line decides this for you.
-
-<div class="takeaways">
-<h2>The short version</h2>
-
-- Loopcloud keeps your unspent points indefinitely, including after you cancel.
-- Splice wipes unspent credits 28 days after cancellation. Pausing, up to two months, is safe.
-- One Loopcloud point is not one sample. A loop usually costs two.
-- Both let you keep and re-download sounds you already took.
-- Both charge ten months' money for a year. Splice's "SAVE 50%" badge is a first-year promo, not the standing annual rate.
-
-</div>
+If you work in bursts, that can decide it. The credit and point systems also price sounds differently, so here's the cost comparison before the verdict.
 
 ## The unit trap
 
@@ -92,7 +75,7 @@ you get. If you mostly pull loops, halve it. If you pull vocal stems, divide by 
 
 ## What each one costs
 
-Loopcloud publishes in euros, Splice in US dollars. We are not going to invent an exchange
+Loopcloud publishes in euros, Splice in US dollars. I won't invent an exchange
 rate, so read each block on its own.
 
 <div class="tablewrap">
@@ -118,7 +101,7 @@ Splice also runs promotional first-period pricing: $4.99 for a first month on Cr
 or $10.00/mo for a first year on Creator yearly.
 
 One mismatch worth flagging. Splice's support FAQ lists three tiers, Sounds+, Creator and
-Creator+ at 100, 200 and 500 credits, while the live plans page shows two. We are reporting
+Creator+ at 100, 200 and 500 credits, while the live plans page shows two. I'm reporting
 the live page and noting the discrepancy rather than blending them.
 
 ### "Save 50%" is the promo, not the annual rate
@@ -131,7 +114,7 @@ Which, once you do the arithmetic, is the same deal Loopcloud offers.
 
 ### Both of them charge ten months for twelve
 
-Worth checking rather than assuming, because [we found the opposite at
+Worth checking rather than assuming, because [I found the opposite at
 LALAL.AI](/articles/ai-stem-separation-costs/), where the annual price is exactly twelve times
 the monthly one and the discount is zero.
 
@@ -226,5 +209,4 @@ becomes the better deal.
 **You are about to stop for a while.** Pause Splice rather than cancelling it. Two months of
 protection is free and cancelling throws the balance away.
 
-Prices and terms here were read on 7 and 8 November 2026. We re-check this page about every 30
-days. If a figure has moved, [tell us](/contact/).
+I checked these prices and terms on 7 and 8 November 2026. [Let me know](/contact/) if something has changed.

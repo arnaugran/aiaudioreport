@@ -2,9 +2,9 @@
 title: "LANDR vs eMastered vs Ozone: Rent or Buy Outright?"
 description: "LANDR's cheapest tier is 12 euros a month and gives you no WAV at all. Ozone Elements is 59 euros once and keeps working forever. The break-even is five months."
 pubDate: 2026-11-08
+updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08
-byline: "AI Audio Report editorial team"
-reviewedBy: "Arnau Gran i Romero"
+byline: "Arnau Gran i Romero"
 basis: documentation
 tags: ["pricing", "mastering"]
 faq:
@@ -37,23 +37,9 @@ sources:
     checked: 2026-11-08
 ---
 
-Two of these rent you a service. One sells you a plugin. That is the whole decision, and the
-arithmetic is less close than the marketing implies.
+If you need a WAV master, LANDR's €12 entry plan won't do it. Ozone Elements costs €59 once and includes a WAV export, so it catches up with LANDR Standard after about five months.
 
-LANDR Studio Essentials costs €12 a month and does not give you a single WAV master. Ozone
-Elements costs €59 once and exports whatever you like, forever, because it runs on your
-machine. Five months of the cheaper thing costs more than the thing you keep.
-
-<div class="takeaways">
-<h2>The short version</h2>
-
-- Ozone Elements is €59 once. It pays for itself against LANDR Essentials in under five months, and against LANDR Pro in under three.
-- LANDR Essentials at €12/mo produces MP3 only. You need Standard at €18 to get three WAVs a month.
-- eMastered charges €108, €228 or €348 a year for identical features, depending only on how you pay.
-- eMastered's "unlimited" distribution is capped at 20 recordings per rolling 30 days.
-- All eMastered prices exclude VAT, so the figure you see is not the figure you pay.
-
-</div>
+eMastered sits between the rental and buy-once options, though its annual prices vary quite a bit depending on how you pay. Here's the comparison with the arithmetic left in.
 
 ## What each one charges
 
@@ -70,7 +56,7 @@ machine. Five months of the cheaper thing costs more than the thing you keep.
 | Ozone 12 Advanced | €549 once | Plugin |
 
 Prices read in euros on 8 November 2026. LANDR also sells annual billing, discounted heavily
-at the time we looked, which we come back to below.
+at the time I looked, which I come back to below.
 
 ## eMastered charges three different prices for one product
 
@@ -88,12 +74,12 @@ Paying monthly costs **3.2 times** what paying upfront costs, for the same softw
 middle option is the one to avoid entirely: you take the one-year commitment of an annual
 plan and still pay €120 more than the annual price.
 
-Two months free for annual billing is the ordinary pattern in this market, and we have found
+Two months free for annual billing is the ordinary pattern in this market, and I've found
 it repeatedly, at Splice, at Loopcloud and at Loopmasters. A 3.2x spread is not that pattern.
 It is a different kind of pricing.
 
 Also worth knowing before you compare anything: eMastered states "Prices exclude VAT. Taxes
-will be applied at checkout." LANDR and iZotope showed tax-inclusive euro prices to us. The
+will be applied at checkout." LANDR and iZotope showed tax-inclusive euro prices to me. The
 eMastered figures above are therefore not comparable to the others until you add your own
 VAT rate.
 
@@ -113,7 +99,7 @@ the asterisk on the pricing card sits only against distribution. If you came for
 the cap is not aimed at you.
 
 The policy also prohibits "low-effort or AI-generated spam content", which is worth reading if
-you work with generators. We covered where that sits across platforms in
+you work with generators. I covered where that sits across platforms in
 [Can You Upload AI Music?](/articles/can-you-upload-ai-music/).
 
 ## The break-even, which is shorter than you would guess
@@ -167,9 +153,9 @@ A subscription also requires nothing of you. Ozone runs in your DAW and expects 
 it, even with Master Assistant doing the first pass. LANDR takes an upload and returns a
 file. For some people that difference is worth more than €59.
 
-And LANDR's annual pricing was discounted sharply when we looked, with Studio Pro showing
+And LANDR's annual pricing was discounted sharply when I looked, with Studio Pro showing
 €11.25 a month billed yearly against €22.50 undiscounted, labelled 50% off. A promotional rate
-is not a standing rate and we would not plan around it, but if you are buying today it is real
+is not a standing rate and I'd not plan around it, but if you are buying today it is real
 and it roughly halves the figures above.
 
 ## What each Ozone edition actually contains
@@ -197,7 +183,7 @@ and the arithmetic holds. If you want to adjust what the assistant did, you
 are comparing against Standard at €239, and the break-even against LANDR Pro
 stretches to about ten months.
 
-## What we would do
+## What I'd do
 
 Buy Ozone Elements if what you want is the assistant. At €59 it beats every subscription here
 within five months and it keeps working when you stop paying. Know what you are buying: the
@@ -207,7 +193,7 @@ anyway, at a fifth of the annual cost.
 
 Subscribe to LANDR if you want distribution and mastering from one place, and take the annual
 billing while the discount is running. Essentials at €12 a month is the one to skip, because
-a mastering service that will not give you a lossless file is not finishing your record. We
+a mastering service that will not give you a lossless file is not finishing your record. I
 went through that in detail in
 [LANDR Pricing](/articles/landr-pricing-unlimited-mastering/).
 

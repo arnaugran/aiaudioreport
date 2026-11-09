@@ -2,9 +2,9 @@
 title: "Free DAWs in 2026: Cakewalk Is Not One of Them"
 description: "Cakewalk is not free any more. Sonar now needs a paid BandLab membership at 99 dollars rising to 149. Waveform Free still has no track limit at all."
 pubDate: 2026-11-08
+updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08
-byline: "AI Audio Report editorial team"
-reviewedBy: "Arnau Gran i Romero"
+byline: "Arnau Gran i Romero"
 basis: documentation
 tags: ["pricing", "DAWs"]
 faq:
@@ -39,25 +39,9 @@ sources:
     checked: 2026-11-08
 ---
 
-Most lists of free DAWs open with Cakewalk. That recommendation is now wrong, and it is wrong
-in a way that costs money rather than time.
+Cakewalk Sonar isn't free now. BandLab's free studio is a separate, browser-based product; Sonar and Next require a paid membership.
 
-BandLab's own pricing table settles it. Against the row "Cakewalk Next and Sonar", the Free
-column says no. Pro and Max say yes. Cakewalk is a paid product now, and the free thing with
-the BandLab name on it is a different piece of software.
-
-<div class="takeaways">
-<h2>The short version</h2>
-
-- Cakewalk Sonar and Next require BandLab Pro, $99 for the first year then $149 a year.
-- BandLab's actual free tier is a 16-track browser studio, not Cakewalk.
-- Waveform Free has no track limit and no expiry, and takes VST, VST3 and AU plugins.
-- Ardour's licence is free and its site says so, but the ready-to-run builds sit behind a payment step.
-- On Linux, Waveform unlocks its Pro features automatically.
-- Pro Tools Intro is free but caps you at eight audio tracks, and truncates bigger sessions on open.
-- GarageBand is free on the Mac App Store, and Mac only.
-
-</div>
+If you're looking for a DAW that costs nothing and doesn't expire, Waveform Free is the strongest place to start. The other options have catches worth knowing before you move a project into them.
 
 ## The renewal is the part to notice
 
@@ -123,10 +107,10 @@ free to copy.
 
 Subscriptions are $10 a month standard, $4 low cost, $1 developing world, and $50
 institutional. The site states that "A 1 year subscription to Ardour will likely span 2 major
-releases and will cost you US$120". At the time we looked, 5,720 subscribers were providing
+releases and will cost you US$120". When I checked, 5,720 subscribers were providing
 $14,033 a month.
 
-We did not complete the download flow, so we cannot tell you the minimum one-off payment it
+I didn't complete the download flow, so I can't tell you the minimum one-off payment it
 asks for. If that number decides it for you, check it yourself before planning around it.
 
 ## Pro Tools Intro, and the number that decides it
@@ -160,7 +144,7 @@ It is Mac only. There is no Windows version and there never has been, so if
 you are reading this on a PC it is not an option however often it appears on
 lists of free DAWs.
 
-## What we would do
+## What I'd do
 
 Take Waveform Free if you want a full DAW with no artificial ceiling. No track limit and no
 expiry is a stronger offer than most paid entry tiers, and the expansion model means you pay

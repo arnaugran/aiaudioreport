@@ -1,15 +1,14 @@
 ---
 title: "AI Voice Cloning Law: No Federal Rule, So Who Stops You"
-description: "The US has no federal digital replica law. The NO FAKES Act cleared committee in June 2026 and stalled. Platform policy and contracts are what actually bind you."
+description: "There is no federal voice-cloning law yet. A September 2026 attempt to pass the NO FAKES Act failed; platform rules and contracts already apply."
 pubDate: 2026-11-08
-byline: "AI Audio Report editorial team"
-reviewedBy: "Arnau Gran i Romero"
+updatedDate: 2026-11-09
+byline: "Arnau Gran i Romero"
 basis: documentation
-notLegalAdvice: true
 tags: ["licensing", "AI music"]
 faq:
   - q: "Is AI voice cloning illegal in the US?"
-    a: "There is no single federal law on it. As of 8 November 2026 the NO FAKES Act has passed the Senate Judiciary Committee but has not become law. State rights of publicity and privacy still apply, and the Copyright Office has said section 114(b) of the Copyright Act does not preempt state laws restricting unauthorised voice replicas."
+    a: "There is no single federal law on it. The NO FAKES Act passed the Senate Judiciary Committee, but a September 30, 2026 request to pass it by unanimous consent was blocked and the bill is still not law. State rights of publicity and privacy still apply, and the Copyright Office has said section 114(b) of the Copyright Act does not preempt state laws restricting unauthorised voice replicas."
   - q: "Can I release a song using a cloned voice of a famous singer?"
     a: "Not on Spotify without permission. Its policy states that vocal impersonation is only allowed in music on Spotify when the impersonated artist has authorised the usage. Platform policy applies to you immediately, whatever the legislative position is."
   - q: "Is imitating an artist's style the same as cloning their voice?"
@@ -26,28 +25,17 @@ sources:
   - title: "Suno, Terms of Service (revised 10 August 2026)"
     url: "https://suno.com/terms"
     checked: 2026-11-07
-  - title: "GovTrack, S. 4591 NO FAKES Act of 2026, bill status"
-    url: "https://www.govtrack.us/congress/bills/119/s4591"
-    checked: 2026-11-08
+  - title: "U.S. Senate, Daily Press, 30 September 2026"
+    url: "https://www.dailypress.senate.gov/wednesday-september-30-2026/"
+    checked: 2026-11-09
+  - title: "Congressional Record, Unanimous Consent Request for S. 4591, 30 September 2026"
+    url: "https://www.govinfo.gov/content/pkg/CREC-2026-09-30/html/CREC-2026-09-30-pt1-PgS5201.htm"
+    checked: 2026-11-09
 ---
 
-People keep asking whether AI voice cloning is legal in the United States, and keep getting
-answered as though a law exists. It does not. As of today there is no federal statute covering
-digital replicas of a person's voice.
+There isn't one US law that answers whether you can clone someone's voice. State law, the terms of the tool you use and the platform you upload to all matter, and some of those rules already have teeth.
 
-What binds you instead is a stack of three other things, all of which are in force right now
-and none of which require Congress to do anything.
-
-<div class="takeaways">
-<h2>The short version</h2>
-
-- No federal digital replica law exists. The NO FAKES Act cleared Senate committee in June 2026 and has not passed either chamber.
-- Spotify already bans unauthorised vocal impersonation, today, regardless of the law.
-- The tool's own terms bind you the moment you accept them.
-- State publicity and privacy law still applies, and the Copyright Office says federal copyright does not override it.
-- Imitating a style is treated differently from replicating a voice.
-
-</div>
+Here is what the documents say today, and where they leave you to make a call.
 
 ## Where the law actually is
 
@@ -63,7 +51,7 @@ It also drew a line that matters to producers. On what should trigger liability:
 should arise from the distribution or making available of an unauthorized digital replica, but
 not the act of creation alone." Experimenting privately was not what they were aiming at.
 
-That was 2024. Two and a bit years later, the legislation still has not happened.
+That was 2024. Two years later, Congress still hasn't made that protection law.
 
 <figure class="figure">
 <p class="f-title">What governs a cloned voice today</p>
@@ -88,19 +76,19 @@ That was 2024. Two and a bit years later, the legislation still has not happened
 <figcaption>The layer people argue about online is the one that is not yet in force. The three that are get far less attention.</figcaption>
 </figure>
 
-### The NO FAKES Act has not passed
+### The latest attempt to pass NO FAKES failed
 
-The bill meant to fill the gap is the NO FAKES Act, S. 4591 in the 119th Congress. The Senate
-Judiciary Committee approved it by voice vote on 18 June 2026. It has not passed either
-chamber since. GovTrack's record of the bill is the thing to check before anyone tells you
-otherwise, and we have linked it below rather than paraphrasing its status.
+The bill meant to fill the gap is the NO FAKES Act, S. 4591. The Senate Judiciary Committee
+approved it in June. On 30 September, Senator Blackburn asked the Senate to pass it by
+unanimous consent. Senator Cruz objected, so it did not pass. The bill remains on the Senate
+calendar and is not federal law.
 
 Two things follow. A bill that has cleared one committee is not law and does not bind you. And
 the 119th Congress ends on 3 January 2027, so if it does not get floor time before then it
 starts over.
 
-We are reporting a legislative position that could change while this page is live. The date at
-the top is when we last checked it.
+This is the bill's status as of 9 November 2026. It could change, so I linked the Senate's own
+record below.
 
 ## Layer one: the platform, which is already enforcing
 
@@ -123,7 +111,7 @@ impersonation law at all: "In no event will you use the Output or your Voice Mod
 with Suno." That is a contractual restriction on what you build, and it binds you because you
 agreed to it.
 
-We went through the rest of Suno's terms in detail in [what you can actually sell from an AI
+I went through the rest of Suno's terms in detail in [what you can actually sell from an AI
 tool](/articles/can-you-sell-suno-music/). The general point applies to every tool in this
 space: read the voice-model clause specifically, because it is usually separate from the
 clause about ordinary output.
@@ -140,9 +128,9 @@ well-established state rights of publicity and privacy, the Office does not reco
 federal preemption. Federal law should provide a floor of consistent protection nationwide,
 with states continuing to be able to provide additional protections."
 
-So state rights of publicity and privacy are live, and the Office expects them to stay live
-even after a federal law passes. We have not surveyed individual state statutes and are not
-going to pretend otherwise. If you are doing this commercially, that survey is the homework,
+State rights of publicity and privacy still matter, and the Office expects them to remain
+relevant even if Congress passes a federal law. I haven't surveyed individual state statutes.
+If you are doing this commercially, that survey is the homework,
 and it is the kind of question a lawyer should answer for your state rather than a website.
 
 ## Style is a separate question
@@ -173,6 +161,4 @@ not creation, and that is a sensible line to hold even before it becomes law.
 If you want the sound without the person, do it with style rather than with their voice. That
 is both the safer position and, on the Office's analysis, the legally distinct one.
 
-And watch this change. A bill that has cleared committee can move quickly. We will re-check
-and re-date this page, which is the only honest way to cover a question whose answer has a
-shelf life.
+Congress could still act, so check the linked Senate record before relying on this summary.

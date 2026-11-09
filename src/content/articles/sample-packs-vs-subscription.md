@@ -2,11 +2,10 @@
 title: "Sample Packs or a Subscription? The Cost Per Sound"
 description: "A 258 file Loopmasters pack is 41.95 euros, about 16 cents a sound. Loopcloud's top annual tier is nearer 6 cents. What the premium actually buys you."
 pubDate: 2026-11-08
+updatedDate: 2026-11-09
 pricesCheckedOn: 2026-11-08
-byline: "AI Audio Report editorial team"
-reviewedBy: "Arnau Gran i Romero"
+byline: "Arnau Gran i Romero"
 basis: documentation
-notLegalAdvice: true
 tags: ["pricing", "samples"]
 faq:
   - q: "Is it cheaper to buy sample packs or subscribe?"
@@ -29,26 +28,9 @@ sources:
     checked: 2026-11-07
 ---
 
-Take one real pack and count it. Loopmasters sells Dark Rollers, a drum and bass pack, and
-its contents are listed down to the file: 884 MB of 24-bit WAVs, made up of 258 individual
-loops, hits, multis and vocals.
+Loopmasters' Dark Rollers pack costs €41.95 for the full download: 258 files, or about 16 cents each. A Loopcloud subscription can bring the per-sound cost lower, provided you use the points before the month ends.
 
-The complete pack costs €41.95. That is **about 16 cents a sound**, and it is yours with no
-recurring charge and nothing to lose if you stop paying anyone.
-
-Whether that is good depends entirely on what the same money buys by subscription, so here is
-that number next to it.
-
-<div class="takeaways">
-<h2>The short version</h2>
-
-- One 258 file pack at €41.95 is roughly €0.16 a sound.
-- Loopcloud's Professional annual tier is nearer €0.064 for a typical loop, so subscribing is about two and a half times cheaper per sound.
-- The premium buys permanence and curation, not volume. Nothing expires and nothing is metered.
-- You never own the sounds. Loopmasters says so in capitals: you buy a licence, the producer stays the owner.
-- You cannot use a purchased sound in isolation commercially, only inside a composition with other sounds.
-
-</div>
+That makes the subscription cheaper on paper. A pack is yours to keep and revisit whenever you like, which can matter more than the unit price.
 
 ## One pack is not one price
 
@@ -98,20 +80,20 @@ are routinely paying three and a half times what they need to.
 
 ## Against a subscription, in the same currency
 
-Comparing these properly means staying in one currency, because we have not verified an
-exchange rate and are not going to invent one. Loopcloud prices in euros, so that is the fair
+Comparing these properly means staying in one currency, because I haven't verified an
+exchange rate, and I haven't invented one. Loopcloud prices in euros, so that is the fair
 comparison.
 
 Loopcloud's Professional tier is €229.50 a year for 600 points a month, which works out at
 about €0.0319 a point. A loop on Loopcloud usually costs two points, so call it **€0.064 a
-loop**. We went through that arithmetic in detail in
+loop**. I went through that arithmetic in detail in
 [the points calculator](/articles/loopcloud-points-calculator/).
 
 So the pack is around €0.16 a sound and the subscription is around €0.064. Buying outright
 costs roughly two and a half times as much per sound.
 
 Splice sits in the same territory but prices in dollars, at $0.108 a sample on Sounds billed
-yearly and $0.083 on Creator. We have not converted those, deliberately. See
+yearly and $0.083 on Creator. I haven't converted those, deliberately. See
 [Is Splice Worth It?](/articles/is-splice-worth-it/) for that side.
 
 ## What the premium actually buys
