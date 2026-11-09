@@ -14,6 +14,8 @@ faq:
     a: "Not while you are subscribed. Splice says unused credits automatically roll over to the next month. They expire 28 days after your final billing period ends if you cancel, which is the only point at which unspent credits are actually lost."
   - q: "Do I keep the samples if I stop paying?"
     a: "Yes. Splice's plans page says every download is yours to keep, and the cancellation FAQ says you can still browse your library and re-download samples already in it. What you lose on cancelling is unspent credits, not downloaded sounds."
+  - q: "Can you pause Splice instead of cancelling?"
+    a: "On a monthly plan, yes, for one or two months. Splice says the pause starts at your next renewal date rather than immediately, and that you cannot spend credits while it runs, so the point of it is to take a break without forfeiting what you have accrued. Annual subscriptions have no pause option."
   - q: "Which Splice plan is the cheapest way in?"
     a: "The Sounds plan at $12.99/mo, or $10.84/mo billed yearly, with around 100 downloads a month. Splice's support pages also document a 500 credit Creator+ plan, but the plans page does not list or price it."
 sources:
@@ -23,6 +25,9 @@ sources:
   - title: "Splice support, Splice plans FAQ"
     url: "https://support.splice.com/en/articles/8652592-splice-plans-faq"
     checked: 2026-11-08
+  - title: "Splice support, How do I pause my plan?"
+    url: "https://support.splice.com/en/articles/8652610-how-do-i-pause-my-plan"
+    checked: 2026-11-09
 ---
 
 Splice is worth it if you use the credits. The part that catches people is what counts as a download: samples and loops usually cost one credit, while presets and MIDI can cost three.

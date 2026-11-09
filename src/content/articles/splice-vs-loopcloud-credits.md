@@ -8,6 +8,8 @@ byline: "Arnau Gran i Romero"
 basis: documentation
 tags: ["pricing", "samples"]
 faq:
+  - q: "Can I pause Splice so my credits don't expire?"
+    a: "On a monthly plan you can pause for one or two months. Splice's help centre says the pause begins at your next renewal rather than straight away, and that you cannot spend credits during it, so it parks the balance instead of losing it. Annual plans cannot be paused. Loopcloud needs no equivalent, because it says unspent points roll over whether or not you keep paying."
   - q: "What happens to my Splice credits if I cancel?"
     a: "You keep full access until the end of the current billing cycle, then leftover credits expire 28 days after your final cancellation date. Pausing is different: you can pause for up to two months without losing accrued credits."
   - q: "Do Loopcloud points expire?"
@@ -29,6 +31,9 @@ sources:
   - title: "Splice support, Splice plans FAQ"
     url: "https://support.splice.com/en/articles/8652592-splice-plans-faq"
     checked: 2026-11-07
+  - title: "Splice support, How do I pause my plan?"
+    url: "https://support.splice.com/en/articles/8652610-how-do-i-pause-my-plan"
+    checked: 2026-11-09
 ---
 
 The biggest difference shows up when you cancel. Loopcloud says unused points stay in your account; Splice says leftover credits expire 28 days after your final billing period.
