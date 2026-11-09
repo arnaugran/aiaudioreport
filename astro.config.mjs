@@ -16,7 +16,10 @@ export default defineConfig({
   base: BASE_PATH,
   trailingSlash: 'always',
   build: { format: 'directory', inlineStylesheets: 'always' },
-  integrations: [sitemap({ filter: (page) => !page.includes('/404') })],
+  integrations: [
+    // Neither the 404 nor the post-subscribe page belongs in a sitemap.
+    sitemap({ filter: (page) => !page.includes('/404') && !page.includes('/subscribed') }),
+  ],
   markdown: { rehypePlugins: [rehypeInlineImage, rehypeBaseLinks] },
   compressHTML: true,
 });

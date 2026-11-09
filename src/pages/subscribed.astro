@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../consts';
+
+// Where Buttondown sends a reader back to after they submit the form, once
+// the redirect is set in the newsletter's own Subscribing settings. Until
+// then this page is reachable but nothing points at it.
+---
+<BaseLayout
+  title="Check your inbox"
+  noindex={true}
+  description="One more step to finish subscribing to the AI Audio Report price watch: confirm the address from the email we just sent."
+>
+  <h1 class="page-title">Check your inbox</h1>
+  <p class="lede">
+    We have sent you an email with one link in it. Click it and you are on the list. Nothing
+    is sent to an address that has not confirmed.
+  </p>
+
+  <h2>If it has not arrived</h2>
+  <p>
+    Give it a minute, then look in spam and in the Promotions tab. The sender is AI Audio
+    Report. Marking it as not spam once is usually enough to keep the rest in your inbox.
+  </p>
+  <p>
+    Still nothing? <a href={withBase('/contact/')}>Tell us</a> and we will sort it out.
+  </p>
+
+  <h2>What you have signed up for</h2>
+  <p>
+    An email when a price on this site changes, when a vendor rewrites a licence term, or when
+    a new comparison goes up. Two a month at most, and the address is used for nothing else.
+    Every email carries a one-click unsubscribe, and the list is never sold or shared. The
+    detail is in the <a href={withBase('/privacy/')}>privacy policy</a>.
+  </p>
+
+  <h2>While you are here</h2>
+  <p>
+    <a href={withBase('/articles/')}>Every article</a> is grouped by what you are trying to
+    decide, and each one carries the date its prices were last read off the vendor's own page.
+  </p>
+</BaseLayout>

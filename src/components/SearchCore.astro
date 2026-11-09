@@ -1,0 +1,95 @@
+---
+import { withBase } from '../consts';
+
+// The search machinery, with no interface attached to it: the index fetch and
+// the scoring. Two things use it, the header overlay and the in-page search on
+// the articles index, and they must not be allowed to disagree about what a
+// match is.
+//
+// Mounted first in the layout, so it exists before any page's own script runs.
+const indexUrl = withBase('/search-index.json');
+const articlesBase = withBase('/articles/');
+---
+<script is:inline data-index={indexUrl} data-articles={articlesBase}>
+  window.FRSearch = (function () {
+    var cfg = document.currentScript;
+    var INDEX = cfg.getAttribute('data-index');
+    var ARTICLES = cfg.getAttribute('data-articles');
+
+    var docs = null, loading = null;
+
+    // Fetched on first use, not on page load, so a reader who never searches
+    // pays nothing for it. Nothing typed ever leaves the browser.
+    function load() {
+      if (docs) return Promise.resolve(docs);
+      if (!loading) {
+        loading = fetch(INDEX)
+          .then(function (r) { return r.json(); })
+          .then(function (d) { docs = d; return d; })
+          .catch(function () { docs = []; return []; });
+      }
+      return loading;
+    }
+
+    function loaded() { return docs !== null; }
+
+    function tokens(s) {
+      return (String(s).toLowerCase().match(/[a-z0-9][a-z0-9+.\-]*/g) || []).filter(Boolean);
+    }
+
+    // Weighted so a hit in the headline outranks a hit in the body, with
+    // prefix matching because people type "splic" and "master".
+    function score(doc, qs) {
+      var fields = [[doc.t, 6], [doc.h, 3], [(doc.g || []).join(' '), 3], [doc.d, 2], [doc.b, 1]];
+      var total = 0;
+      for (var i = 0; i < qs.length; i++) {
+        var q = qs[i], best = 0;
+        for (var f = 0; f < fields.length; f++) {
+          var words = tokens(fields[f][0] || '');
+          for (var w = 0; w < words.length; w++) {
+            if (words[w] === q) { best = Math.max(best, fields[f][1] * 2); break; }
+            if (words[w].indexOf(q) === 0) best = Math.max(best, fields[f][1]);
+          }
+        }
+        if (best === 0) return 0;   // every word typed has to land somewhere
+        total += best;
+      }
+      return total;
+    }
+
+    function esc(s) {
+      return String(s).replace(/[&<>"]/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+      });
+    }
+
+    function mark(text, qs) {
+      var out = esc(text);
+      for (var i = 0; i < qs.length; i++) {
+        if (qs[i].length < 2) continue;
+        var re = new RegExp('(' + qs[i].replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig');
+        out = out.replace(re, '<mark>$1</mark>');
+      }
+      return out;
+    }
+
+    function search(q) {
+      var qs = tokens(q);
+      if (!qs.length) return Promise.resolve([]);
+      return load().then(function (d) {
+        return d
+          .map(function (doc) { return { doc: doc, n: score(doc, qs) }; })
+          .filter(function (x) { return x.n > 0; })
+          .sort(function (a, b) { return b.n - a.n; })
+          .map(function (x) { return x.doc; });
+      });
+    }
+
+    function href(slug) { return ARTICLES + slug + '/'; }
+
+    return {
+      load: load, loaded: loaded, tokens: tokens, score: score,
+      esc: esc, mark: mark, search: search, href: href,
+    };
+  })();
+</script>

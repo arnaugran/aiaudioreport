@@ -252,80 +252,100 @@ img { max-width: 100%; height: auto; }
 .pick p { margin: 0; color: var(--ink-2); }
 .group-blurb { margin: .55rem 0 .2rem; }
 
-/* Subscribe prompt. A corner panel rather than a modal: it covers no text,
-   blocks no scrolling and can be ignored. On a phone it spans the width but
-   still sits at the bottom, out of the way of what is being read.
-   The two-layer shadow is what stops it reading as a flat rectangle pasted
-   over the page: a tight dark edge for the lift, a wide soft one for depth. */
-.nlpop { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 55;
-  width: min(23.5rem, calc(100vw - 2.5rem)); padding: 1.15rem 1.2rem 1.2rem;
-  background: var(--bg); border: 1px solid var(--line-2); border-radius: 12px;
-  box-shadow: 0 1px 2px rgb(0 0 0 / 14%), 0 18px 44px -8px rgb(0 0 0 / 28%);
-  opacity: 0; transform: translateY(14px) scale(.985);
-  transition: opacity .24s ease, transform .28s cubic-bezier(.16,.84,.34,1); }
-.nlpop.is-in { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { .nlpop { transition: none; } }
-.nlpop-x { position: absolute; top: .5rem; right: .5rem; display: grid; place-items: center;
-  width: 1.75rem; height: 1.75rem; padding: 0; cursor: pointer; color: var(--ink-3);
+/* Subscribe prompt. A centred dialog over a blurred page: the corner panel
+   it replaces was easy to miss entirely. What stops it being the pattern
+   everybody hates is in the script, not here: when it shows up, and that
+   three different things dismiss it for good. */
+.nlpop { position: fixed; inset: 0; z-index: 70; display: grid; place-items: center;
+  padding: 1rem; }
+.nlpop[hidden] { display: none; }
+.nlpop-back { position: fixed; inset: 0; background: rgb(8 10 12 / 58%);
+  opacity: 0; transition: opacity .2s ease; }
+@supports (backdrop-filter: blur(3px)) {
+  .nlpop-back { background: rgb(8 10 12 / 42%); backdrop-filter: blur(5px); }
+}
+.nlpop.is-in .nlpop-back { opacity: 1; }
+.nlpop-card { position: relative; width: min(27rem, 100%); padding: 1.6rem 1.6rem 1.5rem;
+  text-align: center; background: var(--bg); border: 1px solid var(--line-2);
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 16%), 0 28px 64px -12px rgb(0 0 0 / 42%);
+  opacity: 0; transform: translateY(10px) scale(.985);
+  transition: opacity .2s ease, transform .24s cubic-bezier(.16,.84,.34,1); }
+.nlpop.is-in .nlpop-card { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .nlpop-back, .nlpop-card { transition: none; } }
+.nlpop-x { position: absolute; top: .6rem; right: .6rem; display: grid; place-items: center;
+  width: 1.9rem; height: 1.9rem; padding: 0; cursor: pointer; color: var(--ink-3);
   background: none; border: 0; border-radius: 5px; }
 .nlpop-x:hover { color: var(--ink); background: var(--bg-alt); }
-.nlpop-top { display: flex; align-items: flex-start; gap: .7rem; margin-bottom: .6rem; }
-.nlpop-mark { flex: none; display: grid; place-items: center; width: 2.1rem; height: 2.1rem;
-  color: var(--accent); background: var(--accent-bg); border: 1px solid var(--line-2);
-  border-radius: 7px; }
-.nlpop-head { min-width: 0; padding-right: 1.5rem; }
-.nlpop-kicker { margin: 0 0 .1rem; font-size: .625rem; font-weight: 700;
+.nlpop-x:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.nlpop-mark { display: grid; place-items: center; width: 2.9rem; height: 2.9rem;
+  margin: .2rem auto .85rem; color: var(--accent); background: var(--accent-bg);
+  border: 1px solid var(--line-2); border-radius: 10px; }
+.nlpop-kicker { margin: 0 0 .25rem; font-size: .6875rem; font-weight: 700;
   letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
-.nlpop-h { margin: 0; font-size: 1.0625rem; font-weight: 700;
-  letter-spacing: -0.013em; line-height: 1.28; }
+.nlpop-h { margin: 0 0 .55rem; font-size: 1.3125rem; font-weight: 700;
+  letter-spacing: -0.017em; line-height: 1.22; }
 .nlpop-h::before { content: none; display: none; }
-.nlpop-p { margin: 0 0 .9rem; font-size: .9063rem; line-height: 1.55; color: var(--ink-2); }
+.nlpop-p { margin: 0 auto 1.15rem; max-width: 22rem; font-size: .9375rem; line-height: 1.55;
+  color: var(--ink-2); }
 .nlpop-label { position: absolute; width: 1px; height: 1px; overflow: hidden;
   clip: rect(0 0 0 0); white-space: nowrap; }
-.nlpop-form { display: flex; gap: .4rem; flex-wrap: wrap; margin: 0; }
-.nlpop-form input { flex: 1 1 9rem; min-width: 0; font: inherit; font-size: .9375rem;
-  padding: .55rem .7rem; color: var(--ink); background: var(--bg);
-  border: 1px solid var(--line-2); border-radius: 6px; }
+.nlpop-form { display: flex; gap: .45rem; flex-wrap: wrap; margin: 0; }
+.nlpop-form input { flex: 1 1 11rem; min-width: 0; font: inherit; font-size: 1rem;
+  padding: .62rem .8rem; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line-2); border-radius: 7px; }
 .nlpop-form input::placeholder { color: var(--ink-3); }
 .nlpop-form input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px;
   border-color: var(--accent); }
-.nlpop-form button { flex: 0 0 auto; font: inherit; font-size: .9375rem; font-weight: 650;
-  cursor: pointer; padding: .55rem 1.05rem; border-radius: 6px;
+.nlpop-form button { flex: 0 0 auto; font: inherit; font-size: 1rem; font-weight: 650;
+  cursor: pointer; padding: .62rem 1.3rem; border-radius: 7px;
   border: 1px solid var(--accent); background: var(--accent); color: #fff; }
 .nlpop-form button:hover { filter: brightness(1.07); }
 .nlpop-form button:active { transform: translateY(1px); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .nlpop-form button { color: #15171a; } }
 :root[data-theme="dark"] .nlpop-form button { color: #15171a; }
-.nlpop-small { margin: .7rem 0 0; font-size: .75rem; line-height: 1.5; color: var(--ink-3); }
+.nlpop-small { margin: .9rem 0 0; font-size: .75rem; line-height: 1.55; color: var(--ink-3); }
 .nlpop-small a { color: inherit; }
-/* The state after a submit: the panel confirms rather than disappearing. */
-.nlpop-done { display: flex; align-items: flex-start; gap: .7rem; padding: .2rem 1.25rem .1rem 0; }
-.nlpop-done[hidden] { display: none; }
-.nlpop-tick { flex: none; display: grid; place-items: center; width: 2.1rem; height: 2.1rem;
-  color: var(--good); background: var(--good-bg); border-radius: 7px; }
-.nlpop-done-p { margin: .25rem 0 0; font-size: .9063rem; line-height: 1.5; color: var(--ink); }
-@media (max-width: 30rem) { .nlpop { right: .75rem; left: .75rem; bottom: .75rem;
-  width: auto; } }
+@media (max-width: 30rem) {
+  .nlpop-card { padding: 1.35rem 1.1rem 1.25rem; }
+  .nlpop-form button { flex: 1 1 100%; }
+}
 @media print { .nlpop { display: none; } }
 
-/* Search trigger on the articles index, drawn as a field because that is
-   what it behaves like, even though it opens the overlay rather than
-   accepting typing in place. */
-.searchbtn { display: flex; align-items: center; gap: .6rem; width: 100%;
-  margin: 1.5rem 0 .5rem; padding: .7rem .9rem; font: inherit; font-size: 1.0625rem;
-  text-align: left; cursor: pointer; color: var(--ink-3); background: var(--bg);
-  border: 1px solid var(--line-2); border-radius: 8px; }
-.searchbtn:hover { border-color: var(--ink-3); color: var(--ink-2); }
-.searchbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
-.searchbtn svg { flex: none; }
-.searchbtn span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis;
-  white-space: nowrap; }
-.searchbtn kbd, .nav-kbd { flex: none; font: inherit; font-size: .75rem; line-height: 1;
-  padding: .2rem .4rem; color: var(--ink-3); background: var(--bg-alt);
-  border: 1px solid var(--line); border-radius: 4px; }
+/* In-page search on the articles index. A real field, not a button that
+   opens something: on that page the list itself becomes the results. */
+.pgsearch { position: relative; display: flex; align-items: center; gap: .6rem;
+  margin: 1.5rem 0 .5rem; padding: .6rem .7rem .6rem .9rem;
+  background: var(--bg); border: 1px solid var(--line-2); border-radius: 8px; }
+.pgsearch:focus-within { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-bg); }
+.pgsearch-label { position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; }
+.pgsearch-icon { flex: none; color: var(--ink-3); }
+.pgsearch input { flex: 1; min-width: 0; font: inherit; font-size: 1.0625rem;
+  color: var(--ink); background: none; border: 0; padding: .15rem 0; }
+.pgsearch input:focus { outline: none; }
+.pgsearch input::placeholder { color: var(--ink-3); }
+.pgsearch input::-webkit-search-cancel-button,
+.pgsearch input::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }
+#pgsearch-list mark, #srch-results mark { background: none; color: var(--accent); font-weight: 700; }
+
+/* The close button in the overlay and the clear button in the field: the same
+   control doing the same job, so they look the same. Both are labelled, since
+   an unlabelled cross is a guess. */
+.srch-x, .pgsearch-x { flex: none; display: inline-flex; align-items: center; gap: .32rem;
+  font: inherit; font-size: .8125rem; font-weight: 600; line-height: 1; cursor: pointer;
+  padding: .42rem .62rem; color: var(--ink-2); background: var(--bg-alt);
+  border: 1px solid var(--line-2); border-radius: 6px; }
+.srch-x:hover, .pgsearch-x:hover { color: var(--ink); border-color: var(--ink-3); }
+.srch-x:focus-visible, .pgsearch-x:focus-visible { outline: 2px solid var(--accent);
+  outline-offset: 1px; }
+.pgsearch-x[hidden] { display: none; }
+
 .nav-search { background: none; border: 0; cursor: pointer; font: inherit;
-  font-size: .9rem; color: var(--ink-2); padding: 0; }
-@media (max-width: 40rem) { .nav-kbd { display: none; } }
+  font-size: .9rem; color: var(--ink-2); padding: 0;
+  display: inline-flex; align-items: center; gap: .35rem; }
+.nav-search:hover { color: var(--accent); }
 
 /* The search overlay itself. Anchored near the top rather than centred, so
    the results list grows downward into empty space instead of pushing the
@@ -359,9 +379,6 @@ img { max-width: 100%; height: auto; }
 .srch-bar input::-webkit-search-cancel-button,
 .srch-bar input::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }
 .srch-bar input::placeholder { color: var(--ink-3); }
-.srch-kbd { font: inherit; font-size: .7rem; line-height: 1; padding: .25rem .4rem;
-  color: var(--ink-3); background: var(--bg-alt); border: 1px solid var(--line);
-  border-radius: 4px; }
 .srch-body { max-height: min(26rem, 56vh); overflow-y: auto; }
 .srch-hint { margin: 0; padding: 1.1rem 1rem 1.2rem; font-size: .9063rem;
   line-height: 1.55; color: var(--ink-3); }
@@ -376,13 +393,9 @@ img { max-width: 100%; height: auto; }
   color: var(--ink-2); }
 .srch-m { display: block; margin-top: .3rem; font-size: .75rem; color: var(--ink-3); }
 .srch-results mark { background: none; color: var(--accent); font-weight: 700; }
-.srch-foot { display: flex; align-items: center; gap: 1rem; padding: .55rem 1rem;
-  font-size: .75rem; color: var(--ink-3); border-top: 1px solid var(--line);
-  background: var(--bg-alt); }
-.srch-foot kbd { font: inherit; font-size: .7rem; padding: .1rem .3rem; margin-right: .2rem;
-  border: 1px solid var(--line-2); border-radius: 3px; }
-.srch-foot span:last-child { margin-left: auto; }
-@media (max-width: 34rem) { .srch-foot span:not(:last-child) { display: none; } }
+.srch-foot { padding: .5rem 1rem; font-size: .75rem; color: var(--ink-3);
+  text-align: right; border-top: 1px solid var(--line); background: var(--bg-alt); }
+.srch-foot[hidden] { display: none; }
 
 /* Article header photograph. No border or caption: it is illustration, and
    the rules and boxes elsewhere all carry meaning. The fixed aspect ratio

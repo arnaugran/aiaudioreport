@@ -62,14 +62,37 @@ const picks = all.map((a) => ({
     <h1>Articles</h1>
   </div>
 
-  <button class="searchbtn" type="button" data-search-open>
-    <svg width="17" height="17" viewBox="0 0 16 16" aria-hidden="true">
+  {/* On this page the search happens in the page. Someone who came here to
+      browse should not have a panel thrown over the list they are reading;
+      the list itself becomes the results. The header overlay is for every
+      other page, where there is nothing to replace. */}
+  <form class="pgsearch" role="search" id="pgsearch" onsubmit="return false">
+    <label class="pgsearch-label" for="pgsearch-input">Search articles</label>
+    <svg class="pgsearch-icon" width="18" height="18" viewBox="0 0 16 16" aria-hidden="true">
       <circle cx="7" cy="7" r="4.6" fill="none" stroke="currentColor" stroke-width="1.7"/>
       <line x1="10.6" y1="10.6" x2="14.4" y2="14.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
     </svg>
-    <span>Search prices, tools, licence terms&hellip;</span>
-    <kbd>/</kbd>
-  </button>
+    <input id="pgsearch-input" type="search" autocomplete="off" spellcheck="false"
+           placeholder="Search prices, tools, licence terms&hellip;" aria-controls="pgsearch-out" />
+    <button type="button" class="pgsearch-x" id="pgsearch-x" hidden>
+      <svg width="12" height="12" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+        <line x1="2" y1="2" x2="12" y2="12" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <line x1="12" y1="2" x2="2" y2="12" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+      </svg>
+      Clear
+    </button>
+  </form>
+
+  <div id="pgsearch-out" hidden>
+    <div class="section-head">
+      <h2 id="pgsearch-h">Results</h2>
+      <span class="meta" id="pgsearch-count"></span>
+    </div>
+    <ul class="list" id="pgsearch-list"></ul>
+    <p class="meta" id="pgsearch-none" hidden>
+      Nothing matched. Try a product name on its own, or a shorter word.
+    </p>
+  </div>
 
   <div id="browse">
   <div class="section-head section-head--pick">
@@ -118,9 +141,9 @@ const picks = all.map((a) => ({
     </>
   )}
 
-  <Newsletter variant="inline" />
-
   </div>
+
+  <Newsletter variant="inline" />
 
   {lastChecked && (
     <p class="meta" style="margin-top:2.5rem">
@@ -163,6 +186,77 @@ const picks = all.map((a) => ({
         var left = list.querySelectorAll('li').length;
         label.textContent = left + (left === 1 ? ' piece' : ' pieces');
       } catch (e) {}
+    })();
+  </script>
+
+  <script is:inline>
+    // In-page search. The browse view and the results view are the same piece
+    // of page: typing swaps one for the other, so nothing is covered up and
+    // clearing the field puts the list back exactly as it was.
+    (function () {
+      var F = window.FRSearch;
+      var input = document.getElementById('pgsearch-input');
+      if (!F || !input) return;
+
+      var browse = document.getElementById('browse');
+      var out = document.getElementById('pgsearch-out');
+      var list = document.getElementById('pgsearch-list');
+      var count = document.getElementById('pgsearch-count');
+      var none = document.getElementById('pgsearch-none');
+      var clear = document.getElementById('pgsearch-x');
+      var heading = document.getElementById('pgsearch-h');
+
+      function show(found, qs, q) {
+        list.innerHTML = found.map(function (h) {
+          return '<li><h3><a href="' + F.esc(F.href(h.s)) + '">' + F.mark(h.t, qs) + '</a></h3>' +
+                 '<p>' + F.mark(h.d, qs) + '</p>' +
+                 (h.p ? '<p class="meta"><span>Prices checked ' + F.esc(h.p) + '</span></p>' : '') +
+                 '</li>';
+        }).join('');
+        none.hidden = found.length > 0;
+        heading.textContent = 'Results for \u201C' + q + '\u201D';
+        count.textContent = found.length
+          ? found.length + (found.length === 1 ? ' piece' : ' pieces')
+          : '';
+      }
+
+      function run() {
+        var q = input.value.trim();
+        clear.hidden = !q;
+        if (!q) {
+          out.hidden = true;
+          browse.hidden = false;
+          list.innerHTML = '';
+          return;
+        }
+        browse.hidden = true;
+        out.hidden = false;
+        if (!F.loaded()) count.textContent = 'Searching\u2026';
+        F.search(q).then(function (found) {
+          if (input.value.trim() !== q) return;
+          show(found, F.tokens(q), q);
+        });
+      }
+
+      var t;
+      input.addEventListener('input', function () { clearTimeout(t); t = setTimeout(run, 80); });
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && input.value) {
+          e.preventDefault();
+          e.stopPropagation();   // not the header overlay's Escape to take
+          input.value = '';
+          run();
+        }
+      });
+      clear.addEventListener('click', function () { input.value = ''; run(); input.focus(); });
+
+      // Fetch the index as soon as the field is touched, so the first keystroke
+      // is not the thing waiting on the network.
+      input.addEventListener('focus', function () { F.load(); }, { once: true });
+
+      // A query carried in from elsewhere, for example ?q=mastering.
+      var q0 = new URLSearchParams(location.search).get('q');
+      if (q0) { input.value = q0; run(); }
     })();
   </script>
 </BaseLayout>

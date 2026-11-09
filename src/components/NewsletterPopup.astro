@@ -3,74 +3,52 @@ import { NEWSLETTER_ENABLED, NEWSLETTER_ACTION, withBase } from '../consts';
 
 // A prompt to subscribe, shown once to readers who are actually reading.
 //
-// Rules it follows, because the default version of this is the most hated
-// pattern on the web:
-//  - It never interrupts. It is a corner panel, not a modal, so it covers no
-//    text and blocks no scrolling.
-//  - It waits for engagement: time on the page, some scrolling, or the pointer
-//    leaving towards the tabs, which is the moment someone is done reading.
-//  - It waits for the cookie banner to be answered, because that is also
-//    anchored to the bottom of the screen and two of them at once is a mess.
-//  - Dismissing it is remembered for good, and so is subscribing.
-//  - Escape closes it, focus moves into it when it opens and returns when it
-//    closes, and under prefers-reduced-motion it appears without animating.
+// It is a centred dialog over a blurred page, because a corner panel was easy
+// to not see at all. What keeps it from being the pattern everybody hates is
+// when it appears and how easily it goes away:
+//  - It waits for engagement: time on the page and some scrolling, or the
+//    pointer leaving towards the tabs, which is the moment someone is done.
+//  - It waits for the cookie banner to be answered, so there are never two.
+//  - Escape, the backdrop and a labelled Close button all dismiss it, and the
+//    dismissal is remembered for good. So is subscribing.
+//  - Under prefers-reduced-motion it appears without animating.
 const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
 ---
 {show && (
-  <div
-    class="nlpop"
-    id="nlpop"
-    role="dialog"
-    aria-modal="false"
-    aria-labelledby="nlpop-h"
-    hidden
-  >
-    <button type="button" class="nlpop-x" id="nlpop-x" aria-label="Dismiss">
-      <svg width="13" height="13" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
-        <line x1="2" y1="2" x2="12" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="12" y1="2" x2="2" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
-    </button>
+  <div class="nlpop" id="nlpop" hidden>
+    <div class="nlpop-back" id="nlpop-back"></div>
+    <div class="nlpop-card" role="dialog" aria-modal="true" aria-labelledby="nlpop-h">
+      <button type="button" class="nlpop-x" id="nlpop-x" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+          <line x1="2" y1="2" x2="12" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="12" y1="2" x2="2" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
 
-    <div class="nlpop-body" id="nlpop-body">
-      <div class="nlpop-top">
-        <span class="nlpop-mark" aria-hidden="true">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-            <rect x="2.6" y="5" width="18.8" height="14" rx="2.4" stroke="currentColor" stroke-width="1.7"/>
-            <path d="M3.4 7.2 12 13.2l8.6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <div class="nlpop-head">
-          <p class="nlpop-kicker">The price watch</p>
-          <h2 class="nlpop-h" id="nlpop-h">Prices move. We will tell you.</h2>
-        </div>
-      </div>
+      <span class="nlpop-mark" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <rect x="2.6" y="5" width="18.8" height="14" rx="2.4" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M3.4 7.2 12 13.2l8.6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
 
+      <p class="nlpop-kicker">The price watch</p>
+      <h2 class="nlpop-h" id="nlpop-h">Prices move. We will tell you.</h2>
       <p class="nlpop-p">
-        One email when a number on this site changes or a vendor rewrites a licence term.
-        Two a month at most.
+        One email when a number on this site changes, when a vendor rewrites a licence term,
+        or when a new comparison goes up. Two a month at most.
       </p>
 
-      <form class="nlpop-form" action={NEWSLETTER_ACTION} method="post" target="_blank" id="nlpop-form">
+      <form class="nlpop-form" action={NEWSLETTER_ACTION} method="post" id="nlpop-form">
         <label class="nlpop-label" for="nlpop-email">Email address</label>
         <input id="nlpop-email" type="email" name="email" required autocomplete="email" placeholder="you@example.com" />
         <button type="submit">Subscribe</button>
       </form>
 
       <p class="nlpop-small">
-        Confirmed opt-in, one-click unsubscribe, never shared.
-        <a href={withBase('/privacy/')}>How we handle it</a>.
-      </p>
-    </div>
-
-    <div class="nlpop-done" id="nlpop-done" hidden>
-      <span class="nlpop-tick" aria-hidden="true">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-          <path d="M5 12.5 10 17.5 19.5 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </span>
-      <p class="nlpop-done-p">
-        One step left. Confirm in the tab that just opened and you are on the list.
+        We send a confirmation email first, so nothing arrives unless you say yes. Every email
+        has a one-click unsubscribe, and the list is never sold or shared.
+        <a href={withBase('/privacy/')}>What we do with your address</a>.
       </p>
     </div>
   </div>
@@ -99,13 +77,14 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
       function open() {
         if (shown || stored(SEEN)) return;
         // The consent banner owns the bottom of the screen until it is
-        // answered. Wait rather than stack two panels on top of each other.
+        // answered. Wait rather than stack two dialogs on one screen.
         if (!stored(CONSENT)) return;
         shown = true;
         lastFocus = document.activeElement;
         pop.hidden = false;
-        // See SiteSearch: a forced reflow, not requestAnimationFrame, which
-        // does not fire in an unpainted tab.
+        document.documentElement.style.overflow = 'hidden';
+        // A forced reflow, not requestAnimationFrame, which does not fire in
+        // an unpainted tab and would leave the card at opacity zero.
         void pop.offsetWidth;
         pop.classList.add('is-in');
         var input = document.getElementById('nlpop-email');
@@ -115,14 +94,15 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
       function close(permanent) {
         pop.classList.remove('is-in');
         if (permanent) remember(SEEN);
+        document.documentElement.style.overflow = '';
         var done = function () { pop.hidden = true; };
-        // Let the exit transition run, unless the reader asked for no motion.
         if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) done();
-        else setTimeout(done, 220);
+        else setTimeout(done, 200);
         if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
       }
 
       document.getElementById('nlpop-x').addEventListener('click', function () { close(true); });
+      document.getElementById('nlpop-back').addEventListener('click', function () { close(true); });
       document.addEventListener('keydown', function (e) {
         if (e.key !== 'Escape' || pop.hidden) return;
         // The search overlay also closes on Escape and sits on top. One press
@@ -132,16 +112,19 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
         close(true);
       });
 
-      // Submitting opens Buttondown in a new tab. Swap the panel for a
-      // confirmation rather than letting it vanish, so the reader knows the
-      // click registered and that a confirmation email is coming, and never
-      // ask this reader again.
+      // Submitting hands over to Buttondown, which asks for confirmation. Mark
+      // it seen on the way out so this reader is never asked twice.
       var form = document.getElementById('nlpop-form');
-      if (form) form.addEventListener('submit', function () {
-        remember(SEEN);
-        document.getElementById('nlpop-body').hidden = true;
-        document.getElementById('nlpop-done').hidden = false;
-        setTimeout(function () { close(false); }, 6000);
+      if (form) form.addEventListener('submit', function () { remember(SEEN); });
+
+      // Keep focus inside the dialog while it is open.
+      pop.addEventListener('keydown', function (e) {
+        if (e.key !== 'Tab') return;
+        var f = pop.querySelectorAll('button, input, a[href]');
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
       });
 
       function scrolled() {

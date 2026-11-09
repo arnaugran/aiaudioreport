@@ -33,7 +33,10 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
       <li>Licence and terms rewrites, which is usually where the catch turns up</li>
     </ul>
 
-    <form class="signup-form" action={NEWSLETTER_ACTION} method="post" target="_blank">
+    {/* Posts in this tab, which is what Buttondown's own embed code does.
+        Opening it in a new tab looked tidier and did not work: the request
+        never reached Buttondown, so nothing was ever subscribed. */}
+    <form class="signup-form" action={NEWSLETTER_ACTION} method="post">
       <label class="signup-label" for="signup-email">Email address</label>
       <div class="signup-row">
         <input
@@ -49,9 +52,10 @@ const show = NEWSLETTER_ENABLED && Boolean(NEWSLETTER_ACTION);
     </form>
 
     <p class="signup-small">
-      Two emails a month at most, and the address is used for nothing else. Unsubscribe from
-      any email in one click. We never sell or share the list, and what happens to your
-      address is set out in the <a href={withBase('/privacy/')}>privacy policy</a>.
+      We send a confirmation email first, so nothing arrives unless you say yes. Two emails a
+      month at most, every one with a one-click unsubscribe. We never sell or share the list,
+      and what happens to your address is set out in the
+      <a href={withBase('/privacy/')}>privacy policy</a>.
     </p>
   </aside>
 )}
