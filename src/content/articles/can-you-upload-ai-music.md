@@ -1,5 +1,5 @@
 ---
-title: "Can You Put AI Music on Spotify? Yes, but Not on Beatport"
+title: "Releasing AI music on Spotify, Beatport and other platforms"
 description: "Spotify accepts AI music; Beatport rejects tracks it considers mostly AI-generated. Other distributor agreements don't give a clear answer."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09

@@ -1,5 +1,5 @@
 ---
-title: "Is AI Voice Cloning Legal? What Actually Stops You in 2026"
+title: "AI voice cloning law: consent, copyright and platform rules"
 description: "US law is unsettled, but platform rules and tool contracts already apply. Here's what the NO FAKES Act and current voice policies say."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09

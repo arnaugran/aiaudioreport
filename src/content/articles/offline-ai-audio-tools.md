@@ -1,5 +1,5 @@
 ---
-title: "AI Audio Tools That Run Offline, and the Hardware You Need"
+title: "Offline AI audio tools: Whisper, Demucs and the hardware they need"
 description: "Whisper and Demucs run locally, but their model licences differ. Here's what your computer needs to transcribe audio or split stems."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09

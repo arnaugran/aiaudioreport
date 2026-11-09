@@ -1,5 +1,5 @@
 ---
-title: "AI Stem Separation Pricing 2026: LALAL.AI vs Free UVR"
+title: "AI stem separation costs at LALAL.AI, Demucs and UVR"
 description: "Demucs is free and scores well. LALAL.AI's paid plans meter the fast queue but leave the slower one unlimited."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09

@@ -1,5 +1,5 @@
 ---
-title: "LANDR vs eMastered vs Ozone: Rent or Buy Your Mastering"
+title: "Pay monthly or buy once: LANDR, eMastered and Ozone for mastering"
 description: "Compare LANDR, eMastered and Ozone by the kind of file you get, the subscription limits and the point where buying wins."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09

@@ -1,5 +1,5 @@
 ---
-title: "Which iZotope RX Edition Has Music Rebalance? Not Elements"
+title: "Music Rebalance and stem separation across iZotope RX editions"
 description: "Music Rebalance starts in RX Standard. If you only need stem separation, iZotope's Photon app costs less."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09

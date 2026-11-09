@@ -1,5 +1,5 @@
 ---
-title: "LANDR Pricing 2026: What Unlimited Mastering Leaves Out"
+title: "LANDR mastering pricing: WAV limits and the annual cost"
 description: "LANDR's entry plan gives you unlimited MP3 masters. WAV limits vary by tier, and sale pricing changes the annual maths."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09

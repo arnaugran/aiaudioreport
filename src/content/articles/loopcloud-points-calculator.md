@@ -1,5 +1,5 @@
 ---
-title: "Loopcloud Points Explained: How Many You Actually Need"
+title: "Loopcloud points by download: budget around the sounds you use"
 description: "Estimate your monthly Loopcloud points from what you download. One-shots cost one point; some vocal files take up to eight."
 pubDate: 2026-11-08
 updatedDate: 2026-11-09
