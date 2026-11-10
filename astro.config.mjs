@@ -32,6 +32,15 @@ export default defineConfig({
   base: BASE_PATH,
   trailingSlash: 'always',
   build: { format: 'directory', inlineStylesheets: 'always' },
+
+  // /about/ and /editorial-policy/ shipped at launch and were removed on 8
+  // November. Google had already indexed them and sent a real reader to
+  // /about/, who landed on the 404. These keep that traffic and tell Google
+  // where the pages went, which a deleted file on its own does not.
+  redirects: {
+    '/about': '/',
+    '/editorial-policy': '/',
+  },
   integrations: [
     // Neither the 404 nor the post-subscribe page belongs in a sitemap.
     sitemap({
