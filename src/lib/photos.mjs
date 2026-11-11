@@ -34,6 +34,7 @@ export const ARTICLE_PHOTOS = {
   'offline-ai-audio-tools': ['daw-waveform', 'desk-piano', 'engineer-desk'],
   'plugin-boutique-membership-tiers': ['production-setup', 'home-studio-corner', 'headphones-grey'],
   'ableton-live-stem-separation-edition': ['studio-console'],
+  'fl-studio-stem-separation-edition': ['desk-monitors'],
 
   // Rights, licensing and releasing
   'ai-voice-cloning-rules': ['vocal-mic-mono', 'mic-popfilter', 'headphones-black'],
@@ -42,7 +43,7 @@ export const ARTICLE_PHOTOS = {
 };
 
 /** Unused files sitting in public/img, waiting for the next article. */
-export const SPARE = ['desk-monitors', 'pedal-wall', 'pedalboard-top',
+export const SPARE = ['pedal-wall', 'pedalboard-top',
   'guitar-amp-mini', 'pedal-red', 'guitar-pedalboard', 'amp-stack', 'pedals-bokeh',
   'pedalboard-feet', 'pedal-green', 'pedal-shop', 'faders-row', 'desk-lamp-clock',
   'synth-headphones', 'desk-dark-mouse', 'console-purple', 'studio-blue', 'monitor-screen',
