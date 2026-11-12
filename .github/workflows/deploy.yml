@@ -43,3 +43,19 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  indexnow:
+    # Pings Bing (and DuckDuckGo/Ecosia through it) about changed articles.
+    # Runs after deploy so the key file is already live. Never blocks a deploy.
+    needs: deploy
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: sleep 30
+      - run: node scripts/indexnow.mjs "${{ github.event.before }}" "${{ github.sha }}"
