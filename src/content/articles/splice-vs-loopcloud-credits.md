@@ -40,6 +40,8 @@ The biggest difference shows up when you cancel. Loopcloud says unused points st
 
 If you work in bursts, that can decide it. The credit and point systems also price sounds differently, so here's the cost comparison before the verdict.
 
+If you only use Splice and the real question is whether the subscription pays for itself, I answered that separately in [Is Splice Worth It?](/articles/is-splice-worth-it/).
+
 ## The unit trap
 
 Most comparisons of these two put "100 credits" next to "100 points" and call it a tie. That

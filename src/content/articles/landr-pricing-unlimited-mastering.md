@@ -2,12 +2,14 @@
 title: "LANDR Pricing 2026: What Unlimited Mastering Leaves Out"
 description: "Three tiers, and one word doing a lot of work. What you can actually download each month on each plan, and why the annual price you see may not be the real one."
 pubDate: 2026-11-08
-updatedDate: 2026-11-09
+updatedDate: 2026-11-12
 pricesCheckedOn: 2026-11-08
 byline: "Arnau Gran i Romero"
 basis: documentation
 tags: ["pricing", "mastering"]
 faq:
+  - q: "Is LANDR free?"
+    a: "Only to listen. LANDR's mastering page offers unlimited free mastering previews, but its FAQ says you need a paid subscription or a one-time purchase to download the master. A free account gets you the preview, not the file."
   - q: "Does LANDR Studio Essentials give you unlimited masters?"
     a: "Unlimited MP3 masters, yes. The plan lists no WAV masters at all. MP3 is a lossy format, so if you need a lossless master file the entry plan does not produce one."
   - q: "How many WAV masters do you get on LANDR Studio Standard?"
@@ -15,6 +17,9 @@ faq:
   - q: "Is LANDR's yearly plan better value than monthly?"
     a: "During the sale I saw on 8 November 2026, clearly yes. At the struck-through list prices it depends on the tier: Standard's yearly rate is well under its monthly rate, while Pro's list yearly rate of EUR 22.50 a month sits just below its EUR 23 monthly price."
 sources:
+  - title: "LANDR, AI Mastering page and its FAQ (free previews, download requires a subscription or one-time purchase)"
+    url: "https://www.landr.com/online-audio-mastering"
+    checked: 2026-11-12
   - title: "LANDR, Pricing and Subscriptions (monthly and yearly plan tables, read in-browser)"
     url: "https://www.landr.com/pricing"
     checked: 2026-11-08
