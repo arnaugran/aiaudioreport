@@ -84,3 +84,29 @@ Also downloaded 9 November 2026, held in SPARE for future articles:
   pedals-bokeh         photo-1511203438670-49f8ea8441c6
   studio-blue          photo-1626126525134-fbbc07afb32c
   synth-headphones     photo-1634041695335-ee19a4155abd
+
+Downloaded 17 November 2026 (Unsplash free licence filter on), each from https://images.unsplash.com/<id>:
+  turntable-stylus     photo-1458560871784-56d23406c091
+  vinyl-sleeves        photo-1496293455970-f8581aae0e3b
+  guitars-room         photo-1511379938547-c1f69419868d
+  turntable-blue       photo-1542395118-9d95347995bc
+  studio-dark-wall     photo-1559732277-7453b141e3a1
+  mic-imac             photo-1589903308904-1010c2294adc
+  mic-boom-arm         photo-1590602847861-f357a9332bbc
+  guitar-wall          photo-1598488035139-bdbb2231ce04
+  patch-cables         photo-1600509697462-0eea86c82d6b
+  mic-screen-blur      photo-1601856254555-a9c0ebef8af3
+  condenser-mic-dark   photo-1615821430614-3d7d2685e2f2
+  vinyl-red            photo-1616681255209-368a2cd3e643
+  modular-wires        photo-1618577468985-b1d6af8a2d2c
+  studio-room-warm     photo-1621976975813-10e88ae6e450
+  controller-knobs     photo-1634041322763-61fc86332d5e
+  synth-stack          photo-1634041551278-a843c116ff28
+  interface-cables     photo-1640756883978-e9b6ddc8f91f
+  hands-keys           photo-1658010544238-a6f7f621bcc4
+  laptop-keys-yellow   photo-1661922029552-536b580ad96e
+  synth-knobs-mono     photo-1695407773587-c1e378e3b4cf
+  interface-xlr        photo-1732695833654-0117c6ad3e67
+  keys-vintage         photo-1733900606117-2522d8ed3a7b
+  rack-modules         photo-1762846700873-1f4469596416
+  modular-rack-bokeh   photo-1784035039502-1fd64a401816

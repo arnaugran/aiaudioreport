@@ -37,6 +37,7 @@ export const ARTICLE_PHOTOS = {
   'fl-studio-stem-separation-edition': ['desk-monitors'],
   'serum-2-splice-rent-to-own': ['synth-headphones'],
   'cubase-stem-separation-edition': ['pedal-wall'],
+  'spotify-loudness-normalization-master': ['faders-row', 'studio-room-warm'],
 
   // Rights, licensing and releasing
   'ai-voice-cloning-rules': ['vocal-mic-mono', 'mic-popfilter', 'headphones-black'],
@@ -47,9 +48,11 @@ export const ARTICLE_PHOTOS = {
 /** Unused files sitting in public/img, waiting for the next article. */
 export const SPARE = ['pedalboard-top',
   'guitar-amp-mini', 'pedal-red', 'guitar-pedalboard', 'amp-stack', 'pedals-bokeh',
-  'pedalboard-feet', 'pedal-green', 'pedal-shop', 'faders-row', 'desk-lamp-clock',
+  'pedalboard-feet', 'pedal-green', 'pedal-shop', 'desk-lamp-clock',
   'desk-dark-mouse', 'console-purple', 'studio-blue', 'monitor-screen',
-  'console-hand'
+  'console-hand',
+  // Added 17 November 2026, see CREDITS.txt
+  'turntable-stylus', 'vinyl-sleeves', 'guitars-room', 'turntable-blue', 'studio-dark-wall', 'mic-imac', 'mic-boom-arm', 'guitar-wall', 'patch-cables', 'mic-screen-blur', 'condenser-mic-dark', 'vinyl-red', 'modular-wires', 'controller-knobs', 'synth-stack', 'interface-cables', 'hands-keys', 'laptop-keys-yellow', 'synth-knobs-mono', 'interface-xlr', 'keys-vintage', 'rack-modules', 'modular-rack-bokeh'
 ];
 
 // Enforced at build time. If two articles are ever given the same picture the
