@@ -34,6 +34,7 @@ export const ARTICLE_PHOTOS = {
   'offline-ai-audio-tools': ['daw-waveform', 'desk-piano', 'engineer-desk'],
   'plugin-boutique-membership-tiers': ['production-setup', 'home-studio-corner', 'headphones-grey'],
   'ableton-live-stem-separation-edition': ['studio-console'],
+  'ableton-warp-modes-explained': ['controller-knobs'],
   'fl-studio-stem-separation-edition': ['desk-monitors'],
   'serum-2-splice-rent-to-own': ['synth-headphones'],
   'cubase-stem-separation-edition': ['pedal-wall'],
@@ -54,7 +55,7 @@ export const SPARE = ['pedalboard-top',
   'desk-dark-mouse', 'console-purple',
   'console-hand',
   // Added 17 November 2026, see CREDITS.txt
-  'turntable-stylus', 'vinyl-sleeves', 'guitars-room', 'turntable-blue', 'studio-dark-wall', 'mic-imac', 'mic-boom-arm', 'guitar-wall', 'patch-cables', 'mic-screen-blur', 'condenser-mic-dark', 'vinyl-red', 'modular-wires', 'controller-knobs', 'synth-stack', 'interface-cables', 'hands-keys', 'laptop-keys-yellow', 'synth-knobs-mono', 'interface-xlr', 'keys-vintage', 'rack-modules', 'modular-rack-bokeh'
+  'turntable-stylus', 'vinyl-sleeves', 'guitars-room', 'turntable-blue', 'studio-dark-wall', 'mic-imac', 'mic-boom-arm', 'guitar-wall', 'patch-cables', 'mic-screen-blur', 'condenser-mic-dark', 'vinyl-red', 'modular-wires', 'synth-stack', 'interface-cables', 'hands-keys', 'laptop-keys-yellow', 'synth-knobs-mono', 'interface-xlr', 'keys-vintage', 'rack-modules', 'modular-rack-bokeh'
 ];
 
 // Enforced at build time. If two articles are ever given the same picture the
