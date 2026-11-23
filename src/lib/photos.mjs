@@ -43,6 +43,7 @@ export const ARTICLE_PHOTOS = {
   'apple-digital-masters-aac-encoding': ['studio-blue'],
   'udio-subscription-what-it-buys': ['laptop-keys-yellow'],
   'garageband-logic-loops-commercial-use': ['mic-imac'],
+  'youtube-audio-upload-settings-music': ['pedalboard-top'],
 
   // Rights, licensing and releasing
   'ai-voice-cloning-rules': ['vocal-mic-mono', 'mic-popfilter', 'headphones-black'],
@@ -51,7 +52,7 @@ export const ARTICLE_PHOTOS = {
 };
 
 /** Unused files sitting in public/img, waiting for the next article. */
-export const SPARE = ['pedalboard-top',
+export const SPARE = [
   'guitar-amp-mini', 'pedal-red', 'guitar-pedalboard', 'amp-stack', 'pedals-bokeh',
   'pedalboard-feet', 'pedal-green', 'pedal-shop', 'desk-lamp-clock',
   'desk-dark-mouse', 'console-purple',
