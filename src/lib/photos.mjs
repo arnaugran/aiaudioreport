@@ -44,6 +44,7 @@ export const ARTICLE_PHOTOS = {
   'udio-subscription-what-it-buys': ['laptop-keys-yellow'],
   'garageband-logic-loops-commercial-use': ['mic-imac'],
   'youtube-audio-upload-settings-music': ['pedalboard-top'],
+  'logic-pro-creator-studio-or-buy': ['desk-dark-mouse'],
 
   // Rights, licensing and releasing
   'ai-voice-cloning-rules': ['vocal-mic-mono', 'mic-popfilter', 'headphones-black'],
@@ -55,7 +56,7 @@ export const ARTICLE_PHOTOS = {
 export const SPARE = [
   'guitar-amp-mini', 'pedal-red', 'guitar-pedalboard', 'amp-stack', 'pedals-bokeh',
   'pedalboard-feet', 'pedal-green', 'pedal-shop', 'desk-lamp-clock',
-  'desk-dark-mouse', 'console-purple',
+  'console-purple',
   'console-hand',
   // Added 17 November 2026, see CREDITS.txt
   'turntable-stylus', 'vinyl-sleeves', 'guitars-room', 'turntable-blue', 'studio-dark-wall', 'mic-boom-arm', 'guitar-wall', 'patch-cables', 'mic-screen-blur', 'condenser-mic-dark', 'vinyl-red', 'modular-wires', 'synth-stack', 'interface-cables', 'hands-keys', 'synth-knobs-mono', 'interface-xlr', 'keys-vintage', 'rack-modules', 'modular-rack-bokeh'
