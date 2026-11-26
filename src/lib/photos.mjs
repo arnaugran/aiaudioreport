@@ -46,6 +46,7 @@ export const ARTICLE_PHOTOS = {
   'youtube-audio-upload-settings-music': ['pedalboard-top'],
   'logic-pro-creator-studio-or-buy': ['desk-dark-mouse'],
   'native-instruments-sounds-commercial-use': ['synth-knobs-mono'],
+  'ableton-live-export-stems-mixing-engineer': ['patch-cables'],
 
   // Rights, licensing and releasing
   'ai-voice-cloning-rules': ['vocal-mic-mono', 'mic-popfilter', 'headphones-black'],
@@ -60,7 +61,7 @@ export const SPARE = [
   'console-purple',
   'console-hand',
   // Added 17 November 2026, see CREDITS.txt
-  'turntable-stylus', 'vinyl-sleeves', 'guitars-room', 'turntable-blue', 'studio-dark-wall', 'mic-boom-arm', 'guitar-wall', 'patch-cables', 'mic-screen-blur', 'condenser-mic-dark', 'vinyl-red', 'modular-wires', 'synth-stack', 'interface-cables', 'hands-keys', 'interface-xlr', 'keys-vintage', 'rack-modules', 'modular-rack-bokeh'
+  'turntable-stylus', 'vinyl-sleeves', 'guitars-room', 'turntable-blue', 'studio-dark-wall', 'mic-boom-arm', 'guitar-wall', 'mic-screen-blur', 'condenser-mic-dark', 'vinyl-red', 'modular-wires', 'synth-stack', 'interface-cables', 'hands-keys', 'interface-xlr', 'keys-vintage', 'rack-modules', 'modular-rack-bokeh'
 ];
 
 // Enforced at build time. If two articles are ever given the same picture the
